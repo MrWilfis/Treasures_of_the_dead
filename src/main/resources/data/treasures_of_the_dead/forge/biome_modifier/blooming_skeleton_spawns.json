@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": ["minecraft:lush_caves"],
+  "spawners": {
+    "type": "treasures_of_the_dead:blooming_skeleton",
+    "weight": 30,
+    "minCount": 3,
+    "maxCount": 4
+  }
+}

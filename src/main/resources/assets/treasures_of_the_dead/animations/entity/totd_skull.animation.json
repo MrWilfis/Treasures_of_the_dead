@@ -1,0 +1,159 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.default0": {
+			"loop": "hold_on_last_frame"
+		},
+		"animation.model.default1": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 22.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default2": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 45, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default3": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 67.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default4": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 90, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default5": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 112.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default6": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 135, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default7": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 157.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default8": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 180, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default9": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 202.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default10": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 225, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default11": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 247.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default12": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 270, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default13": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 292.5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default14": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 315, 0]
+					}
+				}
+			}
+		},
+		"animation.model.default15": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, 337.5, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
