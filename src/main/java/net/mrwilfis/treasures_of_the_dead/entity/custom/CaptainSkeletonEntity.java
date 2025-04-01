@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements CaptainSkeletonInterface{
     private static final EntityDataAccessor<Float> DEATH_X = SynchedEntityData.defineId(CaptainSkeletonEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> DEATH_Z = SynchedEntityData.defineId(CaptainSkeletonEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Boolean> CAN_DROP_KEYS_AND_ORDERS = SynchedEntityData.defineId(CaptainSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(CaptainSkeletonEntity.class, EntityDataSerializers.INT);
@@ -45,7 +46,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
         CaptainSkeletonVariant variant = Util.getRandom(CaptainSkeletonVariant.values(), this.random);
         setVariant(variant);
 
-        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+        this.populateDefaultEquipmentSlots(randomsource);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
         this.setCustomName(Component.literal(getRandomName(randomsource)));
 
@@ -66,17 +67,38 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
     protected void dropCustomDeathLoot(DamageSource pSource, int pLooting, boolean pRecentlyHit) {
         super.dropCustomDeathLoot(pSource, pLooting, pRecentlyHit);
 
-        if ((double) random.nextFloat() < 0.6f) {
-            this.setDeathX((float) this.getX());
-            this.setDeathZ((float) this.getZ());
-            ItemStack stack = new ItemStack(ModItems.SKELETONS_ORDER.get());
-            stack.setTag(new CompoundTag());
-            stack.getTag().putFloat("DeathX", this.getDeathX());
-            stack.getTag().putFloat("DeathZ", this.getDeathZ());
-            ItemEntity itemEntity = this.spawnAtLocation(stack);
-        } else {
-            ItemEntity itemEntity = this.spawnAtLocation(ModItems.TREASURE_KEY.get());
+        if (getCanDropKeysAndOrders()) {
+            double randomValue = (double) this.random.nextFloat();
+            if (randomValue < 0.4f) {
+                this.setDeathX((float) this.getX());
+                this.setDeathZ((float) this.getZ());
+                ItemStack stack = new ItemStack(ModItems.SKELETONS_ORDER.get());
+                stack.setTag(new CompoundTag());
+                stack.getTag().putFloat("DeathX", this.getDeathX());
+                stack.getTag().putFloat("DeathZ", this.getDeathZ());
+                ItemEntity itemEntity = this.spawnAtLocation(stack);
+            }
+            else if (randomValue < 0.6f)  {
+                this.setDeathX((float) this.getX());
+                this.setDeathZ((float) this.getZ());
+                ItemStack stack = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get());
+                stack.setTag(new CompoundTag());
+                stack.getTag().putFloat("DeathX", this.getDeathX());
+                stack.getTag().putFloat("DeathZ", this.getDeathZ());
+                ItemEntity itemEntity = this.spawnAtLocation(stack);
+            }
+            else {
+                ItemEntity itemEntity = this.spawnAtLocation(ModItems.TREASURE_KEY.get());
+            }
         }
+    }
+
+    public boolean getCanDropKeysAndOrders() {
+        return this.getEntityData().get(CAN_DROP_KEYS_AND_ORDERS).booleanValue();
+    }
+
+    public void setCanDropKeysAndOrders(boolean b) {
+        this.getEntityData().set(CAN_DROP_KEYS_AND_ORDERS, b);
     }
 
     public float getDeathX() {
@@ -96,10 +118,12 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
     }
 
     @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+    public void populateDefaultEquipmentSlots(RandomSource pRandom) {
+
+        double randomValue = (double) this.random.nextFloat();
 
         //SPAWN OUTFITS
-        if ((double) this.random.nextFloat() < 0.1) {
+        if (randomValue < 0.1) {
             //Poor clothes
             if ((double) this.random.nextFloat() < 0.3) {
                 spawnRandomBandanas(pRandom);
@@ -112,7 +136,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_PANTS.get()), pRandom, 1.0F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.8F);
         }
-        else if ((double) this.random.nextFloat() < 0.55) {
+        else if (randomValue < 0.55) {
             //Captain clothes 1
             if ((double) this.random.nextFloat() < 0.1) {
                 spawnRandomBandanas(pRandom);
@@ -125,7 +149,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_PANTS.get()), pRandom, 1.0F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.5F);
         }
-        else if ((double) this.random.nextFloat() < 1.0) {
+        else if (randomValue < 1.0) {
             //Captain clothes 2
             if ((double) this.random.nextFloat() < 0.1) {
                 spawnRandomBandanas(pRandom);
@@ -138,6 +162,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_SKIRT.get()), pRandom, 1.0F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.2F);
         }
+
 
         //Spawn weapons
         if ((double) this.random.nextFloat() < 0.8) {
@@ -174,6 +199,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.setDeathX(tag.getFloat("DeathX"));
         this.setDeathZ(tag.getFloat("DeathZ"));
+        this.setCanDropKeysAndOrders(tag.getBoolean("CanDropKeysAndOrders"));
 
     }
 
@@ -183,6 +209,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
         tag.putInt("Variant", this.getTypeVariant());
         tag.putFloat("DeathX", this.getDeathX());
         tag.putFloat("DeathZ", this.getDeathZ());
+        tag.putBoolean("CanDropKeysAndOrders", this.getCanDropKeysAndOrders());
     }
 
     @Override
@@ -191,6 +218,7 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
         this.getEntityData().define(DEATH_X, 0.0f);
         this.getEntityData().define(DEATH_Z, 0.0f);
+        this.getEntityData().define(CAN_DROP_KEYS_AND_ORDERS, true);
     }
 
 }
