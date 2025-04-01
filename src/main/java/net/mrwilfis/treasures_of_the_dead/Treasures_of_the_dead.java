@@ -18,6 +18,7 @@ import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
 import net.mrwilfis.treasures_of_the_dead.block.entity.ModBlockEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.client.*;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainBloomingSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModCreativeModTabs;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import org.slf4j.Logger;
@@ -92,6 +93,9 @@ public class Treasures_of_the_dead
             EntityRenderers.register(ModEntities.TOTD_SKELETON.get(), TOTDSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.CAPTAIN_SKELETON.get(), CaptainSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.BLOOMING_SKELETON.get(), BloomingSkeletonRenderer::new);
+            EntityRenderers.register(ModEntities.CAPTAIN_BLOOMING_SKELETON.get(), CaptainBloomingSkeletonRenderer::new);
+            EntityRenderers.register(ModEntities.SHADOW_SKELETON.get(), ShadowSkeletonRenderer::new);
+            EntityRenderers.register(ModEntities.CAPTAIN_SHADOW_SKELETON.get(), CaptainShadowSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.FOUL_SKULL.get(), FoulSkullRenderer::new);
             EntityRenderers.register(ModEntities.DISGRACED_SKULL.get(), DisgracedSkullRenderer::new);
             EntityRenderers.register(ModEntities.HATEFUL_SKULL.get(), HatefulSkullRenderer::new);

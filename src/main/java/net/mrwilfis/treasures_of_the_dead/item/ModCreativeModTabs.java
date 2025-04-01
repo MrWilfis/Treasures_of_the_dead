@@ -52,9 +52,13 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.TOTD_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.CAPTAIN_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.BLOOMING_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_BLOOMING_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.SHADOW_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_SHADOW_SKELETON_SPAWN_EGG.get());
 
                    //     output.accept(ModItems.MESSAGE_IN_BOTTLE.get());
                         output.accept(ModItems.SKELETONS_ORDER.get());
+                        output.accept(ModItems.SKELETON_CREW_ASSIGNMENT.get());
 
                         output.accept(ModItems.TREASURE_CHEST_ITEM.get());
                         output.accept(ModItems.TREASURE_KEY.get());

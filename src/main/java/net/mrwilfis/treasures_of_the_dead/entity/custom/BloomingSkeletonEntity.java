@@ -39,7 +39,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
         BloomingSkeletonVariant variant = Util.getRandom(BloomingSkeletonVariant.values(), this.random);
         setVariant(variant);
 
-        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+        this.populateDefaultEquipmentSlots(randomsource);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }

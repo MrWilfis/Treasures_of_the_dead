@@ -1,11 +1,13 @@
 package net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.mrwilfis.treasures_of_the_dead.misc.TOTDBlockPos;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -45,6 +47,14 @@ public class DisgracedSkullEntity extends AbstractSkullEntity implements GeoAnim
     public ItemStack getTreasureItem() {
         return new ItemStack(ModItems.DISGRACED_SKULL_ITEM.get());
 
+    }
+
+    public BlockPos getLightPosition() {
+        BlockPos pos = TOTDBlockPos.fromVec3(this.position());
+        if (!level().getBlockState(pos).canOcclude()) {
+            return pos.above();
+        }
+        return pos;
     }
 
 }

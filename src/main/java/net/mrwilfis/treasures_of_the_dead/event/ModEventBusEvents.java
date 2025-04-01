@@ -9,10 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractSkullEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.BloomingSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.TOTDSkeletonEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
 
 
@@ -24,6 +21,9 @@ public class ModEventBusEvents {
         event.put(ModEntities.TOTD_SKELETON.get(), TOTDSkeletonEntity.setAttributes());
         event.put(ModEntities.CAPTAIN_SKELETON.get(), CaptainSkeletonEntity.setAttributes());
         event.put(ModEntities.BLOOMING_SKELETON.get(), BloomingSkeletonEntity.setAttributes());
+        event.put(ModEntities.CAPTAIN_BLOOMING_SKELETON.get(), CaptainBloomingSkeletonEntity.setAttributes());
+        event.put(ModEntities.SHADOW_SKELETON.get(), ShadowSkeletonEntity.setAttributes());
+        event.put(ModEntities.CAPTAIN_SHADOW_SKELETON.get(), CaptainShadowSkeletonEntity.setAttributes());
         event.put(ModEntities.FOUL_SKULL.get(), AbstractSkullEntity.setAttributes());
         event.put(ModEntities.DISGRACED_SKULL.get(), AbstractSkullEntity.setAttributes());
         event.put(ModEntities.HATEFUL_SKULL.get(), AbstractSkullEntity.setAttributes());

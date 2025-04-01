@@ -2,7 +2,10 @@
   "entity.treasures_of_the_dead.totd_skeleton": "Pirate Skeleton",
   "entity.treasures_of_the_dead.captain_skeleton": "Captain Skeleton",
   "entity.treasures_of_the_dead.blooming_skeleton": "Blooming Skeleton",
-  
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Captain Blooming Skeleton",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Shadow Skeleton",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Captain Shadow Skeleton",
+
   "entity.treasures_of_the_dead.foul_skull": "Foul Skull",
   "entity.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
   "entity.treasures_of_the_dead.hateful_skull": "Hateful Skull",
@@ -17,6 +20,7 @@
 
   "item.treasures_of_the_dead.message_in_bottle": "Message In Bottle",
   "item.treasures_of_the_dead.skeletons_order": "Skeleton's Order",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Skeleton Crew Assignment",
 
   "item.treasures_of_the_dead.treasure_key": "Treasure Key",
 
@@ -46,6 +50,9 @@
   "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Pirate-Skeleton Spawn Egg",
   "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Captain Skeleton Spawn Egg",
   "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Captain Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Shadow Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Captain Shadow Skeleton Spawn Egg",
 
   "item.treasures_of_the_dead.foul_skull": "Foul Skull",
   "item.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
@@ -55,6 +62,7 @@
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Treasure Map",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Skeleton Crew Map",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Legendary Treasure Map",
   "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Is robbed"
 }

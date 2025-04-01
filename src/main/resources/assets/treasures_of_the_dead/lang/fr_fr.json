@@ -2,6 +2,9 @@
   "entity.treasures_of_the_dead.totd_skeleton": "Pirate Skeleton",
   "entity.treasures_of_the_dead.captain_skeleton": "Captain Skeleton",
   "entity.treasures_of_the_dead.blooming_skeleton": "Blooming Skeleton",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Captain Blooming Skeleton",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Shadow Skeleton",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Captain Shadow Skeleton",
 
   "entity.treasures_of_the_dead.foul_skull": "Crâne abject",
   "entity.treasures_of_the_dead.disgraced_skull": "Crâne vil",
@@ -17,6 +20,8 @@
 
   "item.treasures_of_the_dead.message_in_bottle": "Message dans une bouteille",
   "item.treasures_of_the_dead.skeletons_order": "Ordre du squelette",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Affectation d'équipage squelette",
+
 
   "item.treasures_of_the_dead.treasure_key": "Clé de trésor",
 
@@ -46,6 +51,9 @@
   "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Oeuf d'apparition de pirate squelette",
   "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Oeuf d'apparition de capitaine squelette",
   "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Captain Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Shadow Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Captain Shadow Skeleton Spawn Egg",
 
   "item.treasures_of_the_dead.foul_skull": "Crâne abject",
   "item.treasures_of_the_dead.disgraced_skull": "Crâne vil",
@@ -55,6 +63,7 @@
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Carte au trésor",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Carte de l'équipage du squelette",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Carte au trésor légendaire",
   "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Est volé"
 }

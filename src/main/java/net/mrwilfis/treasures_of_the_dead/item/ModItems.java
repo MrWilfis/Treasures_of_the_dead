@@ -97,12 +97,20 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.CAPTAIN_SKELETON, 0xdcdcdc, 0xb48820,  new Item.Properties()));
     public static final RegistryObject<Item> BLOOMING_SKELETON_SPAWN_EGG = ITEMS.register("blooming_skeleton_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BLOOMING_SKELETON, 0xa1c99d, 0x696969,  new Item.Properties()));
+    public static final RegistryObject<Item> CAPTAIN_BLOOMING_SKELETON_SPAWN_EGG = ITEMS.register("captain_blooming_skeleton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.CAPTAIN_BLOOMING_SKELETON, 0xa1c99d, 0xb48820,  new Item.Properties()));
+    public static final RegistryObject<Item> SHADOW_SKELETON_SPAWN_EGG = ITEMS.register("shadow_skeleton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SHADOW_SKELETON, 0x272530, 0x4b485c,  new Item.Properties()));
+    public static final RegistryObject<Item> CAPTAIN_SHADOW_SKELETON_SPAWN_EGG = ITEMS.register("captain_shadow_skeleton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.CAPTAIN_SHADOW_SKELETON, 0x272530, 0xb48820,  new Item.Properties()));
 
 
     public static final RegistryObject<Item> MESSAGE_IN_BOTTLE = ITEMS.register("message_in_bottle",
             () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "random_task"));
     public static final RegistryObject<Item> SKELETONS_ORDER = ITEMS.register("skeletons_order",
             () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "treasure_map"));
+    public static final RegistryObject<Item> SKELETON_CREW_ASSIGNMENT = ITEMS.register("skeleton_crew_assignment",
+            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "skeleton_crew"));
 
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol",
             () -> new PistolItem(new Item.Properties().durability(200), 1, 30));

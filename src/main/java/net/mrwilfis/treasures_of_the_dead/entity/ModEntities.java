@@ -8,9 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.BloomingSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.TOTDSkeletonEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.DisgracedSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.FoulSkullEntity;
@@ -37,6 +35,21 @@ public class ModEntities {
                     () -> EntityType.Builder.of(BloomingSkeletonEntity::new, MobCategory.MONSTER)
                             .sized(0.6F, 1.99F)
                             .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "blooming_skeleton").toString()));
+    public static final RegistryObject<EntityType<CaptainBloomingSkeletonEntity>> CAPTAIN_BLOOMING_SKELETON =
+            ENTITY_TYPES.register("captain_blooming_skeleton",
+                    () -> EntityType.Builder.of(CaptainBloomingSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "captain_blooming_skeleton").toString()));
+    public static final RegistryObject<EntityType<ShadowSkeletonEntity>> SHADOW_SKELETON =
+            ENTITY_TYPES.register("shadow_skeleton",
+                    () -> EntityType.Builder.of(ShadowSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "shadow_skeleton").toString()));
+    public static final RegistryObject<EntityType<CaptainShadowSkeletonEntity>> CAPTAIN_SHADOW_SKELETON =
+            ENTITY_TYPES.register("captain_shadow_skeleton",
+                    () -> EntityType.Builder.of(CaptainShadowSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "captain_shadow_skeleton").toString()));
 
     //TROPHY SKULLS
     public static final RegistryObject<EntityType<HatefulSkullEntity>> HATEFUL_SKULL =

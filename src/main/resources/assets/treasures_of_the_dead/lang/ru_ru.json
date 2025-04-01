@@ -2,6 +2,9 @@
   "entity.treasures_of_the_dead.totd_skeleton": "Скелет пират",
   "entity.treasures_of_the_dead.captain_skeleton": "Скелет капитан",
   "entity.treasures_of_the_dead.blooming_skeleton": "Цветущий скелет",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Цветущий скелет капитан",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Теневой скелет",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Теневой скелет капитан",
 
   "entity.treasures_of_the_dead.foul_skull": "Гнилой череп",
   "entity.treasures_of_the_dead.disgraced_skull": "Опальный череп",
@@ -17,6 +20,8 @@
 
   "item.treasures_of_the_dead.message_in_bottle": "Послание в бутылке",
   "item.treasures_of_the_dead.skeletons_order": "Повеление скелета",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Поручение на экипаж скелетов",
+
 
   "item.treasures_of_the_dead.treasure_key": "Ключ от сундука сокровищ",
 
@@ -46,6 +51,9 @@
   "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Яйцо призыва скелета-пирата",
   "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Яйцо призыва скелета капитана",
   "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Яйцо призыва цветущего скелета",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Яйцо призыва цветущего скелета капитана",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Яйцо призыва теневого скелета",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Яйцо призыва теневого скелета капитана",
 
   "item.treasures_of_the_dead.foul_skull": "Гнилой череп",
   "item.treasures_of_the_dead.disgraced_skull": "Опальный череп",
@@ -55,6 +63,7 @@
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Карта клада",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Карта экипажа скелетов",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Карта легендарного клада",
   "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Ограблен"
 }
