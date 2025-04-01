@@ -44,6 +44,10 @@ public interface CaptainSkeletonInterface {
             CaptainManNames.add("Борис");
             CaptainManNames.add("Габриэль");
             CaptainManNames.add("Джеймс");
+            CaptainManNames.add("Говард");
+            CaptainManNames.add("Уилсон");
+            CaptainManNames.add("Эйс");
+            CaptainManNames.add("Роберт");
         } else {
             CaptainManNames.add("Duke");
             CaptainManNames.add("Johny");
@@ -66,6 +70,10 @@ public interface CaptainSkeletonInterface {
             CaptainManNames.add("Boris");
             CaptainManNames.add("Gabriel");
             CaptainManNames.add("James");
+            CaptainManNames.add("Howard");
+            CaptainManNames.add("Wilson");
+            CaptainManNames.add("Ace");
+            CaptainManNames.add("Robert");
         }
         if (rus) {
             CaptainWomanNames.add("Элиза");
@@ -81,6 +89,11 @@ public interface CaptainSkeletonInterface {
             CaptainWomanNames.add("Эвелин");
             CaptainWomanNames.add("Джуди");
             CaptainWomanNames.add("Ребекка");
+            CaptainWomanNames.add("Виктория");
+            CaptainWomanNames.add("Энни");
+            CaptainWomanNames.add("Шарлотта");
+            CaptainWomanNames.add("Маргарет");
+            CaptainWomanNames.add("Джейн");
         } else {
             CaptainWomanNames.add("Eliza");
             CaptainWomanNames.add("Katarina");
@@ -95,10 +108,16 @@ public interface CaptainSkeletonInterface {
             CaptainWomanNames.add("Evelyn");
             CaptainWomanNames.add("Judy");
             CaptainWomanNames.add("Rebecca");
+            CaptainWomanNames.add("Victoria");
+            CaptainWomanNames.add("Anny");
+            CaptainWomanNames.add("Charlotte");
+            CaptainWomanNames.add("Margaret");
+            CaptainWomanNames.add("Jane");
         }
         //Titles 1 - always in the start of Name (Examples: FEARLESS Jack, DIRTY Walter). It is all adjectives
         if (rus) {
             CaptainTitles1.add("Великий");
+            CaptainTitles1.add("Величайший");
             CaptainTitles1.add("Ужасный");
             CaptainTitles1.add("Бесстрашный");
             CaptainTitles1.add("Меткий");
@@ -116,8 +135,11 @@ public interface CaptainSkeletonInterface {
             CaptainTitles1.add("Молодой");
             CaptainTitles1.add("Старина");
             CaptainTitles1.add("Молчаливый");
+            CaptainTitles1.add("Опасный");
+            CaptainTitles1.add("Подрывник");
         } else {
-            CaptainTitles1.add("Grand");
+            CaptainTitles1.add("Great");
+            CaptainTitles1.add("Greatest");
             CaptainTitles1.add("Horrible");
             CaptainTitles1.add("Fearless");
             CaptainTitles1.add("Accurate");
@@ -135,6 +157,8 @@ public interface CaptainSkeletonInterface {
             CaptainTitles1.add("Young");
             CaptainTitles1.add("Old");
             CaptainTitles1.add("Silent");
+            CaptainTitles1.add("Dangerous");
+            CaptainTitles1.add("Bomber");
         }
         //Titles 2 - can be in the start or in the end of name (Examples: SEA WOLF Elizabeth, Duke THE KRAKEN SLAYER)
         if (rus) {
@@ -152,6 +176,9 @@ public interface CaptainSkeletonInterface {
             CaptainTitles2.add("Проломленный Череп");
             CaptainTitles2.add("Бродяга");
             CaptainTitles2.add("Сильная Душа");
+            CaptainTitles2.add("Сломанные Кости");
+            CaptainTitles2.add("Одиночка");
+            CaptainTitles2.add("Гойда");
         } else {
             CaptainTitles2.add("Sea Dog");
             CaptainTitles2.add("Sea Wolf");
@@ -167,6 +194,9 @@ public interface CaptainSkeletonInterface {
             CaptainTitles2.add("Fractured Skull");
             CaptainTitles2.add("Wanderer");
             CaptainTitles2.add("Strong Soul");
+            CaptainTitles2.add("Broken Bones");
+            CaptainTitles2.add("Loner");
+            CaptainTitles2.add("Goida");
         }
 
         String name;
@@ -177,6 +207,8 @@ public interface CaptainSkeletonInterface {
         }
         if (rus) {
             the = "";
+        } else {
+            the = "The ";
         }
 
         String fullName;
@@ -210,6 +242,9 @@ public interface CaptainSkeletonInterface {
                     title = title.substring(0, title.length() - 1);
 
                     title += "ая";
+                } else if (rus && title.charAt(title.length()-1) == 'к') {
+                    title = title.substring(0, title.length() - 1);
+                    title += "ца";
                 }
                 fullName = title + " " + name;
             } else if (random.nextFloat() < 0.75f) {
