@@ -38,18 +38,19 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEntity {
-    private int idleVariation = random.nextInt(1, 3);
+    protected int idleVariation = random.nextInt(1, 3);
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.INT);
 
-    private static final RawAnimation WALK_BODY1 = RawAnimation.begin().then("animation.model.walk_body1", Animation.LoopType.LOOP);
-    private static final RawAnimation WALK_HANDS1 = RawAnimation.begin().then("animation.model.walk_hands1", Animation.LoopType.LOOP);
-    private static final RawAnimation IDLE1 = RawAnimation.begin().then("animation.model.idle1", Animation.LoopType.LOOP);
-    private static final RawAnimation IDLE2 = RawAnimation.begin().then("animation.model.idle2", Animation.LoopType.LOOP);
-    private static final RawAnimation ATTACK1 = RawAnimation.begin().then("animation.model.attack1", Animation.LoopType.PLAY_ONCE);
+    protected static final RawAnimation WALK_BODY1 = RawAnimation.begin().then("animation.model.walk_body1", Animation.LoopType.LOOP);
+    protected static final RawAnimation WALK_HANDS1 = RawAnimation.begin().then("animation.model.walk_hands1", Animation.LoopType.LOOP);
+    protected static final RawAnimation IDLE1 = RawAnimation.begin().then("animation.model.idle1", Animation.LoopType.LOOP);
+    protected static final RawAnimation IDLE2 = RawAnimation.begin().then("animation.model.idle2", Animation.LoopType.LOOP);
+    protected static final RawAnimation ATTACK1 = RawAnimation.begin().then("animation.model.attack1", Animation.LoopType.PLAY_ONCE);
+    protected static final RawAnimation SHAKING_FROM_LIGHT = RawAnimation.begin().then("animation.model.shaking_from_light", Animation.LoopType.PLAY_ONCE);
 
     public TOTDSkeletonEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -65,9 +66,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         TOTDSkeletonVariant variant = Util.getRandom(TOTDSkeletonVariant.values(), this.random);
         setVariant(variant);
 
-    //    this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 1000));
-
-        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+        this.populateDefaultEquipmentSlots(randomsource);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
@@ -82,34 +81,42 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
                 .add(Attributes.MOVEMENT_SPEED, 0.24f).build();
     }
 
-    public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+    public void populateDefaultEquipmentSlots(RandomSource pRandom) {
+
+        double randomValue;
+
+        randomValue = (double) this.random.nextFloat();
 
         //Spawn clothes
-        if ((double) this.random.nextFloat() < 0.3) {
+        if (randomValue < 0.3) {
             this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.VEST.get()), pRandom, 0.65F);
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.PANTS.get()), pRandom, 0.5F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BOOTS.get()), pRandom, 0.7F);
-        } else if ((double) this.random.nextFloat() < 0.6) {
+        } else if (randomValue < 0.6) {
             this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.BLACK_VEST.get()), pRandom, 0.65F);
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.BLACK_PANTS.get()), pRandom, 0.5F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.7F);
-        } else if ((double) this.random.nextFloat() < 0.9) {
+        } else if (randomValue < 0.9) {
             this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.BLUE_VEST.get()), pRandom, 0.65F);
             this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.BLUE_PANTS.get()), pRandom, 0.5F);
             this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLUE_BOOTS.get()), pRandom, 0.7F);
         }
 
+        randomValue = (double) this.random.nextFloat();
+
         //Spawn Bandanas or others
-        if ((double) this.random.nextFloat() < 0.25) {
+        if (randomValue < 0.25) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.GREEN_BANDANA.get()), pRandom, 0.6F);
-        } else if ((double) this.random.nextFloat() < 0.5) {
+        } else if (randomValue < 0.5) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.RED_BANDANA.get()), pRandom, 0.6F);
-        } else if ((double) this.random.nextFloat() < 0.75) {
+        } else if (randomValue < 0.75) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BLUE_BANDANA.get()), pRandom, 0.6F);
         }
 
+        randomValue = (double) this.random.nextFloat();
+
         //Spawn weapons
-        if ((double) this.random.nextFloat() < 0.2) {
+        if (randomValue < 0.2) {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
         } else {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
@@ -117,11 +124,14 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     }
 
     public void spawnRandomBandanas(RandomSource pRandom) {
-        if ((double) this.random.nextFloat() < 0.33) {
+
+        double randomValue = (double) this.random.nextFloat();
+
+        if (randomValue < 0.33) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.GREEN_BANDANA.get()), pRandom, 1.0F);
-        } else if ((double) this.random.nextFloat() < 0.67) {
+        } else if (randomValue < 0.67) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.RED_BANDANA.get()), pRandom, 1.0F);
-        } else if ((double) this.random.nextFloat() < 1.0) {
+        } else if (randomValue < 1.0) {
             this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BLUE_BANDANA.get()), pRandom, 1.0F);
         }
     }
