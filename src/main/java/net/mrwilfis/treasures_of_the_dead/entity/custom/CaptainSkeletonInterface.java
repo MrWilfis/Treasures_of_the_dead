@@ -11,8 +11,14 @@ public interface CaptainSkeletonInterface {
 
     default String getRandomName(RandomSource random) {
 
-        Minecraft minecraft = Minecraft.getInstance();
-        String ClientLanguage = minecraft.getLanguageManager().getSelected().toLowerCase();
+        String ClientLanguage = "en_us";
+
+        try {
+            Minecraft minecraft = Minecraft.getInstance();
+            ClientLanguage = minecraft.getLanguageManager().getSelected().toLowerCase();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
 
         boolean rus = (ClientLanguage.equals("ru_ru") || ClientLanguage.equals("ba_ru") || ClientLanguage.equals("be_by") || ClientLanguage.equals("ry_ua")
                 || ClientLanguage.equals("tt_ru") || ClientLanguage.equals("rpr") || ClientLanguage.equals("uk_ua") || ClientLanguage.equals("kk_kz"));
