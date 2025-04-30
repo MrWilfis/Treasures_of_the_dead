@@ -93,6 +93,11 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
         }
     }
 
+    @Override
+    public int getExperienceReward() {
+        return  (int) (super.getExperienceReward() * 1.75);
+    }
+
     public boolean getCanDropKeysAndOrders() {
         return this.getEntityData().get(CAN_DROP_KEYS_AND_ORDERS).booleanValue();
     }
@@ -176,10 +181,6 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
             this.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR));
         }
     }
-
-
-
-    //now captain names in CaptainSkeletonInterface
 
     public CaptainSkeletonVariant getCaptainVariant() {
         return CaptainSkeletonVariant.byId(this.getTypeVariant() & 255);
