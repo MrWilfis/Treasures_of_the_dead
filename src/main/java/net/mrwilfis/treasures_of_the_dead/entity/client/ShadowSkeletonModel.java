@@ -30,7 +30,7 @@ public class ShadowSkeletonModel extends GeoModel<ShadowSkeletonEntity> {
 
     @Override
     public void setCustomAnimations(ShadowSkeletonEntity animatable, long instanceId, AnimationState<ShadowSkeletonEntity> animationState) {
-        CoreGeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("main_head");
 
         if (head != null) {
             EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);

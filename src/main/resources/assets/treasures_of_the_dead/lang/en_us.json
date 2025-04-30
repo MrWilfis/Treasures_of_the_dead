@@ -10,7 +10,10 @@
   "entity.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
   "entity.treasures_of_the_dead.hateful_skull": "Hateful Skull",
   "entity.treasures_of_the_dead.villainous_skull": "Villainous Skull",
+
   "entity.treasures_of_the_dead.treasure_chest": "Treasure Chest",
+
+  "entity.treasures_of_the_dead.powder_keg": "Powder Keg",
 
   "item.treasures_of_the_dead.ruby": "Ruby",
   "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
@@ -58,7 +61,10 @@
   "item.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
   "item.treasures_of_the_dead.hateful_skull": "Hateful Skull",
   "item.treasures_of_the_dead.villainous_skull": "Villainous Skull",
+
   "item.treasures_of_the_dead.treasure_chest": "Treasure Chest",
+
+  "item.treasures_of_the_dead.powder_keg": "Powder Keg",
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Treasure Map",

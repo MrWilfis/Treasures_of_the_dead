@@ -96,11 +96,15 @@ public class Treasures_of_the_dead
             EntityRenderers.register(ModEntities.CAPTAIN_BLOOMING_SKELETON.get(), CaptainBloomingSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.SHADOW_SKELETON.get(), ShadowSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.CAPTAIN_SHADOW_SKELETON.get(), CaptainShadowSkeletonRenderer::new);
+
             EntityRenderers.register(ModEntities.FOUL_SKULL.get(), FoulSkullRenderer::new);
             EntityRenderers.register(ModEntities.DISGRACED_SKULL.get(), DisgracedSkullRenderer::new);
             EntityRenderers.register(ModEntities.HATEFUL_SKULL.get(), HatefulSkullRenderer::new);
             EntityRenderers.register(ModEntities.VILLAINOUS_SKULL.get(), VillainousSkullRenderer::new);
+
             EntityRenderers.register(ModEntities.TREASURE_CHEST.get(), TreasureChestRenderer::new);
+
+            EntityRenderers.register(ModEntities.POWDER_KEG.get(), PowderKegRenderer::new);
         }
     }
 }

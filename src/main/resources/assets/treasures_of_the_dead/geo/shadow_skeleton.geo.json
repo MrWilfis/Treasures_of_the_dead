@@ -16,8 +16,13 @@
 					"pivot": [0, 11.5, 0]
 				},
 				{
-					"name": "head",
+					"name": "main_head",
 					"parent": "body",
+					"pivot": [0, 24.5, 1.5]
+				},
+				{
+					"name": "head",
+					"parent": "main_head",
 					"pivot": [0, 24.5, 1.5],
 					"cubes": [
 						{"origin": [-4, 25.5, -5.5], "size": [8, 5, 8], "inflate": 0.1, "uv": [32, 51]}

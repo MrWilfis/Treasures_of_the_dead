@@ -11,6 +11,7 @@ import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.powderKegsVariants.PowderKegEntity;
 
 
 @Mod.EventBusSubscriber(modid = Treasures_of_the_dead.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -29,6 +30,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.HATEFUL_SKULL.get(), AbstractSkullEntity.setAttributes());
         event.put(ModEntities.VILLAINOUS_SKULL.get(), AbstractSkullEntity.setAttributes());
         event.put(ModEntities.TREASURE_CHEST.get(), TreasureChestEntity.setAttributes());
+        event.put(ModEntities.POWDER_KEG.get(), PowderKegEntity.setAttributes());
     }
 
     @SubscribeEvent

@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
@@ -25,6 +26,8 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.ShadowSkeletonVariant;
+import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
 import net.mrwilfis.treasures_of_the_dead.misc.TOTDBlockPos;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
@@ -76,21 +79,44 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller1", 3, this::idleAndWalk2));
         controllerRegistrar.add(new AnimationController<>(this, "controller2", 3, this::walkAndAttack2));
+        controllerRegistrar.add(new AnimationController<>(this, "controller3", 0, this::spawning));
+    }
+
+    private <E extends GeoAnimatable> PlayState spawning(AnimationState<E> state) {
+        if (this.getIsSpawning()) {
+            state.getController().setAnimation(SPAWN2);
+        }
+        return PlayState.CONTINUE;
     }
 
     private <E extends GeoAnimatable> PlayState walkAndAttack2(AnimationState<E> state) {
+        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
 
+        if (this.getIsSpawning()) {
+            state.getController().stop();
+            //    return PlayState.STOP;
+        }
         if (getShadowTimer() >= shadowTimer) {
-        //    System.out.println("SHAKING ANIMATION");
-            state.getController().setAnimation(SHAKING_FROM_LIGHT);
-            state.getController().setAnimationSpeed(1.0D);
-            return PlayState.CONTINUE;
+            if (mainHandItem.getItem() instanceof AbstractPowderKegItem) {
+                state.getController().setAnimation(SHAKING_FROM_LIGHT_WITH_KEG);
+                state.getController().setAnimationSpeed(1.0D);
+                return PlayState.CONTINUE;
+            } else {
+                state.getController().setAnimation(SHAKING_FROM_LIGHT);
+                state.getController().setAnimationSpeed(1.0D);
+                return PlayState.CONTINUE;
+            }
         }
         else if (this.swinging) {
             state.getController().stop();
             state.getController().setAnimation(ATTACK1);
             state.getController().setAnimationSpeed(1.0D);
             return PlayState.CONTINUE;
+        }
+        else if (!mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
+            state.getController().stop();
+            //    state.getController().setAnimationSpeed(1.0D);
+            return  PlayState.CONTINUE;
         }
         else if (state.isMoving() && this.isAggressive()) {
             state.getController().setAnimation(WALK_HANDS1);
@@ -109,11 +135,33 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     }
 
     private <E extends GeoAnimatable> PlayState idleAndWalk2(AnimationState<E> state) {
+        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
 
+        if (this.getIsSpawning()) {
+            state.getController().stop();
+            //    return PlayState.STOP;
+        }
         if (getShadowTimer() >= shadowTimer) {
-        //    System.out.println("SHAKING ANIMATION");
-            state.getController().setAnimation(SHAKING_FROM_LIGHT);
-            state.getController().setAnimationSpeed(1.0D);
+            if (mainHandItem.getItem() instanceof AbstractPowderKegItem) {
+                state.getController().setAnimation(SHAKING_FROM_LIGHT_WITH_KEG);
+                state.getController().setAnimationSpeed(1.0D);
+                return PlayState.CONTINUE;
+            } else {
+                state.getController().setAnimation(SHAKING_FROM_LIGHT);
+                state.getController().setAnimationSpeed(1.0D);
+                return PlayState.CONTINUE;
+            }
+        }
+        if (state.isMoving() && this.isAggressive() && !mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
+            state.getController().setAnimation(WALK_KEG);
+            state.getController().setAnimationSpeed(1.6875D);
+            return  PlayState.CONTINUE;
+        } else if (state.isMoving() && !this.isAggressive() && !mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
+            state.getController().setAnimation(WALK_KEG);
+            state.getController().setAnimationSpeed(1.35D);
+            return  PlayState.CONTINUE;
+        } else if (!state.isMoving() && !mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
+            state.getController().setAnimation(IDLE_KEG);
             return PlayState.CONTINUE;
         }
         else if (state.isMoving() && this.isAggressive()) {
@@ -147,7 +195,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
         super.tick();
 //        Vec3 position = this.position();
 //
-//        if (this.getShadow()) {
+//        if (!this.getShadow()) {
 //            for (int i = 0; i < 10; i++) {
 //                double xOffset = this.random.nextDouble() * 1 - 0.5;
 //                double yOffset = this.random.nextDouble() * 2 - 1;
@@ -164,6 +212,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 //                        xSpeed, ySpeed, zSpeed);
 //            }
 //        }
+
         if (!this.level().isClientSide) {
 
 
@@ -202,6 +251,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
                     this.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE, 0.5f, 0.75f);
                     this.playSound(SoundEvents.ALLAY_DEATH, 1.0f, 0.0f);
                     setShadowTimer(shadowTimer);
+
                 }
             }
             else
@@ -223,10 +273,20 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 
     @Override
     public void populateDefaultEquipmentSlots(RandomSource pRandom) {
-        if ((double) this.random.nextFloat() < 0.2) {
+        double randomValue = (double) this.random.nextFloat();
+
+        if (randomValue < 0.2) {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
-        } else {
+        } else if (randomValue < 0.95){
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
+        } else {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(ModItems.POWDER_KEG_ITEM.get()), pRandom, 1.0F);
+        }
+
+        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
+        if (mainHandItem.getItem() == ModItems.POWDER_KEG_ITEM.get()) {
+            setLeftHanded(false);
+            setDropChance(EquipmentSlot.MAINHAND, 1.0f);
         }
     }
 

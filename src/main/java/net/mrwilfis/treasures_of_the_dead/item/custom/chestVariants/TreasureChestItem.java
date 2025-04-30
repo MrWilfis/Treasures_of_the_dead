@@ -53,7 +53,6 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
         ItemStack stack = pContext.getPlayer().getItemInHand(pContext.getHand());
 
-
         TreasureChestEntity chest = new TreasureChestEntity(ModEntities.TREASURE_CHEST.get(), pContext.getLevel());     /* Which Skull will be placed */
         chest.addTag("TOTD_Rotate");
         if (stack.getTag() != null) {

@@ -10,7 +10,10 @@
   "entity.treasures_of_the_dead.disgraced_skull": "Crâne vil",
   "entity.treasures_of_the_dead.hateful_skull": "Crâne infâme",
   "entity.treasures_of_the_dead.villainous_skull": "Crâne sordide",
+
   "entity.treasures_of_the_dead.treasure_chest": "Сoffre au trésor",
+
+  "entity.treasures_of_the_dead.powder_keg": "Baril de poudre",
 
   "item.treasures_of_the_dead.ruby": "Ruby",
   "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
@@ -59,7 +62,10 @@
   "item.treasures_of_the_dead.disgraced_skull": "Crâne vil",
   "item.treasures_of_the_dead.hateful_skull": "Crâne infâme",
   "item.treasures_of_the_dead.villainous_skull": "Crâne sordide",
+
   "item.treasures_of_the_dead.treasure_chest": "Сoffre au trésor",
+
+  "item.treasures_of_the_dead.powder_keg": "Baril de poudre",
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Carte au trésor",

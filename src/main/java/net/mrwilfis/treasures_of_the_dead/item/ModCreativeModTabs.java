@@ -63,6 +63,8 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.TREASURE_CHEST_ITEM.get());
                         output.accept(ModItems.TREASURE_KEY.get());
 
+                        output.accept(ModItems.POWDER_KEG_ITEM.get());
+
                     //    output.accept(ModItems.PISTOL.get());
                     //    output.accept(ModItems.CARTRIDGE.get());
 

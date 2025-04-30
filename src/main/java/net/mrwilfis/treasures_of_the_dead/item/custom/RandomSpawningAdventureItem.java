@@ -91,7 +91,7 @@ public class RandomSpawningAdventureItem extends Item {
                     if (!isInWater) {
                         break;
                     }
-                    System.out.println(X + " " + Y + " " + Z);
+                    //System.out.println(X + " " + Y + " " + Z);
                     X = player.getX();
                     Z = player.getZ();
                     X = rand.nextDouble(X-range, X+range);
@@ -129,9 +129,10 @@ public class RandomSpawningAdventureItem extends Item {
                     newSkeleton(x, y, z, level, random, captain, rand);
 
                     captain.setCanDropKeysAndOrders(false);
+                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
+
                     CaptainSkeletonVariant variant = Util.getRandom(CaptainSkeletonVariant.values(), random);
                     captain.setVariant(variant);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
 
                     x = x + random.nextInt(-2, 2+1);
                     z = z + random.nextInt(-2, 2+1);
@@ -154,9 +155,10 @@ public class RandomSpawningAdventureItem extends Item {
                     newSkeleton(x, y, z, level, random, captain, rand);
 
                     captain.setCanDropKeysAndOrders(false);
+                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
+
                     CaptainShadowSkeletonVariant variant = Util.getRandom(CaptainShadowSkeletonVariant.values(), random);
                     captain.setVariant(variant);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
 
                     x = x + random.nextInt(-2, 2+1);
                     z = z + random.nextInt(-2, 2+1);
@@ -180,9 +182,10 @@ public class RandomSpawningAdventureItem extends Item {
                     newSkeleton(x, y, z, level, random, captain, rand);
 
                     captain.setCanDropKeysAndOrders(false);
+                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
+
                     CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), random);
                     captain.setVariant(variant);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
 
                     x = x + random.nextInt(-2, 2+1);
                     z = z + random.nextInt(-2, 2+1);
@@ -208,6 +211,7 @@ public class RandomSpawningAdventureItem extends Item {
         skeleton.setPersistenceRequired();
         level.addFreshEntity(skeleton);
         skeleton.populateDefaultEquipmentSlots(random);
+    //    skeleton.setIsSpawning(true);
     }
 
     private void summonTreasure(double x, double y, double z, Player player, Level level, RandomSource random) {

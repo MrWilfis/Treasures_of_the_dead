@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.powderKegsVariants.PowderKegEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.DisgracedSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.FoulSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.HatefulSkullEntity;
@@ -19,7 +20,7 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Treasures_of_the_dead.MOD_ID);
 
-    //SkELETONS
+    //SKELETONS
     public static final RegistryObject<EntityType<TOTDSkeletonEntity>> TOTD_SKELETON =
             ENTITY_TYPES.register("totd_skeleton",
                     () -> EntityType.Builder.of(TOTDSkeletonEntity::new, MobCategory.MONSTER)
@@ -79,6 +80,13 @@ public class ModEntities {
                     () -> EntityType.Builder.of(TreasureChestEntity::new, MobCategory.MISC)
                             .sized(0.7F, 0.7F)
                             .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "totd_skeleton").toString()));
+
+    //POWDER KEGS
+    public static final RegistryObject<EntityType<PowderKegEntity>> POWDER_KEG =
+            ENTITY_TYPES.register("powder_keg",
+                    () -> EntityType.Builder.of(PowderKegEntity::new, MobCategory.MISC)
+                            .sized(0.7F, 0.625F)
+                            .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "powder_keg").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

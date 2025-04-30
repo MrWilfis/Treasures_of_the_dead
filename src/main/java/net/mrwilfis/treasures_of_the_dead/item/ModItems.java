@@ -15,6 +15,7 @@ import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.item.custom.*;
 import net.mrwilfis.treasures_of_the_dead.item.custom.chestVariants.TreasureChestItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.guns.PistolItem;
+import net.mrwilfis.treasures_of_the_dead.item.custom.powderKegVariants.PowderKegItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.DisgracedSkullItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.FoulSkullItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.HatefulSkullItem;
@@ -41,6 +42,9 @@ public class ModItems {
     //TREASURE CHESTS
     public static final RegistryObject<Item> TREASURE_CHEST_ITEM = ITEMS.register("treasure_chest",
             () -> new TreasureChestItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+    //POWDER KEGS
+    public static final RegistryObject<Item> POWDER_KEG_ITEM = ITEMS.register("powder_keg",
+            () -> new PowderKegItem(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
 
     public static final RegistryObject<Item> BICORN_TEST = ITEMS.register("bicorn_test",
             () -> new BicornArmorItem(ModArmorMaterials.BICORN, ArmorItem.Type.HELMET, new Item.Properties()));
