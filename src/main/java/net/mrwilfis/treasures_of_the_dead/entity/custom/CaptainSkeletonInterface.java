@@ -2,6 +2,8 @@ package net.mrwilfis.treasures_of_the_dead.entity.custom;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +15,12 @@ public interface CaptainSkeletonInterface {
 
         String ClientLanguage = "en_us";
 
-        try {
+        if (isClient()) {
             Minecraft minecraft = Minecraft.getInstance();
             ClientLanguage = minecraft.getLanguageManager().getSelected().toLowerCase();
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
         }
+
+
 
         boolean rus = (ClientLanguage.equals("ru_ru") || ClientLanguage.equals("ba_ru") || ClientLanguage.equals("be_by") || ClientLanguage.equals("ry_ua")
                 || ClientLanguage.equals("tt_ru") || ClientLanguage.equals("rpr") || ClientLanguage.equals("uk_ua") || ClientLanguage.equals("kk_kz"));
@@ -265,5 +267,9 @@ public interface CaptainSkeletonInterface {
         }
 
         return fullName;
+    }
+
+    default boolean isClient() {
+        return FMLLoader.getDist() == Dist.CLIENT;
     }
 }
