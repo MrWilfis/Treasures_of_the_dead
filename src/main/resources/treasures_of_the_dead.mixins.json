@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.mrwilfis.treasures_of_the_dead.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "treasures_of_the_dead.refmap.json",
+  "mixins": [
+    "MixinLivingEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
