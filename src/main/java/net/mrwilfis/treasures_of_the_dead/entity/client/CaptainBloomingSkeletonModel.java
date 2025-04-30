@@ -31,7 +31,7 @@ public class CaptainBloomingSkeletonModel extends GeoModel<CaptainBloomingSkelet
 
     @Override
     public void setCustomAnimations(CaptainBloomingSkeletonEntity animatable, long instanceId, AnimationState<CaptainBloomingSkeletonEntity> animationState) {
-        CoreGeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("main_head");
 
         if (head != null) {
             EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);

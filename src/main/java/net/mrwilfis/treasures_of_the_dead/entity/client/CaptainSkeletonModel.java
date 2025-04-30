@@ -29,7 +29,7 @@ public class CaptainSkeletonModel extends GeoModel<CaptainSkeletonEntity> {
 
     @Override
     public void setCustomAnimations(CaptainSkeletonEntity animatable, long instanceId, AnimationState<CaptainSkeletonEntity> animationState) {
-        CoreGeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("main_head");
 
         if (head != null) {
             EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
