@@ -1,0 +1,52 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "keg",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{
+							"origin": [-7, 0, -5],
+							"size": [14, 10, 10],
+							"uv": {
+								"north": {"uv": [10, 22], "uv_size": [14, 10]},
+								"east": {"uv": [0, 22], "uv_size": [10, 10]},
+								"south": {"uv": [34, 22], "uv_size": [14, 10]},
+								"west": {"uv": [24, 22], "uv_size": [10, 10]},
+								"up": {"uv": [0, 12], "uv_size": [14, 10]},
+								"down": {"uv": [14, 22], "uv_size": [14, -10]}
+							}
+						},
+						{"origin": [-4, 0, -5], "size": [8, 10, 10], "inflate": 0.2, "uv": [28, 0]}
+					]
+				},
+				{
+					"name": "fuse1",
+					"parent": "keg",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-2, 10.2, 0], "size": [4, 4, 0], "uv": [56, 0]}
+					]
+				},
+				{
+					"name": "fuse2",
+					"parent": "keg",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, 10.2, 0], "size": [4, 4, 0], "uv": [56, 4]}
+					]
+				}
+			]
+		}
+	]
+}

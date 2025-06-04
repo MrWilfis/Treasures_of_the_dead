@@ -1,0 +1,81 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Pirate Skeleton",
+  "entity.treasures_of_the_dead.captain_skeleton": "Captain Skeleton",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Blooming Skeleton",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Captain Blooming Skeleton",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Shadow Skeleton",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Captain Shadow Skeleton",
+
+  "entity.treasures_of_the_dead.foul_skull": "Crâne abject",
+  "entity.treasures_of_the_dead.disgraced_skull": "Crâne vil",
+  "entity.treasures_of_the_dead.hateful_skull": "Crâne infâme",
+  "entity.treasures_of_the_dead.villainous_skull": "Crâne sordide",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Сoffre au trésor",
+
+  "entity.treasures_of_the_dead.powder_keg": "Baril de poudre",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Marchand de crânes",
+
+  "item.treasures_of_the_dead.ruby": "Ruby",
+  "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
+
+  "item.treasures_of_the_dead.pistol": "Pistole",
+  "item.treasures_of_the_dead.cartridge": "Сartouche",
+
+  "item.treasures_of_the_dead.message_in_bottle": "Message dans une bouteille",
+  "item.treasures_of_the_dead.skeletons_order": "Ordre du squelette",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Affectation d'équipage squelette",
+
+  "item.treasures_of_the_dead.treasure_key": "Clé de trésor",
+
+  "item.treasures_of_the_dead.bicorn": "Biplace",
+  "item.treasures_of_the_dead.captain_jacket": "Veste capitaine",
+  "item.treasures_of_the_dead.captain_pants": "Pantalon capitaine",
+
+  "item.treasures_of_the_dead.captain_hat": "Chapeau de capitaine",
+  "item.treasures_of_the_dead.captain_crop_vest": "Gilet court capitaine",
+  "item.treasures_of_the_dead.captain_skirt": "Jupe capitaine",
+
+  "item.treasures_of_the_dead.green_bandana": "Bandana vert",
+  "item.treasures_of_the_dead.vest": "Gilet",
+  "item.treasures_of_the_dead.pants": "Pantalon",
+  "item.treasures_of_the_dead.boots": "Bottes",
+
+  "item.treasures_of_the_dead.red_bandana": "Bandana rouge",
+  "item.treasures_of_the_dead.black_vest": "Gilet noir",
+  "item.treasures_of_the_dead.black_pants": "Pantalon noir",
+  "item.treasures_of_the_dead.black_boots": "Bottes noir",
+
+  "item.treasures_of_the_dead.blue_bandana": "Bandana bleu",
+  "item.treasures_of_the_dead.blue_vest": "Gilet bleu",
+  "item.treasures_of_the_dead.blue_pants": "Pantalon bleu",
+  "item.treasures_of_the_dead.blue_boots": "Bottes bleu",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Oeuf d'apparition de pirate squelette",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Oeuf d'apparition de capitaine squelette",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Captain Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Shadow Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Captain Shadow Skeleton Spawn Egg",
+
+  "item.treasures_of_the_dead.foul_skull": "Crâne abject",
+  "item.treasures_of_the_dead.disgraced_skull": "Crâne vil",
+  "item.treasures_of_the_dead.hateful_skull": "Crâne infâme",
+  "item.treasures_of_the_dead.villainous_skull": "Crâne sordide",
+
+  "item.treasures_of_the_dead.treasure_chest": "Сoffre au trésor",
+
+  "item.treasures_of_the_dead.powder_keg": "Baril de poudre",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Modéle de forge",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornement de l'Ordre des Âmes",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Table de marchand de crâne",
+
+  "creativetab.totd_tab": "Treasures of The Dead",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Carte au trésor",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Carte de l'équipage du squelette",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Carte au trésor légendaire",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Pillé"
+}

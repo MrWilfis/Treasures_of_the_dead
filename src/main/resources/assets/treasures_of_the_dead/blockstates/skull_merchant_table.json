@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "treasures_of_the_dead:block/skull_merchant_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "treasures_of_the_dead:block/skull_merchant_table"
+    },
+    "facing=south": {
+      "model": "treasures_of_the_dead:block/skull_merchant_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "treasures_of_the_dead:block/skull_merchant_table",
+      "y": 270
+    }
+  }
+}

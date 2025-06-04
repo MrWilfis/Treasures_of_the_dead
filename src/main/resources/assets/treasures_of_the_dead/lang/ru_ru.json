@@ -1,0 +1,81 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Скелет пират",
+  "entity.treasures_of_the_dead.captain_skeleton": "Скелет капитан",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Цветущий скелет",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Цветущий скелет капитан",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Теневой скелет",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Теневой скелет капитан",
+
+  "entity.treasures_of_the_dead.foul_skull": "Гнилой череп",
+  "entity.treasures_of_the_dead.disgraced_skull": "Опальный череп",
+  "entity.treasures_of_the_dead.hateful_skull": "Злобный череп",
+  "entity.treasures_of_the_dead.villainous_skull": "Гнусный череп",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Сундук с сокровищами",
+
+  "entity.treasures_of_the_dead.powder_keg": "Пороховая бочка",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Торговец черепами",
+
+  "item.treasures_of_the_dead.ruby": "Рубин (тестовый предмет)",
+  "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
+
+  "item.treasures_of_the_dead.pistol": "Пистоль",
+  "item.treasures_of_the_dead.cartridge": "Патрон",
+
+  "item.treasures_of_the_dead.message_in_bottle": "Послание в бутылке",
+  "item.treasures_of_the_dead.skeletons_order": "Повеление скелета",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Поручение на экипаж скелетов",
+
+  "item.treasures_of_the_dead.treasure_key": "Ключ от сундука сокровищ",
+
+  "item.treasures_of_the_dead.bicorn": "Двууголка",
+  "item.treasures_of_the_dead.captain_jacket": "Капитанский камзол",
+  "item.treasures_of_the_dead.captain_pants": "Капитанские брюки",
+
+  "item.treasures_of_the_dead.captain_hat": "Капитанская Шляпа",
+  "item.treasures_of_the_dead.captain_crop_vest": "Капитанская Короткая Жилетка",
+  "item.treasures_of_the_dead.captain_skirt": "Капитанская Юбка",
+
+  "item.treasures_of_the_dead.green_bandana": "Зелёная бандана",
+  "item.treasures_of_the_dead.vest": "Желетка",
+  "item.treasures_of_the_dead.pants": "Брюки",
+  "item.treasures_of_the_dead.boots": "Сапоги",
+
+  "item.treasures_of_the_dead.red_bandana": "Красная бандана",
+  "item.treasures_of_the_dead.black_vest": "Чёрная желетка",
+  "item.treasures_of_the_dead.black_pants": "Чёрные брюки",
+  "item.treasures_of_the_dead.black_boots": "Чёрные сапоги",
+
+  "item.treasures_of_the_dead.blue_bandana": "Синяя бандана",
+  "item.treasures_of_the_dead.blue_vest": "Синяя желетка",
+  "item.treasures_of_the_dead.blue_pants": "Синие брюки",
+  "item.treasures_of_the_dead.blue_boots": "Синие сапоги",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Яйцо призыва скелета-пирата",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Яйцо призыва скелета капитана",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Яйцо призыва цветущего скелета",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Яйцо призыва цветущего скелета капитана",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Яйцо призыва теневого скелета",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Яйцо призыва теневого скелета капитана",
+
+  "item.treasures_of_the_dead.foul_skull": "Гнилой череп",
+  "item.treasures_of_the_dead.disgraced_skull": "Опальный череп",
+  "item.treasures_of_the_dead.hateful_skull": "Злобный череп",
+  "item.treasures_of_the_dead.villainous_skull": "Гнусный череп",
+
+  "item.treasures_of_the_dead.treasure_chest": "Сундук с сокровищами",
+
+  "item.treasures_of_the_dead.powder_keg": "Пороховая бочка",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Кузнечный шаблон",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Отделка \"Орден душ\"",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Стол торговца черепами",
+
+  "creativetab.totd_tab": "Treasures of The Dead",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Карта клада",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Карта экипажа скелетов",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Карта легендарного клада",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Разграблен"
+}

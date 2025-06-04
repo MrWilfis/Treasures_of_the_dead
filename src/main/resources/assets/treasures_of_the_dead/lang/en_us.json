@@ -1,0 +1,81 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Pirate Skeleton",
+  "entity.treasures_of_the_dead.captain_skeleton": "Captain Skeleton",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Blooming Skeleton",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Captain Blooming Skeleton",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Shadow Skeleton",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Captain Shadow Skeleton",
+
+  "entity.treasures_of_the_dead.foul_skull": "Foul Skull",
+  "entity.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
+  "entity.treasures_of_the_dead.hateful_skull": "Hateful Skull",
+  "entity.treasures_of_the_dead.villainous_skull": "Villainous Skull",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Treasure Chest",
+
+  "entity.treasures_of_the_dead.powder_keg": "Powder Keg",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Skull Merchant",
+
+  "item.treasures_of_the_dead.ruby": "Ruby",
+  "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
+
+  "item.treasures_of_the_dead.pistol": "Pistol",
+  "item.treasures_of_the_dead.cartridge": "Cartridge",
+
+  "item.treasures_of_the_dead.message_in_bottle": "Message In Bottle",
+  "item.treasures_of_the_dead.skeletons_order": "Skeleton's Order",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Skeleton Crew Assignment",
+
+  "item.treasures_of_the_dead.treasure_key": "Treasure Key",
+
+  "item.treasures_of_the_dead.bicorn": "Bicorn",
+  "item.treasures_of_the_dead.captain_jacket": "Captain Jacket",
+  "item.treasures_of_the_dead.captain_pants": "Captain Pants",
+
+  "item.treasures_of_the_dead.captain_hat": "Captain Hat",
+  "item.treasures_of_the_dead.captain_crop_vest": "Captain Crop Vest",
+  "item.treasures_of_the_dead.captain_skirt": "Captain Skirt",
+
+  "item.treasures_of_the_dead.green_bandana": "Green Bandana",
+  "item.treasures_of_the_dead.vest": "Vest",
+  "item.treasures_of_the_dead.pants": "Pants",
+  "item.treasures_of_the_dead.boots": "Boots",
+
+  "item.treasures_of_the_dead.red_bandana": "Red Bandana",
+  "item.treasures_of_the_dead.black_vest": "Black Vest",
+  "item.treasures_of_the_dead.black_pants": "Black Pants",
+  "item.treasures_of_the_dead.black_boots": "Black Boots",
+
+  "item.treasures_of_the_dead.blue_bandana": "Blue Bandana",
+  "item.treasures_of_the_dead.blue_vest": "Blue Vest",
+  "item.treasures_of_the_dead.blue_pants": "Blue Pants",
+  "item.treasures_of_the_dead.blue_boots": "Blue Boots",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Pirate-Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Captain Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Captain Blooming Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Shadow Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Captain Shadow Skeleton Spawn Egg",
+
+  "item.treasures_of_the_dead.foul_skull": "Foul Skull",
+  "item.treasures_of_the_dead.disgraced_skull": "Disgraced Skull",
+  "item.treasures_of_the_dead.hateful_skull": "Hateful Skull",
+  "item.treasures_of_the_dead.villainous_skull": "Villainous Skull",
+
+  "item.treasures_of_the_dead.treasure_chest": "Treasure Chest",
+
+  "item.treasures_of_the_dead.powder_keg": "Powder Keg",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Smithing Template",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Order Of Souls Armor Trim",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Skull Merchant Table",
+
+  "creativetab.totd_tab": "Treasures of The Dead",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Treasure Map",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Skeleton Crew Map",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Legendary Treasure Map",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Looted"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "#@#",
+    "@@@",
+    "#@#"
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:gunpowder"
+    },
+    "#": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "result": {
+    "id": "treasures_of_the_dead:powder_keg",
+    "count": 1
+  }
+}

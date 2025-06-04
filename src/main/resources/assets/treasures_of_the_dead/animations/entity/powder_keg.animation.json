@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.idle": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"fuse2": {
+					"position": {
+						"vector": [0, -5, 0]
+					}
+				}
+			}
+		},
+		"animation.model.fuse": {
+			"loop": true,
+			"bones": {
+				"fuse1": {
+					"position": {
+						"vector": [0, -5, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

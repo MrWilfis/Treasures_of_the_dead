@@ -1,0 +1,32 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    32,
+    32
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -2.5,
+        -1.75
+      ],
+      "scale": [
+        0.662109375,
+        0.662109375,
+        0.662109375
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        0.25,
+        -2.25,
+        -3
+      ]
+    }
+  },
+  "textures": {
+    "particle": "treasures_of_the_dead:item/pistol"
+  }
+}
