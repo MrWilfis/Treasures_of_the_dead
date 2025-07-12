@@ -6,6 +6,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -114,6 +115,8 @@ public class RandomSpawningAdventureItem extends Item {
 
 
         }
+
+        player.awardStat(Stats.ITEM_USED.get(this));
 
         return super.use(level, player, pUsedHand);
     }

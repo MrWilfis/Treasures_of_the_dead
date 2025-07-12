@@ -74,6 +74,7 @@ public class ModCreativeModTabs {
                     //    output.accept(ModItems.PISTOL.get());
                     //    output.accept(ModItems.CARTRIDGE.get());
 
+                        output.accept(ModItems.BLUNDER_BOMB.get());
 
                     })
                     .build());

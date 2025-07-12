@@ -1,6 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "start_pool": "treasures_of_the_dead:skull_merchant_house/skull_merchant_house",
+
   "size": 2,
   "max_distance_from_center": 80,
   "biomes": "#treasures_of_the_dead:has_structure/skull_merchant_house",

@@ -4,12 +4,18 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Fireball;
+import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
+import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.BulletEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 
 public class ModGunItem extends Item{
@@ -30,7 +36,8 @@ public class ModGunItem extends Item{
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack gun = player.getItemInHand(usedHand);
         if (getCharged(gun)) {
-        //    shoot();
+            Vec3 direction = Vec3.directionFromRotation(player.getXRot(), player.getYRot());
+            fire(player, direction);
             player.playSound(SoundEvents.ARROW_SHOOT);
             setCharged(gun, false);
             return InteractionResultHolder.consume(gun);
@@ -85,6 +92,22 @@ public class ModGunItem extends Item{
 //
 //
 //        super.onUseTick(level, livingEntity, stack, remainingUseDuration);
+    }
+
+    public void fire(LivingEntity shooter, Vec3 direction) {
+        Level level = shooter.level();
+        Vec3 origin = new Vec3(shooter.getX(), shooter.getY() + shooter.getEyeHeight(), shooter.getZ());
+        for (int i = 0; i < bulletCount; i++) {
+            BulletEntity bullet = new BulletEntity(ModEntities.BULLET.get(), level);
+            //Fireball bullet = new SmallFireball(EntityType.SMALL_FIREBALL, level);
+            bullet.setOwner(shooter);
+            bullet.setPos(origin);
+            //bullet.setDeltaMovement(direction);
+            bullet.setVelocity(120, direction);
+
+            level.addFreshEntity(bullet);
+        }
+
     }
 
     public boolean canUseFrom(LivingEntity entity, InteractionHand hand) {

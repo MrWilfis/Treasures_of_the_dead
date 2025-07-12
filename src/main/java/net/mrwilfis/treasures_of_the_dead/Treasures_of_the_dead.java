@@ -124,6 +124,9 @@ public class Treasures_of_the_dead
             EntityRenderers.register(ModEntities.TREASURE_CHEST.get(), TreasureChestRenderer::new);
 
             EntityRenderers.register(ModEntities.POWDER_KEG.get(), PowderKegRenderer::new);
+
+            EntityRenderers.register(ModEntities.BULLET.get(), BulletRenderer::new);
+            EntityRenderers.register(ModEntities.BLUNDER_BOMB.get(), BlunderBombRenderer::new);
         }
     }
 }

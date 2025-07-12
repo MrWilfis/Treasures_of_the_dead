@@ -141,6 +141,9 @@ public class ModItems {
     public static final DeferredItem<Item> CARTRIDGE = ITEMS.register("cartridge",
             () -> new CartridgeItem(new Item.Properties()));
 
+    public static final DeferredItem<Item> BLUNDER_BOMB = ITEMS.register("blunder_bomb",
+            () -> new BlunderBombItem(new Item.Properties()));
+
     //Smithing templates
     public static final DeferredItem<Item> ORDER_OF_SOULS_SMITHING_TEMPLATE = ITEMS.register("order_of_souls_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "order_of_souls")));

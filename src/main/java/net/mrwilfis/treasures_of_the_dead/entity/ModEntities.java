@@ -88,6 +88,17 @@ public class ModEntities {
                             .sized(0.7F, 0.625F)
                             .build("powder_keg"));
 
+    public static final Supplier<EntityType<BulletEntity>> BULLET =
+            ENTITY_TYPES.register("bullet",
+                    () -> EntityType.Builder.of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.3F, 0.3F)
+                            .build("bullet"));
+    public static final Supplier<EntityType<BlunderBombEntity>> BLUNDER_BOMB =
+            ENTITY_TYPES.register("blunder_bomb",
+                    () -> EntityType.Builder.<BlunderBombEntity>of(BlunderBombEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .build("blunder_bomb"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
