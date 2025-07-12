@@ -7,9 +7,7 @@ public enum CaptainShadowSkeletonVariant {
     DEFAULT(0),
     VAR1(1),
     VAR2(2),
-    VAR3(3),
-    VAR4(4),
-    VAR5(5);
+    VAR3(3);
 
     private static final CaptainShadowSkeletonVariant[] BY_ID = Arrays.stream(values()).sorted(Comparator.
             comparingInt(CaptainShadowSkeletonVariant::getId)).toArray(CaptainShadowSkeletonVariant[]::new);

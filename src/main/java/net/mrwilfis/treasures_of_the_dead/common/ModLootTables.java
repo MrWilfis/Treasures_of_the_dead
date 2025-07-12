@@ -10,11 +10,14 @@ public class ModLootTables {
 
     private static final Set<ResourceLocation> LOCATIONS = Sets.newHashSet();
     private static final Set<ResourceLocation> IMMUTABLE_LOCATIONS;
+
     public static final ResourceLocation DEFAULT_TREASURE_CHEST_LOOT;
+    public static final ResourceLocation SKULL_MERCHANT_SHOP;
 
     static {
         IMMUTABLE_LOCATIONS = Collections.unmodifiableSet(LOCATIONS);
         DEFAULT_TREASURE_CHEST_LOOT = register("treasures_of_the_dead:gameplay/open_treasure"); //give @p minecraft:barrel{BlockEntityTag:{LootTable:"treasures_of_the_dead:gameplay/open_treasure"}}
+        SKULL_MERCHANT_SHOP = register("treasures_of_the_dead:chests/skull_merchant_shop/skull_merchant_shop");
     }
 
     private static ResourceLocation register(String pId) {

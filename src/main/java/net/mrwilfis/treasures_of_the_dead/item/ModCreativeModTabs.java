@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
+import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -64,6 +65,9 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.TREASURE_KEY.get());
 
                         output.accept(ModItems.POWDER_KEG_ITEM.get());
+
+                        output.accept(ModItems.ORDER_OF_SOULS_SMITHING_TEMPLATE.get());
+                        output.accept(ModBlocks.SKULL_MERCHANT_TABLE.get());
 
                     //    output.accept(ModItems.PISTOL.get());
                     //    output.accept(ModItems.CARTRIDGE.get());

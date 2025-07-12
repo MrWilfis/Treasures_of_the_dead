@@ -49,17 +49,13 @@ public class CaptainShadowSkeletonRenderer extends GeoEntityRenderer<CaptainShad
     public static final Map<CaptainShadowSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainShadowSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainShadowSkeletonVariant.DEFAULT,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton1.png"));
+                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR1,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton2.png"));
+                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR2,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton3.png"));
+                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton2.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR3,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton4.png"));
-                p_114874_.put(CaptainShadowSkeletonVariant.VAR4,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton5.png"));
-                p_114874_.put(CaptainShadowSkeletonVariant.VAR5,
-                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton6.png"));
+                        new ResourceLocation(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton2.png"));
             });
 
 

@@ -15,6 +15,8 @@
 
   "entity.treasures_of_the_dead.powder_keg": "Baril de poudre",
 
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Marchand de crânes",
+
   "item.treasures_of_the_dead.ruby": "Ruby",
   "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
 
@@ -24,7 +26,6 @@
   "item.treasures_of_the_dead.message_in_bottle": "Message dans une bouteille",
   "item.treasures_of_the_dead.skeletons_order": "Ordre du squelette",
   "item.treasures_of_the_dead.skeleton_crew_assignment": "Affectation d'équipage squelette",
-
 
   "item.treasures_of_the_dead.treasure_key": "Clé de trésor",
 
@@ -67,9 +68,14 @@
 
   "item.treasures_of_the_dead.powder_keg": "Baril de poudre",
 
+
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornement de l'Ordre des Âmes",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Table de marchand de crâne",
+
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Carte au trésor",
   "filled_map.treasures_of_the_dead.skeleton_crew": "Carte de l'équipage du squelette",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Carte au trésor légendaire",
-  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Est volé"
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Pillé"
 }

@@ -32,7 +32,9 @@ public class NewArmorRenderer <T extends ArmorItem & GeoItem> extends GeoArmorRe
         return this.model.getBone("armorLegs").orElse(null);
     }
 
-    public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, @javax.annotation.Nullable MultiBufferSource bufferSource, @javax.annotation.Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, @javax.annotation.Nullable MultiBufferSource bufferSource,
+                          @javax.annotation.Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight,
+                          int packedOverlay, float red, float green, float blue, float alpha) {
         this.entityRenderTranslations = new Matrix4f(poseStack.last().pose());
         this.applyBaseModel(this.baseModel);
         this.grabRelevantBones(this.getGeoModel().getBakedModel(this.getGeoModel().getModelResource(this.animatable)));

@@ -15,6 +15,8 @@
 
   "entity.treasures_of_the_dead.powder_keg": "Powder Keg",
 
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Skull Merchant",
+
   "item.treasures_of_the_dead.ruby": "Ruby",
   "item.treasures_of_the_dead.bicorn_test": "Bicorn (test)",
 
@@ -66,9 +68,14 @@
 
   "item.treasures_of_the_dead.powder_keg": "Powder Keg",
 
+
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Order Of Souls Armor Trim",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Skull Merchant Table",
+
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Treasure Map",
   "filled_map.treasures_of_the_dead.skeleton_crew": "Skeleton Crew Map",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Legendary Treasure Map",
-  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Is robbed"
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Looted"
 }

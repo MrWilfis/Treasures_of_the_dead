@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "minecraft:block/spruce_planks",
+    "front": "treasures_of_the_dead:block/skull_merchant_table_front",
+    "side": "treasures_of_the_dead:block/skull_merchant_table_side",
+    "top": "treasures_of_the_dead:block/skull_merchant_table_top"
+  }
+}

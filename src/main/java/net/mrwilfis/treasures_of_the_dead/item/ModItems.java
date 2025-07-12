@@ -1,8 +1,10 @@
 package net.mrwilfis.treasures_of_the_dead.item;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -120,6 +122,9 @@ public class ModItems {
             () -> new PistolItem(new Item.Properties().durability(200), 1, 30));
     public static final RegistryObject<Item> CARTRIDGE = ITEMS.register("cartridge",
             () -> new CartridgeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> ORDER_OF_SOULS_SMITHING_TEMPLATE = ITEMS.register("order_of_souls_armor_trim_smithing_template",
+            () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "order_of_souls")));
 
 
     public static void register(IEventBus eventBus) {

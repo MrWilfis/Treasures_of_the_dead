@@ -15,12 +15,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
-import net.mrwilfis.treasures_of_the_dead.block.entity.ModBlockEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.client.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainBloomingSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModCreativeModTabs;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
@@ -42,9 +42,8 @@ public class Treasures_of_the_dead
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
-        ModBlockEntities.register(modEventBus);
-
         ModEntities.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
         GeckoLib.initialize();
 

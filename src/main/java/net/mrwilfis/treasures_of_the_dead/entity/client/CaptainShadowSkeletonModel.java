@@ -5,6 +5,7 @@ import net.minecraft.util.Mth;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainShadowSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.ShadowSkeletonEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainShadowSkeletonVariant;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
@@ -14,7 +15,15 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class CaptainShadowSkeletonModel extends GeoModel<CaptainShadowSkeletonEntity> {
     @Override
     public ResourceLocation getModelResource(CaptainShadowSkeletonEntity captainShadowSkeletonEntity) {
-        return new ResourceLocation(Treasures_of_the_dead.MOD_ID, "geo/shadow_skeleton.geo.json");
+        if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR1)) {
+            return new ResourceLocation(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton1.geo.json");
+        } else if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR2)) {
+            return new ResourceLocation(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton2.geo.json");
+        } else if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR3)) {
+            return new ResourceLocation(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton2.geo.json");
+        } else {
+            return new ResourceLocation(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton1.geo.json");
+        }
     }
 
     @Override

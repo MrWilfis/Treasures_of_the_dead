@@ -65,7 +65,7 @@ public class ModGunItem extends ProjectileWeaponItem implements Vanishable {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity livingEntity, int timeCharged) {
-        System.out.println("release using");
+        System.out.println("release using, timeCharged - " + timeCharged);
 //        if (isCharged(stack) && livingEntity instanceof Player player){
 //            consumeAmmo(player, stack);
 //        }
