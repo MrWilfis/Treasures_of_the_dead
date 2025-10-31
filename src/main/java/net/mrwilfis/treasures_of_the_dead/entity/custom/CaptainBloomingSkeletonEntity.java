@@ -46,16 +46,16 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData) {
-        RandomSource randomsource = pLevel.getRandom();
-
-        CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), this.random);
-        setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-
-        this.setCustomName(Component.literal(getRandomName(randomsource)));
 
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+    }
+
+    @Override
+    public void specialProcedures() {
+        CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), this.random);
+        setVariant(variant);
+        this.populateDefaultEquipmentSlots(this.random);
+        this.setCustomName(Component.literal(getRandomName(this.random)));
     }
 
     public static AttributeSupplier setAttributes() {
@@ -93,6 +93,7 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
 
                 stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_X, this.getDeathX());
                 stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_Z, this.getDeathZ());
+                stack.set(ModDataComponents.DIFFICULTY, random.nextInt(1,2+1));
 
 //                stack.setTag(new CompoundTag());
 //                stack.getTag().putFloat("DeathX", this.getDeathX());
@@ -148,10 +149,13 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
 
 
         //Spawn weapons
-        if ((double) this.random.nextFloat() < 0.8) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.9F);
+        double randomValue2 = this.random.nextFloat();
+        if (randomValue2 < 0.8) {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.95F);
+        } else if (randomValue2 < 0.99){
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.95F);
         } else {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.9F);
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD), pRandom, 1.0F);
         }
     }
 
