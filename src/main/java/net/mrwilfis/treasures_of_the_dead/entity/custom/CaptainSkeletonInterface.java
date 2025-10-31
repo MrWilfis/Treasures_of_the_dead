@@ -58,6 +58,7 @@ public interface CaptainSkeletonInterface {
             CaptainManNames.add("Уилсон");
             CaptainManNames.add("Эйс");
             CaptainManNames.add("Роберт");
+            CaptainManNames.add("Рейн");
         } else {
             CaptainManNames.add("Duke");
             CaptainManNames.add("Johny");
@@ -84,6 +85,7 @@ public interface CaptainSkeletonInterface {
             CaptainManNames.add("Wilson");
             CaptainManNames.add("Ace");
             CaptainManNames.add("Robert");
+            CaptainManNames.add("Rain");
         }
         if (rus) {
             CaptainWomanNames.add("Элиза");
@@ -104,6 +106,7 @@ public interface CaptainSkeletonInterface {
             CaptainWomanNames.add("Шарлотта");
             CaptainWomanNames.add("Маргарет");
             CaptainWomanNames.add("Джейн");
+            CaptainWomanNames.add("Нами");
         } else {
             CaptainWomanNames.add("Eliza");
             CaptainWomanNames.add("Katarina");
@@ -123,6 +126,7 @@ public interface CaptainSkeletonInterface {
             CaptainWomanNames.add("Charlotte");
             CaptainWomanNames.add("Margaret");
             CaptainWomanNames.add("Jane");
+            CaptainWomanNames.add("Nami");
         }
         //Titles 1 - always in the start of Name (Examples: FEARLESS Jack, DIRTY Walter). It is all adjectives
         if (rus) {
@@ -147,6 +151,7 @@ public interface CaptainSkeletonInterface {
             CaptainTitles1.add("Молчаливый");
             CaptainTitles1.add("Опасный");
             CaptainTitles1.add("Подрывник");
+            CaptainTitles1.add("Обманщик");
         } else {
             CaptainTitles1.add("Great");
             CaptainTitles1.add("Greatest");
@@ -169,6 +174,7 @@ public interface CaptainSkeletonInterface {
             CaptainTitles1.add("Silent");
             CaptainTitles1.add("Dangerous");
             CaptainTitles1.add("Bomber");
+            CaptainTitles1.add("Deceiver");
         }
         //Titles 2 - can be in the start or in the end of name (Examples: SEA WOLF Elizabeth, Duke THE KRAKEN SLAYER)
         if (rus) {
@@ -189,6 +195,7 @@ public interface CaptainSkeletonInterface {
             CaptainTitles2.add("Сломанные Кости");
             CaptainTitles2.add("Одиночка");
             CaptainTitles2.add("Гойда");
+            CaptainTitles2.add("Пройдоха");
         } else {
             CaptainTitles2.add("Sea Dog");
             CaptainTitles2.add("Sea Wolf");
@@ -207,6 +214,7 @@ public interface CaptainSkeletonInterface {
             CaptainTitles2.add("Broken Bones");
             CaptainTitles2.add("Loner");
             CaptainTitles2.add("Goida");
+            CaptainTitles2.add("Slicker");
         }
 
         String name;
