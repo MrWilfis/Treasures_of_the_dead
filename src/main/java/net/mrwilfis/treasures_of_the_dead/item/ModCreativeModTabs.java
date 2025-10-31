@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
+import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -51,16 +52,14 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.HATEFUL_SKULL_ITEM.get());
                         output.accept(ModItems.VILLAINOUS_SKULL_ITEM.get());
 
-                        output.accept(ModItems.TOTD_SKELETON_SPAWN_EGG.get());
-                        output.accept(ModItems.CAPTAIN_SKELETON_SPAWN_EGG.get());
-                        output.accept(ModItems.BLOOMING_SKELETON_SPAWN_EGG.get());
-                        output.accept(ModItems.CAPTAIN_BLOOMING_SKELETON_SPAWN_EGG.get());
-                        output.accept(ModItems.SHADOW_SKELETON_SPAWN_EGG.get());
-                        output.accept(ModItems.CAPTAIN_SHADOW_SKELETON_SPAWN_EGG.get());
-
                    //     output.accept(ModItems.MESSAGE_IN_BOTTLE.get());
                         output.accept(ModItems.SKELETONS_ORDER.get());
-                        output.accept(ModItems.SKELETON_CREW_ASSIGNMENT.get());
+                        for (int i = 0; i <= 5; i++) {
+                            ItemStack stack = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get());
+                            stack.set(ModDataComponents.DIFFICULTY, i);
+                            output.accept(stack);
+                        }
+
 
                         output.accept(ModItems.TREASURE_CHEST_ITEM.get());
                         output.accept(ModItems.TREASURE_KEY.get());
@@ -71,10 +70,24 @@ public class ModCreativeModTabs {
 
                         output.accept(ModBlocks.SKULL_MERCHANT_TABLE.get());
 
+                        output.accept(ModBlocks.SMALL_IRON_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_GOLDEN_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_IRON_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_GOLDEN_SOUL_BRAZIER.get());
+
                     //    output.accept(ModItems.PISTOL.get());
                     //    output.accept(ModItems.CARTRIDGE.get());
 
                         output.accept(ModItems.BLUNDER_BOMB.get());
+
+                        output.accept(ModItems.TOTD_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.BLOOMING_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_BLOOMING_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.SHADOW_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_SHADOW_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.GOLDEN_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.CAPTAIN_GOLDEN_SKELETON_SPAWN_EGG.get());
 
                     })
                     .build());
