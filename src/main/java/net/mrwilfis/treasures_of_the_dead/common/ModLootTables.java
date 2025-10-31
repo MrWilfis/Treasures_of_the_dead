@@ -30,7 +30,7 @@ public class ModLootTables {
     }
 
     private static ResourceKey<LootTable> register(String name) {
-        return register(ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, name)));
+        return register(ResourceKey.create(Registries.LOOT_TABLE, Treasures_of_the_dead.resource(name)));
     }
 
     private static ResourceKey<LootTable> register(ResourceKey<LootTable> name) {
