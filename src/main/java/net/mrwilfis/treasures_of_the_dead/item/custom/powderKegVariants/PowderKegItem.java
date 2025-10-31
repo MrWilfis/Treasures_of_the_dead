@@ -60,6 +60,7 @@ public class PowderKegItem extends AbstractPowderKegItem implements GeoItem {
 
         }
         keg.setYRot(yaw - 180.0f);
+        keg.yHeadRot = yaw - 180.0f;
 //        if (stack.hasCustomHoverName()) {
 //            keg.setCustomName(stack.getHoverName());
 //        }
