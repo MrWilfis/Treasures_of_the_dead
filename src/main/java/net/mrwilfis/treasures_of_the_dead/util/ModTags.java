@@ -11,7 +11,7 @@ import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 public class ModTags {
     public static class Blocks {
         private static TagKey<Block> createTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, name));
+            return BlockTags.create(Treasures_of_the_dead.resource(name));
         }
     }
 
@@ -19,7 +19,7 @@ public class ModTags {
         public static final TagKey<Item> TROPHY_SKULLS = createTag("trophy_skulls");
 
         private static TagKey<Item> createTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, name));
+            return ItemTags.create(Treasures_of_the_dead.resource(name));
         }
     }
 }
