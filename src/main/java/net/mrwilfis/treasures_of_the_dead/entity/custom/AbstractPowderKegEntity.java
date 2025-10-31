@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import org.jetbrains.annotations.NotNull;
 
 public class AbstractPowderKegEntity extends AnyTreasureClass {
@@ -150,13 +152,21 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
                 || pSource.is(DamageTypes.SONIC_BOOM);
         boolean slowExplosion = pSource.is(DamageTypes.LAVA) || pSource.is(DamageTypes.HOT_FLOOR) || pSource.is(DamageTypes.ON_FIRE);
         boolean isSourceExplosion =  pSource.is(DamageTypes.PLAYER_EXPLOSION) || pSource.is(DamageTypes.EXPLOSION);
+        boolean isBlunderBomb = pSource.getDirectEntity() instanceof BlunderBombEntity;
 
         if (fastExplosion) {
             explodeKeg();
-        } else if (isSourceExplosion) {
+        } else if (isSourceExplosion && !isBlunderBomb) {
             if (pAmount > 30) {
                 setPrepareToBlowUp(getMaxPrepareToBlowUp()-1);
             } else if (pAmount > 16) {
+                setPrepareToBlowUp(getMaxPrepareToBlowUp()-20);
+            }
+            setIsGoingToBlowUp(true);
+        } else if (isSourceExplosion && isBlunderBomb) {
+            if (pAmount > 9) {
+                setPrepareToBlowUp(getMaxPrepareToBlowUp()-1);
+            } else if (pAmount > 5) {
                 setPrepareToBlowUp(getMaxPrepareToBlowUp()-20);
             }
             setIsGoingToBlowUp(true);
@@ -167,6 +177,7 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
         else if (!isInvulnerableTo(pSource)) {
             this.turnIntoItem();
         }
+        //System.out.println("DAMAGE: " + pAmount + " " + isBlunderBomb);
         return super.hurt(pSource, pAmount);
     }
 
