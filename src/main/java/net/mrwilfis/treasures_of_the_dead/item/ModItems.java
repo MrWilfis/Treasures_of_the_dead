@@ -127,6 +127,11 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.SHADOW_SKELETON, 0x272530, 0x4b485c,  new Item.Properties()));
     public static final DeferredItem<Item> CAPTAIN_SHADOW_SKELETON_SPAWN_EGG = ITEMS.register("captain_shadow_skeleton_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.CAPTAIN_SHADOW_SKELETON, 0x272530, 0xb48820,  new Item.Properties()));
+    public static final DeferredItem<Item> GOLDEN_SKELETON_SPAWN_EGG = ITEMS.register("golden_skeleton_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.GOLDEN_SKELETON, 0x5e4c14, 0xe0b73b,  new Item.Properties()));
+    public static final DeferredItem<Item> CAPTAIN_GOLDEN_SKELETON_SPAWN_EGG = ITEMS.register("captain_golden_skeleton_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.CAPTAIN_GOLDEN_SKELETON, 0x5e4c14, 0xe48820,  new Item.Properties()));
+
 
 
     public static final DeferredItem<Item> MESSAGE_IN_BOTTLE = ITEMS.register("message_in_bottle",
