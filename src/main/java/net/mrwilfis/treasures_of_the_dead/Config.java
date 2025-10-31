@@ -17,7 +17,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 @EventBusSubscriber(modid = Treasures_of_the_dead.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class Config
 {
-    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
 
     private static final ModConfigSpec.IntValue RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS;
     private static final ModConfigSpec.ConfigValue<String> CAPTAIN_NAMES_LANG;
@@ -28,21 +29,26 @@ public class Config
 
     static {
         BUILDER.push("Treasures of the dead - Common Config!");
-        RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS = BUILDER.comment("For big adventures you can set this parameter to your distance of view. (if the value of this parameter is higher than your distance of view, than buried treasures and skeletons will spawning in bedrock)").defineInRange("randomAdventureItemDistanceInChunks", 8, 6, 128);
-        CAPTAIN_NAMES_LANG = BUILDER.comment("(For servers) For now you can use only ru_ru or en_us").define("captain_names_lang", "en_us");
+
+        RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS = BUILDER
+                .comment("For big adventures you can set this parameter to your distance of view. (if the value of this parameter is higher than your distance of view, than buried treasures and skeletons will spawning in bedrock)")
+                .defineInRange("randomAdventureItemDistanceInChunks", 8, 6, 128);
+        CAPTAIN_NAMES_LANG = BUILDER
+                .comment("(For servers) For now you can use only ru_ru or en_us")
+                .define("captain_names_lang", "en_us");
 
         BUILDER.comment("ALL BELOW IS NOT WORKING FOR NOW!");
         PIRATE_SKELETON_HEALTH = BUILDER.define("pirateSkeletonHealth", 26.0);
         PIRATE_SKELETON_DAMAGE = BUILDER.define("pirateSkeletonDamage", 3.0);
-        CAPTAIN_SKELETON_HEALTH = BUILDER.define("captainSkeletonHealth", 60.0);
+        CAPTAIN_SKELETON_HEALTH = BUILDER.define("captainSkeletonHealth", 70.0);
         CAPTAIN_SKELETON_DAMAGE = BUILDER.define("captainSkeletonDamage", 4.0);
 
         BUILDER.pop();
-
+        SPEC = BUILDER.build();
     }
 
 
-    static final ModConfigSpec SPEC = BUILDER.build();
+    //static final ModConfigSpec SPEC = BUILDER.build();
 
     public static Set<Item> items;
 
