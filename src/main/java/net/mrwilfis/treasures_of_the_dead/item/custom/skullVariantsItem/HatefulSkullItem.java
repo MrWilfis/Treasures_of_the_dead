@@ -45,6 +45,7 @@ public class HatefulSkullItem extends AbstractSkullItem implements GeoItem {
 
         }
         skull.setYRot(yaw - 180.0f);
+        skull.yHeadRot = yaw - 180.0f;
 //        if (stack.hasCustomHoverName()) {
 //            skull.setCustomName(stack.getHoverName());
 //        }
