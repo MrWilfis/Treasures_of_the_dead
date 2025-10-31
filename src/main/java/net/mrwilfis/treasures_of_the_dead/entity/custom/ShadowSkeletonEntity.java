@@ -46,13 +46,16 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData) {
-        RandomSource randomsource = pLevel.getRandom();
 
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+    }
+
+    @Override
+    public void specialProcedures() {
         ShadowSkeletonVariant variant = Util.getRandom(ShadowSkeletonVariant.values(), this.random);
         setVariant(variant);
 
-        this.populateDefaultEquipmentSlots(randomsource);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+        this.populateDefaultEquipmentSlots(this.random);
     }
 
     public static AttributeSupplier setAttributes() {

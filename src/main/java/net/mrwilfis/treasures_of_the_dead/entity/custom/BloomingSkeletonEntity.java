@@ -35,13 +35,15 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData) {
-        RandomSource randomsource = pLevel.getRandom();
 
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+    }
+
+    @Override
+    public void specialProcedures() {
         BloomingSkeletonVariant variant = Util.getRandom(BloomingSkeletonVariant.values(), this.random);
         setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+        this.populateDefaultEquipmentSlots(this.random);
     }
 
     public static AttributeSupplier setAttributes() {
@@ -70,7 +72,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
             }
         } else {
             if (this.tickCount % 10 == 0) {
-                this.heal(1.0f);
+                this.heal(0.5f);
             }
         }
     }
