@@ -18,18 +18,8 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.BlunderBombEntity;
-import net.mrwilfis.treasures_of_the_dead.item.client.BlunderBombItemRenderer;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.client.GeoRenderProvider;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
 
-import java.util.function.Consumer;
-
-public class BlunderBombItem extends Item implements GeoItem, GeoAnimatable, ProjectileItem {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+public class BlunderBombItem extends Item implements ProjectileItem {
 
     public BlunderBombItem(Properties properties) {
         super(properties);
@@ -85,33 +75,10 @@ public class BlunderBombItem extends Item implements GeoItem, GeoAnimatable, Pro
     }
 
     @Override
-    public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        consumer.accept(new GeoRenderProvider() {
-            private BlunderBombItemRenderer renderer;
-
-            @Override
-            public BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
-                if (this.renderer == null)
-                    this.renderer = new BlunderBombItemRenderer();
-
-                return this.renderer;
-            }
-        });
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-
-    @Override
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
+        System.out.println("BLUNDER BOMB FROM DISPENSER");
         BlunderBombEntity bomb = new BlunderBombEntity(level, pos.x(), pos.y(), pos.z());
+        bomb.shoot(direction.getStepX(), direction.getStepY(), direction.getStepZ(), 1.0f, 1.0f);
         return bomb;
     }
 }
