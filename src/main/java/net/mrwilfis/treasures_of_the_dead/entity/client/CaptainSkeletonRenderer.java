@@ -48,21 +48,21 @@ public class CaptainSkeletonRenderer extends GeoEntityRenderer<CaptainSkeletonEn
     public static final Map<CaptainSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainSkeletonVariant.DEFAULT,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton1.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR1,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton2.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR2,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton3.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR3,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton4.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton4.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR4,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton5.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton5.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR5,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton6.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton6.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR6,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_skeleton1.png"));
                 p_114874_.put(CaptainSkeletonVariant.VAR7,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_skeleton2.png"));
             });
 
 

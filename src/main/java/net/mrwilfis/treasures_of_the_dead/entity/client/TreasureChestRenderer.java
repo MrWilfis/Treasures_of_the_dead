@@ -18,7 +18,7 @@ public class TreasureChestRenderer extends GeoEntityRenderer<TreasureChestEntity
 
     @Override
     public ResourceLocation getTextureLocation(TreasureChestEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/treasure_chest.png");
+        return Treasures_of_the_dead.resource("textures/entity/treasure_chest.png");
     }
 
     @Override

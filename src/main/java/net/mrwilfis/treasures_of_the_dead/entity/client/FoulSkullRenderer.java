@@ -18,7 +18,7 @@ public class FoulSkullRenderer extends GeoEntityRenderer<FoulSkullEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(FoulSkullEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/foul_skull.png");
+        return Treasures_of_the_dead.resource("textures/entity/foul_skull.png");
     }
 
     @Override

@@ -15,13 +15,13 @@ public class CaptainShadowSkeletonModel extends GeoModel<CaptainShadowSkeletonEn
     @Override
     public ResourceLocation getModelResource(CaptainShadowSkeletonEntity captainShadowSkeletonEntity) {
         if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR1)) {
-            return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton1.geo.json");
+            return Treasures_of_the_dead.resource("geo/captain_shadow_skeleton1.geo.json");
         } else if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR2)) {
-            return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton2.geo.json");
+            return Treasures_of_the_dead.resource("geo/captain_shadow_skeleton2.geo.json");
         } else if (captainShadowSkeletonEntity.getCaptainShadowVariant().equals(CaptainShadowSkeletonVariant.VAR3)) {
-            return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton2.geo.json");
+            return Treasures_of_the_dead.resource("geo/captain_shadow_skeleton2.geo.json");
         } else {
-            return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/captain_shadow_skeleton1.geo.json");
+            return Treasures_of_the_dead.resource("geo/captain_shadow_skeleton1.geo.json");
         }
     }
 
@@ -33,7 +33,7 @@ public class CaptainShadowSkeletonModel extends GeoModel<CaptainShadowSkeletonEn
 
     @Override
     public ResourceLocation getAnimationResource(CaptainShadowSkeletonEntity captainShadowSkeletonEntityy) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/totd_skeleton.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/totd_skeleton.animation.json");
     }
 
     @Override

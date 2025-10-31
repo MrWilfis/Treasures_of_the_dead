@@ -13,17 +13,17 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class BulletModel extends GeoModel<BulletEntity> {
     @Override
     public ResourceLocation getModelResource(BulletEntity bulletEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/bullet.geo.json");
+        return Treasures_of_the_dead.resource("geo/bullet.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(BulletEntity bulletEntity) {
-          return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/bullet.png");
+          return Treasures_of_the_dead.resource("textures/entity/bullet.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(BulletEntity bulletEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/bullet.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/bullet.animation.json");
     }
     @Override
     public void setCustomAnimations(BulletEntity bulletEntity, long instanceId, AnimationState<BulletEntity> animationState) {

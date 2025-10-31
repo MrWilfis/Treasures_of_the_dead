@@ -8,16 +8,16 @@ import software.bernie.geckolib.model.GeoModel;
 public class PistolModel extends GeoModel<PistolItem> {
     @Override
     public ResourceLocation getModelResource(PistolItem pistolItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/pistol.geo.json");
+        return Treasures_of_the_dead.resource("geo/pistol.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(PistolItem pistolItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/item/pistol.png");
+        return Treasures_of_the_dead.resource("textures/item/pistol.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(PistolItem pistolItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/item/pistol.animation.json");
+        return Treasures_of_the_dead.resource("animations/item/pistol.animation.json");
     }
 }

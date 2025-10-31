@@ -13,17 +13,17 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class PowderKegModel extends GeoModel<PowderKegEntity> {
     @Override
     public ResourceLocation getModelResource(PowderKegEntity powderKegEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/powder_keg.geo.json");
+        return Treasures_of_the_dead.resource("geo/powder_keg.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(PowderKegEntity powderKegEntity) {
-          return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/powder_keg.png");
+          return Treasures_of_the_dead.resource("textures/entity/powder_keg.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(PowderKegEntity powderKegEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/powder_keg.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/powder_keg.animation.json");
     }
     @Override
     public void setCustomAnimations(PowderKegEntity animatable, long instanceId, AnimationState<PowderKegEntity> animationState) {

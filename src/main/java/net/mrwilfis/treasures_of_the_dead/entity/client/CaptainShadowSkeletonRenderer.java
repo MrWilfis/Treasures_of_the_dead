@@ -49,13 +49,13 @@ public class CaptainShadowSkeletonRenderer extends GeoEntityRenderer<CaptainShad
     public static final Map<CaptainShadowSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainShadowSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainShadowSkeletonVariant.DEFAULT,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR1,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR2,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton2.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR3,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/captain_shadow_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton2.png"));
             });
 
 

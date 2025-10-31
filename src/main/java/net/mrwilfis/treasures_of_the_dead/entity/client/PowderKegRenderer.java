@@ -16,7 +16,7 @@ public class PowderKegRenderer extends GeoEntityRenderer<PowderKegEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(PowderKegEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/powder_keg.png");
+        return Treasures_of_the_dead.resource("textures/entity/powder_keg.png");
     }
 
     @Override

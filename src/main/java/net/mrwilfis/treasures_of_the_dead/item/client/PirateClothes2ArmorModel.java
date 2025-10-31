@@ -9,16 +9,16 @@ import software.bernie.geckolib.model.GeoModel;
 public class PirateClothes2ArmorModel extends GeoModel<PirateClothes2ArmorItem> {
     @Override
     public ResourceLocation getModelResource(PirateClothes2ArmorItem pirateClothes2ArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/pirate_clothes2.geo.json");
+        return Treasures_of_the_dead.resource("geo/pirate_clothes2.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(PirateClothes2ArmorItem pirateClothes2ArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/armor/pirate_clothes2.png");
+        return Treasures_of_the_dead.resource("textures/armor/pirate_clothes2.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(PirateClothes2ArmorItem pirateClothes2ArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/armor/pirate_clothes1.animation.json");
+        return Treasures_of_the_dead.resource("animations/armor/pirate_clothes1.animation.json");
     }
 }

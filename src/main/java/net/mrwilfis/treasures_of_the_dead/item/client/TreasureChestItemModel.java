@@ -9,17 +9,17 @@ import software.bernie.geckolib.model.GeoModel;
 public class TreasureChestItemModel extends GeoModel<TreasureChestItem> {
     @Override
     public ResourceLocation getModelResource(TreasureChestItem TreasureChestItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/treasure_chest.geo.json");
+        return Treasures_of_the_dead.resource("geo/treasure_chest.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(TreasureChestItem TreasureChestItem) {
-          return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/treasure_chest.png");
+          return Treasures_of_the_dead.resource("textures/entity/treasure_chest.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(TreasureChestItem TreasureChestItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/treasure_chest.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/treasure_chest.animation.json");
     }
 
 }

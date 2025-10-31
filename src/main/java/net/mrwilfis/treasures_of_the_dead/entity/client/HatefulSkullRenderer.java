@@ -19,7 +19,7 @@ public class HatefulSkullRenderer extends GeoEntityRenderer<HatefulSkullEntity> 
 
     @Override
     public ResourceLocation getTextureLocation(HatefulSkullEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/hateful_skull.png");
+        return Treasures_of_the_dead.resource("textures/entity/hateful_skull.png");
     }
 
     @Override

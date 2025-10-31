@@ -22,7 +22,7 @@ public class DisgracedSkullRenderer extends GeoEntityRenderer<DisgracedSkullEnti
 
     @Override
     public ResourceLocation getTextureLocation(DisgracedSkullEntity skull) {
-            return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/disgraced_skull.png");
+            return Treasures_of_the_dead.resource("textures/entity/disgraced_skull.png");
     }
 
     @Override

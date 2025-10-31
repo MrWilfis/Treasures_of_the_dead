@@ -23,7 +23,7 @@ public class VillainousSkullRenderer extends GeoEntityRenderer<VillainousSkullEn
 
     @Override
     public ResourceLocation getTextureLocation(VillainousSkullEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/villainous_skull.png");
+        return Treasures_of_the_dead.resource("textures/entity/villainous_skull.png");
     }
 
     @Override

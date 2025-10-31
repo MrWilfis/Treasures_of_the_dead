@@ -48,17 +48,17 @@ public class ShadowSkeletonRenderer extends GeoEntityRenderer<ShadowSkeletonEnti
     public static final Map<ShadowSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(ShadowSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(ShadowSkeletonVariant.DEFAULT,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton1.png"));
                 p_114874_.put(ShadowSkeletonVariant.VAR1,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton2.png"));
                 p_114874_.put(ShadowSkeletonVariant.VAR2,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton3.png"));
                 p_114874_.put(ShadowSkeletonVariant.VAR3,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton4.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton4.png"));
                 p_114874_.put(ShadowSkeletonVariant.VAR4,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton5.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton5.png"));
                 p_114874_.put(ShadowSkeletonVariant.VAR5,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/shadow_skeleton6.png"));
+                        Treasures_of_the_dead.resource("textures/entity/shadow_skeleton6.png"));
             });
 
 

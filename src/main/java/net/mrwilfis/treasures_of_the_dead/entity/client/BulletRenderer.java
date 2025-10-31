@@ -23,7 +23,7 @@ public class BulletRenderer extends GeoEntityRenderer<BulletEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(BulletEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/bullet.png");
+        return Treasures_of_the_dead.resource("textures/entity/bullet.png");
     }
 
     @Override

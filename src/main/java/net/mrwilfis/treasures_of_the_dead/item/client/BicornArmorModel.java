@@ -8,16 +8,16 @@ import software.bernie.geckolib.model.GeoModel;
 public class BicornArmorModel extends GeoModel<BicornArmorItem> {
     @Override
     public ResourceLocation getModelResource(BicornArmorItem bicornArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/bicorn.geo.json");
+        return Treasures_of_the_dead.resource("geo/bicorn.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(BicornArmorItem bicornArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/armor/bicorn.png");
+        return Treasures_of_the_dead.resource("textures/armor/bicorn.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(BicornArmorItem bicornArmorItem) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/armor/bicorn.animation.json");
+        return Treasures_of_the_dead.resource("animations/armor/bicorn.animation.json");
     }
 }

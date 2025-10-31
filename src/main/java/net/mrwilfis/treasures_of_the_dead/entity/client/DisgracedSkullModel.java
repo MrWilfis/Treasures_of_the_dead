@@ -13,17 +13,17 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class DisgracedSkullModel extends GeoModel<DisgracedSkullEntity> {
     @Override
     public ResourceLocation getModelResource(DisgracedSkullEntity disgracedSkullEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/disgraced_skull.geo.json");
+        return Treasures_of_the_dead.resource("geo/disgraced_skull.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(DisgracedSkullEntity disgracedSkullEntity) {
-          return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/disgraced_skull.png");
+          return Treasures_of_the_dead.resource("textures/entity/disgraced_skull.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(DisgracedSkullEntity disgracedSkullEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/totd_skull.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/totd_skull.animation.json");
     }
     @Override
     public void setCustomAnimations(DisgracedSkullEntity animatable, long instanceId, AnimationState<DisgracedSkullEntity> animationState) {

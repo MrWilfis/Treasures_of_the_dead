@@ -13,7 +13,7 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class TOTDSkeletonModel extends GeoModel<TOTDSkeletonEntity> {
     @Override
     public ResourceLocation getModelResource(TOTDSkeletonEntity totdSkeletonEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "geo/totd_skeleton.geo.json");
+        return Treasures_of_the_dead.resource("geo/totd_skeleton.geo.json");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class TOTDSkeletonModel extends GeoModel<TOTDSkeletonEntity> {
 
     @Override
     public ResourceLocation getAnimationResource(TOTDSkeletonEntity totdSkeletonEntity) {
-        return ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "animations/entity/totd_skeleton.animation.json");
+        return Treasures_of_the_dead.resource("animations/entity/totd_skeleton.animation.json");
     }
 
     @Override

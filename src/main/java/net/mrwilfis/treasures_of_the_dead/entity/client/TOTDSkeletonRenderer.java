@@ -47,17 +47,17 @@ public class TOTDSkeletonRenderer extends GeoEntityRenderer<TOTDSkeletonEntity> 
     public static final Map<TOTDSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(TOTDSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(TOTDSkeletonVariant.DEFAULT,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton1.png"));
                 p_114874_.put(TOTDSkeletonVariant.VAR1,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton2.png"));
                 p_114874_.put(TOTDSkeletonVariant.VAR2,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton3.png"));
                 p_114874_.put(TOTDSkeletonVariant.VAR3,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton4.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton4.png"));
                 p_114874_.put(TOTDSkeletonVariant.VAR4,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton5.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton5.png"));
                 p_114874_.put(TOTDSkeletonVariant.VAR5,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/pirate_skeleton6.png"));
+                        Treasures_of_the_dead.resource("textures/entity/pirate_skeleton6.png"));
             });
 
 

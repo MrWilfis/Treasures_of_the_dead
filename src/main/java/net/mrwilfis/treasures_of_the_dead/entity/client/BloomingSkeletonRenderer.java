@@ -47,17 +47,17 @@ public class BloomingSkeletonRenderer extends GeoEntityRenderer<BloomingSkeleton
     public static final Map<BloomingSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(BloomingSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(BloomingSkeletonVariant.DEFAULT,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton1.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR1,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton1.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR2,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR3,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR4,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton3.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR5,
-                        ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "textures/entity/blooming_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton3.png"));
             });
 
 

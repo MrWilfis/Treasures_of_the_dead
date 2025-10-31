@@ -13,7 +13,7 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 
 public class CaptainShadowSkeletonRenderLayer extends GeoRenderLayer<CaptainShadowSkeletonEntity> {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID,"textures/entity/shadow_skeleton_eyes.png");
+    private static final ResourceLocation TEXTURE = Treasures_of_the_dead.resource("textures/entity/shadow_skeleton_eyes.png");
 
     public CaptainShadowSkeletonRenderLayer(CaptainShadowSkeletonRenderer render) {
         super(render);
