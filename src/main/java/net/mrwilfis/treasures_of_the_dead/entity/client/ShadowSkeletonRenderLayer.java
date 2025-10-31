@@ -22,7 +22,7 @@ import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 import java.util.Map;
 
 public class ShadowSkeletonRenderLayer extends GeoRenderLayer<ShadowSkeletonEntity> {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID,"textures/entity/shadow_skeleton_eyes.png");
+    private static final ResourceLocation TEXTURE = Treasures_of_the_dead.resource("textures/entity/shadow_skeleton_eyes.png");
 
     public ShadowSkeletonRenderLayer(ShadowSkeletonRenderer render) {
         super(render);
