@@ -3,8 +3,11 @@ package net.mrwilfis.treasures_of_the_dead.event;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.advancements.critereon.ItemEnchantmentsPredicate;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -13,11 +16,16 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.BlunderBombEntity;
 import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
@@ -64,19 +72,19 @@ public class ModEvents {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = tradeEvent.getTrades();
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.BONE, randomSource.nextInt(25, 35+1)),
+                    new ItemCost(Items.BONE, randomSource.nextInt(30, 34+1)),
                     new ItemStack(Items.EMERALD, 1),
                     16, 2, 0.05f));
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(ModItems.FOUL_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(2, 5+1)),
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(5, 6+1)),
                     8, 4, 0.05f));
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(ModItems.DISGRACED_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(6, 12+1)),
-                    6, 4, 0.05f));
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(9, 11+1)),
+                    8, 4, 0.05f));
 
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.AMETHYST_SHARD, 21),
@@ -85,24 +93,38 @@ public class ModEvents {
 
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(ModItems.HATEFUL_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(13, 22+1)),
-                    4, 8, 0.05f));
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(15, 17+1)),
+                    8, 8, 0.05f));
 
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(ModItems.VILLAINOUS_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(23, 44+1)),
-                    4, 12, 0.05f));
-
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(26, 28+1)),
+                    8, 12, 0.05f));
+            trades.get(3).add((entity, randomSource) -> {
+                ItemStack skeletonCrewAssignment = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1);
+                skeletonCrewAssignment.set(ModDataComponents.DIFFICULTY, randomSource.nextInt(2, 3+1));
+                return new MerchantOffer(
+                        new ItemCost(Items.EMERALD, randomSource.nextInt(11, 14+1)),
+                        skeletonCrewAssignment,
+                        1, 16, 0.05f);
+            });
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, randomSource.nextInt(8, 16+1)),
-                    Optional.of(new ItemCost(ModItems.FOUL_SKULL_ITEM.get(), randomSource.nextInt(1, 2 + 1))),
-                    new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1),
-                    1, 16, 0.05f));
+                    new ItemCost(Items.EMERALD, 1),
+                    new ItemStack(ModItems.BLUNDER_BOMB.get(), 3),
+                    32, 2, 0.05f));
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, 32),
                     Optional.of(new ItemCost(Items.DIAMOND, 7)),
                     new ItemStack(ModItems.ORDER_OF_SOULS_SMITHING_TEMPLATE.get(), 1),
                     8, 16, 0.05f));
+            trades.get(5).add((entity, randomSource) -> {
+                ItemStack skeletonCrewAssignment = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1);
+                skeletonCrewAssignment.set(ModDataComponents.DIFFICULTY, randomSource.nextInt(4,5+1));
+                return new MerchantOffer(
+                        new ItemCost(Items.EMERALD, randomSource.nextInt(17, 20+1)),
+                        skeletonCrewAssignment,
+                        1, 16, 0.05f);
+            });
         }
     }
 }
