@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ModTrimPatterns {
     public static final ResourceKey<TrimPattern> ORDER_OF_SOULS =ResourceKey.create(Registries.TRIM_PATTERN,
-            ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "order_of_souls"));
+            Treasures_of_the_dead.resource("order_of_souls"));
 
     public static void bootstrap(BootstrapContext<TrimPattern> context) {
         register(context, ModItems.ORDER_OF_SOULS_SMITHING_TEMPLATE, ORDER_OF_SOULS);
