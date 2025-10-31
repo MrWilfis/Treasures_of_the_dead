@@ -21,6 +21,10 @@ public class ModDataComponents {
             "death_z",
             builder -> builder.persistent(Codec.FLOAT).networkSynchronized(ByteBufCodecs.FLOAT)
     );
+    public static final DataComponentType<Integer> DIFFICULTY = register(
+            "difficulty",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT)
+    );
     public static final DataComponentType<Boolean> TREASURE_CHEST_IS_ROBBED = register(
             "treasure_chest_is_robbed",
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL)
