@@ -1,6 +1,7 @@
 package net.mrwilfis.treasures_of_the_dead;
 
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
@@ -9,25 +10,17 @@ import net.mrwilfis.treasures_of_the_dead.entity.client.*;
 import net.mrwilfis.treasures_of_the_dead.event.ModEvents;
 import net.mrwilfis.treasures_of_the_dead.item.ModCreativeModTabs;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.mrwilfis.treasures_of_the_dead.particle.BlunderBombExplosionParticles;
+import net.mrwilfis.treasures_of_the_dead.particle.ModParticles;
+import net.mrwilfis.treasures_of_the_dead.particle.RustedGoldenSkeletonParticles;
+import net.mrwilfis.treasures_of_the_dead.sound.ModSounds;
 import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -40,10 +33,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.nio.file.Path;
 
@@ -73,11 +62,15 @@ public class Treasures_of_the_dead
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModCreativeModTabs.register(modEventBus);
+
         ModEntities.register(modEventBus);
-        ModDataComponents.register(modEventBus);
         ModVillagers.register(modEventBus);
 
+        ModSounds.register(modEventBus);
+        ModParticles.register(modEventBus);
+        ModDataComponents.register(modEventBus);
+
+        ModCreativeModTabs.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -115,6 +108,8 @@ public class Treasures_of_the_dead
             EntityRenderers.register(ModEntities.CAPTAIN_BLOOMING_SKELETON.get(), CaptainBloomingSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.SHADOW_SKELETON.get(), ShadowSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.CAPTAIN_SHADOW_SKELETON.get(), CaptainShadowSkeletonRenderer::new);
+            EntityRenderers.register(ModEntities.GOLDEN_SKELETON.get(), GoldenSkeletonRenderer::new);
+            EntityRenderers.register(ModEntities.CAPTAIN_GOLDEN_SKELETON.get(), CaptainGoldenSkeletonRenderer::new);
 
             EntityRenderers.register(ModEntities.FOUL_SKULL.get(), FoulSkullRenderer::new);
             EntityRenderers.register(ModEntities.DISGRACED_SKULL.get(), DisgracedSkullRenderer::new);
@@ -127,6 +122,14 @@ public class Treasures_of_the_dead
 
             EntityRenderers.register(ModEntities.BULLET.get(), BulletRenderer::new);
             EntityRenderers.register(ModEntities.BLUNDER_BOMB.get(), BlunderBombRenderer::new);
+
+            EntityRenderers.register(ModEntities.SKELETON_CREW_CAMP.get(), NoopRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticlesFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.BLUNDER_BOMB_EXPLOSION_PARTICLES.get(), BlunderBombExplosionParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.RUSTED_GOLDEN_SKELETON_PARTICLES.get(), RustedGoldenSkeletonParticles.Provider::new);
         }
     }
 }
