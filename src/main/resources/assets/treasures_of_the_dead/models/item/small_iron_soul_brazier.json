@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "treasures_of_the_dead:item/small_iron_soul_brazier"
+  }
+}
