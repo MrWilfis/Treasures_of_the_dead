@@ -3,6 +3,7 @@ package net.mrwilfis.treasures_of_the_dead.item.custom;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -15,32 +16,36 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
+import net.mrwilfis.treasures_of_the_dead.Config;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.VillainousSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.*;
+import org.jetbrains.annotations.Nullable;
 
 
+import java.util.List;
 import java.util.Random;
 
 public class RandomSpawningAdventureItem extends Item {
-    private final int range;
     private final String taskType; // TYPES: treasure_map, skeleton_crew, random_task, and I will be adding new types
 
-    public RandomSpawningAdventureItem(Properties pProperties, int range, String taskType) {
+    public RandomSpawningAdventureItem(Properties pProperties, String taskType) {
         super(pProperties);
-        this.range = range;
         this.taskType = taskType;
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand pUsedHand) {
+
+        int range = Config.randomAdventureItemDistanceInChunks * 16;
 
         RandomSource random = level.getRandom();
         Random rand = new Random();
@@ -57,9 +62,19 @@ public class RandomSpawningAdventureItem extends Item {
         double Y = player.getY();
         double Z = player.getZ();
 
+        int difficulty = 0;
+
         if (stack.getTag() != null) {
-            X = stack.getTag().getFloat("DeathX");
-            Z = stack.getTag().getFloat("DeathZ");
+            if (stack.getTag().contains("DeathX") && stack.getTag().contains("DeathZ")) {
+                X = stack.getTag().getFloat("DeathX");
+                Z = stack.getTag().getFloat("DeathZ");
+            }
+        }
+
+        if (stack.getTag() != null) {
+            if (stack.getTag().contains("Difficulty")) {
+                difficulty = stack.getTag().getInt("Difficulty");
+            }
         }
 
         X = rand.nextDouble(X-range, X+range);
@@ -78,7 +93,9 @@ public class RandomSpawningAdventureItem extends Item {
 
             level.getChunk(chunkX, chunkZ);
 
-
+            if (!player.isCreative()) {
+                stack.shrink(1);
+            }
 
             if (taskType.equals("treasure_map") || (taskType.equals("random_task") && randomValue < 0.67f)) {
                 Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
@@ -100,15 +117,26 @@ public class RandomSpawningAdventureItem extends Item {
                     pos = new BlockPos((int)X, (int)Y, (int)Z);
                 }
 
-                summonSkeletonCrew(X, Y, Z, player, level, random);
+                //summonSkeletonCrew(X, Y, Z, player, level, random);
+
+                summonSkeletonCrewCamp(X, Y, Z, player, level, random, difficulty);
             }
 
-            if (!player.isCreative()) {
-                stack.shrink(1);
-            }
+
         }
 
+        player.awardStat(Stats.ITEM_USED.get(this));
+
         return super.use(level, player, pUsedHand);
+    }
+
+    private void summonSkeletonCrewCamp(double x, double y, double z, Player player, Level level, RandomSource random, int difficulty) {
+        if (!level.isClientSide) {
+            giveMap(x, y, z, player, level, random, "filled_map.treasures_of_the_dead.skeleton_crew", "skeleton_crew");
+            SkeletonCrewCamp skeletonCrewCamp = new SkeletonCrewCamp(ModEntities.SKELETON_CREW_CAMP.get(), level, difficulty, 3);
+            skeletonCrewCamp.moveTo(x, y, z);
+            level.addFreshEntity(skeletonCrewCamp);
+        }
     }
 
     private void summonSkeletonCrew(double x, double y, double z, Player player, Level level, RandomSource random) {
@@ -293,6 +321,18 @@ public class RandomSpawningAdventureItem extends Item {
             y = treasure.getBlockY();
             pos1 = new BlockPos(x, y, z);
             pos2 = new BlockPos(x, y-1, z);
+        }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, level, tooltipComponents, tooltipFlag);
+        int difficulty = 0;
+        if (stack.getTag() != null) {
+            difficulty = stack.getTag().getInt("Difficulty");
+        }
+        if (this.taskType.equals("skeleton_crew")) {
+            tooltipComponents.add(Component.translatable("tooltip.treasures_of_the_dead.quest_difficulty.tooltip", difficulty));
+            //tooltipComponents.add(Component.literal("Сложность задания: " + difficulty));
         }
     }
 }

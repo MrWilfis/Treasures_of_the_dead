@@ -12,6 +12,7 @@ execute at @e[type=treasures_of_the_dead:captain_shadow_skeleton, nbt={IsShadow:
 execute as @e[type=treasures_of_the_dead:captain_skeleton] run team join CaptainSkeletons @s
 execute as @e[type=treasures_of_the_dead:captain_blooming_skeleton] run team join CaptainSkeletons @s
 execute as @e[type=treasures_of_the_dead:captain_shadow_skeleton] run team join CaptainSkeletons @s
+execute as @e[type=treasures_of_the_dead:captain_golden_skeleton] run team join CaptainSkeletons @s
 #execute as @e[team=CaptainSkeletons] at @s if entity @p[distance=..8] run data merge entity @s {CustomNameVisible:1}
 #execute as @e[team=CaptainSkeletons] at @s if entity @p[distance=8..] run data merge entity @s {CustomNameVisible:0}
 

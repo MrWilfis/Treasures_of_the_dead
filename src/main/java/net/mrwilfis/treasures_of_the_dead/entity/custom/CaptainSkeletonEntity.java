@@ -41,17 +41,17 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
-
-        CaptainSkeletonVariant variant = Util.getRandom(CaptainSkeletonVariant.values(), this.random);
-        setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        this.setCustomName(Component.literal(getRandomName(randomsource)));
 
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-        }
+    }
+
+    @Override
+    public void specialProcedures() {
+        CaptainSkeletonVariant variant = Util.getRandom(CaptainSkeletonVariant.values(), this.random);
+        setVariant(variant);
+        this.populateDefaultEquipmentSlots(this.random);
+        this.setCustomName(Component.literal(getRandomName(this.random)));
+    }
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()

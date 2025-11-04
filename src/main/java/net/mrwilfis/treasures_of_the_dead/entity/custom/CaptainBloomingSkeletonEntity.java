@@ -21,7 +21,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.mrwilfis.treasures_of_the_dead.entity.variant.BloomingSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainBloomingSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
@@ -44,17 +43,16 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
-
-        CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), this.random);
-        setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-
-        this.setCustomName(Component.literal(getRandomName(randomsource)));
 
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    @Override
+    public void specialProcedures() {
+        CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), this.random);
+        setVariant(variant);
+        this.populateDefaultEquipmentSlots(this.random);
+        this.setCustomName(Component.literal(getRandomName(this.random)));
     }
 
     public static AttributeSupplier setAttributes() {

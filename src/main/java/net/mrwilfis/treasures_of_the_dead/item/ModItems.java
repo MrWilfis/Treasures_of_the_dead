@@ -109,14 +109,18 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.SHADOW_SKELETON, 0x272530, 0x4b485c,  new Item.Properties()));
     public static final RegistryObject<Item> CAPTAIN_SHADOW_SKELETON_SPAWN_EGG = ITEMS.register("captain_shadow_skeleton_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.CAPTAIN_SHADOW_SKELETON, 0x272530, 0xb48820,  new Item.Properties()));
+    public static final RegistryObject<Item> GOLDEN_SKELETON_SPAWN_EGG = ITEMS.register("golden_skeleton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.GOLDEN_SKELETON, 0x5e4c14, 0xe0b73b,  new Item.Properties()));
+    public static final RegistryObject<Item> CAPTAIN_GOLDEN_SKELETON_SPAWN_EGG = ITEMS.register("captain_golden_skeleton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.CAPTAIN_GOLDEN_SKELETON, 0x5e4c14, 0xe48820,  new Item.Properties()));
 
 
     public static final RegistryObject<Item> MESSAGE_IN_BOTTLE = ITEMS.register("message_in_bottle",
-            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "random_task"));
+            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), "random_task"));
     public static final RegistryObject<Item> SKELETONS_ORDER = ITEMS.register("skeletons_order",
-            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "treasure_map"));
+            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), "treasure_map"));
     public static final RegistryObject<Item> SKELETON_CREW_ASSIGNMENT = ITEMS.register("skeleton_crew_assignment",
-            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), 128, "skeleton_crew"));
+            () -> new RandomSpawningAdventureItem(new Item.Properties().stacksTo(1), "skeleton_crew"));
 
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol",
             () -> new PistolItem(new Item.Properties().durability(200), 1, 30));
@@ -125,6 +129,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> ORDER_OF_SOULS_SMITHING_TEMPLATE = ITEMS.register("order_of_souls_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "order_of_souls")));
+
+    public static final RegistryObject<Item> BLUNDER_BOMB = ITEMS.register("blunder_bomb",
+            () -> new BlunderBombItem(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

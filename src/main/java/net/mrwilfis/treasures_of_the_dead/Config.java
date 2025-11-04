@@ -17,31 +17,44 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(modid = Treasures_of_the_dead.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec SPEC;
 
-    private static final ForgeConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
-            .comment("Whether to log the dirt block on common setup")
-            .define("logDirtBlock", true);
+    private static final ForgeConfigSpec.IntValue RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS;
+    private static final ForgeConfigSpec.ConfigValue<String> CAPTAIN_NAMES_LANG;
+    private static final ForgeConfigSpec.ConfigValue<Double> PIRATE_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.ConfigValue<Double> PIRATE_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_DAMAGE;
 
-    private static final ForgeConfigSpec.IntValue MAGIC_NUMBER = BUILDER
-            .comment("A magic number")
-            .defineInRange("magicNumber", 42, 0, Integer.MAX_VALUE);
+    static {
+        BUILDER.push("Treasures of the dead - Common Config!");
 
-    public static final ForgeConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER
-            .comment("What you want the introduction message to be for the magic number")
-            .define("magicNumberIntroduction", "The magic number is... ");
+        RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS = BUILDER
+                .comment("For big adventures you can set this parameter to your distance of view. (if the value of this parameter is higher than your distance of view, than buried treasures and skeletons will spawning in bedrock)")
+                .defineInRange("randomAdventureItemDistanceInChunks", 8, 6, 128);
+        CAPTAIN_NAMES_LANG = BUILDER
+                .comment("(For servers) For now you can use only ru_ru or en_us")
+                .define("captain_names_lang", "en_us");
 
-    // a list of strings that are treated as resource locations for items
-    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
-            .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), Config::validateItemName);
+        BUILDER.comment("ALL BELOW IS NOT WORKING FOR NOW!");
+        PIRATE_SKELETON_HEALTH = BUILDER.define("pirateSkeletonHealth", 26.0);
+        PIRATE_SKELETON_DAMAGE = BUILDER.define("pirateSkeletonDamage", 3.0);
+        CAPTAIN_SKELETON_HEALTH = BUILDER.define("captainSkeletonHealth", 70.0);
+        CAPTAIN_SKELETON_DAMAGE = BUILDER.define("captainSkeletonDamage", 4.0);
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
+        BUILDER.pop();
+        SPEC = BUILDER.build();
+    }
 
-    public static boolean logDirtBlock;
-    public static int magicNumber;
-    public static String magicNumberIntroduction;
     public static Set<Item> items;
+
+    public static int randomAdventureItemDistanceInChunks;
+    public static String captainNamesLang;
+    public static double pirateSkeletonHealth;
+    public static double pirateSkeletonDamage;
+    public static double captainSkeletonHealth;
+    public static double captainSkeletonDamage;
 
     private static boolean validateItemName(final Object obj)
     {
@@ -51,13 +64,11 @@ public class Config
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
-        logDirtBlock = LOG_DIRT_BLOCK.get();
-        magicNumber = MAGIC_NUMBER.get();
-        magicNumberIntroduction = MAGIC_NUMBER_INTRODUCTION.get();
-
-        // convert the list of strings into a set of items
-        items = ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        randomAdventureItemDistanceInChunks = RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS.get();
+        captainNamesLang = CAPTAIN_NAMES_LANG.get();
+        pirateSkeletonHealth = PIRATE_SKELETON_HEALTH.get();
+        pirateSkeletonDamage = PIRATE_SKELETON_DAMAGE.get();
+        captainSkeletonHealth = CAPTAIN_SKELETON_HEALTH.get();
+        captainSkeletonDamage = CAPTAIN_SKELETON_DAMAGE.get();
     }
 }

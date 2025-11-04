@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -57,6 +58,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
+    private UUID campUUID = null;
+    private static final double MAX_DISTANCE_FROM_CAMP = 15.0;
+
     private static final UUID SPEED_MODIFIER_WITH_KEG_UUID = UUID.fromString("d27bb1e7-92bc-4161-8e9d-2f9a52b1598e");
     private static final AttributeModifier SPEED_MODIFIER_WITH_KEG = new AttributeModifier(SPEED_MODIFIER_WITH_KEG_UUID, "Keg Speed Modifier", -0.3D, AttributeModifier.Operation.MULTIPLY_BASE);
 
@@ -76,6 +80,8 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     protected static final RawAnimation WALK_KEG = RawAnimation.begin().then("animation.model.walk_keg", Animation.LoopType.LOOP);
     protected static final RawAnimation IDLE_KEG = RawAnimation.begin().then("animation.model.idle_keg", Animation.LoopType.LOOP);
     protected static final RawAnimation SPAWN2 = RawAnimation.begin().then("animation.model.spawn2", Animation.LoopType.PLAY_ONCE);
+    protected static final RawAnimation RUSTY_TWITCH1 = RawAnimation.begin().then("animation.model.rusty_twitch1", Animation.LoopType.PLAY_ONCE);
+    protected static final RawAnimation RUSTY_TWITCH2 = RawAnimation.begin().then("animation.model.rusty_twitch2", Animation.LoopType.PLAY_ONCE);
 
     public TOTDSkeletonEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -85,21 +91,23 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
 
-        TOTDSkeletonVariant variant = Util.getRandom(TOTDSkeletonVariant.values(), this.random);
-        setVariant(variant);
-
-        if (pReason.equals(MobSpawnType.SPAWN_EGG) || pReason.equals(MobSpawnType.SPAWNER) || pReason.equals(MobSpawnType.DISPENSER)
-                || pReason.equals(MobSpawnType.MOB_SUMMONED)) {
-
-        } else {
-            //this.setIsSpawning(true);
+        boolean b = pReason.equals(MobSpawnType.SPAWN_EGG) || pReason.equals(MobSpawnType.SPAWNER) || pReason.equals(MobSpawnType.DISPENSER)
+                || pReason.equals(MobSpawnType.MOB_SUMMONED);
+        if (!b) {
+            this.setIsSpawning(true);
+            this.playAmbientSound();
         }
 
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
+        this.specialProcedures();
+        this.populateDefaultEquipmentEnchantments(this.random, pDifficulty);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    public void specialProcedures() {
+        TOTDSkeletonVariant variant = Util.getRandom(TOTDSkeletonVariant.values(), this.random);
+        setVariant(variant);
+        this.populateDefaultEquipmentSlots(this.random);
     }
 
     public static AttributeSupplier setAttributes() {
@@ -115,8 +123,24 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     @Override
     public void tick() {
 
+
+
         // execute as @e[type=treasures_of_the_dead:totd_skeleton, distance=..10] at @p run item replace entity @s weapon.mainhand with tnt
         if (!this.level().isClientSide) {
+
+            if (this.campUUID != null) {
+                Entity camp = ((ServerLevel)this.level()).getEntity(campUUID);
+                if (camp != null && !this.isAggressive()) {
+                    double distance = this.distanceTo(camp);
+                    if (distance > MAX_DISTANCE_FROM_CAMP) {
+                        this.getNavigation().moveTo(camp.getX(), camp.getY(), camp.getZ(), 1.25);
+                    }
+                }
+            } else {
+
+            }
+
+
             ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (!mainHandItem.isEmpty() && mainHandItem.getItem() instanceof AbstractPowderKegItem) {
@@ -464,6 +488,11 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     public @NotNull MobType getMobType() {
         return MobType.UNDEAD;
     }
+
+    public void setCampUUID(UUID uuid) {
+        this.campUUID = uuid;
+    }
+
     public boolean getIsSpawning() {
         return this.getEntityData().get(IS_SPAWNING).booleanValue();
     }
@@ -498,6 +527,12 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.setIsGoingToBlowUp(tag.getBoolean("IsGoingToBlowUp"));
         this.setIsSpawning(tag.getBoolean("IsSpawning"));
+
+        if (tag.contains("CampUUID")) {
+            this.campUUID = tag.getUUID("CampUUID");
+        } else {
+            this.campUUID = null;
+        }
     }
 
     @Override
@@ -506,6 +541,10 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         tag.putInt("Variant", this.getTypeVariant());
         tag.putBoolean("IsGoingToBlowUp", this.getIsGoingToBlowUp());
         tag.putBoolean("IsSpawning", this.getIsSpawning());
+
+        if (this.campUUID != null) {
+            tag.putUUID("CampUUID", this.campUUID);
+        }
     }
 
     @Override

@@ -25,6 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
+import net.mrwilfis.treasures_of_the_dead.entity.variant.BloomingSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.ShadowSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
@@ -54,14 +55,15 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
 
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    @Override
+    public void specialProcedures() {
         ShadowSkeletonVariant variant = Util.getRandom(ShadowSkeletonVariant.values(), this.random);
         setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        this.populateDefaultEquipmentSlots(this.random);
     }
 
     public static AttributeSupplier setAttributes() {

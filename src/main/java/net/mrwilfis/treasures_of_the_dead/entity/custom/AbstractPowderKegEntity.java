@@ -150,13 +150,21 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
                 || pSource.is(DamageTypes.SONIC_BOOM);
         boolean slowExplosion = pSource.is(DamageTypes.LAVA) || pSource.is(DamageTypes.HOT_FLOOR) || pSource.is(DamageTypes.ON_FIRE);
         boolean isSourceExplosion =  pSource.is(DamageTypes.PLAYER_EXPLOSION) || pSource.is(DamageTypes.EXPLOSION);
+        boolean isBlunderBomb = pSource.getDirectEntity() instanceof BlunderBombEntity;
 
         if (fastExplosion) {
             explodeKeg();
-        } else if (isSourceExplosion) {
+        } else if (isSourceExplosion && !isBlunderBomb) {
             if (pAmount > 30) {
                 setPrepareToBlowUp(getMaxPrepareToBlowUp()-1);
             } else if (pAmount > 16) {
+                setPrepareToBlowUp(getMaxPrepareToBlowUp()-20);
+            }
+            setIsGoingToBlowUp(true);
+        } else if (isSourceExplosion && isBlunderBomb) {
+            if (pAmount > 9) {
+                setPrepareToBlowUp(getMaxPrepareToBlowUp()-1);
+            } else if (pAmount > 5) {
                 setPrepareToBlowUp(getMaxPrepareToBlowUp()-20);
             }
             setIsGoingToBlowUp(true);

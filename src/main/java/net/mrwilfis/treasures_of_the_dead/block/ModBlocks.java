@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.block.custom.SkullMerchantTableBlock;
+import net.mrwilfis.treasures_of_the_dead.block.custom.SmallBrazierBlock;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 
 import java.util.function.Supplier;
@@ -28,6 +29,14 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SKULL_MERCHANT_TABLE = registryBlock("skull_merchant_table",
             () -> new SkullMerchantTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.5f).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> SMALL_IRON_BRAZIER = registryBlock("small_iron_brazier",
+            () -> new SmallBrazierBlock(1, 15, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> SMALL_GOLDEN_BRAZIER = registryBlock("small_golden_brazier",
+            () -> new SmallBrazierBlock(1, 15, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> SMALL_IRON_SOUL_BRAZIER = registryBlock("small_iron_soul_brazier",
+            () -> new SmallBrazierBlock(2, 10, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> SMALL_GOLDEN_SOUL_BRAZIER = registryBlock("small_golden_soul_brazier",
+            () -> new SmallBrazierBlock(2, 10, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
 
 
 

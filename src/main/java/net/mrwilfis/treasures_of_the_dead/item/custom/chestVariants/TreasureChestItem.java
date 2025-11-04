@@ -67,6 +67,7 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
 
         }
         chest.setYRot(yaw - 180.0f);
+        chest.yHeadRot = yaw - 180.0f;
         if (stack.hasCustomHoverName()) {
             chest.setCustomName(stack.getHoverName());
         }

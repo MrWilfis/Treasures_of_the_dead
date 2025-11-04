@@ -1,0 +1,10 @@
+{
+  "variants" : {
+    "lit=true": {
+      "model": "treasures_of_the_dead:block/small_golden_soul_brazier"
+    },
+    "lit=false": {
+      "model": "treasures_of_the_dead:block/small_golden_soul_brazier_off"
+    }
+  }
+}

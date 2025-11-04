@@ -20,6 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.BloomingSkeletonVariant;
+import net.mrwilfis.treasures_of_the_dead.entity.variant.TOTDSkeletonVariant;
 import org.jetbrains.annotations.Nullable;
 
 public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements BloomingSkeletonInterface{
@@ -35,14 +36,15 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
 
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    @Override
+    public void specialProcedures() {
         BloomingSkeletonVariant variant = Util.getRandom(BloomingSkeletonVariant.values(), this.random);
         setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        this.populateDefaultEquipmentSlots(this.random);
     }
 
     public static AttributeSupplier setAttributes() {
@@ -67,11 +69,11 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
         if (this.isInWaterOrRain()) {
             CreateBloomingParticles(this.level(), this.random, this.position());
             if (this.tickCount % 10 == 0) {
-                this.heal(3.0f);
+                this.heal(2.0f);
             }
         } else {
             if (this.tickCount % 10 == 0) {
-                this.heal(1.0f);
+                this.heal(0.5f);
             }
         }
     }

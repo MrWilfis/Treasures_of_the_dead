@@ -5,6 +5,8 @@
   "entity.treasures_of_the_dead.captain_blooming_skeleton": "Captain Blooming Skeleton",
   "entity.treasures_of_the_dead.shadow_skeleton": "Shadow Skeleton",
   "entity.treasures_of_the_dead.captain_shadow_skeleton": "Captain Shadow Skeleton",
+  "entity.treasures_of_the_dead.golden_skeleton": "Golden Skeleton",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "Captain Golden Skeleton",
 
   "entity.treasures_of_the_dead.foul_skull": "Crâne abject",
   "entity.treasures_of_the_dead.disgraced_skull": "Crâne vil",
@@ -14,6 +16,8 @@
   "entity.treasures_of_the_dead.treasure_chest": "Сoffre au trésor",
 
   "entity.treasures_of_the_dead.powder_keg": "Baril de poudre",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "Boulet du chaos",
 
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Marchand de crânes",
 
@@ -58,6 +62,8 @@
   "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Captain Blooming Skeleton Spawn Egg",
   "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Shadow Skeleton Spawn Egg",
   "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Captain Shadow Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "Golden Skeleton Spawn Egg",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "Captain Golden Skeleton Spawn Egg",
 
   "item.treasures_of_the_dead.foul_skull": "Crâne abject",
   "item.treasures_of_the_dead.disgraced_skull": "Crâne vil",
@@ -68,14 +74,30 @@
 
   "item.treasures_of_the_dead.powder_keg": "Baril de poudre",
 
+  "item.treasures_of_the_dead.blunder_bomb": "Boulet du chaos",
 
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Modéle de forge",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornement de l'Ordre des Âmes",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Table de marchand de crâne",
+  "block.treasures_of_the_dead.small_iron_brazier": "Small Iron Brazier",
+  "block.treasures_of_the_dead.iron_brazier": "Iron Brazier",
+  "block.treasures_of_the_dead.big_iron_brazier": "Big Iron Brazier",
+  "block.treasures_of_the_dead.small_golden_brazier": "Small Golden Brazier",
+  "block.treasures_of_the_dead.golden_brazier": "Golden Brazier",
+  "block.treasures_of_the_dead.big_golden_brazier": "Big Golden Brazier",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "Small Iron Soul Brazier",
+  "block.treasures_of_the_dead.iron_soul_brazier": "Iron Soul Brazier",
+  "block.treasures_of_the_dead.big_iron_soul_brazier": "Big Iron Soul Brazier",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "Small Golden Soul Brazier",
+  "block.treasures_of_the_dead.golden_soul_brazier": "Golden Soul Brazier",
+  "block.treasures_of_the_dead.big_golden_soul_brazier": "Big Golden Soul Brazier",
 
   "creativetab.totd_tab": "Treasures of The Dead",
   "filled_map.treasures_of_the_dead.buried_treasure": "Carte au trésor",
   "filled_map.treasures_of_the_dead.skeleton_crew": "Carte de l'équipage du squelette",
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Carte au trésor légendaire",
-  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Pillé"
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Pillé",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Quest difficulty: %s",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "Blunder bomb explose"
 }

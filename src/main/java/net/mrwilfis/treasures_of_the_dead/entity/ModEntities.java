@@ -16,6 +16,8 @@ import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.FoulSkullE
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.HatefulSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.VillainousSkullEntity;
 
+import java.util.function.Supplier;
+
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Treasures_of_the_dead.MOD_ID);
@@ -51,6 +53,16 @@ public class ModEntities {
                     () -> EntityType.Builder.of(CaptainShadowSkeletonEntity::new, MobCategory.MONSTER)
                             .sized(0.6F, 1.99F)
                             .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "captain_shadow_skeleton").toString()));
+    public static final Supplier<EntityType<GoldenSkeletonEntity>> GOLDEN_SKELETON =
+            ENTITY_TYPES.register("golden_skeleton",
+                    () -> EntityType.Builder.of(GoldenSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build("golden_skeleton"));
+    public static final Supplier<EntityType<CaptainGoldenSkeletonEntity>> CAPTAIN_GOLDEN_SKELETON =
+            ENTITY_TYPES.register("captain_golden_skeleton",
+                    () -> EntityType.Builder.of(CaptainGoldenSkeletonEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build("captain_golden_skeleton"));
 
     //TROPHY SKULLS
     public static final RegistryObject<EntityType<HatefulSkullEntity>> HATEFUL_SKULL =
@@ -87,6 +99,17 @@ public class ModEntities {
                     () -> EntityType.Builder.of(PowderKegEntity::new, MobCategory.MISC)
                             .sized(0.7F, 0.625F)
                             .build(new ResourceLocation(Treasures_of_the_dead.MOD_ID, "powder_keg").toString()));
+
+    public static final Supplier<EntityType<BlunderBombEntity>> BLUNDER_BOMB =
+            ENTITY_TYPES.register("blunder_bomb",
+                    () -> EntityType.Builder.<BlunderBombEntity>of(BlunderBombEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .build("blunder_bomb"));
+
+    public static final Supplier<EntityType<SkeletonCrewCamp>> SKELETON_CREW_CAMP =
+            ENTITY_TYPES.register("skeleton_crew_camp",
+                    () -> EntityType.Builder.<SkeletonCrewCamp>of(SkeletonCrewCamp::new, MobCategory.MISC)
+                            .build("skeleton_crew_camp"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

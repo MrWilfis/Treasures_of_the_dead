@@ -1,0 +1,9 @@
+{
+  "blunder_bomb_explode": {
+    "subtitle": "sounds.treasures_of_the_dead.blunder_bomb_explode",
+    "sounds": [
+      "treasures_of_the_dead:blunder_bomb_explode1",
+      "treasures_of_the_dead:blunder_bomb_explode2"
+    ]
+  }
+}

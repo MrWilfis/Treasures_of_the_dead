@@ -1,0 +1,9 @@
+{
+  "parent": "treasures_of_the_dead:block/template_small_brazier",
+  "textures": {
+    "material": "treasures_of_the_dead:block/small_iron_brazier",
+    "fire": "treasures_of_the_dead:block/small_soul_brazier_fire",
+    "coal": "treasures_of_the_dead:block/small_soul_brazier_coal_lit",
+    "particle": "treasures_of_the_dead:block/small_iron_brazier"
+  }
+}

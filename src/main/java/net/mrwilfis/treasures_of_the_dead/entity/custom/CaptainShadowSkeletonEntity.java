@@ -26,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainShadowSkeletonVariant;
+import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
 import net.mrwilfis.treasures_of_the_dead.misc.TOTDBlockPos;
@@ -55,17 +56,16 @@ public class CaptainShadowSkeletonEntity extends ShadowSkeletonEntity implements
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
                                         @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
-
-        CaptainShadowSkeletonVariant variant = Util.getRandom(CaptainShadowSkeletonVariant.values(), this.random);
-        setVariant(variant);
-
-        this.populateDefaultEquipmentSlots(randomsource);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-
-        this.setCustomName(Component.literal(getRandomName(randomsource)));
 
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    @Override
+    public void specialProcedures() {
+        CaptainShadowSkeletonVariant variant = Util.getRandom(CaptainShadowSkeletonVariant.values(), this.random);
+        setVariant(variant);
+        this.populateDefaultEquipmentSlots(this.random);
+        this.setCustomName(Component.literal(getRandomName(this.random)));
     }
 
     public static AttributeSupplier setAttributes() {

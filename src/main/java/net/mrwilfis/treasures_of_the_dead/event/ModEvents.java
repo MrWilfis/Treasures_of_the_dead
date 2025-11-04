@@ -1,6 +1,7 @@
 package net.mrwilfis.treasures_of_the_dead.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
@@ -56,19 +57,19 @@ public class ModEvents {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = tradeEvent.getTrades();
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemStack(Items.BONE, randomSource.nextInt(25, 35+1)),
+                    new ItemStack(Items.BONE, randomSource.nextInt(30, 34+1)),
                     new ItemStack(Items.EMERALD, 1),
                     16, 2, 0.05f));
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(ModItems.FOUL_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(2, 5+1)),
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(5, 6+1)),
                     8, 4, 0.05f));
 
             trades.get(1).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(ModItems.DISGRACED_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(6, 12+1)),
-                    6, 4, 0.05f));
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(9, 11+1)),
+                    8, 4, 0.05f));
 
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(Items.AMETHYST_SHARD, 21),
@@ -77,24 +78,40 @@ public class ModEvents {
 
             trades.get(2).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(ModItems.HATEFUL_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(13, 22+1)),
-                    4, 8, 0.05f));
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(15, 17+1)),
+                    8, 8, 0.05f));
 
             trades.get(3).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(ModItems.VILLAINOUS_SKULL_ITEM.get(), 1),
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(23, 44+1)),
-                    4, 12, 0.05f));
-
+                    new ItemStack(Items.EMERALD, randomSource.nextInt(26, 28+1)),
+                    8, 12, 0.05f));
+            trades.get(3).add((entity, randomSource) -> {
+                ItemStack skeletonCrewAssignment = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1);
+                skeletonCrewAssignment.setTag(new CompoundTag());
+                skeletonCrewAssignment.getTag().putInt("Difficulty", randomSource.nextInt(2, 3+1));
+                return new MerchantOffer(
+                        new ItemStack(Items.EMERALD, randomSource.nextInt(11, 14+1)),
+                        skeletonCrewAssignment,
+                        1, 16, 0.05f);
+            });
             trades.get(4).add((entity, randomSource) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, randomSource.nextInt(8, 16+1)),
-                    new ItemStack(ModItems.FOUL_SKULL_ITEM.get(), randomSource.nextInt(1, 2 + 1)),
-                    new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1),
-                    1, 16, 0.05f));
+                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(ModItems.BLUNDER_BOMB.get(), 3),
+                    32, 2, 0.05f));
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 32),
                     new ItemStack(Items.DIAMOND, 7),
                     new ItemStack(ModItems.ORDER_OF_SOULS_SMITHING_TEMPLATE.get(), 1),
                     8, 16, 0.05f));
+            trades.get(5).add((entity, randomSource) -> {
+                ItemStack skeletonCrewAssignment = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get(), 1);
+                skeletonCrewAssignment.setTag(new CompoundTag());
+                skeletonCrewAssignment.getTag().putInt("Difficulty", randomSource.nextInt(4, 5+1));
+                return new MerchantOffer(
+                        new ItemStack(Items.EMERALD, randomSource.nextInt(17, 20+1)),
+                        skeletonCrewAssignment,
+                        1, 16, 0.05f);
+            });
         }
     }
 }
