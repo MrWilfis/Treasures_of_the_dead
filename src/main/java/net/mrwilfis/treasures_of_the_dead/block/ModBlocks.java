@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
+import net.mrwilfis.treasures_of_the_dead.block.custom.SeaFortressCoreBlock;
 import net.mrwilfis.treasures_of_the_dead.block.custom.SmallBrazierBlock;
 import net.mrwilfis.treasures_of_the_dead.block.custom.SkullMerchantTableBlock;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
@@ -26,10 +27,12 @@ public class ModBlocks {
             () -> new SmallBrazierBlock(1, 15, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
     public static final DeferredBlock<Block> SMALL_GOLDEN_BRAZIER = registerBlock("small_golden_brazier",
             () -> new SmallBrazierBlock(1, 15, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
-public static final DeferredBlock<Block> SMALL_IRON_SOUL_BRAZIER = registerBlock("small_iron_soul_brazier",
+    public static final DeferredBlock<Block> SMALL_IRON_SOUL_BRAZIER = registerBlock("small_iron_soul_brazier",
             () -> new SmallBrazierBlock(2, 10, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
     public static final DeferredBlock<Block> SMALL_GOLDEN_SOUL_BRAZIER = registerBlock("small_golden_soul_brazier",
             () -> new SmallBrazierBlock(2, 10, BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.LANTERN)));
+    public static final DeferredBlock<Block> SEA_FORTRESS_CORE = registerBlock("sea_fortress_core",
+            () -> new SeaFortressCoreBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(60.0f, 1000.0f).sound(SoundType.TRIAL_SPAWNER)));
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn= BLOCKS.register(name, block);
