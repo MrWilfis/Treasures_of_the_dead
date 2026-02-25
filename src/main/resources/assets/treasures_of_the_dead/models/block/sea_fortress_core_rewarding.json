@@ -1,0 +1,9 @@
+{
+  "parent": "treasures_of_the_dead:block/sea_fortress_core_template",
+  "textures": {
+    "bottom": "treasures_of_the_dead:block/sea_fortress_core_bottom",
+    "front": "treasures_of_the_dead:block/sea_fortress_core_front_rewarding",
+    "side": "treasures_of_the_dead:block/sea_fortress_core_side",
+    "top": "treasures_of_the_dead:block/sea_fortress_core_top"
+  }
+}

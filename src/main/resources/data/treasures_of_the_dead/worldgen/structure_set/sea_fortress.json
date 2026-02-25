@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "treasures_of_the_dead:sea_fortress",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 167695242,
+    "spacing": 44,
+    "separation": 18,
+    "frequency": 0.35,
+    "frequency_reduction_method": "legacy_type_1"
+  }
+}

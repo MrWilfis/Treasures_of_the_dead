@@ -1,0 +1,46 @@
+{
+  "equip_method": "pirates_and_captains",
+  "apply_filters_for_special_variants": true,
+  "wear_armor_chance": 0.65,
+  "wear_head_armor_chance": 1.0,
+  "armor_variation": [
+    {
+      "variant_name": "var1",
+      "weight": 1,
+      "type": {
+        "head": "minecraft:air",
+        "chest": "minecraft:air",
+        "legs": "minecraft:air",
+        "feet": "minecraft:air"
+      }
+    }
+  ],
+  "head_armor_variation": [
+    {
+      "item": "minecraft:air",
+      "weight": 1
+    }
+  ],
+  "mainhand_variation": [
+    {
+      "item": "treasures_of_the_dead:powder_keg",
+      "weight": 5
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "weight": 75
+    },
+    {
+      "item": "minecraft:golden_sword",
+      "weight": 10
+    },
+    {
+      "item": "minecraft:crossbow",
+      "weight": 25
+    },
+    {
+      "item": "minecraft:air",
+      "weight": 65
+    }
+  ]
+}

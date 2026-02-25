@@ -1,0 +1,73 @@
+{
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 50,
+          "name": "treasures_of_the_dead:red_bandana"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 50,
+          "name": "treasures_of_the_dead:green_bandana"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 50,
+          "name": "treasures_of_the_dead:blue_bandana"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 75,
+          "name": "minecraft:air"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 2,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:vest"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:black_vest"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:blue_vest"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:pants"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:black_pants"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:blue_pants"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:black_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:blue_boots"
+        }
+      ]
+    }
+  ]
+}

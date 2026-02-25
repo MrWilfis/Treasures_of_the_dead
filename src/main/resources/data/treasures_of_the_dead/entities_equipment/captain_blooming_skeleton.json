@@ -1,0 +1,80 @@
+{
+  "equip_method": "pirates_and_captains",
+  "apply_filters_for_special_variants": true,
+  "wear_armor_chance": 0.95,
+  "wear_head_armor_chance": 0.1,
+  "armor_variation": [
+    {
+      "variant_name": "var1",
+      "weight": 9,
+      "type": {
+        "head": "treasures_of_the_dead:bicorn",
+        "chest": "treasures_of_the_dead:captain_jacket",
+        "legs": "treasures_of_the_dead:captain_pants",
+        "feet": "treasures_of_the_dead:black_boots"
+      }
+    },
+    {
+      "variant_name": "var2",
+      "weight": 9,
+      "type": {
+        "head": "treasures_of_the_dead:captain_hat",
+        "chest": "treasures_of_the_dead:captain_crop_vest",
+        "legs": "treasures_of_the_dead:captain_skirt",
+        "feet": "treasures_of_the_dead:black_boots"
+      }
+    },
+    {
+      "variant_name": "var3",
+      "weight": 1,
+      "type": {
+        "head": "treasures_of_the_dead:bicorn",
+        "chest": "treasures_of_the_dead:black_vest",
+        "legs": "treasures_of_the_dead:captain_pants",
+        "feet": "treasures_of_the_dead:black_boots"
+      }
+    },
+    {
+      "variant_name": "var4",
+      "weight": 1,
+      "type": {
+        "head": "treasures_of_the_dead:captain_hat",
+        "chest": "treasures_of_the_dead:black_vest",
+        "legs": "treasures_of_the_dead:captain_pants",
+        "feet": "treasures_of_the_dead:black_boots"
+      }
+    }
+  ],
+  "head_armor_variation": [
+    {
+      "item": "treasures_of_the_dead:captain_hat",
+      "weight": 1
+    },
+    {
+      "item": "treasures_of_the_dead:bicorn",
+      "weight": 1
+    }
+  ],
+  "mainhand_variation": [
+    {
+      "item": "minecraft:diamond_sword",
+      "weight": 1
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "weight": 10
+    },
+    {
+      "item": "minecraft:golden_sword",
+      "weight": 84
+    },
+    {
+      "item": "minecraft:crossbow",
+      "weight": 30
+    },
+    {
+      "item": "minecraft:air",
+      "weight": 5
+    }
+  ]
+}

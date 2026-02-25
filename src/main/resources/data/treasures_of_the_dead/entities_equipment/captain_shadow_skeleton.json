@@ -1,0 +1,46 @@
+{
+  "equip_method": "pirates_and_captains",
+  "apply_filters_for_special_variants": true,
+  "wear_armor_chance": 0.95,
+  "wear_head_armor_chance": 0.1,
+  "armor_variation": [
+    {
+      "variant_name": "var1",
+      "weight": 1,
+      "type": {
+        "head": "minecraft:air",
+        "chest": "minecraft:air",
+        "legs": "minecraft:air",
+        "feet": "minecraft:air"
+      }
+    }
+  ],
+  "head_armor_variation": [
+    {
+      "item": "minecraft:air",
+      "weight": 1
+    }
+  ],
+  "mainhand_variation": [
+    {
+      "item": "minecraft:diamond_sword",
+      "weight": 1
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "weight": 10
+    },
+    {
+      "item": "minecraft:golden_sword",
+      "weight": 84
+    },
+    {
+      "item": "minecraft:crossbow",
+      "weight": 30
+    },
+    {
+      "item": "minecraft:air",
+      "weight": 5
+    }
+  ]
+}
