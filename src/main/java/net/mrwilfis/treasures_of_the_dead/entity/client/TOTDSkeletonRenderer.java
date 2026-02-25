@@ -174,7 +174,4 @@ public class TOTDSkeletonRenderer extends GeoEntityRenderer<TOTDSkeletonEntity> 
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
-
-
-
 }
