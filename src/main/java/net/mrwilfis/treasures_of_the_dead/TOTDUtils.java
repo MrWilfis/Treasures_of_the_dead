@@ -4,10 +4,16 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.AnyTreasureClass;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -16,6 +22,24 @@ import java.util.List;
 import java.util.Map;
 
 public class TOTDUtils {
+
+    public static ItemStack getItemFromString(String itemId) {
+        try {
+            ResourceLocation resourceLocation = ResourceLocation.parse(itemId);
+
+            Item item = BuiltInRegistries.ITEM.get(resourceLocation);
+
+            if (item != null && item != Items.AIR) {
+                return new ItemStack(item);
+            } else {
+                System.err.println("Item not found: " + itemId);
+                return ItemStack.EMPTY;
+            }
+        } catch (Exception e) {
+            System.err.println("Invalid item ID format: " + itemId);
+            return ItemStack.EMPTY;
+        }
+    }
 
     public static Map<String, Integer> loadMinMaxParameterFromJson(Entity thisEntity, String JsonPath, String parameter) {
         Map<String, Integer> configs = new HashMap<>();
