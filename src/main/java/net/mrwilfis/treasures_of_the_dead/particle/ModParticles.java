@@ -17,6 +17,8 @@ public class ModParticles {
             PARTICLE_TYPES.register("blunder_bomb_explosion_particles", () -> new SimpleParticleType(true));
     public static final Supplier<SimpleParticleType> RUSTED_GOLDEN_SKELETON_PARTICLES =
             PARTICLE_TYPES.register("rusted_golden_skeleton_particles", () -> new SimpleParticleType(true));
+    public static final Supplier<SimpleParticleType> GHOST_PARTICLES =
+            PARTICLE_TYPES.register("ghost_particles", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);
