@@ -1,14 +1,20 @@
 package net.mrwilfis.treasures_of_the_dead.entity.custom;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -24,14 +30,19 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.mrwilfis.treasures_of_the_dead.TOTDUtils;
+import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.TOTDSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
@@ -43,9 +54,12 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
-import java.util.UUID;
+import java.io.InputStreamReader;
+import java.util.*;
 
-public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEntity {
+import static net.mrwilfis.treasures_of_the_dead.TOTDUtils.getItemFromString;
+
+public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEntity, CrossbowAttackMob {
     protected int idleVariation = random.nextInt(1, 2+1);
 
     //spawn animation
@@ -70,6 +84,8 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     private static final EntityDataAccessor<Boolean> IS_GOING_TO_BLOW_UP = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IS_SPAWNING = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
 
+    private static final EntityDataAccessor<Boolean> IS_CHARGING = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
+
     protected static final RawAnimation WALK_BODY1 = RawAnimation.begin().then("animation.model.walk_body1", Animation.LoopType.LOOP);
     protected static final RawAnimation WALK_HANDS1 = RawAnimation.begin().then("animation.model.walk_hands1", Animation.LoopType.LOOP);
     protected static final RawAnimation IDLE1 = RawAnimation.begin().then("animation.model.idle1", Animation.LoopType.LOOP);
@@ -80,6 +96,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     protected static final RawAnimation WALK_KEG = RawAnimation.begin().then("animation.model.walk_keg", Animation.LoopType.LOOP);
     protected static final RawAnimation IDLE_KEG = RawAnimation.begin().then("animation.model.idle_keg", Animation.LoopType.LOOP);
     protected static final RawAnimation SPAWN2 = RawAnimation.begin().then("animation.model.spawn2", Animation.LoopType.PLAY_ONCE);
+    //protected static final RawAnimation HOLDING_CROSSBOW = RawAnimation.begin().then("animation.model.holding_crossbow", Animation.LoopType.LOOP);
     protected static final RawAnimation RUSTY_TWITCH1 = RawAnimation.begin().then("animation.model.rusty_twitch1", Animation.LoopType.PLAY_ONCE);
     protected static final RawAnimation RUSTY_TWITCH2 = RawAnimation.begin().then("animation.model.rusty_twitch2", Animation.LoopType.PLAY_ONCE);
 
@@ -141,6 +158,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
             ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (!mainHandItem.isEmpty() && mainHandItem.getItem() instanceof AbstractPowderKegItem) {
+                if (this.isLeftHanded()) {
+                    this.setLeftHanded(false);
+                }
 
                 if (!this.getAttribute(Attributes.MOVEMENT_SPEED).getModifiers().contains(SPEED_MODIFIER_WITH_KEG)) {
                     this.getAttribute(Attributes.MOVEMENT_SPEED).addPermanentModifier(SPEED_MODIFIER_WITH_KEG);
@@ -202,52 +222,149 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
     public void populateDefaultEquipmentSlots(RandomSource pRandom) {
 
-        double randomValue;
-
-        randomValue = (double) this.random.nextFloat();
-
-        //Spawn clothes
-        if (randomValue < 0.3) {
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.VEST.get()), pRandom, 0.65F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.PANTS.get()), pRandom, 0.5F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BOOTS.get()), pRandom, 0.7F);
-        } else if (randomValue < 0.6) {
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.BLACK_VEST.get()), pRandom, 0.65F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.BLACK_PANTS.get()), pRandom, 0.5F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.7F);
-        } else if (randomValue < 0.9) {
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.BLUE_VEST.get()), pRandom, 0.65F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.BLUE_PANTS.get()), pRandom, 0.5F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLUE_BOOTS.get()), pRandom, 0.7F);
+        if (!(this.level() instanceof ServerLevel serverlevel)) {
+            return;
         }
+        ResourceManager resourceManager = serverlevel.getServer().getResourceManager();
+        ResourceLocation configLocation = Treasures_of_the_dead.resource("entities_equipment/" + this.getEntityIdAsString() + ".json");
 
-        randomValue = (double) this.random.nextFloat();
+        Map<String, EquipmentSlot> stringToSlot = Map.of(
+                "head", EquipmentSlot.HEAD,
+                "chest", EquipmentSlot.CHEST,
+                "legs", EquipmentSlot.LEGS,
+                "feet", EquipmentSlot.FEET,
+                "mainhand", EquipmentSlot.MAINHAND,
+                "offhand", EquipmentSlot.OFFHAND
+        );
 
-        //Spawn Bandanas or others
-        if (randomValue < 0.25) {
-            this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.GREEN_BANDANA.get()), pRandom, 0.6F);
-        } else if (randomValue < 0.5) {
-            this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.RED_BANDANA.get()), pRandom, 0.6F);
-        } else if (randomValue < 0.75) {
-            this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BLUE_BANDANA.get()), pRandom, 0.6F);
-        }
+        try {
+            var resource = resourceManager.getResource(configLocation).orElseThrow();
+            JsonObject json = JsonParser.parseReader(new InputStreamReader(resource.open())).getAsJsonObject();
+            String equip_method = json.get("equip_method").getAsString();
+            if (equip_method.equals("pirates_and_captains")) {
+                float wear_armor_chance = json.get("wear_armor_chance").getAsFloat();
+                float wear_head_armor_chance = json.get("wear_armor_chance").getAsFloat();
 
-        randomValue = (double) this.random.nextFloat();
+                //ARMOR VARIATION
+                try {
+                    JsonArray armor_variation = json.getAsJsonArray("armor_variation");
+                    List<Map.Entry<Integer, Integer>> list_of_elements = new ArrayList<>();
+                    int i = 0;
+                    for (JsonElement elem : armor_variation) {
 
-        //Spawn weapons
-        if (randomValue < 0.2) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
-        } else if (randomValue < 0.95){
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
-        } else {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(ModItems.POWDER_KEG_ITEM.get()), pRandom, 1.0F);
+                        JsonObject armor_variant = elem.getAsJsonObject();
+                        int weight = armor_variant.get("weight").getAsInt();
+                        list_of_elements.add(Map.entry(i, weight));
+                        i++;
+                    }
+
+                    JsonObject armor_variant = armor_variation.get(selectArmorVariantId(list_of_elements)).getAsJsonObject();
+                    JsonObject armor_types_object = armor_variant.getAsJsonObject("type");
+
+                    for (Map.Entry<String, JsonElement> entry : armor_types_object.entrySet()) {
+                        String key = entry.getKey();
+                        String value = entry.getValue().getAsString();
+
+                        if (!value.equals("minecraft:air") && stringToSlot.containsKey(key)) {
+                            ItemStack stack = getItemFromString(value);
+                            EquipmentSlot slot = stringToSlot.get(key);
+
+                            this.maybeWearEquipment(slot, stack, pRandom, wear_armor_chance);
+                        }
+                    }
+                } catch (Exception ex) {
+                    System.err.println("Error loading array from JSON for " + configLocation + ":" + ex.getMessage());
+                }
+
+
+                //HEAD ARMOR VARIATION
+                try {
+                    JsonArray head_armor_variation = json.getAsJsonArray("head_armor_variation");
+                    List<Map.Entry<Integer, Integer>> list_of_elements2 = new ArrayList<>();
+                    int i = 0;
+                    for (JsonElement elem : head_armor_variation) {
+
+                        JsonObject head_armor_variant = elem.getAsJsonObject();
+                        int weight = head_armor_variant.get("weight").getAsInt();
+                        list_of_elements2.add(Map.entry(i, weight));
+                        i++;
+                    }
+                    JsonObject head_armor_variant = head_armor_variation.get(selectArmorVariantId(list_of_elements2)).getAsJsonObject();
+
+                    if (!head_armor_variant.get("item").getAsString().equals("minecraft:air") ) {
+                        ItemStack stack =  getItemFromString(head_armor_variant.get("item").getAsString());
+                        this.maybeWearEquipment(EquipmentSlot.HEAD, stack, pRandom, wear_head_armor_chance);
+                    }
+                } catch (Exception ex) {
+                    System.err.println("Error loading array from JSON for " + configLocation + ":" + ex.getMessage());
+                }
+
+
+                //MAIN HAND
+                try {
+                    JsonArray mainhand_variation = json.getAsJsonArray("mainhand_variation");
+                    List<Map.Entry<Integer, Integer>> list_of_elements3 = new ArrayList<>();
+                    int i = 0;
+                    for (JsonElement elem : mainhand_variation) {
+
+                        JsonObject mainhand_variant = elem.getAsJsonObject();
+                        int weight = mainhand_variant.get("weight").getAsInt();
+                        list_of_elements3.add(Map.entry(i, weight));
+                        i++;
+                    }
+                    JsonObject mainhand_variant = mainhand_variation.get(selectArmorVariantId(list_of_elements3)).getAsJsonObject();
+
+                    if (!mainhand_variant.get("item").getAsString().equals("minecraft:air") ) {
+                        ItemStack weapon =  getItemFromString(mainhand_variant.get("item").getAsString());
+                        this.maybeWearEquipment(EquipmentSlot.MAINHAND, weapon, pRandom, 1.0F);
+                    }
+                } catch (Exception ex) {
+                    System.err.println("Error loading array from JSON for " + configLocation + ":" + ex.getMessage());
+                }
+
+
+
+            } else {
+
+            }
+
+            boolean apply_filters_for_special_variants = json.get("apply_filters_for_special_variants").getAsBoolean();
+            if (apply_filters_for_special_variants) {
+                this.applyFiltersForSpecialVariants();
+            }
+
+
+        } catch (Exception ex) {
+            System.err.println("Error loading JSON for " + configLocation + ":" + ex.getMessage());
         }
 
         ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
-        if (mainHandItem.getItem() == ModItems.POWDER_KEG_ITEM.get()) {
+        if (mainHandItem.getItem() instanceof AbstractPowderKegItem) {
             setLeftHanded(false);
             setDropChance(EquipmentSlot.MAINHAND, 1.0f);
         }
+    }
+
+    private int selectArmorVariantId(List<Map.Entry<Integer, Integer>> list_of_elements) {
+
+        int totalWeight = list_of_elements.stream().mapToInt(Map.Entry::getValue).sum();
+
+        int randomWeight = this.random.nextInt(totalWeight);
+        int currentWeight = 0;
+        int chosen_element = 0;
+
+        for (Map.Entry<Integer, Integer> element : list_of_elements) {
+            currentWeight += element.getValue();
+            if (randomWeight < currentWeight) {
+                chosen_element = element.getKey();
+                break;
+            }
+        }
+        return chosen_element;
+    }
+
+    protected void applyFiltersForSpecialVariants() {
+
     }
 
     public void spawnRandomBandanas(RandomSource pRandom) {
@@ -310,33 +427,14 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
             //System.out.println("GOOOOOIDA");
     }
 
-
-//    public static String getRandomName(RandomSource random) throws IOException {
-//
-//        String dirpath = "config/treasures_of_the_dead/captainnames.txt";
-//        List<String> names = List.of();
-//
-//        try {
-//            BufferedReader reader = new BufferedReader(new FileReader(dirpath));
-//            String line = reader.readLine();
-//            int counter = 0;
-//            while (line != null ) {
-//                counter++;
-//                names.add(line);
-//            }
-//
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return names.get(random.nextInt(0,2));
-//    }
+    protected String getEntityIdAsString() {
+        return EntityType.getKey(this.getType()).getPath();
+    }
 
     @Override
     protected void registerGoals() {
  //       this.goalSelector.addGoal(1, new AttackWithKegGoal(this, 0.6D, false));
+        this.goalSelector.addGoal(1, new RangedCrossbowAttackGoal<>(this, 1.0, 8.0F));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.25D, false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
  //        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -368,7 +466,6 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
         if (this.getIsSpawning()) {
             state.getController().stop();
-            //    return PlayState.STOP;
         }
         if (this.swinging) {
             state.getController().stop();
@@ -377,9 +474,13 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
             return PlayState.CONTINUE;
         } else if (!mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
             state.getController().stop();
-            //    state.getController().setAnimationSpeed(1.0D);
             return  PlayState.CONTINUE;
         }
+//        else if (!mainHandItem.isEmpty() && isHoldingCrossbow()) {
+//            state.getController().stop();
+//            state.getController().setAnimation(HOLDING_CROSSBOW);
+//            return  PlayState.CONTINUE;
+//        }
         else if (state.isMoving() && this.isAggressive()) {
             state.getController().setAnimation(WALK_HANDS1);
             state.getController().setAnimationSpeed(1.25D);
@@ -439,6 +540,10 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         }
 
         return PlayState.STOP;
+    }
+
+    public boolean isHoldingCrossbow() {
+        return this.getMainHandItem().getItem() instanceof CrossbowItem;
     }
 
     @Override
@@ -514,6 +619,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.setIsGoingToBlowUp(tag.getBoolean("IsGoingToBlowUp"));
         this.setIsSpawning(tag.getBoolean("IsSpawning"));
+        this.setChargingCrossbow(tag.getBoolean("IsCharging"));
 
         if (tag.contains("CampUUID")) {
             this.campUUID = tag.getUUID("CampUUID");
@@ -528,6 +634,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         tag.putInt("Variant", this.getTypeVariant());
         tag.putBoolean("IsGoingToBlowUp", this.getIsGoingToBlowUp());
         tag.putBoolean("IsSpawning", this.getIsSpawning());
+        tag.putBoolean("IsCharging", this.getChargingCrossbow());
 
         if (this.campUUID != null) {
             tag.putUUID("CampUUID", this.campUUID);
@@ -540,9 +647,29 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         builder.define(DATA_ID_TYPE_VARIANT, 0);
         builder.define(IS_GOING_TO_BLOW_UP, false);
         builder.define(IS_SPAWNING, false);
+        builder.define(IS_CHARGING, false);
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    public boolean getChargingCrossbow() {
+        return this.entityData.get(IS_CHARGING);
+    }
+
+    @Override
+    public void setChargingCrossbow(boolean b) {
+        this.entityData.set(IS_CHARGING, b);
+    }
+
+    @Override
+    public void onCrossbowAttackPerformed() {
+        this.noActionTime = 0;
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        this.performCrossbowAttack(this, 1.6F);
     }
 }
