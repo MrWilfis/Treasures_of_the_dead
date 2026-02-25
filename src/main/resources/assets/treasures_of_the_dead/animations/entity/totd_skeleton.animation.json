@@ -2035,6 +2035,21 @@
 					}
 				}
 			}
+		},
+		"animation.model.holding_crossbow": {
+			"loop": true,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"vector": [-90, -20, 0]
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"vector": [-87.18203, 27.47162, 1.30078]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2
