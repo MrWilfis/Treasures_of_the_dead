@@ -80,6 +80,14 @@ public class ModCreativeModTabs {
 
                         output.accept(ModItems.BLUNDER_BOMB.get());
 
+                        output.accept(ModBlocks.SEA_FORTRESS_CORE.get());
+
+
+                            ItemStack stack = new ItemStack(ModItems.SEA_FORTRESS_KEY.get());
+                            stack.set(ModDataComponents.LOOT_VALUE, (float)100.0f);
+                            output.accept(stack);
+
+
                         output.accept(ModItems.TOTD_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.CAPTAIN_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.BLOOMING_SKELETON_SPAWN_EGG.get());
