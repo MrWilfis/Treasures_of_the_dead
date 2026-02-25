@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
+import net.mrwilfis.treasures_of_the_dead.block.entity.ModBlockEntities;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.client.*;
@@ -11,6 +12,7 @@ import net.mrwilfis.treasures_of_the_dead.event.ModEvents;
 import net.mrwilfis.treasures_of_the_dead.item.ModCreativeModTabs;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.particle.BlunderBombExplosionParticles;
+import net.mrwilfis.treasures_of_the_dead.particle.GhostParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.ModParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.RustedGoldenSkeletonParticles;
 import net.mrwilfis.treasures_of_the_dead.sound.ModSounds;
@@ -62,6 +64,7 @@ public class Treasures_of_the_dead
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         ModEntities.register(modEventBus);
         ModVillagers.register(modEventBus);
@@ -130,6 +133,7 @@ public class Treasures_of_the_dead
         public static void registerParticlesFactories(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(ModParticles.BLUNDER_BOMB_EXPLOSION_PARTICLES.get(), BlunderBombExplosionParticles.Provider::new);
             event.registerSpriteSet(ModParticles.RUSTED_GOLDEN_SKELETON_PARTICLES.get(), RustedGoldenSkeletonParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.GHOST_PARTICLES.get(), GhostParticles.Provider::new);
         }
     }
 }
