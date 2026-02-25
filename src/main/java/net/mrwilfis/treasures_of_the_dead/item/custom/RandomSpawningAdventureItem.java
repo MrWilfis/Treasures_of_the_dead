@@ -73,8 +73,8 @@ public class RandomSpawningAdventureItem extends Item {
             X = stack.get(ModDataComponents.CAPTAIN_SKELETON_DEATH_X).floatValue();
             Z = stack.get(ModDataComponents.CAPTAIN_SKELETON_DEATH_Z).floatValue();
         }
-        if (stack.getComponents().get(ModDataComponents.DIFFICULTY) != null) {
-             difficulty = stack.getComponents().get(ModDataComponents.DIFFICULTY).intValue();
+        if (stack.get(ModDataComponents.DIFFICULTY) != null) {
+             difficulty = stack.get(ModDataComponents.DIFFICULTY).intValue();
         }
 
         X = rand.nextDouble(X-range, X+range);
@@ -371,8 +371,8 @@ public class RandomSpawningAdventureItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         int difficulty = 0;
-        if (stack.getComponents().get(ModDataComponents.DIFFICULTY) != null) {
-            difficulty = stack.getComponents().get(ModDataComponents.DIFFICULTY).intValue();
+        if (stack.get(ModDataComponents.DIFFICULTY) != null) {
+            difficulty = stack.get(ModDataComponents.DIFFICULTY).intValue();
         }
         if (this.taskType.equals("skeleton_crew")) {
             tooltipComponents.add(Component.translatable("tooltip.treasures_of_the_dead.quest_difficulty.tooltip", difficulty));
