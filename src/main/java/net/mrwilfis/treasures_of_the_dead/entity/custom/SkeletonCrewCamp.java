@@ -107,7 +107,7 @@ public class SkeletonCrewCamp extends Entity{
                         this.spawnNextWave();
                         this.currentWave++;
                     } else {
-                        System.out.println("CAMP CLEARED");
+                    //    System.out.println("CAMP CLEARED");
                         this.discard();
                     }
                 }
@@ -146,7 +146,7 @@ public class SkeletonCrewCamp extends Entity{
     }
 
     private void spawnNextWave() {
-        System.out.println("NEW WAVE: " + (this.currentWave+1));
+    //    System.out.println("NEW WAVE: " + (this.currentWave+1));
 
         List<Map.Entry<String, Integer>> entitiesConfigs = loadEntityConfigFromJson(this, "raid_entity_data/camp/camp_"+this.difficulty+".json", "entities");
         if (entitiesConfigs.isEmpty()) {
@@ -241,7 +241,7 @@ public class SkeletonCrewCamp extends Entity{
 //            }
         }
         this.currentWaveSkeletonTypes = selectedTypes.toArray(new String[0]);
-        System.out.println("Selected types for wave: " + String.join(", ", currentWaveSkeletonTypes));
+//        System.out.println("Selected types for wave: " + String.join(", ", currentWaveSkeletonTypes));
     }
 
     private LivingEntity newEntity(String typeId) {
