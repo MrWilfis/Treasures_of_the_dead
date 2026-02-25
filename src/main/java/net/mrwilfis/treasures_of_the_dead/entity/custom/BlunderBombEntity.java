@@ -193,7 +193,7 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
         return 0.055d;
     }
 
-    @Override
+    @Override // I forgot for what I implemented it
     public DoubleDoubleImmutablePair calculateHorizontalHurtKnockbackDirection(LivingEntity entity, DamageSource damageSource) {
         double d0 = entity.position().x - this.position().x;
         double d1 = entity.position().z - this.position().z;
