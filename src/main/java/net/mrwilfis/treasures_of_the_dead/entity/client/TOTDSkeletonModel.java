@@ -1,7 +1,11 @@
 package net.mrwilfis.treasures_of_the_dead.entity.client;
 
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.TOTDSkeletonEntity;
 import software.bernie.geckolib.animation.AnimationState;
@@ -9,6 +13,9 @@ import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
+
+import static net.mrwilfis.treasures_of_the_dead.TOTDAnims.animateCrossbowCharge;
+import static net.mrwilfis.treasures_of_the_dead.TOTDAnims.animateCrossbowHold;
 
 public class TOTDSkeletonModel extends GeoModel<TOTDSkeletonEntity> {
     @Override
@@ -40,7 +47,23 @@ public class TOTDSkeletonModel extends GeoModel<TOTDSkeletonEntity> {
             head.setRotZ(entityModelData.netHeadYaw() * -0.002f);
 
         }
+
+        if (animatable.isHoldingCrossbow()) {
+            GeoBone rightArm = this.getAnimationProcessor().getBone("right_arm");
+            GeoBone leftArm = this.getAnimationProcessor().getBone("left_arm");
+
+            if (rightArm != null && leftArm != null && head != null) {
+
+                if (animatable.isUsingItem()) {
+                    animateCrossbowCharge(rightArm, leftArm, animatable, !animatable.isLeftHanded());
+                } else {
+                    animateCrossbowHold(rightArm, leftArm, head, !animatable.isLeftHanded());
+                }
+            }
+        }
     }
+
+
 
 
 }
