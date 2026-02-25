@@ -61,8 +61,16 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
 //            chest.setIsOpen(stack.getTag().getBoolean("IsOpen"));
 //            chest.setIsRobbed(stack.getTag().getBoolean("IsRobbed"));
 //        }
+        BlockPos targetPos = pContext.getClickedPos();
         BlockPos offset = pContext.getClickedPos().relative(pContext.getClickedFace(), 1);
-        chest.moveTo(offset.getX() + 0.5, offset.getY(), offset.getZ() + 0.5, 0f,0f);
+        float var1 = 0.0f;
+        if (targetPos.getZ() == offset.getZ()
+                && targetPos.getX() == offset.getX()) {
+            if (!isTopSlab(pContext.getLevel(), targetPos)) {
+                var1 = -0.5f;
+            }
+        }
+        chest.moveTo(offset.getX() + 0.5, offset.getY() + var1, offset.getZ() + 0.5, 0f,0f);
         float yaw = pContext.getPlayer().getYRot();
         if (pContext.getClickedFace() != Direction.UP) {
             yaw = pContext.getPlayer().getDirection().toYRot();

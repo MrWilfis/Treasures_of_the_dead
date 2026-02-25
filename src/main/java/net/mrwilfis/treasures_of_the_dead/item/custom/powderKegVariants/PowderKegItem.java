@@ -52,8 +52,16 @@ public class PowderKegItem extends AbstractPowderKegItem implements GeoItem {
 //            keg.setIsGoingToBlowUp(stack.getTag().getBoolean("IsGoingToBlowUp"));
 //            keg.setPrepareToBlowUp(getPrepareToBlowUp(stack));
 //        }
+        BlockPos targetPos = pContext.getClickedPos();
         BlockPos offset = pContext.getClickedPos().relative(pContext.getClickedFace(), 1);
-        keg.moveTo(offset.getX() + 0.5, offset.getY(), offset.getZ() + 0.5, 0f,0f);
+        float var1 = 0.0f;
+        if (targetPos.getZ() == offset.getZ()
+                && targetPos.getX() == offset.getX()) {
+            if (!isTopSlab(pContext.getLevel(), targetPos)) {
+                var1 = -0.5f;
+            }
+        }
+        keg.moveTo(offset.getX() + 0.5, offset.getY() + var1, offset.getZ() + 0.5, 0f,0f);
         float yaw = pContext.getPlayer().getYRot();
         if (pContext.getClickedFace() != Direction.UP) {
             yaw = pContext.getPlayer().getDirection().toYRot();
