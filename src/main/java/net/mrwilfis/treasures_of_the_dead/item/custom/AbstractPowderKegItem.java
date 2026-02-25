@@ -1,7 +1,9 @@
 package net.mrwilfis.treasures_of_the_dead.item.custom;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -13,6 +15,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 
@@ -26,6 +31,20 @@ public class AbstractPowderKegItem extends Item {
         this.maxPrepareToBlowUp = this.getMaxPrepareToBlowUp();
         this.explodeRadius = this.getExplodeRadius();
     }
+
+    protected boolean isTopSlab(Level level, BlockPos pos) {
+        if (level instanceof ServerLevel) {
+            BlockState state = level.getBlockState(pos);
+
+            if (state.getBlock() instanceof SlabBlock) {
+                SlabType slabType = state.getValue(SlabBlock.TYPE);
+                return slabType == SlabType.TOP || slabType == SlabType.DOUBLE;
+            }
+        }
+        return true;
+
+    }
+
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
