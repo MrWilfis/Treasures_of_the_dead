@@ -112,6 +112,7 @@ public class ModEvents {
                     new ItemCost(Items.EMERALD, 1),
                     new ItemStack(ModItems.BLUNDER_BOMB.get(), 3),
                     32, 2, 0.05f));
+
             trades.get(5).add((entity, randomSource) -> new MerchantOffer(
                     new ItemCost(Items.EMERALD, 32),
                     Optional.of(new ItemCost(Items.DIAMOND, 7)),
