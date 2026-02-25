@@ -18,6 +18,13 @@ public class ModLootTables {
 
     public static final ResourceKey<LootTable> DEFAULT_TREASURE_CHEST_LOOT;
     public static final ResourceKey<LootTable> SKULL_MERCHANT_SHOP;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_OUTSIDE_FOOD_BARREL;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_SUPPLIES_STORAGE;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_POT;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_MAIN_HALL_FOOD_STORAGE;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_FUEL_STORAGE;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_FLOOR3_CHEST;
+    public static final ResourceKey<LootTable> SEA_FORTRESS_ROOF_WAREHOUSE_CHEST;
 
     public ModLootTables() {
 
@@ -27,6 +34,13 @@ public class ModLootTables {
         IMMUTABLE_LOCATIONS = Collections.unmodifiableSet(LOCATIONS);
         DEFAULT_TREASURE_CHEST_LOOT = register("gameplay/open_treasure");//give @p minecraft:barrel{BlockEntityTag:{LootTable:"treasures_of_the_dead:gameplay/open_treasure"}}
         SKULL_MERCHANT_SHOP = register("chests/skull_merchant_shop/skull_merchant_shop");
+        SEA_FORTRESS_OUTSIDE_FOOD_BARREL = register("chests/sea_fortress/outside_food_barrel");
+        SEA_FORTRESS_SUPPLIES_STORAGE = register("chests/sea_fortress/supplies_storage");
+        SEA_FORTRESS_POT = register("chests/sea_fortress/pot");
+        SEA_FORTRESS_MAIN_HALL_FOOD_STORAGE =  register("chests/sea_fortress/main_hall_food_storage");
+        SEA_FORTRESS_FUEL_STORAGE =  register("chests/sea_fortress/fuel_storage");
+        SEA_FORTRESS_FLOOR3_CHEST =  register("chests/sea_fortress/floor3_chest");
+        SEA_FORTRESS_ROOF_WAREHOUSE_CHEST =  register("chests/sea_fortress/roof_warehouse_chest");
     }
 
     private static ResourceKey<LootTable> register(String name) {
