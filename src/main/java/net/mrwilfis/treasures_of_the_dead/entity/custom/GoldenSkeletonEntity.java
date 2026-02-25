@@ -94,6 +94,11 @@ public class GoldenSkeletonEntity extends TOTDSkeletonEntity{
     }
 
     @Override
+    protected void applyFiltersForSpecialVariants() {
+
+    }
+
+    @Override
     public void tick() {
         super.tick();
 

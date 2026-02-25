@@ -134,63 +134,9 @@ public class CaptainSkeletonEntity extends TOTDSkeletonEntity implements Captain
     }
 
     @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom) {
+    protected void applyFiltersForSpecialVariants() {
+        super.applyFiltersForSpecialVariants();
 
-        double randomValue = (double) this.random.nextFloat();
-
-        //SPAWN OUTFITS
-        if (randomValue < 0.1) {
-            //Poor clothes
-            if ((double) this.random.nextFloat() < 0.3) {
-                spawnRandomBandanas(pRandom);
-            }
-            else if ((double) this.random.nextFloat() < 1.0) {
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BICORN.get()), pRandom, 1.0F);
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.CAPTAIN_HAT.get()), pRandom, 0.5F);
-            }
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.BLACK_VEST.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_PANTS.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.8F);
-        }
-        else if (randomValue < 0.55) {
-            //Captain clothes 1
-            if ((double) this.random.nextFloat() < 0.1) {
-                spawnRandomBandanas(pRandom);
-            }
-            else if ((double) this.random.nextFloat() < 1.0) {
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BICORN.get()), pRandom, 0.92F);
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.CAPTAIN_HAT.get()), pRandom, 0.08F);
-            }
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.CAPTAIN_JACKET.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_PANTS.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.5F);
-        }
-        else if (randomValue < 1.0) {
-            //Captain clothes 2
-            if ((double) this.random.nextFloat() < 0.1) {
-                spawnRandomBandanas(pRandom);
-            }
-            else if ((double) this.random.nextFloat() < 1.0) {
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.CAPTAIN_HAT.get()), pRandom, 0.92F);
-                this.maybeWearEquipment(EquipmentSlot.HEAD, new ItemStack(ModItems.BICORN.get()), pRandom, 0.08F);
-            }
-            this.maybeWearEquipment(EquipmentSlot.CHEST, new ItemStack(ModItems.CAPTAIN_CROP_VEST.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.LEGS, new ItemStack(ModItems.CAPTAIN_SKIRT.get()), pRandom, 1.0F);
-            this.maybeWearEquipment(EquipmentSlot.FEET, new ItemStack(ModItems.BLACK_BOOTS.get()), pRandom, 0.2F);
-        }
-
-
-        //Spawn weapons
-        double randomValue2 = this.random.nextFloat();
-        if (randomValue2 < 0.8) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.95F);
-        } else if (randomValue2 < 0.99){
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.95F);
-        } else {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD), pRandom, 1.0F);
-        }
-
-        //Remove boots if it with wooden legs
         if (this.getCaptainVariant().equals(CaptainSkeletonVariant.VAR6) || this.getCaptainVariant().equals(CaptainSkeletonVariant.VAR7)) {
             this.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR));
         }

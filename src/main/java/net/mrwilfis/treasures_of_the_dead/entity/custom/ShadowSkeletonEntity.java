@@ -266,22 +266,8 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     }
 
     @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom) {
-        double randomValue = (double) this.random.nextFloat();
+    protected void applyFiltersForSpecialVariants() {
 
-        if (randomValue < 0.2) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
-        } else if (randomValue < 0.95){
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
-        } else {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(ModItems.POWDER_KEG_ITEM.get()), pRandom, 1.0F);
-        }
-
-        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
-        if (mainHandItem.getItem() == ModItems.POWDER_KEG_ITEM.get()) {
-            setLeftHanded(false);
-            setDropChance(EquipmentSlot.MAINHAND, 1.0f);
-        }
     }
 
     public BlockPos getLightPosition() {

@@ -109,15 +109,8 @@ public class CaptainShadowSkeletonEntity extends ShadowSkeletonEntity implements
     }
 
     @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom) {
-        double randomValue2 = this.random.nextFloat();
-        if (randomValue2 < 0.8) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.95F);
-        } else if (randomValue2 < 0.99){
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.95F);
-        } else {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD), pRandom, 1.0F);
-        }
+    protected void applyFiltersForSpecialVariants() {
+
     }
 
     public CaptainShadowSkeletonVariant getCaptainShadowVariant() {
