@@ -68,7 +68,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
         if (this.isInWaterOrRain()) {
             CreateBloomingParticles(this.level(), this.random, this.position());
             if (this.tickCount % 10 == 0) {
-                this.heal(3.0f);
+                this.heal(2.0f);
             }
         } else {
             if (this.tickCount % 10 == 0) {
@@ -78,9 +78,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
     }
 
     @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-
+    protected void applyFiltersForSpecialVariants() {
         if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR2) ||
                 this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR3)) {
             this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.AIR));
