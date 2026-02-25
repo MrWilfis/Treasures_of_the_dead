@@ -76,10 +76,13 @@
 
   "item.treasures_of_the_dead.blunder_bomb": "Бомбец",
 
+  "item.treasures_of_the_dead.sea_fortress_key": "Ключ морской крепости",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Кузнечный шаблон",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Отделка \"Орден душ\"",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Стол торговца черепами",
+  "block.treasures_of_the_dead.sea_fortress_core": "Ядро морской крепости",
   "block.treasures_of_the_dead.small_iron_brazier": "Маленькая железная жаровня",
   "block.treasures_of_the_dead.iron_brazier": "Железная жаровня",
   "block.treasures_of_the_dead.big_iron_brazier": "Большая железная жаровня",
@@ -99,5 +102,11 @@
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Карта легендарного клада",
   "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Разграблен",
   "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Сложность задания: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "Ключ не подходит к этой крепости",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "Ключ невозможно использовать, пока крепость активна или награждает",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "X координата крепости: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "Z координата крепости: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Ценность добычи: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Открывает любую морскую крепость",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Бомбец взрывается"
 }

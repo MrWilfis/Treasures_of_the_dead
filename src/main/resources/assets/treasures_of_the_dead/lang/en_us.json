@@ -76,10 +76,13 @@
 
   "item.treasures_of_the_dead.blunder_bomb": "Blunder Bomb",
 
+  "item.treasures_of_the_dead.sea_fortress_key": "Sea Fortress Key",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Smithing Template",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Order Of Souls Armor Trim",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Skull Merchant Table",
+  "block.treasures_of_the_dead.sea_fortress_core": "Sea Fortress Core",
   "block.treasures_of_the_dead.small_iron_brazier": "Small Iron Brazier",
   "block.treasures_of_the_dead.iron_brazier": "Iron Brazier",
   "block.treasures_of_the_dead.big_iron_brazier": "Big Iron Brazier",
@@ -99,5 +102,11 @@
   "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Legendary Treasure Map",
   "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Looted",
   "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Quest difficulty: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "The key doesn't fit this fortress",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "The key cannot be used while the fortress is active or rewarding",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "Fortress x: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "Fortress z: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Loot value: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Can open any sea fortress core",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Blunder bomb explodes"
 }
