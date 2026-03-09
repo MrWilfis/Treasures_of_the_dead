@@ -3,7 +3,6 @@ package net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -41,11 +40,8 @@ public class VillainousSkullItem extends AbstractSkullItem implements GeoItem {
         BlockPos targetPos = pContext.getClickedPos();
         BlockPos offset = pContext.getClickedPos().relative(pContext.getClickedFace(), 1);
         float var1 = 0.0f;
-        if (targetPos.getZ() == offset.getZ()
-                && targetPos.getX() == offset.getX()) {
-            if (!isTopSlab(pContext.getLevel(), targetPos)) {
-                var1 = -0.5f;
-            }
+        if (targetPos.getZ() == offset.getZ() && targetPos.getX() == offset.getX() && targetPos.getY() == offset.getY() - 1) {
+            var1 = checkSpecialBlocks(pContext, targetPos);
         }
         skull.moveTo(offset.getX() + 0.5, offset.getY() + var1, offset.getZ() + 0.5, 0f,0f);
         float yaw = pContext.getPlayer().getYRot();

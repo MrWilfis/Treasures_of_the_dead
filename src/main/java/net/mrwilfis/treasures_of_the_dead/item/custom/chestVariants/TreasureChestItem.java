@@ -8,14 +8,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
 import net.mrwilfis.treasures_of_the_dead.item.client.TreasureChestItemRenderer;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractChestItem;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
@@ -64,11 +62,8 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
         BlockPos targetPos = pContext.getClickedPos();
         BlockPos offset = pContext.getClickedPos().relative(pContext.getClickedFace(), 1);
         float var1 = 0.0f;
-        if (targetPos.getZ() == offset.getZ()
-                && targetPos.getX() == offset.getX()) {
-            if (!isTopSlab(pContext.getLevel(), targetPos)) {
-                var1 = -0.5f;
-            }
+        if (targetPos.getZ() == offset.getZ() && targetPos.getX() == offset.getX() && targetPos.getY() == offset.getY() - 1) {
+            var1 = checkSpecialBlocks(pContext, targetPos);
         }
         chest.moveTo(offset.getX() + 0.5, offset.getY() + var1, offset.getZ() + 0.5, 0f,0f);
         float yaw = pContext.getPlayer().getYRot();
