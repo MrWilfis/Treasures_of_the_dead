@@ -1,8 +1,6 @@
 package net.mrwilfis.treasures_of_the_dead;
 
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,10 +20,22 @@ public class Config
 
     private static final ModConfigSpec.IntValue RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS;
     private static final ModConfigSpec.ConfigValue<String> CAPTAIN_NAMES_LANG;
-    private static final ModConfigSpec.ConfigValue<Double> PIRATE_SKELETON_HEALTH;
-    private static final ModConfigSpec.ConfigValue<Double> PIRATE_SKELETON_DAMAGE;
-    private static final ModConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_HEALTH;
-    private static final ModConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue PIRATE_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue PIRATE_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue BLOOMING_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue BLOOMING_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_BLOOMING_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_BLOOMING_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue SHADOW_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue SHADOW_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_SHADOW_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_SHADOW_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue GOLDEN_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue GOLDEN_SKELETON_DAMAGE;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_GOLDEN_SKELETON_HEALTH;
+    private static final ModConfigSpec.DoubleValue CAPTAIN_GOLDEN_SKELETON_DAMAGE;
 
     static {
         BUILDER.push("Treasures of the dead - Common Config!");
@@ -37,13 +47,25 @@ public class Config
                 .comment("(For servers) For now you can use only ru_ru or en_us")
                 .define("captain_names_lang", "en_us");
 
-        BUILDER.comment("ALL BELOW IS NOT WORKING FOR NOW!");
-        PIRATE_SKELETON_HEALTH = BUILDER.define("pirateSkeletonHealth", 26.0);
-        PIRATE_SKELETON_DAMAGE = BUILDER.define("pirateSkeletonDamage", 3.0);
-        CAPTAIN_SKELETON_HEALTH = BUILDER.define("captainSkeletonHealth", 70.0);
-        CAPTAIN_SKELETON_DAMAGE = BUILDER.define("captainSkeletonDamage", 4.0);
+        BUILDER.push("Mobs stats");
+        PIRATE_SKELETON_HEALTH = BUILDER.defineInRange("pirateSkeletonHealth", 26.0, 1.0, 1024);
+        PIRATE_SKELETON_DAMAGE = BUILDER.defineInRange("pirateSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_SKELETON_HEALTH = BUILDER.defineInRange("captainSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_SKELETON_DAMAGE = BUILDER.defineInRange("captainSkeletonDamage", 4.0, 0.0, 1024);
+        BLOOMING_SKELETON_HEALTH = BUILDER.defineInRange("bloomingSkeletonHealth", 26.0, 1.0, 1024);
+        BLOOMING_SKELETON_DAMAGE = BUILDER.defineInRange("bloomingSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_BLOOMING_SKELETON_HEALTH = BUILDER.defineInRange("captainBloomingSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_BLOOMING_SKELETON_DAMAGE = BUILDER.defineInRange("captainBloomingSkeletonDamage", 4.0, 0.0, 1024);
+        SHADOW_SKELETON_HEALTH = BUILDER.defineInRange("shadowSkeletonHealth", 22.0, 1.0, 1024);
+        SHADOW_SKELETON_DAMAGE = BUILDER.defineInRange("shadowSkeletonDamage", 4.5, 0.0, 1024);
+        CAPTAIN_SHADOW_SKELETON_HEALTH = BUILDER.defineInRange("captainShadowSkeletonHealth", 60.0, 1.0, 1024);
+        CAPTAIN_SHADOW_SKELETON_DAMAGE = BUILDER.defineInRange("captainShadowSkeletonDamage", 5.5, 0.0, 1024);
+        GOLDEN_SKELETON_HEALTH = BUILDER.defineInRange("goldenSkeletonHealth", 26.0, 1.0, 1024);
+        GOLDEN_SKELETON_DAMAGE = BUILDER.defineInRange("goldenSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_GOLDEN_SKELETON_HEALTH = BUILDER.defineInRange("captainGoldenSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_GOLDEN_SKELETON_DAMAGE = BUILDER.defineInRange("captainGoldenSkeletonDamage", 4.0, 0.0, 1024);
 
-        BUILDER.pop();
+        BUILDER.pop(2);
         SPEC = BUILDER.build();
     }
 
@@ -58,6 +80,18 @@ public class Config
     public static double pirateSkeletonDamage;
     public static double captainSkeletonHealth;
     public static double captainSkeletonDamage;
+    public static double bloomingSkeletonHealth;
+    public static double bloomingSkeletonDamage;
+    public static double captainBloomingSkeletonHealth;
+    public static double captainBloomingSkeletonDamage;
+    public static double shadowSkeletonHealth;
+    public static double shadowSkeletonDamage;
+    public static double captainShadowSkeletonHealth;
+    public static double captainShadowSkeletonDamage;
+    public static double goldenSkeletonHealth;
+    public static double goldenSkeletonDamage;
+    public static double captainGoldenSkeletonHealth;
+    public static double captainGoldenSkeletonDamage;
 
     private static boolean validateItemName(final Object obj)
     {
@@ -74,5 +108,17 @@ public class Config
         pirateSkeletonDamage = PIRATE_SKELETON_DAMAGE.get();
         captainSkeletonHealth = CAPTAIN_SKELETON_HEALTH.get();
         captainSkeletonDamage = CAPTAIN_SKELETON_DAMAGE.get();
+        bloomingSkeletonHealth = BLOOMING_SKELETON_HEALTH.get();
+        bloomingSkeletonDamage = BLOOMING_SKELETON_DAMAGE.get();
+        captainBloomingSkeletonHealth = CAPTAIN_BLOOMING_SKELETON_HEALTH.get();
+        captainBloomingSkeletonDamage = CAPTAIN_BLOOMING_SKELETON_DAMAGE.get();
+        shadowSkeletonHealth = SHADOW_SKELETON_HEALTH.get();
+        shadowSkeletonDamage = SHADOW_SKELETON_DAMAGE.get();
+        captainShadowSkeletonHealth = CAPTAIN_SHADOW_SKELETON_HEALTH.get();
+        captainShadowSkeletonDamage = CAPTAIN_SHADOW_SKELETON_DAMAGE.get();
+        goldenSkeletonHealth = GOLDEN_SKELETON_HEALTH.get();
+        goldenSkeletonDamage = GOLDEN_SKELETON_DAMAGE.get();
+        captainGoldenSkeletonHealth = CAPTAIN_GOLDEN_SKELETON_HEALTH.get();
+        captainGoldenSkeletonDamage = CAPTAIN_GOLDEN_SKELETON_DAMAGE.get();
     }
 }
