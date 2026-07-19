@@ -1,6 +1,5 @@
 package net.mrwilfis.treasures_of_the_dead.item.client;
 
-import net.mrwilfis.treasures_of_the_dead.item.custom.CaptainClothes1ArmorItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.CaptainClothes2ArmorItem;
 import net.mrwilfis.treasures_of_the_dead.renderer.NewArmorRenderer;
 

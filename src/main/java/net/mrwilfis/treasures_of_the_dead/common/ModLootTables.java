@@ -1,9 +1,7 @@
 package net.mrwilfis.treasures_of_the_dead.common;
 
-import com.google.common.collect.Sets;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 

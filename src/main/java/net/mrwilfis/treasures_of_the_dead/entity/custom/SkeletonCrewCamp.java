@@ -4,14 +4,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -21,11 +17,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.mrwilfis.treasures_of_the_dead.TOTDUtils;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
-import net.mrwilfis.treasures_of_the_dead.entity.variant.*;
 
 import java.io.InputStreamReader;
 import java.util.*;
@@ -192,7 +190,7 @@ public class SkeletonCrewCamp extends Entity{
             LivingEntity pirate = newEntity(selectedType);
             if (pirate != null) {
                 BlockPos pos = findNearbyPos();
-                pirate.moveTo(pos.getX(), pos.getY(), pos.getZ(), rand.nextFloat(-180f, 180f), 0f);
+                pirate.moveTo(pos.getX()+0.5, pos.getY(), pos.getZ()+0.5, rand.nextFloat(-180f, 180f), 0f);
                 pirate = specialProcedures(pirate);
                 skeletonsToSpawn.add(pirate);
                 //this.level().addFreshEntity(pirate);
@@ -204,7 +202,7 @@ public class SkeletonCrewCamp extends Entity{
                 LivingEntity captain = newEntity(pirateTypeToCaptainType.get(selectedType));
                 if (captain != null) {
                     BlockPos pos = findNearbyPos();
-                    captain.moveTo(pos.getX(), pos.getY(), pos.getZ(), rand.nextFloat(-180f, 180f), 0f);
+                    captain.moveTo(pos.getX()+0.5, pos.getY(), pos.getZ()+0.5, rand.nextFloat(-180f, 180f), 0f);
                     captain = specialProcedures(captain);
                     skeletonsToSpawn.add(captain);
                     //this.level().addFreshEntity(captain);
@@ -327,12 +325,64 @@ public class SkeletonCrewCamp extends Entity{
     }
 
     private BlockPos findNearbyPos() {
-        int x = (int)this.getX() + rand.nextInt(-4, 4);
-        int z = (int)this.getZ() + rand.nextInt(-4, 4);
+        int attempts = 0;
+        int maxAttempts = 20;
 
-        int y = this.level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+        while (attempts < maxAttempts) {
+            int x = (int)this.getX() + rand.nextInt(-6, 6);
+            int z = (int)this.getZ() + rand.nextInt(-6, 6);
 
-        return new BlockPos(x, y, z);
+            // check chunk load
+            BlockPos checkPos = new BlockPos(x, 0, z);
+            if (!this.level().isLoaded(checkPos)) {
+                attempts++;
+                continue;
+            }
+
+            int y = this.level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+
+            // is valid height
+            if (y <= this.level().getMinBuildHeight() + 1) {
+                attempts++;
+                continue;
+            }
+
+            BlockPos spawnPos = new BlockPos(x, y, z);
+
+            if (isInWater(this.level(), spawnPos)) {
+                attempts++;
+                continue;
+            }
+
+            if (!this.level().getBlockState(spawnPos.above()).isAir() ||
+                    !this.level().getBlockState(spawnPos.above(2)).isAir()) {
+                attempts++;
+                continue;
+            }
+
+            // height difference
+            if (Math.abs(this.getY() - y) <= 6) {
+                return spawnPos;
+            }
+            attempts++;
+        }
+
+        // Fallback
+        return BlockPos.containing(this.getX(), this.getY(), this.getZ());
+    }
+
+    private boolean isInWater(Level level, BlockPos pos) {
+
+        Block block = level.getBlockState(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ())).getBlock();
+        if (block == Blocks.WATER) {
+            return true;
+        }
+
+        if (level.getBlockState(pos).hasProperty(BlockStateProperties.WATERLOGGED)) {
+            return level.getBlockState(pos).getValue(BlockStateProperties.WATERLOGGED);
+        }
+
+        return false;
     }
 
 

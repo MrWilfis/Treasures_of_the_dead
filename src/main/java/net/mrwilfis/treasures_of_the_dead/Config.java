@@ -20,6 +20,9 @@ public class Config
 
     private static final ModConfigSpec.IntValue RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS;
     private static final ModConfigSpec.ConfigValue<String> CAPTAIN_NAMES_LANG;
+    private static final ModConfigSpec.DoubleValue BLUNDER_BOMB_AOE_MAX_DAMAGE;
+    private static final ModConfigSpec.DoubleValue BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE;
+    private static final ModConfigSpec.DoubleValue BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER;
     private static final ModConfigSpec.DoubleValue PIRATE_SKELETON_HEALTH;
     private static final ModConfigSpec.DoubleValue PIRATE_SKELETON_DAMAGE;
     private static final ModConfigSpec.DoubleValue CAPTAIN_SKELETON_HEALTH;
@@ -41,11 +44,20 @@ public class Config
         BUILDER.push("Treasures of the dead - Common Config!");
 
         RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS = BUILDER
-                .comment("For big adventures you can set this parameter to your distance of view. (if the value of this parameter is higher than your distance of view, than buried treasures and skeletons will spawning in bedrock)")
-                .defineInRange("randomAdventureItemDistanceInChunks", 8, 6, 128);
+                .comment("For big adventures you can set this parameter however you want.")
+                .defineInRange("randomAdventureItemDistanceInChunks", 16, 6, 128);
         CAPTAIN_NAMES_LANG = BUILDER
-                .comment("(For servers) For now you can use only ru_ru or en_us")
+                .comment("(For servers) Use the ready-made captain names for \"en_us\" or \"ru_ru\". OR, write \"custom\" and create your own captain names")
                 .define("captain_names_lang", "en_us");
+        BLUNDER_BOMB_AOE_MAX_DAMAGE = BUILDER
+                .comment("The damage depends on the distance from the center of the bomb explosion to the entity. The maximum damage is achieved in the very center.")
+                .defineInRange("blunderBombAOEMaxDamage", 15.0, 0.0, 1024);
+        BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE = BUILDER
+                .comment("Damage when the entity is hit directly. This is NOT additional damage! Please note that the highest damage is selected and dealt between AOE and on hit (by minecraft)")
+                .defineInRange("blunderBombOnEntityHitDamage", 15.0, 0.0, 1024);
+        BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER = BUILDER
+                .comment("Player Damage Modifier. Affects on all levels of difficulty")
+                .defineInRange("blunderBombPlayerGetDamageMultiplier", 0.5, 0.0, 1024);
 
         BUILDER.push("Mobs stats");
         PIRATE_SKELETON_HEALTH = BUILDER.defineInRange("pirateSkeletonHealth", 26.0, 1.0, 1024);
@@ -76,6 +88,9 @@ public class Config
 
     public static int randomAdventureItemDistanceInChunks;
     public static String captainNamesLang;
+    public static double blunderBombAOEMaxDamage;
+    public static double blunderBombOnEntityHitDamage;
+    public static double blunderBombPlayerGetDamageMultiplier;
     public static double pirateSkeletonHealth;
     public static double pirateSkeletonDamage;
     public static double captainSkeletonHealth;
@@ -104,6 +119,9 @@ public class Config
 
         randomAdventureItemDistanceInChunks = RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS.get();
         captainNamesLang = CAPTAIN_NAMES_LANG.get();
+        blunderBombAOEMaxDamage = BLUNDER_BOMB_AOE_MAX_DAMAGE.get();
+        blunderBombOnEntityHitDamage = BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE.get();
+        blunderBombPlayerGetDamageMultiplier = BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER.get();
         pirateSkeletonHealth = PIRATE_SKELETON_HEALTH.get();
         pirateSkeletonDamage = PIRATE_SKELETON_DAMAGE.get();
         captainSkeletonHealth = CAPTAIN_SKELETON_HEALTH.get();

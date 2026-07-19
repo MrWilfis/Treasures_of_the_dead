@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainShadowSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.ShadowSkeletonEntity;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 

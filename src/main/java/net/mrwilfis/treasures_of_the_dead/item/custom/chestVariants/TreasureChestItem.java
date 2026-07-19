@@ -54,6 +54,9 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
         if (stack.get(ModDataComponents.TREASURE_CHEST_IS_ROBBED) != null) {
             chest.setIsRobbed(stack.get(ModDataComponents.TREASURE_CHEST_IS_ROBBED).booleanValue());
         }
+        if (stack.get(ModDataComponents.TREASURE_CHEST_IS_TRAP) != null) {
+            chest.setIsTrap(stack.get(ModDataComponents.TREASURE_CHEST_IS_TRAP).booleanValue());
+        }
 
 //        if (stack.getTag() != null) {
 //            chest.setIsOpen(stack.getTag().getBoolean("IsOpen"));

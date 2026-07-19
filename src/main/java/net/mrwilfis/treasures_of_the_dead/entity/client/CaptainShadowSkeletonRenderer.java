@@ -16,9 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainShadowSkeletonEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.ShadowSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainShadowSkeletonVariant;
-import net.mrwilfis.treasures_of_the_dead.entity.variant.ShadowSkeletonVariant;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -51,10 +49,6 @@ public class CaptainShadowSkeletonRenderer extends GeoEntityRenderer<CaptainShad
                 p_114874_.put(CaptainShadowSkeletonVariant.DEFAULT,
                         Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR1,
-                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton1.png"));
-                p_114874_.put(CaptainShadowSkeletonVariant.VAR2,
-                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton2.png"));
-                p_114874_.put(CaptainShadowSkeletonVariant.VAR3,
                         Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton2.png"));
             });
 

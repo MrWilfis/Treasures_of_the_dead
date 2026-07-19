@@ -15,12 +15,14 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
+import net.mrwilfis.treasures_of_the_dead.Config;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.particle.ModParticles;
 import net.mrwilfis.treasures_of_the_dead.sound.ModSounds;
@@ -37,9 +39,9 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
 
     protected static final RawAnimation FLY = RawAnimation.begin().then("animation.blunder_bomb.fly", Animation.LoopType.LOOP);
 
-    private final float MAX_DAMAGE = 15.0f;
+    // final float MAX_DAMAGE = 15.0f;
     private final float MIN_DISTANCE = 5.0f;
-    private final float ON_HIT_ENTITY_DAMAGE = 4.0f;
+    //private final float ON_HIT_ENTITY_DAMAGE = 4.0f;
 
     public BlunderBombEntity(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
@@ -84,7 +86,13 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
         super.onHitEntity(result);
         if (!this.level().isClientSide) {
             Entity entity = result.getEntity();
-            entity.hurt(entity.damageSources().explosion(this, this.getOwner()), ON_HIT_ENTITY_DAMAGE);
+            if (entity instanceof Player) {
+                entity.hurt(entity.damageSources().explosion(this, this.getOwner()), (float) Config.blunderBombOnEntityHitDamage * (float) Config.blunderBombPlayerGetDamageMultiplier * getDifficultyModifier());
+                //System.out.println("Урона при попадании (игрок): " + (float) Config.blunderBombOnEntityHitDamage * (float) Config.blunderBombPlayerGetDamageMultiplier);
+            } else {
+                entity.hurt(entity.damageSources().explosion(this, this.getOwner()), (float) Config.blunderBombOnEntityHitDamage);
+                //System.out.println("Урона при попадании (моб): " + (float) Config.blunderBombOnEntityHitDamage);
+            }
         }
     }
 
@@ -119,6 +127,11 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
                 float distance = this.distanceTo(entity);
                 float damage = calculateDamage(distance);
 
+                if (entity instanceof Player) {
+                    damage *= (float) Config.blunderBombPlayerGetDamageMultiplier * getDifficultyModifier();
+                    //System.out.println("Урон модифицирован для игрока: " + damage);
+                }
+
                 //entity.hurt(entity.damageSources().explosion(this, this.getOwner()), damage);
 
                 if (!entity.isSpectator() && entity.hurt(entity.damageSources().explosion(this, this.getOwner()), damage)) {
@@ -131,12 +144,26 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
 
                     entity.knockback(knockbackStrength, -direction.x, -direction.z);
 
+                    //System.out.println("АОЕ Урона нанесено: " + damage);
+
                     if (entity instanceof ServerPlayer) {
                         ((ServerPlayer)entity).hurtMarked = true;
                     }
                 }
             }
         }
+    }
+
+    private float getDifficultyModifier() {
+        float modifier;
+        switch (this.level().getDifficulty()) {
+            case EASY -> modifier = 1.9f;
+            case NORMAL -> modifier = 1.0f;
+            case HARD -> modifier = 0.667f;
+            case PEACEFUL -> modifier = 2.0f;
+            default -> modifier = 1.0f;
+        }
+        return modifier;
     }
 
     private void createParticles(Level level, RandomSource random, Vec3 position) {
@@ -184,7 +211,7 @@ public class BlunderBombEntity extends ThrowableProjectile implements GeoAnimata
     }
 
     private float calculateDamage(float distance) {
-        float damage = MAX_DAMAGE * (1 - distance / MIN_DISTANCE);
+        float damage = (float) Config.blunderBombAOEMaxDamage * (1 - distance / MIN_DISTANCE);
         return Math.max(damage, 0.0f);
     }
 

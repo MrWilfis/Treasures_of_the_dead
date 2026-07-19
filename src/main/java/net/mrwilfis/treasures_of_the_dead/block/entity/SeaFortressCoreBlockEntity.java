@@ -3,7 +3,6 @@ package net.mrwilfis.treasures_of_the_dead.block.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -65,13 +64,14 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
     private int currentWave = 0;
     private int maxWaves = 10;
     private int waveSpawnDelay = 100;
-    private int cooldownTicks = 100;
+    private long nextTimeActive = 0;
+    private long lastTimeActive = 0;
     private boolean isProcessingReward = false;
     private int rewardingTicks = 0;
     private int rewardsGiven = 0;
     private int totalEnemies = 0;
     private final Random rand = new Random();
-    private final int MAX_COOLDOWN_TICKS = 20*60*45;
+    private final int MAX_COOLDOWN_TICKS = 20*60*30;
     private final int MAX_ACTIVE_TICKS = 20*60*30;
 
 
@@ -174,7 +174,8 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
                 waveSpawnDelay = 180;
             } else {
                 currentState = State.COOLDOWN;
-                cooldownTicks = MAX_COOLDOWN_TICKS;
+                lastTimeActive = this.level.getGameTime();
+                nextTimeActive = lastTimeActive + MAX_COOLDOWN_TICKS;
 
                 updateBlockState();
 
@@ -223,7 +224,8 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
 
         if (activeTicks>=MAX_ACTIVE_TICKS) {
             activeTicks = 0;
-            cooldownTicks = MAX_COOLDOWN_TICKS;
+            lastTimeActive = this.level.getGameTime();
+            nextTimeActive = lastTimeActive + MAX_COOLDOWN_TICKS;
             spawnedMobs.clear();
             currentState = State.COOLDOWN;
             updateBlockState();
@@ -234,9 +236,7 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
     }
 
     private void tickCooldown(ServerLevel level, BlockPos pos) {
-        cooldownTicks--;
-
-        if (cooldownTicks <= 0) {
+        if (this.level.getGameTime() >= nextTimeActive) {
             currentState = State.WAITING;
             updateBlockState();
 //            System.out.println("WAITING");
@@ -287,7 +287,8 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
                 if (spawnedMobs.isEmpty()) {
                     currentState = State.COOLDOWN;
                     updateBlockState();
-                    cooldownTicks = MAX_COOLDOWN_TICKS;
+                    lastTimeActive = this.level.getGameTime();
+                    nextTimeActive = lastTimeActive + MAX_COOLDOWN_TICKS;
                     activeTicks = 0;
                 }
                 break;
@@ -685,7 +686,8 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
 
         tag.putString("State", currentState.name());
         tag.putInt("ActiveTicks", activeTicks);
-        tag.putInt("CooldownTicks", cooldownTicks);
+        tag.putLong("NextTimeActive", nextTimeActive);
+        tag.putLong("LastTimeActive", lastTimeActive);
         tag.putInt("CurrentWave", currentWave);
         tag.putInt("MaxWaves", maxWaves);
         tag.putInt("WaveSpawnDelay", waveSpawnDelay);
@@ -721,7 +723,8 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
             }
         }
         activeTicks = tag.getInt("ActiveTicks");
-        cooldownTicks = tag.getInt("CooldownTicks");
+        nextTimeActive = tag.getLong("NextTimeActive");
+        lastTimeActive = tag.getLong("LastTimeActive");
         currentWave = tag.getInt("CurrentWave");
         maxWaves = tag.getInt("MaxWaves");
         waveSpawnDelay = tag.getInt("WaveSpawnDelay");

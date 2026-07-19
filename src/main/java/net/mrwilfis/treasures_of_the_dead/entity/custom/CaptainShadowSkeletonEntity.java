@@ -7,11 +7,9 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -19,7 +17,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
@@ -60,8 +57,8 @@ public class CaptainShadowSkeletonEntity extends ShadowSkeletonEntity implements
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 70.0D)
-                .add(Attributes.ATTACK_DAMAGE, 4.0f)
+                .add(Attributes.MAX_HEALTH, 60.0D)
+                .add(Attributes.ATTACK_DAMAGE, 5.5f)
                 .add(Attributes.ATTACK_SPEED, 1.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.65f)
                 .add(Attributes.ARMOR, 10.0f)

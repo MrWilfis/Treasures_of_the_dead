@@ -49,14 +49,8 @@ public class BloomingSkeletonRenderer extends GeoEntityRenderer<BloomingSkeleton
                 p_114874_.put(BloomingSkeletonVariant.DEFAULT,
                         Treasures_of_the_dead.resource("textures/entity/blooming_skeleton1.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR1,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
                 p_114874_.put(BloomingSkeletonVariant.VAR2,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
-                p_114874_.put(BloomingSkeletonVariant.VAR3,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
-                p_114874_.put(BloomingSkeletonVariant.VAR4,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton3.png"));
-                p_114874_.put(BloomingSkeletonVariant.VAR5,
                         Treasures_of_the_dead.resource("textures/entity/blooming_skeleton3.png"));
             });
 

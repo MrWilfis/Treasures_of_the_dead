@@ -5,7 +5,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -65,7 +63,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
     public void tick() {
         super.tick();
 
-        if (this.isInWaterOrRain()) {
+        if (this.isInWaterOrRain() && !getIsSpawning()) {
             CreateBloomingParticles(this.level(), this.random, this.position());
             if (this.tickCount % 10 == 0) {
                 this.heal(2.0f);
@@ -79,13 +77,11 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
 
     @Override
     protected void applyFiltersForSpecialVariants() {
-        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR2) ||
-                this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR3)) {
+        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR1)) {
             this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.AIR));
         }
 
-        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR4) ||
-                this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR5)) {
+        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR2)) { // these variants are made special to use with bandanas
             spawnRandomBandanas(this.random);
         }
     }

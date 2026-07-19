@@ -70,22 +70,14 @@ public class ModCreativeModTabs {
 
                         output.accept(ModBlocks.SKULL_MERCHANT_TABLE.get());
 
-                        output.accept(ModBlocks.SMALL_IRON_BRAZIER.get());
-                        output.accept(ModBlocks.SMALL_GOLDEN_BRAZIER.get());
-                        output.accept(ModBlocks.SMALL_IRON_SOUL_BRAZIER.get());
-                        output.accept(ModBlocks.SMALL_GOLDEN_SOUL_BRAZIER.get());
-
-                    //    output.accept(ModItems.PISTOL.get());
-                    //    output.accept(ModItems.CARTRIDGE.get());
-
                         output.accept(ModItems.BLUNDER_BOMB.get());
 
                         output.accept(ModBlocks.SEA_FORTRESS_CORE.get());
 
 
-                            ItemStack stack = new ItemStack(ModItems.SEA_FORTRESS_KEY.get());
-                            stack.set(ModDataComponents.LOOT_VALUE, (float)100.0f);
-                            output.accept(stack);
+                        ItemStack stack = new ItemStack(ModItems.SEA_FORTRESS_KEY.get());
+                        stack.set(ModDataComponents.LOOT_VALUE, (float)100.0f);
+                        output.accept(stack);
 
 
                         output.accept(ModItems.TOTD_SKELETON_SPAWN_EGG.get());
@@ -96,6 +88,45 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.CAPTAIN_SHADOW_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.GOLDEN_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.CAPTAIN_GOLDEN_SKELETON_SPAWN_EGG.get());
+
+                        //Braziers
+                        output.accept(ModBlocks.SMALL_IRON_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_IRON_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_IRON_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_GOLDEN_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_GOLDEN_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_GOLDEN_PATINATED_BRAZIER.get());
+                        //Copper Braziers
+                        output.accept(ModBlocks.SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.EXPOSED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.EXPOSED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.EXPOSED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.WEATHERED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.WEATHERED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.WEATHERED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.OXIDIZED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.OXIDIZED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.OXIDIZED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        //Waxed Copper Braziers
+                        output.accept(ModBlocks.WAXED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_EXPOSED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_EXPOSED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_EXPOSED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_WEATHERED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_WEATHERED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_WEATHERED_SMALL_COPPER_PATINATED_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_OXIDIZED_SMALL_COPPER_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_OXIDIZED_SMALL_COPPER_SOUL_BRAZIER.get());
+                        output.accept(ModBlocks.WAXED_OXIDIZED_SMALL_COPPER_PATINATED_BRAZIER.get());
+
+                    //    output.accept(ModItems.PISTOL.get());
+                    //    output.accept(ModItems.CARTRIDGE.get());
+
+
 
                     })
                     .build());

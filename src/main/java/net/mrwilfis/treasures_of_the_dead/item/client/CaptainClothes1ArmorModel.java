@@ -3,7 +3,6 @@ package net.mrwilfis.treasures_of_the_dead.item.client;
 import net.minecraft.resources.ResourceLocation;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.item.custom.CaptainClothes1ArmorItem;
-import net.mrwilfis.treasures_of_the_dead.item.custom.PirateClothes1ArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 
 public class CaptainClothes1ArmorModel extends GeoModel<CaptainClothes1ArmorItem> {

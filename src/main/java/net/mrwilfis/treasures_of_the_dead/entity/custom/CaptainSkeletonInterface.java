@@ -3,11 +3,13 @@ package net.mrwilfis.treasures_of_the_dead.entity.custom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
 import net.mrwilfis.treasures_of_the_dead.Config;
+import net.mrwilfis.treasures_of_the_dead.util.CustomCaptainNamesManager;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.loading.FMLLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public interface CaptainSkeletonInterface {
 
@@ -15,6 +17,14 @@ public interface CaptainSkeletonInterface {
     default String getRandomName(RandomSource random) {
 
         String ClientLanguage = Config.captainNamesLang;
+
+        if ("custom".equals(ClientLanguage)) {
+            CustomCaptainNamesManager manager = CustomCaptainNamesManager.getInstance();
+            if (manager.isCustomModeEnabled()) {
+                Random random1 = new Random();
+                return manager.getRandomName(random1);
+            }
+        }
 
 
         if (isClient()) {

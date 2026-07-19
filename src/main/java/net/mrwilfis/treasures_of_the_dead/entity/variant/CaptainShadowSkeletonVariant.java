@@ -5,9 +5,7 @@ import java.util.Comparator;
 
 public enum CaptainShadowSkeletonVariant {
     DEFAULT(0),
-    VAR1(1),
-    VAR2(2),
-    VAR3(3);
+    VAR1(1);
 
 
     private static final CaptainShadowSkeletonVariant[] BY_ID = Arrays.stream(values()).sorted(Comparator.

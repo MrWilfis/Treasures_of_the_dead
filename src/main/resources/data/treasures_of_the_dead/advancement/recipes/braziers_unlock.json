@@ -20,7 +20,11 @@
   "rewards": {
     "recipes": [
       "treasures_of_the_dead:small_iron_brazier",
-      "treasures_of_the_dead:small_golden_brazier"
+      "treasures_of_the_dead:small_golden_brazier",
+      "treasures_of_the_dead:small_copper_brazier",
+      "treasures_of_the_dead:small_iron_brazier2",
+      "treasures_of_the_dead:small_golden_brazier2",
+      "treasures_of_the_dead:small_copper_brazier2"
     ]
   }
 }

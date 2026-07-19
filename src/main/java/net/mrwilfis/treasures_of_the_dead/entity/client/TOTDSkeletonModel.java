@@ -1,11 +1,7 @@
 package net.mrwilfis.treasures_of_the_dead.entity.client;
 
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.TOTDSkeletonEntity;
 import software.bernie.geckolib.animation.AnimationState;

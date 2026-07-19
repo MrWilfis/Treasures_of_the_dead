@@ -1,27 +1,34 @@
 package net.mrwilfis.treasures_of_the_dead;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.mrwilfis.treasures_of_the_dead.entity.custom.AnyTreasureClass;
 
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TOTDUtils {
+
+    public static void setAttribute(LivingEntity entity, Holder<Attribute> attribute, double value) {
+        AttributeInstance attributeInstance = entity.getAttribute(attribute);
+        if (attributeInstance == null) {
+            return;
+        }
+        attributeInstance.setBaseValue(value);
+    }
 
     public static ItemStack getItemFromString(String itemId) {
         try {

@@ -2,10 +2,6 @@ package net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -14,7 +10,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -22,7 +17,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.common.ModLootTables;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractChestEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
@@ -33,14 +27,11 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class TreasureChestEntity extends AbstractChestEntity implements GeoAnimatable, GeoEntity {
-    private static final EntityDataAccessor<Boolean> IS_OPEN = SynchedEntityData.defineId(TreasureChestEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> IS_ROBBED = SynchedEntityData.defineId(TreasureChestEntity.class, EntityDataSerializers.BOOLEAN);
+
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
@@ -92,7 +83,7 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
             this.setIsRobbed(true);
             this.setIsOpen(true);
             ejectItems(pPlayer.level());
-
+            CreateUnderwaterParticlesOnOpening(pPlayer.level(), (int) this.getX(), (int) this.getY(), (int) this.getZ());
             if (!pPlayer.isCreative()) {
                 key.shrink(1);
             }
@@ -157,55 +148,5 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
                         xSpeed, ySpeed + 0.1, zSpeed); // Скорость (0, 0, 0)
             }
         }
-    }
-
-    @Override
-    public ItemStack getTreasureItem() {
-        ItemStack stack = new ItemStack(ModItems.TREASURE_CHEST_ITEM.get());
-
-        stack.set(ModDataComponents.TREASURE_CHEST_IS_ROBBED, this.getIsRobbed());
-        stack.set(ModDataComponents.TREASURE_CHEST_IS_OPEN, this.getIsOpen());
-
-//        stack.setTag(new CompoundTag());
-//        stack.getTag().putBoolean("IsOpen", this.getIsOpen());
-//        stack.getTag().putBoolean("IsRobbed", this.getIsRobbed());
-
-        return stack;
-    }
-
-    public boolean getIsOpen() {
-        return this.getEntityData().get(IS_OPEN).booleanValue();
-    }
-
-    public void setIsOpen(boolean var) {
-        this.getEntityData().set(IS_OPEN, var);
-    }
-    public boolean getIsRobbed() {
-        return this.getEntityData().get(IS_ROBBED).booleanValue();
-    }
-
-    public void setIsRobbed(boolean var) {
-        this.getEntityData().set(IS_ROBBED, var);
-    }
-
-    @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(IS_OPEN, Boolean.FALSE);
-        builder.define(IS_ROBBED, Boolean.FALSE);
-    }
-
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        this.setIsOpen(pCompound.getBoolean("IsOpen"));
-        this.setIsRobbed(pCompound.getBoolean("IsRobbed"));
-        super.readAdditionalSaveData(pCompound);
-    }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.putBoolean("IsOpen", this.getIsOpen());
-        pCompound.putBoolean("IsRobbed", this.getIsRobbed());
-        super.addAdditionalSaveData(pCompound);
     }
 }

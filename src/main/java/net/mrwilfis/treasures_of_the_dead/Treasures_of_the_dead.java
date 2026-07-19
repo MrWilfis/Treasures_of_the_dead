@@ -8,16 +8,18 @@ import net.mrwilfis.treasures_of_the_dead.block.entity.ModBlockEntities;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.client.*;
-import net.mrwilfis.treasures_of_the_dead.event.ModEvents;
 import net.mrwilfis.treasures_of_the_dead.item.ModCreativeModTabs;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.particle.BlunderBombExplosionParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.GhostParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.ModParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.RustedGoldenSkeletonParticles;
+import net.mrwilfis.treasures_of_the_dead.screen.TOTDMenuTypes;
+import net.mrwilfis.treasures_of_the_dead.screen.custom.SkullMerchantScreen;
 import net.mrwilfis.treasures_of_the_dead.sound.ModSounds;
 import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
@@ -68,6 +70,7 @@ public class Treasures_of_the_dead
 
         ModEntities.register(modEventBus);
         ModVillagers.register(modEventBus);
+        TOTDMenuTypes.register(modEventBus);
 
         ModSounds.register(modEventBus);
         ModParticles.register(modEventBus);
@@ -134,6 +137,11 @@ public class Treasures_of_the_dead
             event.registerSpriteSet(ModParticles.BLUNDER_BOMB_EXPLOSION_PARTICLES.get(), BlunderBombExplosionParticles.Provider::new);
             event.registerSpriteSet(ModParticles.RUSTED_GOLDEN_SKELETON_PARTICLES.get(), RustedGoldenSkeletonParticles.Provider::new);
             event.registerSpriteSet(ModParticles.GHOST_PARTICLES.get(), GhostParticles.Provider::new);
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(TOTDMenuTypes.SKULL_MERCHANT_MENU.get(), SkullMerchantScreen::new);
         }
     }
 }

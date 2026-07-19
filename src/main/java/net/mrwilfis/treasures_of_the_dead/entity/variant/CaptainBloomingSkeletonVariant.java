@@ -6,12 +6,7 @@ import java.util.Comparator;
 public enum CaptainBloomingSkeletonVariant {
     DEFAULT(0),
     VAR1(1),
-    VAR2(2),
-    VAR3(3),
-    VAR4(4),
-    VAR5(5),
-    VAR6(6),
-    VAR7(7);
+    VAR2(2);
 
     private static final CaptainBloomingSkeletonVariant[] BY_ID = Arrays.stream(values()).sorted(Comparator.
             comparingInt(CaptainBloomingSkeletonVariant::getId)).toArray(CaptainBloomingSkeletonVariant[]::new);

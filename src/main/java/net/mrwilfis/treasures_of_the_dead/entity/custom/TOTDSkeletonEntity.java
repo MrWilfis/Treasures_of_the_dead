@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -22,7 +21,6 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -33,20 +31,18 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.mrwilfis.treasures_of_the_dead.TOTDUtils;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
+import net.mrwilfis.treasures_of_the_dead.entity.ai.goal.GeckoAnimateAttackGoal;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.TOTDSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -55,6 +51,7 @@ import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceC
 import software.bernie.geckolib.animation.*;
 
 import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 import static net.mrwilfis.treasures_of_the_dead.TOTDUtils.getItemFromString;
@@ -69,6 +66,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     //keg blowing up
     private int maxPrepareToBlowUp = 90;
     private int prepareToBlowUp = 0;
+
+    private final int maxSittingInBoatTime = 70;
+    private int sittingInBoatTime = 0;
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
@@ -99,6 +99,8 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     //protected static final RawAnimation HOLDING_CROSSBOW = RawAnimation.begin().then("animation.model.holding_crossbow", Animation.LoopType.LOOP);
     protected static final RawAnimation RUSTY_TWITCH1 = RawAnimation.begin().then("animation.model.rusty_twitch1", Animation.LoopType.PLAY_ONCE);
     protected static final RawAnimation RUSTY_TWITCH2 = RawAnimation.begin().then("animation.model.rusty_twitch2", Animation.LoopType.PLAY_ONCE);
+
+    private boolean isPerformingAnimatedAttack = false;
 
     public TOTDSkeletonEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -148,8 +150,15 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
                         this.getNavigation().moveTo(camp.getX(), camp.getY(), camp.getZ(), 1.25);
                     }
                 }
-            } else {
+            }
 
+            if (this.isPassenger() && this.getVehicle() instanceof Boat && this.getTarget() != null) {
+                sittingInBoatTime++;
+                if (sittingInBoatTime > maxSittingInBoatTime) {
+                    this.stopRiding();
+                    sittingInBoatTime = 0;
+
+                }
             }
 
 
@@ -213,6 +222,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
 
         }
+
+        //System.out.println(this.isPerformingAnimatedAttack + " " + this.isPerformingAnimatedAttack());
+
         super.tick();
 
         if (this.getIsGoingToBlowUp()) {
@@ -433,9 +445,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
     @Override
     protected void registerGoals() {
- //       this.goalSelector.addGoal(1, new AttackWithKegGoal(this, 0.6D, false));
         this.goalSelector.addGoal(1, new RangedCrossbowAttackGoal<>(this, 1.0, 8.0F));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.25D, false));
+        //this.goalSelector.addGoal(2, new GeckoAnimateAttackGoal(this, 1.25D, 7, 17, "attack"));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
  //        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
@@ -450,51 +462,6 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         controllerRegistrar.add(new AnimationController<>(this, "controller1", 3, this::idleAndWalk));
         controllerRegistrar.add(new AnimationController<>(this, "controller2", 3, this::walkAndAttack));
         controllerRegistrar.add(new AnimationController<>(this, "controller3", 0, this::spawning));
-    }
-
-    private PlayState spawning(software.bernie.geckolib.animation.AnimationState<TOTDSkeletonEntity> state) {
-        if (this.getIsSpawning()) {
-            state.getController().setAnimation(SPAWN2);
-            return PlayState.CONTINUE;
-        }
-        state.getController().forceAnimationReset();
-        return PlayState.STOP;
-    }
-
-    private PlayState walkAndAttack(software.bernie.geckolib.animation.AnimationState<TOTDSkeletonEntity> state) {
-        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
-
-        if (this.getIsSpawning()) {
-            state.getController().stop();
-        }
-        if (this.swinging) {
-            state.getController().stop();
-            state.getController().setAnimation(ATTACK1);
-            state.getController().setAnimationSpeed(1.0D);
-            return PlayState.CONTINUE;
-        } else if (!mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
-            state.getController().stop();
-            return  PlayState.CONTINUE;
-        }
-//        else if (!mainHandItem.isEmpty() && isHoldingCrossbow()) {
-//            state.getController().stop();
-//            state.getController().setAnimation(HOLDING_CROSSBOW);
-//            return  PlayState.CONTINUE;
-//        }
-        else if (state.isMoving() && this.isAggressive()) {
-            state.getController().setAnimation(WALK_HANDS1);
-            state.getController().setAnimationSpeed(1.25D);
-            return PlayState.CONTINUE;
-        }
-        else if (state.isMoving() && !this.isAggressive()) {
-            state.getController().setAnimation(WALK_HANDS1);
-            state.getController().setAnimationSpeed(1.0D);
-            return PlayState.CONTINUE;
-        }
-        else if (!state.isMoving() && !this.swinging) {
-            return PlayState.STOP;
-        }
-        return PlayState.CONTINUE;
     }
 
     private PlayState idleAndWalk(software.bernie.geckolib.animation.AnimationState<TOTDSkeletonEntity> state) {
@@ -540,6 +507,69 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         }
 
         return PlayState.STOP;
+    }
+
+    private PlayState walkAndAttack(software.bernie.geckolib.animation.AnimationState<TOTDSkeletonEntity> state) {
+        ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
+
+        if (this.getIsSpawning()) {
+            state.getController().stop();
+        }
+        if (this.swinging) {
+            //if (this.isPerformingAnimatedAttack) {
+            //System.out.println("идёт анимация");
+            state.getController().stop(); // comment after update
+            state.getController().setAnimation(ATTACK1);
+            state.getController().setAnimationSpeed(1.0D);
+//            if (state.getController().hasAnimationFinished()) {
+//                this.isPerformingAnimatedAttack = false;
+//                //System.out.println("анимация закончена, флаг убран");
+//                //state.getController().setAnimation(WALK_HANDS1);
+//                state.getController().forceAnimationReset();
+//            }
+            return PlayState.CONTINUE;
+        } else if (!mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
+            state.getController().stop();
+            return  PlayState.CONTINUE;
+        }
+
+//        else if (!mainHandItem.isEmpty() && isHoldingCrossbow()) {
+//            state.getController().stop();
+//            state.getController().setAnimation(HOLDING_CROSSBOW);
+//            return  PlayState.CONTINUE;
+//        }
+        else if (state.isMoving() && this.isAggressive()) {
+            state.getController().setAnimation(WALK_HANDS1);
+            state.getController().setAnimationSpeed(1.25D);
+            return PlayState.CONTINUE;
+        }
+        else if (state.isMoving() && !this.isAggressive()) {
+            state.getController().setAnimation(WALK_HANDS1);
+            state.getController().setAnimationSpeed(1.0D);
+            return PlayState.CONTINUE;
+        }
+        else if (!state.isMoving() && !this.swinging) {
+            return PlayState.STOP;
+        }
+        return PlayState.CONTINUE;
+    }
+
+    private PlayState spawning(software.bernie.geckolib.animation.AnimationState<TOTDSkeletonEntity> state) {
+        if (this.getIsSpawning()) {
+            state.getController().setAnimation(SPAWN2);
+            return PlayState.CONTINUE;
+        }
+        state.getController().forceAnimationReset();
+        return PlayState.STOP;
+    }
+
+    @Override
+    public void handleEntityEvent(byte id) {
+        if (id == 110) {
+            this.isPerformingAnimatedAttack = true;
+
+        }
+        super.handleEntityEvent(id);
     }
 
     public boolean isHoldingCrossbow() {

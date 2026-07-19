@@ -1,24 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "building",
-  "pattern": [
-    "1 1",
-    "131",
-    "212"
-  ],
-  "key": {
-    "1": {
-      "item": "minecraft:iron_nugget"
+  "ingredients": [
+    {
+      "tag": "treasures_of_the_dead:small_iron_braziers"
     },
-    "2": {
-      "item": "minecraft:iron_ingot"
+    {
+      "tag": "treasures_of_the_dead:small_iron_braziers"
     },
-    "3": {
+    {
+      "tag": "treasures_of_the_dead:small_iron_braziers"
+    },
+    {
       "tag": "minecraft:soul_fire_base_blocks"
     }
-  },
+  ],
   "result": {
     "id": "treasures_of_the_dead:small_iron_soul_brazier",
-    "count": 2
+    "count": 3
   }
 }

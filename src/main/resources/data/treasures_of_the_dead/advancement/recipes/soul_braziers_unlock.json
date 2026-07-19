@@ -20,7 +20,8 @@
   "rewards": {
     "recipes": [
       "treasures_of_the_dead:small_iron_soul_brazier",
-      "treasures_of_the_dead:small_golden_soul_brazier"
+      "treasures_of_the_dead:small_golden_soul_brazier",
+      "treasures_of_the_dead:small_copper_soul_brazier"
     ]
   }
 }

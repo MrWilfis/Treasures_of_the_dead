@@ -7,7 +7,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
@@ -15,12 +14,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.ShadowSkeletonVariant;
-import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
 import net.mrwilfis.treasures_of_the_dead.misc.TOTDBlockPos;
 import org.jetbrains.annotations.Nullable;
@@ -60,8 +57,8 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 26.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0f)
+                .add(Attributes.MAX_HEALTH, 22.0D)
+                .add(Attributes.ATTACK_DAMAGE, 4.5f)
                 .add(Attributes.ATTACK_SPEED, 1.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.5f)
                 .add(Attributes.ARMOR, 2.0f)

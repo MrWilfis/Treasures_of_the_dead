@@ -15,7 +15,6 @@ import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.FoulSkullE
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.HatefulSkullEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.VillainousSkullEntity;
 
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 

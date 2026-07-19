@@ -10,7 +10,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.UUID;
 import java.util.function.UnaryOperator;
 
 public class ModDataComponents {
@@ -31,6 +30,9 @@ public class ModDataComponents {
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> TREASURE_CHEST_IS_OPEN = register(
             "treasure_chest_is_open",
+            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> TREASURE_CHEST_IS_TRAP = register(
+            "treasure_chest_is_trap",
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> KEG_IS_GOING_TO_BLOW_UP = register(
             "keg_is_going_to_blow_up",

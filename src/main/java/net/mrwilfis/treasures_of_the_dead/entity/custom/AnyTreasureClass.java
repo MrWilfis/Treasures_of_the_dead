@@ -12,6 +12,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
+import net.neoforged.neoforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,6 +33,11 @@ public class AnyTreasureClass extends Animal {
                 || pSource.is(DamageTypes.DRAGON_BREATH) || pSource.is(DamageTypes.FALLING_ANVIL) || pSource.is(DamageTypes.FALLING_STALACTITE)
                 || pSource.is(DamageTypes.FIREWORKS) || pSource.is(DamageTypes.ON_FIRE) || pSource.is(DamageTypes.HOT_FLOOR) || pSource.is(DamageTypes.FREEZE)
                 || pSource.is(DamageTypes.INDIRECT_MAGIC) || pSource.is(DamageTypes.LIGHTNING_BOLT) || pSource.is(DamageTypes.LAVA) || pSource.is(DamageTypes.DROWN);
+    }
+
+    @Override
+    public boolean canDrownInFluidType(FluidType type) {
+        return false;
     }
 
     @Override
