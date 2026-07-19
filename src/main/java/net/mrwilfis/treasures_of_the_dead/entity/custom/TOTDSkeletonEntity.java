@@ -22,8 +22,12 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -45,7 +49,7 @@ import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.UUID;
 
-public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEntity {
+public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEntity, CrossbowAttackMob {
     protected int idleVariation = random.nextInt(1, 2+1);
 
     //spawn animation
@@ -55,6 +59,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     //keg blowing up
     private int maxPrepareToBlowUp = 90;
     private int prepareToBlowUp = 0;
+
+    private final int maxSittingInBoatTime = 70;
+    private int sittingInBoatTime = 0;
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
@@ -69,6 +76,8 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
     private static final EntityDataAccessor<Boolean> IS_GOING_TO_BLOW_UP = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IS_SPAWNING = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
+
+    private static final EntityDataAccessor<Boolean> IS_CHARGING = SynchedEntityData.defineId(TOTDSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
 
     protected static final RawAnimation WALK_BODY1 = RawAnimation.begin().then("animation.model.walk_body1", Animation.LoopType.LOOP);
     protected static final RawAnimation WALK_HANDS1 = RawAnimation.begin().then("animation.model.walk_hands1", Animation.LoopType.LOOP);
@@ -144,6 +153,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
             ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (!mainHandItem.isEmpty() && mainHandItem.getItem() instanceof AbstractPowderKegItem) {
+                if (this.isLeftHanded()) {
+                    this.setLeftHanded(false);
+                }
 
                 if (!this.getAttribute(Attributes.MOVEMENT_SPEED).getModifiers().contains(SPEED_MODIFIER_WITH_KEG)) {
                     this.getAttribute(Attributes.MOVEMENT_SPEED).addPermanentModifier(SPEED_MODIFIER_WITH_KEG);
@@ -199,6 +211,15 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
                 this.spawningTime = 0;
             }
 
+            if (this.isPassenger() && this.getVehicle() instanceof Boat && this.getTarget() != null) {
+                sittingInBoatTime++;
+                if (sittingInBoatTime > maxSittingInBoatTime) {
+                    this.stopRiding();
+                    sittingInBoatTime = 0;
+
+                }
+            }
+
 
         }
         super.tick();
@@ -245,17 +266,24 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         //Spawn weapons
         if (randomValue < 0.2) {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
-        } else if (randomValue < 0.95){
+        }
+        else if (randomValue < 0.7){
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
-        } else {
+        }
+        else if (randomValue < 0.9) {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW), pRandom, 1.0F);
+        }
+        else {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(ModItems.POWDER_KEG_ITEM.get()), pRandom, 1.0F);
         }
 
         ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
-        if (mainHandItem.getItem() == ModItems.POWDER_KEG_ITEM.get()) {
+        if (mainHandItem.getItem() instanceof AbstractPowderKegItem) {
             setLeftHanded(false);
             setDropChance(EquipmentSlot.MAINHAND, 1.0f);
         }
+
+
     }
 
     public void spawnRandomBandanas(RandomSource pRandom) {
@@ -344,7 +372,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
 
     @Override
     protected void registerGoals() {
- //       this.goalSelector.addGoal(1, new AttackWithKegGoal(this, 0.6D, false));
+        this.goalSelector.addGoal(1, new RangedCrossbowAttackGoal<>(this, 1.0, 8.0F));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.25D, false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
  //        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -447,7 +475,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         return PlayState.STOP;
     }
 
-
+    public boolean isHoldingCrossbow() {
+        return this.getMainHandItem().getItem() instanceof CrossbowItem;
+    }
 
     @Override
     public double getTick(Object o) {
@@ -527,6 +557,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.setIsGoingToBlowUp(tag.getBoolean("IsGoingToBlowUp"));
         this.setIsSpawning(tag.getBoolean("IsSpawning"));
+        this.setChargingCrossbow(tag.getBoolean("IsCharging"));
 
         if (tag.contains("CampUUID")) {
             this.campUUID = tag.getUUID("CampUUID");
@@ -541,6 +572,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         tag.putInt("Variant", this.getTypeVariant());
         tag.putBoolean("IsGoingToBlowUp", this.getIsGoingToBlowUp());
         tag.putBoolean("IsSpawning", this.getIsSpawning());
+        tag.putBoolean("IsCharging", this.getChargingCrossbow());
 
         if (this.campUUID != null) {
             tag.putUUID("CampUUID", this.campUUID);
@@ -553,9 +585,34 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
         this.getEntityData().define(IS_GOING_TO_BLOW_UP, false);
         this.getEntityData().define(IS_SPAWNING, false);
+        this.getEntityData().define(IS_CHARGING, false);
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    public boolean getChargingCrossbow() {
+        return this.entityData.get(IS_CHARGING);
+    }
+
+    @Override
+    public void setChargingCrossbow(boolean b) {
+        this.entityData.set(IS_CHARGING, b);
+    }
+
+    @Override
+    public void shootCrossbowProjectile(LivingEntity pTarget, ItemStack pCrossbowStack, Projectile pProjectile, float pProjectileAngle) {
+        this.shootCrossbowProjectile(this, pTarget, pProjectile, pProjectileAngle, 1.6F);
+    }
+
+    @Override
+    public void onCrossbowAttackPerformed() {
+        this.noActionTime = 0;
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        this.performCrossbowAttack(this, 1.6F);
     }
 }

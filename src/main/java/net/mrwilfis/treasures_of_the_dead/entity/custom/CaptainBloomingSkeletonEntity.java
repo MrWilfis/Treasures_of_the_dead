@@ -141,10 +141,15 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
         }
 
 
+        randomValue = this.random.nextFloat();
         //Spawn weapons
-        if ((double) this.random.nextFloat() < 0.8) {
-            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.9F);
-        } else {
+        if (randomValue < 0.7) {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.95F);
+        }
+        else if (randomValue < 0.8) {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW), pRandom, 1.0F);
+        }
+        else {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.9F);
         }
     }

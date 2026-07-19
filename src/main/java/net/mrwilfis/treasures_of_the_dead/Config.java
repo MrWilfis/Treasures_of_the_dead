@@ -8,9 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Forge's config APIs
@@ -22,53 +20,122 @@ public class Config
 
     private static final ForgeConfigSpec.IntValue RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS;
     private static final ForgeConfigSpec.ConfigValue<String> CAPTAIN_NAMES_LANG;
-    private static final ForgeConfigSpec.ConfigValue<Double> PIRATE_SKELETON_HEALTH;
-    private static final ForgeConfigSpec.ConfigValue<Double> PIRATE_SKELETON_DAMAGE;
-    private static final ForgeConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_HEALTH;
-    private static final ForgeConfigSpec.ConfigValue<Double> CAPTAIN_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue BLUNDER_BOMB_AOE_MAX_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER;
+    private static final ForgeConfigSpec.DoubleValue PIRATE_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue PIRATE_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue BLOOMING_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue BLOOMING_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_BLOOMING_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_BLOOMING_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue SHADOW_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue SHADOW_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_SHADOW_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_SHADOW_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue GOLDEN_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue GOLDEN_SKELETON_DAMAGE;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_GOLDEN_SKELETON_HEALTH;
+    private static final ForgeConfigSpec.DoubleValue CAPTAIN_GOLDEN_SKELETON_DAMAGE;
 
     static {
         BUILDER.push("Treasures of the dead - Common Config!");
 
         RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS = BUILDER
-                .comment("For big adventures you can set this parameter to your distance of view. (if the value of this parameter is higher than your distance of view, than buried treasures and skeletons will spawning in bedrock)")
-                .defineInRange("randomAdventureItemDistanceInChunks", 8, 6, 128);
+                .comment("For big adventures you can change this parameter however you want.")
+                .defineInRange("randomAdventureItemDistanceInChunks", 16, 6, 128);
         CAPTAIN_NAMES_LANG = BUILDER
-                .comment("(For servers) For now you can use only ru_ru or en_us")
+                .comment("(For servers) Use the ready-made captain names for \"en_us\" or \"ru_ru\". OR, write \"custom\" and create your own captain names")
                 .define("captain_names_lang", "en_us");
+        BLUNDER_BOMB_AOE_MAX_DAMAGE = BUILDER
+                .comment("The damage depends on the distance from the center of the bomb explosion to the entity. The maximum damage is achieved in the very center.")
+                .defineInRange("blunderBombAOEMaxDamage", 15.0, 0.0, 1024);
+        BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE = BUILDER
+                .comment("Damage when the entity is hit directly. This is not additional damage! Please note that the highest damage is selected and dealt between AOE and on hit (by minecraft)")
+                .defineInRange("blunderBombOnEntityHitDamage", 15.0, 0.0, 1024);
+        BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER = BUILDER
+                .comment("Player Damage Modifier")
+                .defineInRange("blunderBombPlayerGetDamageMultiplier", 0.5, 0.0, 1024);
 
-        BUILDER.comment("ALL BELOW IS NOT WORKING FOR NOW!");
-        PIRATE_SKELETON_HEALTH = BUILDER.define("pirateSkeletonHealth", 26.0);
-        PIRATE_SKELETON_DAMAGE = BUILDER.define("pirateSkeletonDamage", 3.0);
-        CAPTAIN_SKELETON_HEALTH = BUILDER.define("captainSkeletonHealth", 70.0);
-        CAPTAIN_SKELETON_DAMAGE = BUILDER.define("captainSkeletonDamage", 4.0);
+        BUILDER.push("Mobs stats");
+        PIRATE_SKELETON_HEALTH = BUILDER.defineInRange("pirateSkeletonHealth", 26.0, 1.0, 1024);
+        PIRATE_SKELETON_DAMAGE = BUILDER.defineInRange("pirateSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_SKELETON_HEALTH = BUILDER.defineInRange("captainSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_SKELETON_DAMAGE = BUILDER.defineInRange("captainSkeletonDamage", 4.0, 0.0, 1024);
+        BLOOMING_SKELETON_HEALTH = BUILDER.defineInRange("bloomingSkeletonHealth", 26.0, 1.0, 1024);
+        BLOOMING_SKELETON_DAMAGE = BUILDER.defineInRange("bloomingSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_BLOOMING_SKELETON_HEALTH = BUILDER.defineInRange("captainBloomingSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_BLOOMING_SKELETON_DAMAGE = BUILDER.defineInRange("captainBloomingSkeletonDamage", 4.0, 0.0, 1024);
+        SHADOW_SKELETON_HEALTH = BUILDER.defineInRange("shadowSkeletonHealth", 22.0, 1.0, 1024);
+        SHADOW_SKELETON_DAMAGE = BUILDER.defineInRange("shadowSkeletonDamage", 4.5, 0.0, 1024);
+        CAPTAIN_SHADOW_SKELETON_HEALTH = BUILDER.defineInRange("captainShadowSkeletonHealth", 60.0, 1.0, 1024);
+        CAPTAIN_SHADOW_SKELETON_DAMAGE = BUILDER.defineInRange("captainShadowSkeletonDamage", 5.5, 0.0, 1024);
+        GOLDEN_SKELETON_HEALTH = BUILDER.defineInRange("goldenSkeletonHealth", 26.0, 1.0, 1024);
+        GOLDEN_SKELETON_DAMAGE = BUILDER.defineInRange("goldenSkeletonDamage", 3.0, 0.0, 1024);
+        CAPTAIN_GOLDEN_SKELETON_HEALTH = BUILDER.defineInRange("captainGoldenSkeletonHealth", 70.0, 1.0, 1024);
+        CAPTAIN_GOLDEN_SKELETON_DAMAGE = BUILDER.defineInRange("captainGoldenSkeletonDamage", 4.0, 0.0, 1024);
 
-        BUILDER.pop();
+        BUILDER.pop(2);
         SPEC = BUILDER.build();
     }
+
+
+    //static final ModConfigSpec SPEC = BUILDER.build();
 
     public static Set<Item> items;
 
     public static int randomAdventureItemDistanceInChunks;
     public static String captainNamesLang;
+    public static double blunderBombAOEMaxDamage;
+    public static double blunderBombOnEntityHitDamage;
+    public static double blunderBombPlayerGetDamageMultiplier;
     public static double pirateSkeletonHealth;
     public static double pirateSkeletonDamage;
     public static double captainSkeletonHealth;
     public static double captainSkeletonDamage;
+    public static double bloomingSkeletonHealth;
+    public static double bloomingSkeletonDamage;
+    public static double captainBloomingSkeletonHealth;
+    public static double captainBloomingSkeletonDamage;
+    public static double shadowSkeletonHealth;
+    public static double shadowSkeletonDamage;
+    public static double captainShadowSkeletonHealth;
+    public static double captainShadowSkeletonDamage;
+    public static double goldenSkeletonHealth;
+    public static double goldenSkeletonDamage;
+    public static double captainGoldenSkeletonHealth;
+    public static double captainGoldenSkeletonDamage;
 
-    private static boolean validateItemName(final Object obj)
-    {
-        return obj instanceof final String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
+    private static boolean validateItemName(final Object obj) {
+        return obj instanceof String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
     }
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
+
         randomAdventureItemDistanceInChunks = RANDOM_ADVENTURE_ITEM_DISTANCE_IN_CHUNKS.get();
         captainNamesLang = CAPTAIN_NAMES_LANG.get();
+        blunderBombAOEMaxDamage = BLUNDER_BOMB_AOE_MAX_DAMAGE.get();
+        blunderBombOnEntityHitDamage = BLUNDER_BOMB_ON_ENTITY_HIT_DAMAGE.get();
+        blunderBombPlayerGetDamageMultiplier = BLUNDER_BOMB_PLAYER_GET_DAMAGE_MULTIPLIER.get();
         pirateSkeletonHealth = PIRATE_SKELETON_HEALTH.get();
         pirateSkeletonDamage = PIRATE_SKELETON_DAMAGE.get();
         captainSkeletonHealth = CAPTAIN_SKELETON_HEALTH.get();
         captainSkeletonDamage = CAPTAIN_SKELETON_DAMAGE.get();
+        bloomingSkeletonHealth = BLOOMING_SKELETON_HEALTH.get();
+        bloomingSkeletonDamage = BLOOMING_SKELETON_DAMAGE.get();
+        captainBloomingSkeletonHealth = CAPTAIN_BLOOMING_SKELETON_HEALTH.get();
+        captainBloomingSkeletonDamage = CAPTAIN_BLOOMING_SKELETON_DAMAGE.get();
+        shadowSkeletonHealth = SHADOW_SKELETON_HEALTH.get();
+        shadowSkeletonDamage = SHADOW_SKELETON_DAMAGE.get();
+        captainShadowSkeletonHealth = CAPTAIN_SHADOW_SKELETON_HEALTH.get();
+        captainShadowSkeletonDamage = CAPTAIN_SHADOW_SKELETON_DAMAGE.get();
+        goldenSkeletonHealth = GOLDEN_SKELETON_HEALTH.get();
+        goldenSkeletonDamage = GOLDEN_SKELETON_DAMAGE.get();
+        captainGoldenSkeletonHealth = CAPTAIN_GOLDEN_SKELETON_HEALTH.get();
+        captainGoldenSkeletonDamage = CAPTAIN_GOLDEN_SKELETON_DAMAGE.get();
     }
 }

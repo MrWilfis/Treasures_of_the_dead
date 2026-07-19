@@ -1,0 +1,67 @@
+{
+  "equip_method": "pirates_and_captains",
+  "armor_variation": [
+    {
+      "variant": "variant1",
+      "weight": 1,
+      "type": {
+        "head": "minecraft:air",
+        "chestplate": "treasures_of_the_dead:vest",
+        "leggings": "treasures_of_the_dead:pants",
+        "feet": "treasures_of_the_dead:boots"
+      }
+    },
+    {
+      "variant": "variant2",
+      "weight": 1,
+      "type": {
+        "head": "minecraft:air",
+        "chestplate": "treasures_of_the_dead:black_vest",
+        "leggings": "treasures_of_the_dead:black_pants",
+        "feet": "treasures_of_the_dead:black_boots"
+      }
+    },
+    {
+      "variant": "variant3",
+      "weight": 1,
+      "type": {
+        "head": "minecraft:air",
+        "chestplate": "treasures_of_the_dead:blue_vest",
+        "leggings": "treasures_of_the_dead:blue_pants",
+        "feet": "treasures_of_the_dead:blue_boots"
+      }
+    }
+  ],
+  "head_armor_variation": [
+    {
+      "item": "treasures_of_the_dead:red_bandana",
+      "weight": 1
+    },
+    {
+      "item": "treasures_of_the_dead:green_bandana",
+      "weight": 1
+    },
+    {
+      "item": "treasures_of_the_dead:blue_bandana",
+      "weight": 1
+    }
+  ],
+  "mainhand": [
+    {
+      "item": "treasure_of_the_dead:powder_keg",
+      "weight": 5
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "weight": 75
+    },
+    {
+      "item": "minecraft:golden_sword",
+      "weight": 10
+    },
+    {
+      "item": "minecraft:air",
+      "weight": 90
+    }
+  ]
+}

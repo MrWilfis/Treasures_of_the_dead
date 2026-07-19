@@ -5,9 +5,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.mrwilfis.treasures_of_the_dead.Config;
+import net.mrwilfis.treasures_of_the_dead.util.CustomCaptainNamesManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public interface CaptainSkeletonInterface {
 
@@ -15,6 +17,16 @@ public interface CaptainSkeletonInterface {
     default String getRandomName(RandomSource random) {
 
         String ClientLanguage = Config.captainNamesLang;
+
+        // Проверяем, включен ли режим кастомных имен
+        if ("custom".equals(ClientLanguage)) {
+            CustomCaptainNamesManager manager = CustomCaptainNamesManager.getInstance();
+            if (manager.isCustomModeEnabled()) {
+                Random random1 = new Random();
+                return manager.getRandomName(random1);
+            }
+            // Если кастомные имена не загружены, используем стандартную логику
+        }
 
         if (isClient()) {
             Minecraft minecraft = Minecraft.getInstance();

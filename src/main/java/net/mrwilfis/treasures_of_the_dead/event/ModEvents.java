@@ -2,15 +2,20 @@ package net.mrwilfis.treasures_of_the_dead.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.mrwilfis.treasures_of_the_dead.Config;
+import net.mrwilfis.treasures_of_the_dead.TOTDUtils;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 
@@ -19,6 +24,61 @@ import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = Treasures_of_the_dead.MOD_ID)
 public class ModEvents {
+
+    @SubscribeEvent
+    public static void onMobSpawn(MobSpawnEvent.FinalizeSpawn event) {
+        Mob spawningMob = event.getEntity();
+
+        if (spawningMob instanceof TOTDSkeletonEntity) {
+            if (spawningMob instanceof GoldenSkeletonEntity) {
+                if (spawningMob instanceof CaptainGoldenSkeletonEntity) {
+                    TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.captainGoldenSkeletonDamage);
+                    TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.captainGoldenSkeletonHealth);
+                    spawningMob.setHealth((float)Config.captainGoldenSkeletonHealth);
+                    return;
+                }
+                TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.goldenSkeletonDamage);
+                TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.goldenSkeletonHealth);
+                spawningMob.setHealth((float)Config.goldenSkeletonHealth);
+                return;
+            }
+            if (spawningMob instanceof ShadowSkeletonEntity) {
+                if (spawningMob instanceof CaptainShadowSkeletonEntity) {
+                    TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.captainShadowSkeletonDamage);
+                    TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.captainShadowSkeletonHealth);
+                    spawningMob.setHealth((float)Config.captainShadowSkeletonHealth);
+                    return;
+                }
+                TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.shadowSkeletonDamage);
+                TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.shadowSkeletonHealth);
+                spawningMob.setHealth((float)Config.shadowSkeletonHealth);
+                return;
+            }
+            if (spawningMob instanceof BloomingSkeletonEntity) {
+                if (spawningMob instanceof CaptainBloomingSkeletonEntity) {
+                    TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.captainBloomingSkeletonDamage);
+                    TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.captainBloomingSkeletonHealth);
+                    spawningMob.setHealth((float)Config.captainBloomingSkeletonHealth);
+                    return;
+                }
+                TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.bloomingSkeletonDamage);
+                TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.bloomingSkeletonHealth);
+                spawningMob.setHealth((float)Config.bloomingSkeletonHealth);
+                return;
+            }
+            if (spawningMob instanceof CaptainSkeletonEntity) {
+                TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.captainSkeletonDamage);
+                TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.captainSkeletonHealth);
+                spawningMob.setHealth((float)Config.captainSkeletonHealth);
+                return;
+            }
+            TOTDUtils.setAttribute(spawningMob, Attributes.ATTACK_DAMAGE, Config.pirateSkeletonDamage);
+            TOTDUtils.setAttribute(spawningMob, Attributes.MAX_HEALTH, Config.pirateSkeletonHealth);
+            spawningMob.setHealth((float)Config.pirateSkeletonHealth);
+        }
+
+    }
+
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent tradeEvent) {
 //        if (tradeEvent.getType() == VillagerProfession.CLERIC) {

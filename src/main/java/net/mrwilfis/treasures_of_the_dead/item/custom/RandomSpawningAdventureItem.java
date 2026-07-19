@@ -1,13 +1,14 @@
 package net.mrwilfis.treasures_of_the_dead.item.custom;
 
-import net.minecraft.Util;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,6 +20,9 @@ import net.minecraft.world.item.MapItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
@@ -27,14 +31,15 @@ import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.*;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.chestVariants.TreasureChestEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.skullVariants.VillainousSkullEntity;
-import net.mrwilfis.treasures_of_the_dead.entity.variant.*;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 
 import java.util.List;
 import java.util.Random;
 
 public class RandomSpawningAdventureItem extends Item {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private final String taskType; // TYPES: treasure_map, skeleton_crew, random_task, and I will be adding new types
 
     public RandomSpawningAdventureItem(Properties pProperties, String taskType) {
@@ -85,13 +90,31 @@ public class RandomSpawningAdventureItem extends Item {
         int chunkX = (int) (X / 16);
         int chunkZ = (int) (Z / 16);
 
-
+        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOOK_PAGE_TURN, SoundSource.PLAYERS, 1, 1.5f);
 
         if (!level.isClientSide) {
 
+            BlockPos spawnPos = new BlockPos((int)X, (int)Y, (int)Z);
 
+            boolean chunkReady = forceLoadChunkAndWait(level, spawnPos, 100);
 
-            level.getChunk(chunkX, chunkZ);
+            if (!chunkReady) {
+                LOGGER.warn("Failed to load chunk at {} after max attempts, trying alternative position", spawnPos);
+                BlockPos alternativePos = findAndLoadPosition(level, (int)X, (int)Z, 3);
+                if (alternativePos != null) {
+                    X = alternativePos.getX();
+                    Z = alternativePos.getZ();
+                    Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
+                    spawnPos = new BlockPos((int)X, (int)Y, (int)Z);
+                    LOGGER.info("Found and loaded alternative position: {}", spawnPos);
+                } else {
+                    LOGGER.error("Could not find any position to load, spawning at original position anyway");
+                }
+            } else {
+                Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
+                spawnPos = new BlockPos((int)X, (int)Y, (int)Z);
+                //LOGGER.info("Chunk loaded successfully at {}, height: {}", spawnPos, Y);
+            }
 
             if (!player.isCreative()) {
                 stack.shrink(1);
@@ -102,27 +125,63 @@ public class RandomSpawningAdventureItem extends Item {
                 summonTreasure(X, Y, Z, player, level, random);
             } else if (taskType.equals("skeleton_crew") || (taskType.equals("random_task") && randomValue < 1.0f)) {
                 BlockPos pos = new BlockPos((int)X, (int)Y, (int)Z);
-                for (int i = 0; i < 100; i++) {
-                    boolean isInWater = level.getBlockState(pos).getBlock().equals(Blocks.WATER) || level.getBlockState(pos).getBlock().equals(Blocks.SEAGRASS) ||
-                            level.getBlockState(pos).getBlock().equals(Blocks.TALL_SEAGRASS) || level.getBlockState(pos).getBlock().equals(Blocks.KELP_PLANT);
+                int attempts = 0;
+                int maxAttempts = 100;
+
+                for (int i = 0; i < maxAttempts; i++) {
+                    boolean isLoaded = level.isLoaded(pos);
+
+                    if (!isLoaded) {
+                        //LOGGER.debug("Position {} is not loaded, loading it", pos);
+                        forceLoadChunkAndWait(level, pos, 100);
+                        isLoaded = level.isLoaded(pos);
+                    }
+
+                    if (isLoaded) {
+                        Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
+                        pos = new BlockPos(pos.getX(), (int)Y, pos.getZ());
+                    }
+
+                    if (!isLoaded) {
+                        //LOGGER.debug("Not loaded. replacing position");
+                        X = player.getX();
+                        Z = player.getZ();
+                        X = rand.nextDouble(X-range, X+range);
+                        Z = rand.nextDouble(Z-range, Z+range);
+                        Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
+                        pos = new BlockPos((int)X, (int)Y, (int)Z);
+                        attempts++;
+                        continue;
+                    }
+
+                    boolean isInWater = level.getBlockState(pos).getBlock().equals(Blocks.WATER) ||
+                            level.getBlockState(pos).getBlock().equals(Blocks.SEAGRASS) ||
+                            level.getBlockState(pos).getBlock().equals(Blocks.TALL_SEAGRASS) ||
+                            level.getBlockState(pos).getBlock().equals(Blocks.KELP_PLANT);
+
                     if (!isInWater) {
                         break;
                     }
-                    //System.out.println(X + " " + Y + " " + Z);
+
+                    // if in water, finding other position
+                    //LOGGER.debug("In-water position detected, replacing it");
                     X = player.getX();
                     Z = player.getZ();
                     X = rand.nextDouble(X-range, X+range);
                     Z = rand.nextDouble(Z-range, Z+range);
                     Y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) X, (int) Z);
                     pos = new BlockPos((int)X, (int)Y, (int)Z);
+                    attempts++;
                 }
 
-                //summonSkeletonCrew(X, Y, Z, player, level, random);
+                if (attempts >= maxAttempts) {
+                    LOGGER.warn("Could not find valid position for skeleton crew after {} attempts", maxAttempts);
+                } else {
+                    //LOGGER.info("Found valid position for skeleton crew at {} after {} attempts", pos, attempts);
+                }
 
                 summonSkeletonCrewCamp(X, Y, Z, player, level, random, difficulty);
             }
-
-
         }
 
         player.awardStat(Stats.ITEM_USED.get(this));
@@ -130,120 +189,161 @@ public class RandomSpawningAdventureItem extends Item {
         return super.use(level, player, pUsedHand);
     }
 
+    private boolean forceLoadChunkAndWait(Level level, BlockPos pos, int maxTicks) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel serverLevel)) {
+            return level.isLoaded(pos);
+        }
+
+        int chunkX = pos.getX() >> 4;
+        int chunkZ = pos.getZ() >> 4;
+
+        // is chunk loaded already
+        if (serverLevel.isLoaded(pos)) {
+            // are blocks in chunk generated
+            BlockPos checkPos = new BlockPos(pos.getX(), Math.max(pos.getY() - 5, level.getMinBuildHeight()), pos.getZ());
+            if (!level.isEmptyBlock(checkPos)) {
+                //LOGGER.debug("Chunk at [{}, {}] is already fully loaded", chunkX, chunkZ);
+                return true;
+            }
+        }
+
+        //LOGGER.debug("Force loading chunk at [{}, {}]", chunkX, chunkZ);
+
+        try {
+            LevelChunk chunk = serverLevel.getChunk(chunkX, chunkZ);
+
+            if (chunk == null) {
+                LOGGER.warn("Failed to get chunk at [{}, {}]", chunkX, chunkZ);
+                return false;
+            }
+
+            // waiting chunk load
+            int ticksWaited = 0;
+            boolean isLoaded = false;
+
+            while (ticksWaited < maxTicks) {
+                // is chunk loaded
+                if (serverLevel.isLoaded(pos)) {
+                    // are block generated
+                    BlockPos checkBlock = new BlockPos(pos.getX(),
+                            Math.max(pos.getY() - 5, level.getMinBuildHeight()),
+                            pos.getZ());
+                    if (!level.isEmptyBlock(checkBlock)) {
+                        isLoaded = true;
+                        break;
+                    }
+                }
+
+                try {
+                    Thread.sleep(1); // Ждем 1 мс
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+                ticksWaited++;
+
+                // every 10 ticks trying to load again
+                if (ticksWaited % 10 == 0) {
+                    serverLevel.getChunk(chunkX, chunkZ);
+                }
+            }
+
+            if (isLoaded) {
+                //LOGGER.debug("Chunk at {} successfully loaded after {} ticks", pos, ticksWaited);
+                return true;
+            } else {
+                //LOGGER.warn("Chunk at {} not loaded after {} ticks", pos, ticksWaited);
+                return false;
+            }
+        } catch (Exception e) {
+            LOGGER.error("Error loading chunk at [{}, {}]: {}", chunkX, chunkZ, e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * finding and loading position in search radius
+     */
+    private BlockPos findAndLoadPosition(Level level, int x, int z, int searchRadius) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel)) {
+            return null;
+        }
+
+        for (int dx = -searchRadius; dx <= searchRadius; dx++) {
+            for (int dz = -searchRadius; dz <= searchRadius; dz++) {
+                int checkX = x + dx * 16 + 8;
+                int checkZ = z + dz * 16 + 8;
+                BlockPos checkPos = new BlockPos(checkX, 0, checkZ);
+
+                if (forceLoadChunkAndWait(level, checkPos, 50)) {
+                    int y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, checkX, checkZ);
+                    if (y > level.getMinBuildHeight()) {
+                        BlockPos resultPos = new BlockPos(checkX, y, checkZ);
+                        //LOGGER.debug("Found and loaded position at {}", resultPos);
+                        return resultPos;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     private void summonSkeletonCrewCamp(double x, double y, double z, Player player, Level level, RandomSource random, int difficulty) {
         if (!level.isClientSide) {
+            BlockPos spawnPos = new BlockPos((int)x, (int)y, (int)z);
+
+            // rechecking chunk load
+            boolean chunkReady = forceLoadChunkAndWait(level, spawnPos, 100);
+
+            if (!chunkReady) {
+                //LOGGER.error("Could not load chunk at {}, spawning skeleton crew camp anyway", spawnPos);
+                BlockPos altPos = findAndLoadPosition(level, (int)x, (int)z, 2);
+                if (altPos != null) {
+                    x = altPos.getX();
+                    y = altPos.getY();
+                    z = altPos.getZ();
+                    spawnPos = altPos;
+                    //LOGGER.info("Using alternative position for skeleton crew camp: {}", altPos);
+                }
+            } else {
+                y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int)x, (int)z);
+                spawnPos = new BlockPos((int)x, (int)y, (int)z);
+                //LOGGER.info("Chunk loaded and ready at {}, spawning skeleton crew camp", spawnPos);
+            }
+
             giveMap(x, y, z, player, level, random, "filled_map.treasures_of_the_dead.skeleton_crew", "skeleton_crew");
             SkeletonCrewCamp skeletonCrewCamp = new SkeletonCrewCamp(ModEntities.SKELETON_CREW_CAMP.get(), level, difficulty, 3);
             skeletonCrewCamp.moveTo(x, y, z);
             level.addFreshEntity(skeletonCrewCamp);
+
+            //LOGGER.info("Skeleton crew camp spawned at [{}, {}, {}] with difficulty {}, chunk loaded: {}", (int)x, (int)y, (int)z, difficulty, chunkReady);
+            //LOGGER.info("||||||||||||||||||||||||||||||||||");
         }
-    }
-
-    private void summonSkeletonCrew(double x, double y, double z, Player player, Level level, RandomSource random) {
-        if (!level.isClientSide) {
-
-            Random rand = new Random();
-
-            giveMap(x, y, z, player, level, random, "filled_map.treasures_of_the_dead.skeleton_crew", "skeleton_crew");
-
-            byte captainsAmount = (byte)rand.nextInt(1, 3+1);
-
-            double randomValue = (double) random.nextFloat();
-
-            if (randomValue < 0.4) {
-                for (int i = 0; i < captainsAmount; i++) {
-
-                    CaptainSkeletonEntity captain = new CaptainSkeletonEntity(ModEntities.CAPTAIN_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, captain, rand);
-
-                    captain.setCanDropKeysAndOrders(false);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
-
-                    CaptainSkeletonVariant variant = Util.getRandom(CaptainSkeletonVariant.values(), random);
-                    captain.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-                for (int i = 0; i < (captainsAmount / 2) + 3; i++) {
-                    TOTDSkeletonEntity pirate = new TOTDSkeletonEntity(ModEntities.TOTD_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, pirate, rand);
-                    TOTDSkeletonVariant variant = Util.getRandom(TOTDSkeletonVariant.values(), random);
-                    pirate.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-            } else if (randomValue < 0.7) {
-                for (int i = 0; i < captainsAmount; i++) {
-
-                    CaptainShadowSkeletonEntity captain = new CaptainShadowSkeletonEntity(ModEntities.CAPTAIN_SHADOW_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, captain, rand);
-
-                    captain.setCanDropKeysAndOrders(false);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
-
-                    CaptainShadowSkeletonVariant variant = Util.getRandom(CaptainShadowSkeletonVariant.values(), random);
-                    captain.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-                for (int i = 0; i < (captainsAmount / 2) + 3; i++) {
-                    ShadowSkeletonEntity pirate = new ShadowSkeletonEntity(ModEntities.SHADOW_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, pirate, rand);
-                    ShadowSkeletonVariant variant = Util.getRandom(ShadowSkeletonVariant.values(), random);
-                    pirate.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-
-            } else {
-                for (int i = 0; i < captainsAmount; i++) {
-
-                    CaptainBloomingSkeletonEntity captain = new CaptainBloomingSkeletonEntity(ModEntities.CAPTAIN_BLOOMING_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, captain, rand);
-
-                    captain.setCanDropKeysAndOrders(false);
-                    captain.setCustomName(Component.literal(captain.getRandomName(random)));
-
-                    CaptainBloomingSkeletonVariant variant = Util.getRandom(CaptainBloomingSkeletonVariant.values(), random);
-                    captain.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-                for (int i = 0; i < (captainsAmount / 2) + 3; i++) {
-                    BloomingSkeletonEntity pirate = new BloomingSkeletonEntity(ModEntities.BLOOMING_SKELETON.get(), level);
-                    newSkeleton(x, y, z, level, random, pirate, rand);
-                    BloomingSkeletonVariant variant = Util.getRandom(BloomingSkeletonVariant.values(), random);
-                    pirate.setVariant(variant);
-
-                    x = x + random.nextInt(-2, 2+1);
-                    z = z + random.nextInt(-2, 2+1);
-                    y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int) x, (int) z);
-                }
-            }
-        }
-    }
-
-    private static void newSkeleton(double x, double y, double z, Level level, RandomSource random, TOTDSkeletonEntity skeleton, Random rand) {
-        skeleton.moveTo(x, y, z, rand.nextFloat(-180f, 180f), 0f);
-        skeleton.addTag("TOTD_Rotate");
-        skeleton.setPersistenceRequired();
-        level.addFreshEntity(skeleton);
-        skeleton.populateDefaultEquipmentSlots(random);
-    //    skeleton.setIsSpawning(true);
     }
 
     private void summonTreasure(double x, double y, double z, Player player, Level level, RandomSource random) {
         if (!level.isClientSide) {
+            BlockPos spawnPos = new BlockPos((int)x, (int)y, (int)z);
+
+            // rechecking chunk load
+            boolean chunkReady = forceLoadChunkAndWait(level, spawnPos, 100);
+
+            if (!chunkReady) {
+                //LOGGER.warn("Could not load chunk at {}, spawning treasure anyway", spawnPos);
+                BlockPos altPos = findAndLoadPosition(level, (int)x, (int)z, 2);
+                if (altPos != null) {
+                    x = altPos.getX();
+                    y = altPos.getY();
+                    z = altPos.getZ();
+                    spawnPos = altPos;
+                    //LOGGER.info("Using alternative position for treasure: {}", altPos);
+                }
+            } else {
+                // Пересчитываем высоту после загрузки чанка
+                y = level.getHeight(Heightmap.Types.OCEAN_FLOOR, (int)x, (int)z);
+                spawnPos = new BlockPos((int)x, (int)y, (int)z);
+                //LOGGER.info("Chunk loaded and ready at {}, spawning treasure", spawnPos);
+            }
 
             Random rand = new Random();
 
@@ -251,9 +351,11 @@ public class RandomSpawningAdventureItem extends Item {
                 TreasureChestEntity treasure = new TreasureChestEntity(ModEntities.TREASURE_CHEST.get(), level);
                 treasure.moveTo(x, y, z, rand.nextFloat(-180f, 180f), 0f);
                 treasure.addTag("TOTD_Rotate");
+                treasure.setIsTrap(random.nextBoolean());
                 level.addFreshEntity(treasure);
                 giveMap(x, y, z, player, level, random, "filled_map.treasures_of_the_dead.buried_treasure", "treasure_map");
                 buryTheTreasure(treasure, level, random);
+                //LOGGER.info("Treasure chest spawned at [{}, {}, {}]", (int)x, (int)y, (int)z);
             } else if ((double) random.nextFloat() < 1.0f) {
                 VillainousSkullEntity treasure = new VillainousSkullEntity(ModEntities.VILLAINOUS_SKULL.get(), level);
                 treasure.moveTo(x, y, z, rand.nextFloat(-180f, 180f), 0f);
@@ -261,9 +363,8 @@ public class RandomSpawningAdventureItem extends Item {
                 level.addFreshEntity(treasure);
                 giveMap(x, y, z, player, level, random, "filled_map.treasures_of_the_dead.buried_treasure", "treasure_map");
                 buryTheTreasure(treasure, level, random);
+                //LOGGER.info("Villainous skull spawned at [{}, {}, {}]", (int)x, (int)y, (int)z);
             }
-
-
         }
     }
 
@@ -276,7 +377,6 @@ public class RandomSpawningAdventureItem extends Item {
                 MapItemSavedData.addTargetDecoration(map, BlockPos.containing(x, y, z), "TREASURE", MapDecoration.Type.RED_X);
             } else if (decoration.equals("skeleton_crew")) {
                 MapItemSavedData.addTargetDecoration(map, BlockPos.containing(x, y, z), "TREASURE", MapDecoration.Type.BANNER_BLACK);
-
             }
 
             map.setHoverName(Component.translatable(mapName));
@@ -300,6 +400,10 @@ public class RandomSpawningAdventureItem extends Item {
         BlockPos pos1 = new BlockPos(x, y, z);
         BlockPos pos2 = new BlockPos(x, y-1, z);
 
+        boolean isInBush = (level.getBlockState(pos1).getBlock() instanceof BushBlock);
+        if (level.getBlockState(pos1).getBlock() instanceof BushBlock && level.getFluidState(pos1).is(FluidTags.WATER)) {
+            isInBush = false;
+        }
         boolean isInWater = (level.getBlockState(pos1).getBlock() == Blocks.WATER);
         boolean isOnLeaves = (level.getBlockState(pos2).is(BlockTags.LEAVES));
         boolean isOnAir = (level.getBlockState(pos2).getBlock() == Blocks.AIR);
@@ -316,7 +420,7 @@ public class RandomSpawningAdventureItem extends Item {
             isOnLeaves = (level.getBlockState(pos2).is(BlockTags.LEAVES));
             isOnAir = (level.getBlockState(pos2).getBlock() == Blocks.AIR);
         }
-        if (isInAirOrInSnow) {
+        if (isInAirOrInSnow || isInBush) {
             treasure.moveTo(x, y - random.nextInt(1, 4), z);
             y = treasure.getBlockY();
             pos1 = new BlockPos(x, y, z);
@@ -332,7 +436,6 @@ public class RandomSpawningAdventureItem extends Item {
         }
         if (this.taskType.equals("skeleton_crew")) {
             tooltipComponents.add(Component.translatable("tooltip.treasures_of_the_dead.quest_difficulty.tooltip", difficulty));
-            //tooltipComponents.add(Component.literal("Сложность задания: " + difficulty));
         }
     }
 }

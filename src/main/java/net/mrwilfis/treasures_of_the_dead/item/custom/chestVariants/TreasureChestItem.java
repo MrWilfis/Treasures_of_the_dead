@@ -58,6 +58,7 @@ public class TreasureChestItem extends AbstractChestItem implements GeoItem {
         if (stack.getTag() != null) {
             chest.setIsOpen(stack.getTag().getBoolean("IsOpen"));
             chest.setIsRobbed(stack.getTag().getBoolean("IsRobbed"));
+            chest.setIsTrap(stack.getTag().getBoolean("IsTrap"));
         }
         BlockPos offset = pContext.getClickedPos().relative(pContext.getClickedFace(), 1);
         chest.moveTo(offset.getX() + 0.5, offset.getY(), offset.getZ() + 0.5, 0f,0f);

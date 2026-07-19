@@ -10,6 +10,9 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
+import static net.mrwilfis.treasures_of_the_dead.TOTDAnims.animateCrossbowCharge;
+import static net.mrwilfis.treasures_of_the_dead.TOTDAnims.animateCrossbowHold;
+
 public class CaptainSkeletonModel extends GeoModel<CaptainSkeletonEntity> {
     @Override
     public ResourceLocation getModelResource(CaptainSkeletonEntity CaptainSkeletonEntity) {
@@ -39,6 +42,20 @@ public class CaptainSkeletonModel extends GeoModel<CaptainSkeletonEntity> {
 
             head.setRotZ(entityModelData.netHeadYaw() * -0.002f);
 
+        }
+
+        if (animatable.isHoldingCrossbow()) {
+            CoreGeoBone rightArm = this.getAnimationProcessor().getBone("right_arm");
+            CoreGeoBone leftArm = this.getAnimationProcessor().getBone("left_arm");
+
+            if (rightArm != null && leftArm != null && head != null) {
+
+                if (animatable.isUsingItem()) {
+                    animateCrossbowCharge(rightArm, leftArm, animatable, !animatable.isLeftHanded());
+                } else {
+                    animateCrossbowHold(rightArm, leftArm, head, !animatable.isLeftHanded());
+                }
+            }
         }
     }
 

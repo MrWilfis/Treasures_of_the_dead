@@ -18,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -25,10 +26,13 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParam;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.server.ServerLifecycleHooks;
 import net.mrwilfis.treasures_of_the_dead.common.ModLootTables;
+import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractChestEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.TOTDSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -41,10 +45,12 @@ import software.bernie.geckolib.core.object.PlayState;
 import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class TreasureChestEntity extends AbstractChestEntity implements GeoAnimatable, GeoEntity {
     private static final EntityDataAccessor<Boolean> IS_OPEN = SynchedEntityData.defineId(TreasureChestEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IS_ROBBED = SynchedEntityData.defineId(TreasureChestEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IS_TRAP = SynchedEntityData.defineId(TreasureChestEntity.class, EntityDataSerializers.BOOLEAN);
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
@@ -84,6 +90,39 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
     }
 
     @Override
+    public void tick() {
+        if (!this.level().isClientSide) {
+            if (this.getIsTrap() && this.isInWater()) {
+                this.setIsTrap(false);
+            }
+            if (this.getIsTrap() && this.tickCount % 20 == 0) {
+                AABB detectionBox = new AABB(this.getOnPos()).inflate(2);
+                List<Player> nearbyPlayers = this.level().getEntitiesOfClass(Player.class, detectionBox);
+                if (!nearbyPlayers.isEmpty()) {
+                    Random rand = new Random();
+                    for (int i = 0; i < 3; i++) {
+                        int x = (int)this.getX() + random.nextInt(-3, 3);
+                        int z = (int)this.getZ() + random.nextInt(-3, 3);
+
+                        int y = this.level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+
+                        TOTDSkeletonEntity pirate = new TOTDSkeletonEntity(ModEntities.TOTD_SKELETON.get(), this.level());
+                        this.level().addFreshEntity(pirate);
+                        pirate.setPos(x+0.5, y, z+0.5);
+                        pirate.yHeadRot = rand.nextFloat(0.0f, 360.0f);
+                        pirate.setIsSpawning(true);
+                        pirate.specialProcedures();
+                    }
+
+                    this.setIsTrap(false);
+                }
+            }
+
+        }
+        super.tick();
+    }
+
+    @Override
     public @NotNull InteractionResult mobInteract(Player pPlayer, @NotNull InteractionHand pHand) {
         ItemStack key = pPlayer.getItemInHand(pHand);
 
@@ -96,6 +135,7 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
             this.setIsRobbed(true);
             this.setIsOpen(true);
             ejectItems(pPlayer.level());
+            CreateUnderwaterParticlesOnOpening(pPlayer.level(), (int) this.getX(), (int) this.getY(), (int) this.getZ());
 
             if (!pPlayer.isCreative()) {
                 key.shrink(1);
@@ -165,6 +205,7 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
         stack.setTag(new CompoundTag());
         stack.getTag().putBoolean("IsOpen", this.getIsOpen());
         stack.getTag().putBoolean("IsRobbed", this.getIsRobbed());
+        stack.getTag().putBoolean("IsTrap", this.getIsRobbed());
 
         return stack;
     }
@@ -184,17 +225,27 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
         this.getEntityData().set(IS_ROBBED, var);
     }
 
+    public boolean getIsTrap() {
+        return this.getEntityData().get(IS_TRAP).booleanValue();
+    }
+
+    public void setIsTrap(boolean var) {
+        this.getEntityData().set(IS_TRAP, var);
+    }
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(IS_OPEN, Boolean.FALSE);
         this.getEntityData().define(IS_ROBBED, Boolean.FALSE);
+        this.getEntityData().define(IS_TRAP, Boolean.FALSE);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
         this.setIsOpen(pCompound.getBoolean("IsOpen"));
         this.setIsRobbed(pCompound.getBoolean("IsRobbed"));
+        this.setIsTrap(pCompound.getBoolean("IsTrap"));
         super.readAdditionalSaveData(pCompound);
     }
 
@@ -202,6 +253,7 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
     public void addAdditionalSaveData(CompoundTag pCompound) {
         pCompound.putBoolean("IsOpen", this.getIsOpen());
         pCompound.putBoolean("IsRobbed", this.getIsRobbed());
+        pCompound.putBoolean("IsTrap", this.getIsTrap());
         super.addAdditionalSaveData(pCompound);
     }
 }

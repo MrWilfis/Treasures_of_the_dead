@@ -3,16 +3,28 @@ package net.mrwilfis.treasures_of_the_dead;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TOTDUtils {
+
+    public static void setAttribute(LivingEntity entity, Attribute attribute, double value) {
+        AttributeInstance attributeInstance = entity.getAttribute(attribute);
+        if (attributeInstance == null) {
+            return;
+        }
+        attributeInstance.setBaseValue(value);
+    }
 
     public static Map<String, Integer> loadMinMaxParameterFromJson(Entity thisEntity, String JsonPath, String parameter) {
         Map<String, Integer> configs = new HashMap<>();

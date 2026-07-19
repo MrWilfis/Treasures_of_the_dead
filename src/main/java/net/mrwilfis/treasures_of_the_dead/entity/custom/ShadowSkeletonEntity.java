@@ -279,9 +279,14 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 
         if (randomValue < 0.2) {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD), pRandom, 0.5F);
-        } else if (randomValue < 0.95){
+        }
+        else if (randomValue < 0.7){
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD), pRandom, 0.5F);
-        } else {
+        }
+        else if (randomValue < 0.9) {
+            this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW), pRandom, 1.0F);
+        }
+        else {
             this.maybeWearEquipment(EquipmentSlot.MAINHAND, new ItemStack(ModItems.POWDER_KEG_ITEM.get()), pRandom, 1.0F);
         }
 

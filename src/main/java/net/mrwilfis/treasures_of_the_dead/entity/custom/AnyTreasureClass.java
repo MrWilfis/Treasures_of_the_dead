@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fluids.FluidType;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -19,6 +20,12 @@ public class AnyTreasureClass extends Animal {
         super(pEntityType, pLevel);
         this.noCulling = true;
     }
+
+    @Override
+    public boolean canDrownInFluidType(FluidType type) {
+        return false;
+    }
+
 
     @Override
     public boolean isFood(@NotNull ItemStack pStack) {
