@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "treasures_of_the_dead:foul_skull",
+    "treasures_of_the_dead:disgraced_skull",
+    "treasures_of_the_dead:hateful_skull",
+    "treasures_of_the_dead:villainous_skull",
+    "treasures_of_the_dead:treasure_chest",
+    "treasures_of_the_dead:powder_keg",
+    "treasures_of_the_dead:skeleton_crew_camp"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "海賊スケルトン",
+  "entity.treasures_of_the_dead.captain_skeleton": "キャプテンスケルトン",
+  "entity.treasures_of_the_dead.blooming_skeleton": "ブルーミングスケルトン",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "ブルーミングキャプテンスケルトン",
+  "entity.treasures_of_the_dead.shadow_skeleton": "シャドウスケルトン",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "シャドウキャプテンスケルトン",
+  "entity.treasures_of_the_dead.golden_skeleton": "ゴールデンスケルトン",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "ゴールデンキャプテンスケルトン",
+
+  "entity.treasures_of_the_dead.foul_skull": "汚れた頭蓋骨",
+  "entity.treasures_of_the_dead.disgraced_skull": "不名誉な頭蓋骨",
+  "entity.treasures_of_the_dead.hateful_skull": "憎しみの頭蓋骨",
+  "entity.treasures_of_the_dead.villainous_skull": "邪悪な頭蓋骨",
+
+  "entity.treasures_of_the_dead.treasure_chest": "宝箱",
+
+  "entity.treasures_of_the_dead.powder_keg": "火薬樽",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "ブランダーボム",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "頭蓋骨商人",
+
+  "item.treasures_of_the_dead.ruby": "ルビー",
+  "item.treasures_of_the_dead.bicorn_test": "バイコーン（テスト）",
+
+  "item.treasures_of_the_dead.pistol": "ピストル",
+  "item.treasures_of_the_dead.cartridge": "カートリッジ",
+
+  "item.treasures_of_the_dead.message_in_bottle": "ボトルメッセージ",
+  "item.treasures_of_the_dead.skeletons_order": "スケルトンの命令",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "スケルトン乗組員の任務",
+
+  "item.treasures_of_the_dead.treasure_key": "宝の鍵",
+
+  "item.treasures_of_the_dead.bicorn": "バイコーン",
+  "item.treasures_of_the_dead.captain_jacket": "キャプテンジャケット",
+  "item.treasures_of_the_dead.captain_pants": "キャプテンパンツ",
+
+  "item.treasures_of_the_dead.captain_hat": "キャプテンハット",
+  "item.treasures_of_the_dead.captain_crop_vest": "キャプテンクロップベスト",
+  "item.treasures_of_the_dead.captain_skirt": "キャプテンスカート",
+
+  "item.treasures_of_the_dead.green_bandana": "緑のバンダナ",
+  "item.treasures_of_the_dead.vest": "ベスト",
+  "item.treasures_of_the_dead.pants": "パンツ",
+  "item.treasures_of_the_dead.boots": "ブーツ",
+
+  "item.treasures_of_the_dead.red_bandana": "赤いバンダナ",
+  "item.treasures_of_the_dead.black_vest": "黒いベスト",
+  "item.treasures_of_the_dead.black_pants": "黒いパンツ",
+  "item.treasures_of_the_dead.black_boots": "黒いブーツ",
+
+  "item.treasures_of_the_dead.blue_bandana": "青いバンダナ",
+  "item.treasures_of_the_dead.blue_vest": "青いベスト",
+  "item.treasures_of_the_dead.blue_pants": "青いパンツ",
+  "item.treasures_of_the_dead.blue_boots": "青いブーツ",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "海賊スケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "キャプテンスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "ブルーミングスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "ブルーミングキャプテンスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "シャドウスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "シャドウキャプテンスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "ゴールデンスケルトンのスポーンエッグ",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "ゴールデンキャプテンスケルトンのスポーンエッグ",
+
+  "item.treasures_of_the_dead.foul_skull": "汚れた頭蓋骨",
+  "item.treasures_of_the_dead.disgraced_skull": "不名誉な頭蓋骨",
+  "item.treasures_of_the_dead.hateful_skull": "憎しみの頭蓋骨",
+  "item.treasures_of_the_dead.villainous_skull": "邪悪な頭蓋骨",
+
+  "item.treasures_of_the_dead.treasure_chest": "宝箱",
+
+  "item.treasures_of_the_dead.powder_keg": "火薬樽",
+
+  "item.treasures_of_the_dead.blunder_bomb": "ブランダーボム",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "海の要塞の鍵",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "鍛冶テンプレート",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "魂の騎士団のアーマートリム",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "頭蓋骨商人のテーブル",
+  "block.treasures_of_the_dead.sea_fortress_core": "海の要塞コア",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "小さな鉄の火鉢",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "小さな鉄の魂の火鉢",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "小さな鉄のパティナ火鉢",
+  "block.treasures_of_the_dead.small_golden_brazier": "小さな金の火鉢",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "小さな金の魂の火鉢",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "小さな金のパティナ火鉢",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "小さな銅の火鉢",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "露出した小さな銅の火鉢",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "露出した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "露出した小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "風化した小さな銅の火鉢",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "風化した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "風化した小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "酸化した小さな銅の火鉢",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "酸化した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "酸化した小さな銅のパティナ火鉢",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "ワックスがけした小さな銅の火鉢",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "ワックスがけした小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "ワックスがけした小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "ワックスがけした露出した小さな銅の火鉢",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "ワックスがけした露出した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "ワックスがけした露出した小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "ワックスがけした風化した小さな銅の火鉢",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "ワックスがけした風化した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "ワックスがけした風化した小さな銅のパティナ火鉢",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "ワックスがけした酸化した小さな銅の火鉢",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "ワックスがけした酸化した小さな銅の魂の火鉢",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "ワックスがけした酸化した小さな銅のパティナ火鉢",
+
+  "creativetab.totd_tab": "亡者の宝物",
+  "filled_map.treasures_of_the_dead.buried_treasure": "宝の地図",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "スケルトン乗組員の地図",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "伝説の宝の地図",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "略奪済み",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "クエスト難易度: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "この鍵はこの要塞には合いません",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "要塞がアクティブまたは報酬中のため、鍵を使用できません",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "要塞のX座標: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "要塞のZ座標: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "戦利品価値: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "あらゆる海の要塞コアを開けられます",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "ブランダーボムが爆発",
+  "gui.treasures_of_the_dead.sell": "販売",
+  "gui.treasures_of_the_dead.open_shop": "ショップ"
+}

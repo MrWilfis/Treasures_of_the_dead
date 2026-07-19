@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "1 1",
+    "131",
+    "212"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:copper_ingot"
+    },
+    "2": {
+      "item": "minecraft:copper_block"
+    },
+    "3": {
+      "tag": "minecraft:coals"
+    }
+  },
+  "result": {
+    "id": "treasures_of_the_dead:small_copper_brazier",
+    "count": 4
+  }
+}

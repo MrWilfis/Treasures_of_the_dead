@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "해적 해골",
+  "entity.treasures_of_the_dead.captain_skeleton": "선장 해골",
+  "entity.treasures_of_the_dead.blooming_skeleton": "꽃피는 해골",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "꽃피는 선장 해골",
+  "entity.treasures_of_the_dead.shadow_skeleton": "그림자 해골",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "그림자 선장 해골",
+  "entity.treasures_of_the_dead.golden_skeleton": "황금 해골",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "황금 선장 해골",
+
+  "entity.treasures_of_the_dead.foul_skull": "악취 두개골",
+  "entity.treasures_of_the_dead.disgraced_skull": "불명예 두개골",
+  "entity.treasures_of_the_dead.hateful_skull": "증오 두개골",
+  "entity.treasures_of_the_dead.villainous_skull": "악당 두개골",
+
+  "entity.treasures_of_the_dead.treasure_chest": "보물 상자",
+
+  "entity.treasures_of_the_dead.powder_keg": "화약 통",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "멍청이 폭탄",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "두개골 상인",
+
+  "item.treasures_of_the_dead.ruby": "루비",
+  "item.treasures_of_the_dead.bicorn_test": "쌍각모 (테스트)",
+
+  "item.treasures_of_the_dead.pistol": "권총",
+  "item.treasures_of_the_dead.cartridge": "탄약",
+
+  "item.treasures_of_the_dead.message_in_bottle": "병 속의 편지",
+  "item.treasures_of_the_dead.skeletons_order": "해골의 명령",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "해골 선원 임무",
+
+  "item.treasures_of_the_dead.treasure_key": "보물 열쇠",
+
+  "item.treasures_of_the_dead.bicorn": "쌍각모",
+  "item.treasures_of_the_dead.captain_jacket": "선장 재킷",
+  "item.treasures_of_the_dead.captain_pants": "선장 바지",
+
+  "item.treasures_of_the_dead.captain_hat": "선장 모자",
+  "item.treasures_of_the_dead.captain_crop_vest": "선장 크롭 조끼",
+  "item.treasures_of_the_dead.captain_skirt": "선장 치마",
+
+  "item.treasures_of_the_dead.green_bandana": "녹색 반다나",
+  "item.treasures_of_the_dead.vest": "조끼",
+  "item.treasures_of_the_dead.pants": "바지",
+  "item.treasures_of_the_dead.boots": "장화",
+
+  "item.treasures_of_the_dead.red_bandana": "빨간색 반다나",
+  "item.treasures_of_the_dead.black_vest": "검은색 조끼",
+  "item.treasures_of_the_dead.black_pants": "검은색 바지",
+  "item.treasures_of_the_dead.black_boots": "검은색 장화",
+
+  "item.treasures_of_the_dead.blue_bandana": "파란색 반다나",
+  "item.treasures_of_the_dead.blue_vest": "파란색 조끼",
+  "item.treasures_of_the_dead.blue_pants": "파란색 바지",
+  "item.treasures_of_the_dead.blue_boots": "파란색 장화",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "해적 해골 생성 알",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "선장 해골 생성 알",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "꽃피는 해골 생성 알",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "꽃피는 선장 해골 생성 알",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "그림자 해골 생성 알",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "그림자 선장 해골 생성 알",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "황금 해골 생성 알",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "황금 선장 해골 생성 알",
+
+  "item.treasures_of_the_dead.foul_skull": "악취 두개골",
+  "item.treasures_of_the_dead.disgraced_skull": "불명예 두개골",
+  "item.treasures_of_the_dead.hateful_skull": "증오 두개골",
+  "item.treasures_of_the_dead.villainous_skull": "악당 두개골",
+
+  "item.treasures_of_the_dead.treasure_chest": "보물 상자",
+
+  "item.treasures_of_the_dead.powder_keg": "화약 통",
+
+  "item.treasures_of_the_dead.blunder_bomb": "멍청이 폭탄",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "해상 요새 열쇠",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "대장장이 형판",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "영혼의 기사단 갑옷 장식",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "두개골 상인 테이블",
+  "block.treasures_of_the_dead.sea_fortress_core": "해상 요새 핵심",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "작은 철 화로",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "작은 철 영혼 화로",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "작은 철 파티나 화로",
+  "block.treasures_of_the_dead.small_golden_brazier": "작은 금 화로",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "작은 금 영혼 화로",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "작은 금 파티나 화로",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "작은 구리 화로",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "노출된 작은 구리 화로",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "노출된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "노출된 작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "풍화된 작은 구리 화로",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "풍화된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "풍화된 작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "산화된 작은 구리 화로",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "산화된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "산화된 작은 구리 파티나 화로",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "밀랍칠한 작은 구리 화로",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "밀랍칠한 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "밀랍칠한 작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "밀랍칠한 노출된 작은 구리 화로",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "밀랍칠한 노출된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "밀랍칠한 노출된 작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "밀랍칠한 풍화된 작은 구리 화로",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "밀랍칠한 풍화된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "밀랍칠한 풍화된 작은 구리 파티나 화로",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "밀랍칠한 산화된 작은 구리 화로",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "밀랍칠한 산화된 작은 구리 영혼 화로",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "밀랍칠한 산화된 작은 구리 파티나 화로",
+
+  "creativetab.totd_tab": "죽은 자의 보물",
+  "filled_map.treasures_of_the_dead.buried_treasure": "보물 지도",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "해골 선원 지도",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "전설적인 보물 지도",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "약탈됨",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "퀘스트 난이도: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "이 열쇠는 이 요새에 맞지 않습니다",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "요새가 활성화되거나 보상을 주는 동안 열쇠를 사용할 수 없습니다",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "요새 X 좌표: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "요새 Z 좌표: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "전리품 가치: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "모든 해상 요새 핵심을 열 수 있습니다",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "멍청이 폭탄 폭발",
+  "gui.treasures_of_the_dead.sell": "판매",
+  "gui.treasures_of_the_dead.open_shop": "상점"
+}

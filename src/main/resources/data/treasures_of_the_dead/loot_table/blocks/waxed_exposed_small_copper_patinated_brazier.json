@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:waxed_exposed_small_copper_patinated_brazier"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "treasures_of_the_dead:blocks/waxed_exposed_small_copper_patinated_brazier"
+}

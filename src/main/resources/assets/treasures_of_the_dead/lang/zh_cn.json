@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "海盗骷髅",
+  "entity.treasures_of_the_dead.captain_skeleton": "船长骷髅",
+  "entity.treasures_of_the_dead.blooming_skeleton": "繁花骷髅",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "繁花船长骷髅",
+  "entity.treasures_of_the_dead.shadow_skeleton": "暗影骷髅",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "暗影船长骷髅",
+  "entity.treasures_of_the_dead.golden_skeleton": "黄金骷髅",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "黄金船长骷髅",
+
+  "entity.treasures_of_the_dead.foul_skull": "秽邪头颅",
+  "entity.treasures_of_the_dead.disgraced_skull": "耻辱头颅",
+  "entity.treasures_of_the_dead.hateful_skull": "憎恨头颅",
+  "entity.treasures_of_the_dead.villainous_skull": "邪恶头颅",
+
+  "entity.treasures_of_the_dead.treasure_chest": "宝藏箱",
+
+  "entity.treasures_of_the_dead.powder_keg": "火药桶",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "爆破弹",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "头颅商人",
+
+  "item.treasures_of_the_dead.ruby": "红宝石",
+  "item.treasures_of_the_dead.bicorn_test": "双角帽（测试）",
+
+  "item.treasures_of_the_dead.pistol": "手枪",
+  "item.treasures_of_the_dead.cartridge": "弹药",
+
+  "item.treasures_of_the_dead.message_in_bottle": "瓶中信",
+  "item.treasures_of_the_dead.skeletons_order": "骷髅指令",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "骷髅船员委任状",
+
+  "item.treasures_of_the_dead.treasure_key": "宝藏钥匙",
+
+  "item.treasures_of_the_dead.bicorn": "双角帽",
+  "item.treasures_of_the_dead.captain_jacket": "船长夹克",
+  "item.treasures_of_the_dead.captain_pants": "船长裤",
+
+  "item.treasures_of_the_dead.captain_hat": "船长帽",
+  "item.treasures_of_the_dead.captain_crop_vest": "船长短背心",
+  "item.treasures_of_the_dead.captain_skirt": "船长裙",
+
+  "item.treasures_of_the_dead.green_bandana": "绿色头巾",
+  "item.treasures_of_the_dead.vest": "背心",
+  "item.treasures_of_the_dead.pants": "裤子",
+  "item.treasures_of_the_dead.boots": "靴子",
+
+  "item.treasures_of_the_dead.red_bandana": "红色头巾",
+  "item.treasures_of_the_dead.black_vest": "黑色背心",
+  "item.treasures_of_the_dead.black_pants": "黑色裤子",
+  "item.treasures_of_the_dead.black_boots": "黑色靴子",
+
+  "item.treasures_of_the_dead.blue_bandana": "蓝色头巾",
+  "item.treasures_of_the_dead.blue_vest": "蓝色背心",
+  "item.treasures_of_the_dead.blue_pants": "蓝色裤子",
+  "item.treasures_of_the_dead.blue_boots": "蓝色靴子",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "海盗骷髅刷怪蛋",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "船长骷髅刷怪蛋",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "繁花骷髅刷怪蛋",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "繁花船长骷髅刷怪蛋",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "暗影骷髅刷怪蛋",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "暗影船长骷髅刷怪蛋",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "黄金骷髅刷怪蛋",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "黄金船长骷髅刷怪蛋",
+
+  "item.treasures_of_the_dead.foul_skull": "秽邪头颅",
+  "item.treasures_of_the_dead.disgraced_skull": "耻辱头颅",
+  "item.treasures_of_the_dead.hateful_skull": "憎恨头颅",
+  "item.treasures_of_the_dead.villainous_skull": "邪恶头颅",
+
+  "item.treasures_of_the_dead.treasure_chest": "宝藏箱",
+
+  "item.treasures_of_the_dead.powder_keg": "火药桶",
+
+  "item.treasures_of_the_dead.blunder_bomb": "爆破弹",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "海上要塞钥匙",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "锻造模板",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "灵魂教团纹饰",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "头颅商贩桌",
+  "block.treasures_of_the_dead.sea_fortress_core": "海上要塞核心",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "小型铁火盆",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "小型铁灵魂火盆",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "小型铁铜绿火盆",
+  "block.treasures_of_the_dead.small_golden_brazier": "小型金火盆",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "小型金灵魂火盆",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "小型金铜绿火盆",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "小型铜火盆",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "小型铜灵魂火盆",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "小型铜铜绿火盆",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "斑驳小型铜火盆",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "斑驳小型铜灵魂火盆",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "斑驳小型铜铜绿火盆",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "锈蚀小型铜火盆",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "锈蚀小型铜灵魂火盆",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "锈蚀小型铜铜绿火盆",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "氧化小型铜火盆",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "氧化小型铜灵魂火盆",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "氧化小型铜铜绿火盆",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "涂蜡小型铜火盆",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "涂蜡小型铜灵魂火盆",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "涂蜡小型铜铜绿火盆",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "涂蜡斑驳小型铜火盆",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "涂蜡斑驳小型铜灵魂火盆",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "涂蜡斑驳小型铜铜绿火盆",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "涂蜡锈蚀小型铜火盆",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "涂蜡锈蚀小型铜灵魂火盆",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "涂蜡锈蚀小型铜铜绿火盆",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "涂蜡氧化小型铜火盆",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "涂蜡氧化小型铜灵魂火盆",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "涂蜡氧化小型铜铜绿火盆",
+
+  "creativetab.totd_tab": "亡者之财",
+  "filled_map.treasures_of_the_dead.buried_treasure": "藏宝图",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "骷髅船员地图",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "传奇藏宝图",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "已搜刮",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "任务难度：%s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "这把钥匙不适用于此要塞",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "要塞激活或奖励阶段无法使用钥匙",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "要塞X坐标：%s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "要塞Z坐标：%s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "战利品价值：%s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "可开启任何海上要塞核心",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "爆破弹爆炸",
+  "gui.treasures_of_the_dead.sell": "出售",
+  "gui.treasures_of_the_dead.open_shop": "商店"
+}

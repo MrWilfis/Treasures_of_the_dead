@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "item": "treasures_of_the_dead:weathered_small_copper_soul_brazier"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "treasures_of_the_dead:waxed_weathered_small_copper_soul_brazier"
+  }
+}

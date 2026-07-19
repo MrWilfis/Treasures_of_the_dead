@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Piratenskelett",
+  "entity.treasures_of_the_dead.captain_skeleton": "Kapitänsskelett",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Blühendes Skelett",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Blühendes Kapitänsskelett",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Schattenskelett",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Schatten-Kapitänsskelett",
+  "entity.treasures_of_the_dead.golden_skeleton": "Goldenes Skelett",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "Goldener Kapitänsskelett",
+
+  "entity.treasures_of_the_dead.foul_skull": "Fauler Schädel",
+  "entity.treasures_of_the_dead.disgraced_skull": "Schändlicher Schädel",
+  "entity.treasures_of_the_dead.hateful_skull": "Hasserfüllter Schädel",
+  "entity.treasures_of_the_dead.villainous_skull": "Niederträchtiger Schädel",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Schatztruhe",
+
+  "entity.treasures_of_the_dead.powder_keg": "Pulverfass",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "Knallfrosch",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Schädelhändler",
+
+  "item.treasures_of_the_dead.ruby": "Rubin",
+  "item.treasures_of_the_dead.bicorn_test": "Zweispitz (Test)",
+
+  "item.treasures_of_the_dead.pistol": "Pistole",
+  "item.treasures_of_the_dead.cartridge": "Patrone",
+
+  "item.treasures_of_the_dead.message_in_bottle": "Flaschenpost",
+  "item.treasures_of_the_dead.skeletons_order": "Skelettbefehl",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Skelettbesatzungsauftrag",
+
+  "item.treasures_of_the_dead.treasure_key": "Schatzschlüssel",
+
+  "item.treasures_of_the_dead.bicorn": "Zweispitz",
+  "item.treasures_of_the_dead.captain_jacket": "Kapitänsjacke",
+  "item.treasures_of_the_dead.captain_pants": "Kapitänshose",
+
+  "item.treasures_of_the_dead.captain_hat": "Kapitänshut",
+  "item.treasures_of_the_dead.captain_crop_vest": "Kapitäns-Crop-Weste",
+  "item.treasures_of_the_dead.captain_skirt": "Kapitänsrock",
+
+  "item.treasures_of_the_dead.green_bandana": "Grünes Bandana",
+  "item.treasures_of_the_dead.vest": "Weste",
+  "item.treasures_of_the_dead.pants": "Hose",
+  "item.treasures_of_the_dead.boots": "Stiefel",
+
+  "item.treasures_of_the_dead.red_bandana": "Rotes Bandana",
+  "item.treasures_of_the_dead.black_vest": "Schwarze Weste",
+  "item.treasures_of_the_dead.black_pants": "Schwarze Hose",
+  "item.treasures_of_the_dead.black_boots": "Schwarze Stiefel",
+
+  "item.treasures_of_the_dead.blue_bandana": "Blaues Bandana",
+  "item.treasures_of_the_dead.blue_vest": "Blaue Weste",
+  "item.treasures_of_the_dead.blue_pants": "Blaue Hose",
+  "item.treasures_of_the_dead.blue_boots": "Blaue Stiefel",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Piratenskelett-Spawn-Ei",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Kapitänsskelett-Spawn-Ei",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Blühendes-Skelett-Spawn-Ei",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Blühendes-Kapitänsskelett-Spawn-Ei",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Schattenskelett-Spawn-Ei",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Schatten-Kapitänsskelett-Spawn-Ei",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "Goldenes-Skelett-Spawn-Ei",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "Goldener-Kapitänsskelett-Spawn-Ei",
+
+  "item.treasures_of_the_dead.foul_skull": "Fauler Schädel",
+  "item.treasures_of_the_dead.disgraced_skull": "Schändlicher Schädel",
+  "item.treasures_of_the_dead.hateful_skull": "Hasserfüllter Schädel",
+  "item.treasures_of_the_dead.villainous_skull": "Niederträchtiger Schädel",
+
+  "item.treasures_of_the_dead.treasure_chest": "Schatztruhe",
+
+  "item.treasures_of_the_dead.powder_keg": "Pulverfass",
+
+  "item.treasures_of_the_dead.blunder_bomb": "Knallfrosch",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "Seefestungsschlüssel",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Schmiedevorlage",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Orden-der-Seelen-Rüstungsverzierung",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Schädelhändlertisch",
+  "block.treasures_of_the_dead.sea_fortress_core": "Seefestungskern",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "Kleiner eiserner Kessel",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "Kleiner eiserner Seelenkessel",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "Kleiner eiserner Patina-Kessel",
+  "block.treasures_of_the_dead.small_golden_brazier": "Kleiner goldener Kessel",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "Kleiner goldener Seelenkessel",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "Kleiner goldener Patina-Kessel",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "Kleiner kupferner Kessel",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "Kleiner kupferner Seelenkessel",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "Kleiner kupferner Patina-Kessel",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "Kleiner exponierter Kupferkessel",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "Kleiner exponierter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "Kleiner exponierter Kupfer-Patina-Kessel",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "Kleiner verwitterter Kupferkessel",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "Kleiner verwitterter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "Kleiner verwitterter Kupfer-Patina-Kessel",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "Kleiner oxidierter Kupferkessel",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "Kleiner oxidierter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "Kleiner oxidierter Kupfer-Patina-Kessel",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "Kleiner gewachster Kupferkessel",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "Kleiner gewachster Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "Kleiner gewachster Kupfer-Patina-Kessel",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "Kleiner gewachster exponierter Kupferkessel",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "Kleiner gewachster exponierter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "Kleiner gewachster exponierter Kupfer-Patina-Kessel",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "Kleiner gewachster verwitterter Kupferkessel",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "Kleiner gewachster verwitterter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "Kleiner gewachster verwitterter Kupfer-Patina-Kessel",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "Kleiner gewachster oxidierter Kupferkessel",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "Kleiner gewachster oxidierter Kupfer-Seelenkessel",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "Kleiner gewachster oxidierter Kupfer-Patina-Kessel",
+
+  "creativetab.totd_tab": "Schätze der Toten",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Schatzkarte",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Skelettbesatzungskarte",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Legendäre Schatzkarte",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Ausgeraubt",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Aufgabenschwierigkeit: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "Der Schlüssel passt nicht zu dieser Festung",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "Der Schlüssel kann nicht verwendet werden, während die Festung aktiv ist oder belohnt",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "Festung X: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "Festung Z: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Beute-Wert: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Kann jeden Seefestungskern öffnen",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "Knallfrosch explodiert",
+  "gui.treasures_of_the_dead.sell": "Verkaufen",
+  "gui.treasures_of_the_dead.open_shop": "Shop"
+}

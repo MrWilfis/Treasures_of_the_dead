@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "treasures_of_the_dead:weathered_small_copper_braziers"
+    },
+    {
+      "tag": "treasures_of_the_dead:weathered_small_copper_braziers"
+    },
+    {
+      "tag": "treasures_of_the_dead:weathered_small_copper_braziers"
+    },
+    {
+      "tag": "minecraft:coals"
+    }
+  ],
+  "result": {
+    "id": "treasures_of_the_dead:weathered_small_copper_brazier",
+    "count": 3
+  }
+}

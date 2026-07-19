@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Szkielet Pirat",
+  "entity.treasures_of_the_dead.captain_skeleton": "Szkielet Kapitan",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Kwitnący Szkielet",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Kwitnący Szkielet Kapitan",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Cieniowy Szkielet",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Cieniowy Szkielet Kapitan",
+  "entity.treasures_of_the_dead.golden_skeleton": "Złoty Szkielet",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "Złoty Szkielet Kapitan",
+
+  "entity.treasures_of_the_dead.foul_skull": "Podła Czaszka",
+  "entity.treasures_of_the_dead.disgraced_skull": "Zhańbiona Czaszka",
+  "entity.treasures_of_the_dead.hateful_skull": "Nienawistna Czaszka",
+  "entity.treasures_of_the_dead.villainous_skull": "Nikczemna Czaszka",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Skrzynia Skarbów",
+
+  "entity.treasures_of_the_dead.powder_keg": "Beczka Prochu",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "Głupia Bomba",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Handlarz Czaszkami",
+
+  "item.treasures_of_the_dead.ruby": "Rubin",
+  "item.treasures_of_the_dead.bicorn_test": "Dwurożek (test)",
+
+  "item.treasures_of_the_dead.pistol": "Pistolet",
+  "item.treasures_of_the_dead.cartridge": "Nabój",
+
+  "item.treasures_of_the_dead.message_in_bottle": "List w Butelce",
+  "item.treasures_of_the_dead.skeletons_order": "Rozkaz Szkieleta",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Przydział Załogi Szkieletów",
+
+  "item.treasures_of_the_dead.treasure_key": "Klucz do Skarbów",
+
+  "item.treasures_of_the_dead.bicorn": "Dwurożek",
+  "item.treasures_of_the_dead.captain_jacket": "Kurtka Kapitana",
+  "item.treasures_of_the_dead.captain_pants": "Spodnie Kapitana",
+
+  "item.treasures_of_the_dead.captain_hat": "Kapelusz Kapitana",
+  "item.treasures_of_the_dead.captain_crop_vest": "Krótka Kamizelka Kapitana",
+  "item.treasures_of_the_dead.captain_skirt": "Spódnica Kapitana",
+
+  "item.treasures_of_the_dead.green_bandana": "Zielona Bandana",
+  "item.treasures_of_the_dead.vest": "Kamizelka",
+  "item.treasures_of_the_dead.pants": "Spodnie",
+  "item.treasures_of_the_dead.boots": "Buty",
+
+  "item.treasures_of_the_dead.red_bandana": "Czerwona Bandana",
+  "item.treasures_of_the_dead.black_vest": "Czarna Kamizelka",
+  "item.treasures_of_the_dead.black_pants": "Czarne Spodnie",
+  "item.treasures_of_the_dead.black_boots": "Czarne Buty",
+
+  "item.treasures_of_the_dead.blue_bandana": "Niebieska Bandana",
+  "item.treasures_of_the_dead.blue_vest": "Niebieska Kamizelka",
+  "item.treasures_of_the_dead.blue_pants": "Niebieskie Spodnie",
+  "item.treasures_of_the_dead.blue_boots": "Niebieskie Buty",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Jajo Przywołujące Szkieleta Pirata",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Jajo Przywołujące Szkieleta Kapitana",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Jajo Przywołujące Kwitnącego Szkieleta",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Jajo Przywołujące Kwitnącego Szkieleta Kapitana",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Jajo Przywołujące Cieniowego Szkieleta",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Jajo Przywołujące Cieniowego Szkieleta Kapitana",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "Jajo Przywołujące Złotego Szkieleta",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "Jajo Przywołujące Złotego Szkieleta Kapitana",
+
+  "item.treasures_of_the_dead.foul_skull": "Podła Czaszka",
+  "item.treasures_of_the_dead.disgraced_skull": "Zhańbiona Czaszka",
+  "item.treasures_of_the_dead.hateful_skull": "Nienawistna Czaszka",
+  "item.treasures_of_the_dead.villainous_skull": "Nikczemna Czaszka",
+
+  "item.treasures_of_the_dead.treasure_chest": "Skrzynia Skarbów",
+
+  "item.treasures_of_the_dead.powder_keg": "Beczka Prochu",
+
+  "item.treasures_of_the_dead.blunder_bomb": "Głupia Bomba",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "Klucz do Morskiej Twierdzy",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Szablon Kowalski",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Ozdoba Zakonu Dusz",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Stół Handlarza Czaszkami",
+  "block.treasures_of_the_dead.sea_fortress_core": "Rdzeń Morskiej Twierdzy",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "Mały Żelazny Kociołek",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "Mały Żelazny Kociołek Dusz",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "Mały Żelazny Kociołek Patynowany",
+  "block.treasures_of_the_dead.small_golden_brazier": "Mały Złoty Kociołek",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "Mały Złoty Kociołek Dusz",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "Mały Złoty Kociołek Patynowany",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "Mały Miedziany Kociołek",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "Mały Miedziany Kociołek Dusz",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "Mały Miedziany Kociołek Patynowany",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "Mały Miedziany Kociołek Eksponowany",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "Mały Miedziany Kociołek Eksponowany Dusz",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "Mały Miedziany Kociołek Eksponowany Patynowany",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "Mały Miedziany Kociołek Zwietrzały",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "Mały Miedziany Kociołek Zwietrzały Dusz",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "Mały Miedziany Kociołek Zwietrzały Patynowany",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "Mały Miedziany Kociołek Utleniony",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "Mały Miedziany Kociołek Utleniony Dusz",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "Mały Miedziany Kociołek Utleniony Patynowany",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "Mały Miedziany Kociołek Woskowany",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "Mały Miedziany Kociołek Woskowany Dusz",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "Mały Miedziany Kociołek Woskowany Patynowany",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "Mały Miedziany Kociołek Eksponowany Woskowany",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "Mały Miedziany Kociołek Eksponowany Woskowany Dusz",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "Mały Miedziany Kociołek Eksponowany Woskowany Patynowany",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "Mały Miedziany Kociołek Zwietrzały Woskowany",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "Mały Miedziany Kociołek Zwietrzały Woskowany Dusz",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "Mały Miedziany Kociołek Zwietrzały Woskowany Patynowany",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "Mały Miedziany Kociołek Utleniony Woskowany",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "Mały Miedziany Kociołek Utleniony Woskowany Dusz",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "Mały Miedziany Kociołek Utleniony Woskowany Patynowany",
+
+  "creativetab.totd_tab": "Skarbce Umarłych",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Mapa Skarbów",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Mapa Załogi Szkieletów",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Mapa Legendarnego Skarbu",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Ograbiona",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Trudność zadania: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "Klucz nie pasuje do tej twierdzy",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "Klucza nie można użyć, gdy twierdza jest aktywna lub nagradza",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "Współrzędna X twierdzy: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "Współrzędna Z twierdzy: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Wartość łupu: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Może otworzyć każdy rdzeń morskiej twierdzy",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "Głupia Bomba wybucha",
+  "gui.treasures_of_the_dead.sell": "Sprzedaj",
+  "gui.treasures_of_the_dead.open_shop": "Sklep"
+}

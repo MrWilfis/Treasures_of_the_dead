@@ -1,0 +1,135 @@
+{
+  "entity.treasures_of_the_dead.totd_skeleton": "Esqueleto Pirata",
+  "entity.treasures_of_the_dead.captain_skeleton": "Esqueleto Capitão",
+  "entity.treasures_of_the_dead.blooming_skeleton": "Esqueleto Florescente",
+  "entity.treasures_of_the_dead.captain_blooming_skeleton": "Esqueleto Capitão Florescente",
+  "entity.treasures_of_the_dead.shadow_skeleton": "Esqueleto Sombrio",
+  "entity.treasures_of_the_dead.captain_shadow_skeleton": "Esqueleto Capitão Sombrio",
+  "entity.treasures_of_the_dead.golden_skeleton": "Esqueleto Dourado",
+  "entity.treasures_of_the_dead.captain_golden_skeleton": "Esqueleto Capitão Dourado",
+
+  "entity.treasures_of_the_dead.foul_skull": "Caveira Vil",
+  "entity.treasures_of_the_dead.disgraced_skull": "Caveira Desgraçada",
+  "entity.treasures_of_the_dead.hateful_skull": "Caveira Odiosa",
+  "entity.treasures_of_the_dead.villainous_skull": "Caveira Maligna",
+
+  "entity.treasures_of_the_dead.treasure_chest": "Baú do Tesouro",
+
+  "entity.treasures_of_the_dead.powder_keg": "Barril de Pólvora",
+
+  "entity.treasures_of_the_dead.blunder_bomb": "Bomba Perigosa",
+
+  "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Comerciante de Caveiras",
+
+  "item.treasures_of_the_dead.ruby": "Rubi",
+  "item.treasures_of_the_dead.bicorn_test": "Bicórnio (teste)",
+
+  "item.treasures_of_the_dead.pistol": "Pistola",
+  "item.treasures_of_the_dead.cartridge": "Cartucho",
+
+  "item.treasures_of_the_dead.message_in_bottle": "Mensagem na Garrafa",
+  "item.treasures_of_the_dead.skeletons_order": "Ordem do Esqueleto",
+  "item.treasures_of_the_dead.skeleton_crew_assignment": "Missão da Tripulação Esqueleto",
+
+  "item.treasures_of_the_dead.treasure_key": "Chave do Tesouro",
+
+  "item.treasures_of_the_dead.bicorn": "Bicórnio",
+  "item.treasures_of_the_dead.captain_jacket": "Jaqueta de Capitão",
+  "item.treasures_of_the_dead.captain_pants": "Calça de Capitão",
+
+  "item.treasures_of_the_dead.captain_hat": "Chapéu de Capitão",
+  "item.treasures_of_the_dead.captain_crop_vest": "Colete Curto de Capitão",
+  "item.treasures_of_the_dead.captain_skirt": "Saia de Capitão",
+
+  "item.treasures_of_the_dead.green_bandana": "Bandana Verde",
+  "item.treasures_of_the_dead.vest": "Colete",
+  "item.treasures_of_the_dead.pants": "Calça",
+  "item.treasures_of_the_dead.boots": "Botas",
+
+  "item.treasures_of_the_dead.red_bandana": "Bandana Vermelha",
+  "item.treasures_of_the_dead.black_vest": "Colete Preto",
+  "item.treasures_of_the_dead.black_pants": "Calça Preta",
+  "item.treasures_of_the_dead.black_boots": "Botas Pretas",
+
+  "item.treasures_of_the_dead.blue_bandana": "Bandana Azul",
+  "item.treasures_of_the_dead.blue_vest": "Colete Azul",
+  "item.treasures_of_the_dead.blue_pants": "Calça Azul",
+  "item.treasures_of_the_dead.blue_boots": "Botas Azuis",
+
+  "item.treasures_of_the_dead.totd_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Pirata",
+  "item.treasures_of_the_dead.captain_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Capitão",
+  "item.treasures_of_the_dead.blooming_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Florescente",
+  "item.treasures_of_the_dead.captain_blooming_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Capitão Florescente",
+  "item.treasures_of_the_dead.shadow_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Sombrio",
+  "item.treasures_of_the_dead.captain_shadow_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Capitão Sombrio",
+  "item.treasures_of_the_dead.golden_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Dourado",
+  "item.treasures_of_the_dead.captain_golden_skeleton_spawn_egg": "Ovo Gerador de Esqueleto Capitão Dourado",
+
+  "item.treasures_of_the_dead.foul_skull": "Caveira Vil",
+  "item.treasures_of_the_dead.disgraced_skull": "Caveira Desgraçada",
+  "item.treasures_of_the_dead.hateful_skull": "Caveira Odiosa",
+  "item.treasures_of_the_dead.villainous_skull": "Caveira Maligna",
+
+  "item.treasures_of_the_dead.treasure_chest": "Baú do Tesouro",
+
+  "item.treasures_of_the_dead.powder_keg": "Barril de Pólvora",
+
+  "item.treasures_of_the_dead.blunder_bomb": "Bomba Perigosa",
+
+  "item.treasures_of_the_dead.sea_fortress_key": "Chave da Fortaleza Marinha",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Molde de Ferraria",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornamento da Ordem das Almas",
+
+  "block.treasures_of_the_dead.skull_merchant_table": "Mesa do Comerciante de Caveiras",
+  "block.treasures_of_the_dead.sea_fortress_core": "Núcleo da Fortaleza Marinha",
+
+  "block.treasures_of_the_dead.small_iron_brazier": "Braseiro Pequeno de Ferro",
+  "block.treasures_of_the_dead.small_iron_soul_brazier": "Braseiro Pequeno de Alma de Ferro",
+  "block.treasures_of_the_dead.small_iron_patinated_brazier": "Braseiro Pequeno de Ferro Patinado",
+  "block.treasures_of_the_dead.small_golden_brazier": "Braseiro Pequeno de Ouro",
+  "block.treasures_of_the_dead.small_golden_soul_brazier": "Braseiro Pequeno de Alma de Ouro",
+  "block.treasures_of_the_dead.small_golden_patinated_brazier": "Braseiro Pequeno de Ouro Patinado",
+
+  "block.treasures_of_the_dead.small_copper_brazier": "Braseiro Pequeno de Cobre",
+  "block.treasures_of_the_dead.small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre",
+  "block.treasures_of_the_dead.small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Patinado",
+  "block.treasures_of_the_dead.exposed_small_copper_brazier": "Braseiro Pequeno de Cobre Exposto",
+  "block.treasures_of_the_dead.exposed_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Exposto",
+  "block.treasures_of_the_dead.exposed_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Exposto Patinado",
+  "block.treasures_of_the_dead.weathered_small_copper_brazier": "Braseiro Pequeno de Cobre Envelhecido",
+  "block.treasures_of_the_dead.weathered_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Envelhecido",
+  "block.treasures_of_the_dead.weathered_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Envelhecido Patinado",
+  "block.treasures_of_the_dead.oxidized_small_copper_brazier": "Braseiro Pequeno de Cobre Oxidado",
+  "block.treasures_of_the_dead.oxidized_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Oxidado",
+  "block.treasures_of_the_dead.oxidized_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Oxidado Patinado",
+
+  "block.treasures_of_the_dead.waxed_small_copper_brazier": "Braseiro Pequeno de Cobre Encerado",
+  "block.treasures_of_the_dead.waxed_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Encerado",
+  "block.treasures_of_the_dead.waxed_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Encerado Patinado",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_brazier": "Braseiro Pequeno de Cobre Exposto Encerado",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Exposto Encerado",
+  "block.treasures_of_the_dead.waxed_exposed_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Exposto Encerado Patinado",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_brazier": "Braseiro Pequeno de Cobre Envelhecido Encerado",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Envelhecido Encerado",
+  "block.treasures_of_the_dead.waxed_weathered_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Envelhecido Encerado Patinado",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_brazier": "Braseiro Pequeno de Cobre Oxidado Encerado",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_soul_brazier": "Braseiro Pequeno de Alma de Cobre Oxidado Encerado",
+  "block.treasures_of_the_dead.waxed_oxidized_small_copper_patinated_brazier": "Braseiro Pequeno de Cobre Oxidado Encerado Patinado",
+
+  "creativetab.totd_tab": "Tesouros dos Mortos",
+  "filled_map.treasures_of_the_dead.buried_treasure": "Mapa do Tesouro",
+  "filled_map.treasures_of_the_dead.skeleton_crew": "Mapa da Tripulação Esqueleto",
+  "filled_map.treasures_of_the_dead.legendary_buried_treasure": "Mapa do Tesouro Lendário",
+  "tooltip.treasures_of_the_dead.chest_is_robbed.tooltip": "Saqueado",
+  "tooltip.treasures_of_the_dead.quest_difficulty.tooltip": "Dificuldade da missão: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_wrong.tooltip": "A chave não serve para esta fortaleza",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_use_active.tooltip": "A chave não pode ser usada enquanto a fortaleza está ativa ou recompensando",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_x.tooltip": "Coordenada X da fortaleza: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_z.tooltip": "Coordenada Z da fortaleza: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Valor do saque: %s",
+  "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Pode abrir qualquer núcleo de fortaleza marinha",
+  "sounds.treasures_of_the_dead.blunder_bomb_explode": "Bomba Perigosa explode",
+  "gui.treasures_of_the_dead.sell": "Vender",
+  "gui.treasures_of_the_dead.open_shop": "Loja"
+}

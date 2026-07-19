@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "treasures_of_the_dead:small_copper_braziers"
+    },
+    {
+      "tag": "treasures_of_the_dead:small_copper_braziers"
+    },
+    {
+      "tag": "treasures_of_the_dead:small_copper_braziers"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+
+  "result": {
+    "id": "treasures_of_the_dead:small_copper_patinated_brazier",
+    "count": 3
+  }
+}

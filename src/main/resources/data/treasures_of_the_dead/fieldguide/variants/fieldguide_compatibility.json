@@ -1,0 +1,156 @@
+{
+  "entries": [
+    {
+      "id": "treasures_of_the_dead:totd_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        },{
+          "id": "Variant 4",
+          "nbt": "{Variant: 3}"
+        },{
+          "id": "Variant 5",
+          "nbt": "{Variant: 4}"
+        },{
+          "id": "Variant 6",
+          "nbt": "{Variant: 5}"
+        }
+      ]
+    },
+    {
+      "id": "treasures_of_the_dead:captain_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        },{
+          "id": "Variant 4",
+          "nbt": "{Variant: 3}"
+        },{
+          "id": "Variant 5",
+          "nbt": "{Variant: 4}"
+        },{
+          "id": "Variant 6",
+          "nbt": "{Variant: 5}"
+        },{
+          "id": "Variant 7",
+          "nbt": "{Variant: 6}"
+        },{
+          "id": "Variant 8",
+          "nbt": "{Variant: 7}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:blooming_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:captain_blooming_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:shadow_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        },{
+          "id": "Variant 4",
+          "nbt": "{Variant: 3}"
+        },{
+          "id": "Variant 5",
+          "nbt": "{Variant: 4}"
+        },{
+          "id": "Variant 6",
+          "nbt": "{Variant: 5}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:captain_shadow_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:golden_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        }
+      ]
+    },{
+      "id": "treasures_of_the_dead:captain_golden_skeleton",
+      "replace": true,
+      "variants": [
+        {
+          "id": "Variant 1",
+          "nbt": "{Variant: 0}"
+        },{
+          "id": "Variant 2",
+          "nbt": "{Variant: 1}"
+        },{
+          "id": "Variant 3",
+          "nbt": "{Variant: 2}"
+        }
+      ]
+    }
+  ]
+}

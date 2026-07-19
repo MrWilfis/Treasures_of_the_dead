@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_exposed_small_copper_braziers": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#treasures_of_the_dead:exposed_small_copper_braziers"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_exposed_small_copper_braziers"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:exposed_small_copper_brazier",
+      "treasures_of_the_dead:exposed_small_copper_soul_brazier",
+      "treasures_of_the_dead:exposed_small_copper_patinated_brazier"
+    ]
+  }
+}
