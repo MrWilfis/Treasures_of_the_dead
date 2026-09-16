@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Blunder Bomb",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Iron Dagger",
+  "entity.treasures_of_the_dead.golden_dagger": "Golden Dagger",
+  "entity.treasures_of_the_dead.diamond_dagger": "Diamond Dagger",
+  "entity.treasures_of_the_dead.netherite_dagger": "Netherite Dagger",
+
+  "item.treasures_of_the_dead.iron_dagger": "Iron Dagger",
+  "item.treasures_of_the_dead.golden_dagger": "Golden Dagger",
+  "item.treasures_of_the_dead.diamond_dagger": "Diamond Dagger",
+  "item.treasures_of_the_dead.netherite_dagger": "Netherite Dagger",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Iron Cutlass",
+  "item.treasures_of_the_dead.golden_cutlass": "Golden Cutlass",
+  "item.treasures_of_the_dead.diamond_cutlass": "Diamond Cutlass",
+  "item.treasures_of_the_dead.netherite_cutlass": "Netherite Cutlass",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Iron Captain Cutlass",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Golden Captain Cutlass",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Diamond Captain Cutlass",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Netherite Captain Cutlass",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Skull Merchant",
 
   "item.treasures_of_the_dead.ruby": "Ruby",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Sea Fortress Key",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Doubloon Pouch",
+  "item.treasures_of_the_dead.doubloon": "Doubloon",
+  "item.treasures_of_the_dead.doubloon_pile": "Doubloon Pile",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Smithing Template",
-  "trim_pattern.treasures_of_the_dead.order_of_souls": "Order Of Souls Armor Trim",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Order of Souls Armor Trim",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Smithing Template",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Cutlasses",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Diamond",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Captain Upgrade",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Add cutlass",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Add diamond",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Skull Merchant Table",
   "block.treasures_of_the_dead.sea_fortress_core": "Sea Fortress Core",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Loot value: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Can open any sea fortress core",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Blunder bomb explodes",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Contains: %s doubloons",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s piles and %s doubloons)",
+
   "gui.treasures_of_the_dead.sell": "Sell",
-  "gui.treasures_of_the_dead.open_shop": "Shop"
+  "gui.treasures_of_the_dead.open_shop": "Shop",
+  "gui.treasures_of_the_dead.back": "Back",
+  "gui.treasures_of_the_dead.reputation": "%s: Lv.%s (%s/%s XP)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Place an item to sell!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aReceived §f%s§a doubloons and §f%s§a XP!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cReputation level too low! Requires §f%s§c level",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Price: §f%s§6 doubloons",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Available",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Requires level %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cUnknown company. §fAvailable: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aSet level §b%d §afor §6%s §ato player §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aSet XP §b%d §afor §6%s §ato player §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aAdded §b%d §aXP for §6%s §ato player §e%s! §f(Level: §b%d§f, XP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aAdded §b%d §alevels for §6%s §ato player §e%s! §f(Level: §b%d§f, XP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cRemoved §b%d §cXP from §6%s §cplayer §e%s! §f(Level: §b%d§f, XP: §a%d§f, Was: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cRemoved §b%d §clevels from §6%s §cplayer §e%s! §f(New level: §b%d§f, XP: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aReset reputation for §6%s §ato player §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Reputation of player §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Level §b%d§f, XP §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Order of Souls",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Gold Hoarders",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Merchant Alliance",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Reaper's Bones"
 }

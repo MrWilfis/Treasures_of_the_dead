@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "omg_condition": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:iron_ingot"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "omg_condition"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:iron_dagger"
+    ]
+  }
+}

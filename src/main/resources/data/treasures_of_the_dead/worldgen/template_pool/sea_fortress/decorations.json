@@ -1173,7 +1173,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse1",
         "processors": "minecraft:empty",
@@ -1182,7 +1182,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse2",
         "processors": "minecraft:empty",
@@ -1191,7 +1191,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse3",
         "processors": "minecraft:empty",
@@ -1200,7 +1200,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse4",
         "processors": "minecraft:empty",
@@ -1209,7 +1209,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse5",
         "processors": "minecraft:empty",
@@ -1218,7 +1218,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 40,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse6",
         "processors": "minecraft:empty",
@@ -1227,7 +1227,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 20,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse7",
         "processors": "minecraft:empty",
@@ -1236,9 +1236,63 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 40,
       "element": {
         "location": "treasures_of_the_dead:sea_fortress/roof_warehouse8",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse2_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse2_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse2_3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse3_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse3_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 33,
+      "element": {
+        "location": "treasures_of_the_dead:sea_fortress/roof_warehouse3_3",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

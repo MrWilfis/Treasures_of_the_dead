@@ -49,6 +49,9 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Float>> LOOT_VALUE = register(
             "loot_value",
             builder -> builder.persistent(Codec.FLOAT).networkSynchronized(ByteBufCodecs.FLOAT));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> DOUBLOONS_IN_POUCH = register(
+            "doubloons_in_pouch",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
 //    private static <T> DataComponentType<T> register(String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
 //        DataComponentType<T> type = builder.apply(DataComponentType.builder()).build();

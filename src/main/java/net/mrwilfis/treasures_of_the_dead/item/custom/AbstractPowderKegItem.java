@@ -13,6 +13,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
+import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractPowderKegEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.powderKegsVariants.PowderKegEntity;
 
 public class AbstractPowderKegItem extends AnyTreasureItem {
 
@@ -23,6 +26,10 @@ public class AbstractPowderKegItem extends AnyTreasureItem {
         super(pProperties);
         this.maxPrepareToBlowUp = this.getMaxPrepareToBlowUp();
         this.explodeRadius = this.getExplodeRadius();
+    }
+
+    public AbstractPowderKegEntity getKegEntity(LivingEntity livingEntity, Level level) {
+        return new AbstractPowderKegEntity(ModEntities.POWDER_KEG.get(), level);
     }
 
     @Override
@@ -134,8 +141,7 @@ public class AbstractPowderKegItem extends AnyTreasureItem {
     }
 
     public static boolean getIsGoingToBlowUp(ItemStack kegItem) {
-//        CompoundTag compoundtag = kegItem.getTag();
-//        return compoundtag != null && compoundtag.getBoolean("IsGoingToBlowUp");
+
         if (kegItem.get(ModDataComponents.KEG_IS_GOING_TO_BLOW_UP) == null) {
             return false;
         } else {
@@ -144,14 +150,9 @@ public class AbstractPowderKegItem extends AnyTreasureItem {
     }
 
     public static void setIsGoingToBlowUp(ItemStack kegItem, boolean b) {
-//        CompoundTag compoundtag = kegItem.getOrCreateTag();
-//        compoundtag.putBoolean("IsGoingToBlowUp", b);
         kegItem.set(ModDataComponents.KEG_IS_GOING_TO_BLOW_UP, b);
     }
     public static int getPrepareToBlowUp(ItemStack kegItem) {
-//        CompoundTag compoundtag = kegItem.getTag();
-//        if (compoundtag != null) return compoundtag.getInt("PrepareToBlowUp");
-//        else return 0;
         if (kegItem.get(ModDataComponents.KEG_PREPARE_TO_BLOW_UP) == null) {
             return 0;
         } else {
@@ -160,8 +161,6 @@ public class AbstractPowderKegItem extends AnyTreasureItem {
     }
 
     public static void setPrepareToBlowUp(ItemStack kegItem, int i) {
-//        CompoundTag compoundtag = kegItem.getOrCreateTag();
-//        compoundtag.putInt("PrepareToBlowUp", i);
         kegItem.set(ModDataComponents.KEG_PREPARE_TO_BLOW_UP, i);
     }
 }

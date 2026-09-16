@@ -47,11 +47,11 @@ public class CaptainBloomingSkeletonRenderer extends GeoEntityRenderer<CaptainBl
     public static final Map<CaptainBloomingSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainBloomingSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainBloomingSkeletonVariant.DEFAULT,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton_retex1.png"));
                 p_114874_.put(CaptainBloomingSkeletonVariant.VAR1,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton_retex2.png"));
                 p_114874_.put(CaptainBloomingSkeletonVariant.VAR2,
-                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/blooming_skeleton_retex3.png"));
             });
 
 

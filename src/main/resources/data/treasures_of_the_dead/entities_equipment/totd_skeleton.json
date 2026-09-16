@@ -38,18 +38,22 @@
   "head_armor_variation": [
     {
       "item": "treasures_of_the_dead:red_bandana",
-      "weight": 1
+      "weight": 50
     },
     {
       "item": "treasures_of_the_dead:green_bandana",
-      "weight": 1
+      "weight": 50
     },
     {
       "item": "treasures_of_the_dead:blue_bandana",
-      "weight": 1
+      "weight": 50
     },
     {
       "item": "minecraft:air",
+      "weight": 49
+    },
+    {
+      "item": "treasures_of_the_dead:foul_skull",
       "weight": 1
     }
   ],
@@ -59,11 +63,11 @@
       "weight": 5
     },
     {
-      "item": "minecraft:iron_sword",
+      "item": "treasures_of_the_dead:iron_cutlass",
       "weight": 75
     },
     {
-      "item": "minecraft:golden_sword",
+      "item": "treasures_of_the_dead:golden_cutlass",
       "weight": 10
     },
     {

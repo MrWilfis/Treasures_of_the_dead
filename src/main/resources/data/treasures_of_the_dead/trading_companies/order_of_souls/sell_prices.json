@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "item": "treasures_of_the_dead:foul_skull",
+      "price": 10,
+      "experience": 20,
+      "minLevel": 0
+    },
+    {
+      "item": "treasures_of_the_dead:disgraced_skull",
+      "price": 15,
+      "experience": 30,
+      "minLevel": 0
+    },
+    {
+      "item": "treasures_of_the_dead:hateful_skull",
+      "price": 40,
+      "experience": 50,
+      "minLevel": 0
+    },
+    {
+      "item": "treasures_of_the_dead:villainous_skull",
+      "price": 65,
+      "experience": 100,
+      "minLevel": 2
+    },
+    {
+      "item": "treasures_of_the_dead:treasure_chest",
+      "price": 10,
+      "experience": 10,
+      "minLevel": 0
+    }
+  ]
+}

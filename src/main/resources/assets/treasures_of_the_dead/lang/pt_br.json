@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Bomba Perigosa",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Adaga de Ferro",
+  "entity.treasures_of_the_dead.golden_dagger": "Adaga de Ouro",
+  "entity.treasures_of_the_dead.diamond_dagger": "Adaga de Diamante",
+  "entity.treasures_of_the_dead.netherite_dagger": "Adaga de Netherita",
+
+  "item.treasures_of_the_dead.iron_dagger": "Adaga de Ferro",
+  "item.treasures_of_the_dead.golden_dagger": "Adaga de Ouro",
+  "item.treasures_of_the_dead.diamond_dagger": "Adaga de Diamante",
+  "item.treasures_of_the_dead.netherite_dagger": "Adaga de Netherita",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Cutelo de Ferro",
+  "item.treasures_of_the_dead.golden_cutlass": "Cutelo de Ouro",
+  "item.treasures_of_the_dead.diamond_cutlass": "Cutelo de Diamante",
+  "item.treasures_of_the_dead.netherite_cutlass": "Cutelo de Netherita",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Cutelo de Capitão de Ferro",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Cutelo de Capitão de Ouro",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Cutelo de Capitão de Diamante",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Cutelo de Capitão de Netherita",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Comerciante de Caveiras",
 
   "item.treasures_of_the_dead.ruby": "Rubi",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Chave da Fortaleza Marinha",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Bolsa de Dobrões",
+  "item.treasures_of_the_dead.doubloon": "Dobrão",
+  "item.treasures_of_the_dead.doubloon_pile": "Pilha de Dobrões",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Molde de Ferraria",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornamento da Ordem das Almas",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Molde de Ferraria",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Cutelos",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Diamante",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Melhoria de Capitão",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Adicione um cutelo",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Adicione um diamante",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Mesa do Comerciante de Caveiras",
   "block.treasures_of_the_dead.sea_fortress_core": "Núcleo da Fortaleza Marinha",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Valor do saque: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Pode abrir qualquer núcleo de fortaleza marinha",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Bomba Perigosa explode",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Contém: %s dobrões",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s pilhas e %s dobrões)",
+
   "gui.treasures_of_the_dead.sell": "Vender",
-  "gui.treasures_of_the_dead.open_shop": "Loja"
+  "gui.treasures_of_the_dead.open_shop": "Loja",
+  "gui.treasures_of_the_dead.back": "Voltar",
+  "gui.treasures_of_the_dead.reputation": "%s: Nv.%s (%s/%s EXP)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Coloque um item para vender!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aRecebido §f%s§a dobrões e §f%s§a EXP!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cNível de reputação insuficiente! Requer nível §f%s§c",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Preço: §f%s§6 dobrões",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Disponível",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Requer nível %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cCompanhia desconhecida. §fDisponíveis: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aDefinido nível §b%d §apara §6%s §apara o jogador §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aDefinido EXP §b%d §apara §6%s §apara o jogador §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aAdicionado §b%d §aEXP para §6%s §aa o jogador §e%s! §f(Nível: §b%d§f, EXP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aAdicionado §b%d §aníveis para §6%s §aa o jogador §e%s! §f(Nível: §b%d§f, EXP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cRemovido §b%d §cEXP de §6%s §cdo jogador §e%s! §f(Nível: §b%d§f, EXP: §a%d§f, Era: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cRemovido §b%d §cníveis de §6%s §cdo jogador §e%s! §f(Novo nível: §b%d§f, EXP: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aRedefinida reputação para §6%s §apara o jogador §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Reputação do jogador §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Nível §b%d§f, EXP §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Ordem das Almas",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Acumuladores de Ouro",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Aliança Mercantil",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Ossos do Ceifador"
 }

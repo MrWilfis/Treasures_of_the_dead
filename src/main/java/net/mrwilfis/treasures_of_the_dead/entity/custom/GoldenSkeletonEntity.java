@@ -137,7 +137,13 @@ public class GoldenSkeletonEntity extends TOTDSkeletonEntity{
 
     @Override
     public boolean isInvulnerableTo(DamageSource source) {
-        return source.is(DamageTypes.ARROW) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS)
+        if (source.is(DamageTypes.ARROW)) {
+            if (source.getDirectEntity() instanceof DaggerEntity) {
+                return false;
+            }
+            return true;
+        }
+        return source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS)
                 || source.is(DamageTypes.FREEZE) || source.is(DamageTypes.MAGIC) || source.is(DamageTypes.MOB_ATTACK)
                 || source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO) || source.is(DamageTypes.SPIT)
                 || source.is(DamageTypes.STING) || source.is(DamageTypes.SWEET_BERRY_BUSH) || source.is(DamageTypes.THORNS)
@@ -147,6 +153,9 @@ public class GoldenSkeletonEntity extends TOTDSkeletonEntity{
     @Override
     public boolean hurt(DamageSource source, float amount) {
         float newAmount = amount;
+        if (source.getDirectEntity() instanceof DaggerEntity) {
+            newAmount = (this.getIsRusted()) ? amount * 1.5f : amount * 0.75f;
+        }
         if (source.is(DamageTypes.CAMPFIRE) || source.is(DamageTypes.HOT_FLOOR) || source.is(DamageTypes.FIREBALL) || source.is(DamageTypes.FIREWORKS)
                 || source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.LAVA) || source.is(DamageTypes.UNATTRIBUTED_FIREBALL) || source.is(DamageTypes.WITHER_SKULL)) {
             newAmount = (this.getIsRusted()) ? amount * 2.0f : amount * 0.5f;

@@ -55,8 +55,10 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
                 setIsGoingToBlowUp(true);
                 return InteractionResult.SUCCESS;
             } else {
-                setIsGoingToBlowUp(false);
-                return InteractionResult.SUCCESS;
+                if (pPlayer.isCreative()) {
+                    setIsGoingToBlowUp(false);
+                    return InteractionResult.SUCCESS;
+                }
             }
         }
         return super.mobInteract(pPlayer, pHand);
@@ -105,20 +107,20 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
     }
 
     protected void createFuseParticles(Level level, RandomSource random, Vec3 position) {
-        double xOffset = this.random.nextDouble() * 0.2 - 0.1; // Случайный смещение по X
-        double yOffset = this.random.nextDouble() * 0.2 - 0.1; // Случайный смещение по Y
-        double zOffset = this.random.nextDouble() * 0.2 - 0.1; // Случайный смещение по Z
+        double xOffset = this.random.nextDouble() * 0.2 - 0.1;
+        double yOffset = this.random.nextDouble() * 0.2 - 0.1;
+        double zOffset = this.random.nextDouble() * 0.2 - 0.1;
 
-        double xSpeed = (this.random.nextDouble() * 0.04) - 0.02; // Случайная скорость по X от -0.2 до 0.2
-        double ySpeed = (this.random.nextDouble() * 0.05) + 0.03; // Случайная скорость по Y от -0.2 до 0.2
-        double zSpeed = (this.random.nextDouble() * 0.04) - 0.02; // Случайная скорость по Z от -0.2 до 0.2
+        double xSpeed = (this.random.nextDouble() * 0.04) - 0.02;
+        double ySpeed = (this.random.nextDouble() * 0.05) + 0.03;
+        double zSpeed = (this.random.nextDouble() * 0.04) - 0.02;
 
         try {
             this.level().addParticle(ParticleTypes.SMOKE,
                     position.x + xOffset,
                     position.y + yOffset + 0.665,
                     position.z + zOffset,
-                    xSpeed, ySpeed, zSpeed); // Скорость (0, 0, 0)
+                    xSpeed, ySpeed, zSpeed);
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -172,11 +174,29 @@ public class AbstractPowderKegEntity extends AnyTreasureClass {
         else if (slowExplosion) {
             setIsGoingToBlowUp(true);
         }
-        else if (!isInvulnerableTo(pSource)) {
-            this.turnIntoItem();
+        if (!isInvulnerableTo(pSource)) {
+
+            this.playSound(SoundEvents.WOOD_HIT, 0.8F, 0.8F + this.random.nextFloat() * 0.4F);
+
+            if (pSource.isCreativePlayer()) {
+                this.turnIntoItem();
+                return true;
+            }
+
+            int hits = this.getHitCount() + 1;
+            this.setHitCount(hits);
+            int var1 = random.nextBoolean() ? 1 : -1;
+            this.yHeadRot = (this.getYRot() + (1.5f * (this.getHitCount() * 0.75f) * var1));
+            this.setYRot(this.getYRot() + (1.5f * (this.getHitCount() * 0.75f) * var1));
+
+            if (hits >= MAX_HITS) {
+                this.turnIntoItem();
+                return true;
+            }
+            return true;
         }
-        //System.out.println("DAMAGE: " + pAmount + " " + isBlunderBomb);
-        return super.hurt(pSource, pAmount);
+        return false;
+        //return super.hurt(pSource, pAmount);
     }
 
     public int getMaxPrepareToBlowUp() {

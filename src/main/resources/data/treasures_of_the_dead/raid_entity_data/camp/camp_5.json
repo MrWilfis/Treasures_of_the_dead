@@ -14,12 +14,20 @@
   },
   "entities": [
     {
+      "type": "treasures_of_the_dead:totd_skeleton",
+      "weight": 5
+    },
+    {
+      "type": "treasures_of_the_dead:blooming_skeleton",
+      "weight": 5
+    },
+    {
     "type": "treasures_of_the_dead:shadow_skeleton",
-    "weight": 50
+    "weight": 45
     },
     {
     "type": "treasures_of_the_dead:golden_skeleton",
-    "weight": 50
+    "weight": 45
     }
   ],
   "boss_entities": [

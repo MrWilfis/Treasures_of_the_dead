@@ -1,7 +1,7 @@
 {
   "pools": [
     {
-      "rolls": 4,
+      "rolls": 5,
       "entries": [
         {
           "type": "minecraft:item",
@@ -10,7 +10,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 4,
+                "min": 3,
                 "max": 6
               }
             }
@@ -23,7 +23,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 4,
+                "min": 3,
                 "max": 6
               }
             }
@@ -36,8 +36,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 6,
-                "max": 9
+                "min": 5,
+                "max": 8
               }
             }
           ]
@@ -49,8 +49,34 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "min": 5,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:doubloon",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
                 "min": 6,
                 "max": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:doubloon_pile",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
               }
             }
           ]
@@ -88,7 +114,7 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "minecraft:diamond_sword"
+          "name": "treasures_of_the_dead:diamond_cutlass"
         }
       ]
     }

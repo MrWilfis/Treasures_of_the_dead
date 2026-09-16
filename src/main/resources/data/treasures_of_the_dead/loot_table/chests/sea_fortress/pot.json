@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 35,
+          "weight": 30,
           "name": "minecraft:gunpowder",
           "functions": [
             {
@@ -19,7 +19,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 35,
+          "weight": 30,
           "name": "minecraft:iron_nugget",
           "functions": [
             {
@@ -34,6 +34,20 @@
         {
           "type": "minecraft:item",
           "weight": 10,
+          "name": "treasures_of_the_dead:iron_dagger",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 13,
           "name": "minecraft:emerald",
           "functions": [
             {
@@ -47,7 +61,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
+          "weight": 7,
           "name": "minecraft:string",
           "functions": [
             {
@@ -55,6 +69,34 @@
               "count": {
                 "min": 1,
                 "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 9,
+          "name": "treasures_of_the_dead:doubloon",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "treasures_of_the_dead:doubloon_pile",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]

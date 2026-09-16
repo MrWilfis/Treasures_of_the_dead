@@ -1,0 +1,181 @@
+{
+  "entries": [
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 6,
+      "minLevel": 0,
+      "displayLevel": 0,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 0
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 9,
+      "minLevel": 1,
+      "displayLevel": 1,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 1
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 12,
+      "minLevel": 2,
+      "displayLevel": 1,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 2
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 15,
+      "minLevel": 4,
+      "displayLevel": 2,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 3
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 18,
+      "minLevel": 6,
+      "displayLevel": 4,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 4
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:skeleton_crew_assignment",
+      "price": 21,
+      "minLevel": 8,
+      "displayLevel": 6,
+      "count": 1,
+      "components": {
+        "treasures_of_the_dead:difficulty": 5
+      }
+    },
+    {
+      "item": "minecraft:emerald",
+      "price": 2,
+      "minLevel": 0,
+      "displayLevel": 0,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon_pouch",
+      "price": 20,
+      "minLevel": 0,
+      "displayLevel": 0,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:iron_dagger",
+      "price": 6,
+      "minLevel": 5,
+      "displayLevel": 3,
+      "count": 8
+    },
+    {
+      "item": "treasures_of_the_dead:red_bandana",
+      "price": 10,
+      "minLevel": 7,
+      "displayLevel": 7,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:green_bandana",
+      "price": 10,
+      "minLevel": 7,
+      "displayLevel": 7,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:blue_bandana",
+      "price": 10,
+      "minLevel": 7,
+      "displayLevel": 7,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:blunder_bomb",
+      "price": 7,
+      "minLevel": 6,
+      "displayLevel": 4,
+      "count": 8
+    },
+    {
+      "item": "treasures_of_the_dead:iron_cutlass",
+      "price": 15,
+      "minLevel": 3,
+      "displayLevel": 2,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:iron_cutlass",
+      "price": 20,
+      "minLevel": 5,
+      "displayLevel": 4,
+      "count": 1,
+      "enchantments": {
+        "minecraft:sweeping_edge": 2
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:iron_cutlass",
+      "price": 25,
+      "minLevel": 5,
+      "displayLevel": 4,
+      "count": 1,
+      "enchantments": {
+        "minecraft:smite": 3
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:iron_captain_cutlass",
+      "price": 50,
+      "minLevel": 12,
+      "displayLevel": 8,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:iron_captain_cutlass",
+      "price": 65,
+      "minLevel": 13,
+      "displayLevel": 8,
+      "count": 1,
+      "enchantments": {
+        "minecraft:sweeping_edge": 2
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:iron_captain_cutlass",
+      "price": 75,
+      "minLevel": 13,
+      "displayLevel": 8,
+      "count": 1,
+      "enchantments": {
+        "minecraft:smite": 3
+      }
+    },
+    {
+      "item": "treasures_of_the_dead:captain_upgrade_smithing_template",
+      "price": 100,
+      "minLevel": 10,
+      "displayLevel": 8,
+      "count": 1
+    },
+    {
+      "item": "treasures_of_the_dead:order_of_souls_armor_trim_smithing_template",
+      "price": 75,
+      "minLevel": 20,
+      "displayLevel": 8,
+      "count": 1
+    }
+  ]
+}

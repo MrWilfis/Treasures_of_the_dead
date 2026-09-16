@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "爆破弹",
 
+  "entity.treasures_of_the_dead.iron_dagger": "铁匕首",
+  "entity.treasures_of_the_dead.golden_dagger": "金匕首",
+  "entity.treasures_of_the_dead.diamond_dagger": "钻石匕首",
+  "entity.treasures_of_the_dead.netherite_dagger": "下界合金匕首",
+
+  "item.treasures_of_the_dead.iron_dagger": "铁匕首",
+  "item.treasures_of_the_dead.golden_dagger": "金匕首",
+  "item.treasures_of_the_dead.diamond_dagger": "钻石匕首",
+  "item.treasures_of_the_dead.netherite_dagger": "下界合金匕首",
+
+  "item.treasures_of_the_dead.iron_cutlass": "铁弯刀",
+  "item.treasures_of_the_dead.golden_cutlass": "金弯刀",
+  "item.treasures_of_the_dead.diamond_cutlass": "钻石弯刀",
+  "item.treasures_of_the_dead.netherite_cutlass": "下界合金弯刀",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "铁船长弯刀",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "金船长弯刀",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "钻石船长弯刀",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "下界合金船长弯刀",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "头颅商人",
 
   "item.treasures_of_the_dead.ruby": "红宝石",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "海上要塞钥匙",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "达布隆钱袋",
+  "item.treasures_of_the_dead.doubloon": "达布隆",
+  "item.treasures_of_the_dead.doubloon_pile": "达布隆堆",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "锻造模板",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "灵魂教团纹饰",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "锻造模板",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9弯刀",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9钻石",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7船长升级",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "添加弯刀",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "添加钻石",
 
   "block.treasures_of_the_dead.skull_merchant_table": "头颅商贩桌",
   "block.treasures_of_the_dead.sea_fortress_core": "海上要塞核心",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "战利品价值：%s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "可开启任何海上要塞核心",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "爆破弹爆炸",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "包含：%s 达布隆",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s 堆和 %s 达布隆)",
+
   "gui.treasures_of_the_dead.sell": "出售",
-  "gui.treasures_of_the_dead.open_shop": "商店"
+  "gui.treasures_of_the_dead.open_shop": "商店",
+  "gui.treasures_of_the_dead.back": "返回",
+  "gui.treasures_of_the_dead.reputation": "%s：等级 %s（%s/%s 经验）",
+  "gui.treasures_of_the_dead.no_item_to_sell": "放入要出售的物品！",
+  "gui.treasures_of_the_dead.sell_result_message": "§a获得 §f%s§a 达布隆和 §f%s§a 经验！",
+  "gui.treasures_of_the_dead.needs_higher_level": "§c声望等级不足！需要 §f%s§c 级",
+
+  "gui.treasures_of_the_dead.shop.price": "§6价格：§f%s§6 达布隆",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ 可购买",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ 需要 %s 级",
+
+  "commands.treasures_of_the_dead.unknown_company": "§c未知公司。§f可用：§e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§a已为 §6%s §a将玩家 §e%s §a的等级设置为 §b%d",
+  "commands.treasures_of_the_dead.set.exp.success": "§a已为 §6%s §a将玩家 §e%s §a的经验设置为 §b%d",
+  "commands.treasures_of_the_dead.add.exp.success": "§a已为 §6%s §a给玩家 §e%s §a添加 §b%d §a经验！§f（等级：§b%d§f，经验：§a%d§f/§e%d§f，§d%d§f%）",
+  "commands.treasures_of_the_dead.add.level.success": "§a已为 §6%s §a给玩家 §e%s §a添加 §b%d §a级！§f（等级：§b%d§f，经验：§a%d§f/§e%d§f，§d%d§f%）",
+  "commands.treasures_of_the_dead.remove.exp.success": "§c已从 §6%s §c移除玩家 §e%s §c的 §b%d §c经验！§f（等级：§b%d§f，经验：§a%d§f，原有：§c%d§f）",
+  "commands.treasures_of_the_dead.remove.level.success": "§c已从 §6%s §c移除玩家 §e%s §c的 §b%d §c级！§f（新等级：§b%d§f，经验：§a%d§f）",
+  "commands.treasures_of_the_dead.reset.success": "§a已重置 §6%s §a玩家 §e%s §a的声望",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== 玩家 §e%s §6§l的声望 ===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f：等级 §b%d§f，经验 §a%d§f/§e%d§f（§d%d§f%）",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "灵魂教团",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "黄金囤积者",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "商人联盟",
+  "trading_company.treasures_of_the_dead.reapers_bones": "死神之骨"
 }

@@ -21,4 +21,6 @@ public class PowderKegItemModel extends GeoModel<PowderKegItem> {
         return Treasures_of_the_dead.resource("animations/entity/powder_keg.animation.json");
     }
 
+
+
 }

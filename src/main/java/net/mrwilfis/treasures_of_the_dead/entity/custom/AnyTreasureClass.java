@@ -1,8 +1,12 @@
 package net.mrwilfis.treasures_of_the_dead.entity.custom;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.AgeableMob;
@@ -17,6 +21,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class AnyTreasureClass extends Animal {
+
+    private static final EntityDataAccessor<Integer> HIT_COUNT = SynchedEntityData.defineId(AnyTreasureClass.class, EntityDataSerializers.INT);
+    protected static final int MAX_HITS = 5;
+    private int shakeTimer = 0;
+
     public AnyTreasureClass(EntityType pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.noCulling = true;
@@ -53,8 +62,43 @@ public class AnyTreasureClass extends Animal {
     }
 
     @Override
+    public void tick() {
+        if (this.shakeTimer > 0) {
+            this.shakeTimer--;
+        }
+
+        int hits = this.getHitCount();
+        if (hits > 0 && hits < MAX_HITS - 1 && this.tickCount % 20 == 0) {
+            this.setHitCount(hits-1);
+        }
+
+        super.tick();
+    }
+
+    public int getHitCount() {
+        return this.getEntityData().get(HIT_COUNT);
+    }
+
+    public void setHitCount(int hits) {
+        this.getEntityData().set(HIT_COUNT, Math.max(0, Math.min(hits, MAX_HITS)));
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.setHitCount(tag.getInt("HitCount"));
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("HitCount", getHitCount());
+    }
+
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
+        builder.define(HIT_COUNT, 0);
     }
 
 
@@ -66,8 +110,34 @@ public class AnyTreasureClass extends Animal {
 
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
-        if (!isInvulnerableTo(pSource)) {
+        boolean instantDestroy = pSource.is(DamageTypes.ARROW) || pSource.is(DamageTypes.FALLING_STALACTITE) ||
+                pSource.is(DamageTypes.TRIDENT) || pSource.is(DamageTypes.MOB_PROJECTILE) || pSource.is(DamageTypes.SONIC_BOOM) ||
+                pSource.is(DamageTypes.PLAYER_EXPLOSION) || pSource.is(DamageTypes.EXPLOSION);
+        if (instantDestroy) {
             this.turnIntoItem();
+            return true;
+        }
+        if (!isInvulnerableTo(pSource)) {
+
+            this.playSound(SoundEvents.WOOD_HIT, 0.8F, 0.8F + this.random.nextFloat() * 0.4F);
+
+            if (pSource.isCreativePlayer()) {
+                this.turnIntoItem();
+                return true;
+            }
+
+            int hits = this.getHitCount() + 1;
+            this.setHitCount(hits);
+            int var1 = random.nextBoolean() ? 1 : -1;
+            this.yHeadRot = (this.getYRot() + (1.5f * (this.getHitCount() * 0.75f) * var1));
+            this.setYRot(this.getYRot() + (1.5f * (this.getHitCount() * 0.75f) * var1));
+
+            if (hits >= MAX_HITS) {
+                this.turnIntoItem();
+                return true;
+            }
+
+            return true;
         }
         return super.hurt(pSource, pAmount);
     }

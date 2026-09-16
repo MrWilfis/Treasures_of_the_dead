@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "ブランダーボム",
 
+  "entity.treasures_of_the_dead.iron_dagger": "鉄のダガー",
+  "entity.treasures_of_the_dead.golden_dagger": "金のダガー",
+  "entity.treasures_of_the_dead.diamond_dagger": "ダイヤモンドのダガー",
+  "entity.treasures_of_the_dead.netherite_dagger": "ネザライトのダガー",
+
+  "item.treasures_of_the_dead.iron_dagger": "鉄のダガー",
+  "item.treasures_of_the_dead.golden_dagger": "金のダガー",
+  "item.treasures_of_the_dead.diamond_dagger": "ダイヤモンドのダガー",
+  "item.treasures_of_the_dead.netherite_dagger": "ネザライトのダガー",
+
+  "item.treasures_of_the_dead.iron_cutlass": "鉄のカトラス",
+  "item.treasures_of_the_dead.golden_cutlass": "金のカトラス",
+  "item.treasures_of_the_dead.diamond_cutlass": "ダイヤモンドのカトラス",
+  "item.treasures_of_the_dead.netherite_cutlass": "ネザライトのカトラス",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "鉄のキャプテンカトラス",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "金のキャプテンカトラス",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "ダイヤモンドのキャプテンカトラス",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "ネザライトのキャプテンカトラス",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "頭蓋骨商人",
 
   "item.treasures_of_the_dead.ruby": "ルビー",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "海の要塞の鍵",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "ダブロン袋",
+  "item.treasures_of_the_dead.doubloon": "ダブロン",
+  "item.treasures_of_the_dead.doubloon_pile": "ダブロンの山",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "鍛冶テンプレート",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "魂の騎士団のアーマートリム",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "鍛冶テンプレート",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9カトラス",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9ダイヤモンド",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7キャプテンアップグレード",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "カトラスを追加",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "ダイヤモンドを追加",
 
   "block.treasures_of_the_dead.skull_merchant_table": "頭蓋骨商人のテーブル",
   "block.treasures_of_the_dead.sea_fortress_core": "海の要塞コア",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "戦利品価値: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "あらゆる海の要塞コアを開けられます",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "ブランダーボムが爆発",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "含む: %s ダブロン",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s 山と %s ダブロン)",
+
   "gui.treasures_of_the_dead.sell": "販売",
-  "gui.treasures_of_the_dead.open_shop": "ショップ"
+  "gui.treasures_of_the_dead.open_shop": "ショップ",
+  "gui.treasures_of_the_dead.back": "戻る",
+  "gui.treasures_of_the_dead.reputation": "%s: Lv.%s (%s/%s EXP)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "販売するアイテムを入れてください！",
+  "gui.treasures_of_the_dead.sell_result_message": "§a獲得 §f%s§a ダブロンと §f%s§a EXP！",
+  "gui.treasures_of_the_dead.needs_higher_level": "§c評判レベルが不足！ §f%s§c レベル必要",
+
+  "gui.treasures_of_the_dead.shop.price": "§6価格: §f%s§6 ダブロン",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ 購入可能",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ %s レベル必要",
+
+  "commands.treasures_of_the_dead.unknown_company": "§c不明な会社。§f利用可能: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§a§6%s §aプレイヤー §e%s §aのレベルを §b%d §aに設定",
+  "commands.treasures_of_the_dead.set.exp.success": "§a§6%s §aプレイヤー §e%s §aのEXPを §b%d §aに設定",
+  "commands.treasures_of_the_dead.add.exp.success": "§a§6%s §aプレイヤー §e%s §aに §b%d §aEXP追加！§f(レベル: §b%d§f, EXP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§a§6%s §aプレイヤー §e%s §aに §b%d §aレベル追加！§f(レベル: §b%d§f, EXP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§c§6%s §cプレイヤー §e%s §cから §b%d §cEXP削除！§f(レベル: §b%d§f, EXP: §a%d§f, 以前: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§c§6%s §cプレイヤー §e%s §cから §b%d §cレベル削除！§f(新レベル: §b%d§f, EXP: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§a§6%s §aプレイヤー §e%s §aの評判をリセット",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== プレイヤー §e%s §6§lの評判 ===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: レベル §b%d§f, EXP §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "魂の騎士団",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "金の収集者",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "商人同盟",
+  "trading_company.treasures_of_the_dead.reapers_bones": "死神の骨"
 }

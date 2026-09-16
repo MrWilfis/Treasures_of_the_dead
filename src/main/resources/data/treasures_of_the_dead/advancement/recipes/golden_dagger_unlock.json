@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "omg_condition": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:gold_ingot"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "omg_condition"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:golden_dagger"
+    ]
+  }
+}

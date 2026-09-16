@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "멍청이 폭탄",
 
+  "entity.treasures_of_the_dead.iron_dagger": "철 단검",
+  "entity.treasures_of_the_dead.golden_dagger": "금 단검",
+  "entity.treasures_of_the_dead.diamond_dagger": "다이아몬드 단검",
+  "entity.treasures_of_the_dead.netherite_dagger": "네더라이트 단검",
+
+  "item.treasures_of_the_dead.iron_dagger": "철 단검",
+  "item.treasures_of_the_dead.golden_dagger": "금 단검",
+  "item.treasures_of_the_dead.diamond_dagger": "다이아몬드 단검",
+  "item.treasures_of_the_dead.netherite_dagger": "네더라이트 단검",
+
+  "item.treasures_of_the_dead.iron_cutlass": "철 커틀러스",
+  "item.treasures_of_the_dead.golden_cutlass": "금 커틀러스",
+  "item.treasures_of_the_dead.diamond_cutlass": "다이아몬드 커틀러스",
+  "item.treasures_of_the_dead.netherite_cutlass": "네더라이트 커틀러스",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "철 선장 커틀러스",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "금 선장 커틀러스",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "다이아몬드 선장 커틀러스",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "네더라이트 선장 커틀러스",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "두개골 상인",
 
   "item.treasures_of_the_dead.ruby": "루비",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "해상 요새 열쇠",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "두블론 주머니",
+  "item.treasures_of_the_dead.doubloon": "두블론",
+  "item.treasures_of_the_dead.doubloon_pile": "두블론 더미",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "대장장이 형판",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "영혼의 기사단 갑옷 장식",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "대장장이 형판",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9커틀러스",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9다이아몬드",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7선장 업그레이드",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "커틀러스 추가",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "다이아몬드 추가",
 
   "block.treasures_of_the_dead.skull_merchant_table": "두개골 상인 테이블",
   "block.treasures_of_the_dead.sea_fortress_core": "해상 요새 핵심",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "전리품 가치: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "모든 해상 요새 핵심을 열 수 있습니다",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "멍청이 폭탄 폭발",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "포함: %s 두블론",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s 더미 및 %s 두블론)",
+
   "gui.treasures_of_the_dead.sell": "판매",
-  "gui.treasures_of_the_dead.open_shop": "상점"
+  "gui.treasures_of_the_dead.open_shop": "상점",
+  "gui.treasures_of_the_dead.back": "뒤로",
+  "gui.treasures_of_the_dead.reputation": "%s: Lv.%s (%s/%s 경험치)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "판매할 아이템을 넣으세요!",
+  "gui.treasures_of_the_dead.sell_result_message": "§a획득 §f%s§a 두블론 및 §f%s§a 경험치!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§c평판 레벨이 부족합니다! §f%s§c 레벨 필요",
+
+  "gui.treasures_of_the_dead.shop.price": "§6가격: §f%s§6 두블론",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ 구매 가능",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ %s 레벨 필요",
+
+  "commands.treasures_of_the_dead.unknown_company": "§c알 수 없는 회사. §f사용 가능: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§a§6%s §a플레이어 §e%s §a의 레벨을 §b%d §a(으)로 설정",
+  "commands.treasures_of_the_dead.set.exp.success": "§a§6%s §a플레이어 §e%s §a의 경험치를 §b%d §a(으)로 설정",
+  "commands.treasures_of_the_dead.add.exp.success": "§a§6%s §a플레이어 §e%s §a에게 §b%d §a경험치 추가! §f(레벨: §b%d§f, 경험치: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§a§6%s §a플레이어 §e%s §a에게 §b%d §a레벨 추가! §f(레벨: §b%d§f, 경험치: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§c§6%s §c플레이어 §e%s §c에게서 §b%d §c경험치 제거! §f(레벨: §b%d§f, 경험치: §a%d§f, 이전: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§c§6%s §c플레이어 §e%s §c에게서 §b%d §c레벨 제거! §f(새 레벨: §b%d§f, 경험치: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§a§6%s §a플레이어 §e%s §a의 평판 초기화",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== 플레이어 §e%s §6§l의 평판 ===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: 레벨 §b%d§f, 경험치 §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "영혼의 기사단",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "황금 수집가",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "상인 연합",
+  "trading_company.treasures_of_the_dead.reapers_bones": "사신의 뼈"
 }

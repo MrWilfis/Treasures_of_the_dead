@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "treasures_of_the_dead:diamond_cutlass"
+  },
+  "result": {
+    "count": 1,
+    "id": "treasures_of_the_dead:netherite_cutlass"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

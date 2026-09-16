@@ -28,6 +28,9 @@ public class ModTags {
         public static final TagKey<Item> WAXED_WEATHERED_SMALL_COPPER_BRAZIERS = createTag("waxed_weathered_small_copper_braziers");
         public static final TagKey<Item> WAXED_OXIDIZED_SMALL_COPPER_BRAZIERS = createTag("waxed_oxidized_small_copper_braziers");
 
+        public static final TagKey<Item> CAPTAIN_UPGRADE_BASE = createTag("captain_upgrade_base");
+        public static final TagKey<Item> CAPTAIN_UPGRADE_ADDITIONS = createTag("captain_upgrade_additions");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(Treasures_of_the_dead.resource(name));
         }

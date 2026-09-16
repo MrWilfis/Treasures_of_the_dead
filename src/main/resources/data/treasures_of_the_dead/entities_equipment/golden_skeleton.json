@@ -59,11 +59,11 @@
       "weight": 5
     },
     {
-      "item": "minecraft:iron_sword",
+      "item": "treasures_of_the_dead:iron_cutlass",
       "weight": 75
     },
     {
-      "item": "minecraft:golden_sword",
+      "item": "treasures_of_the_dead:golden_cutlass",
       "weight": 10
     },
     {

@@ -23,24 +23,24 @@
   ],
   "mainhand_variation": [
     {
-      "item": "minecraft:diamond_sword",
-      "weight": 1
+      "item": "treasures_of_the_dead:diamond_captain_cutlass",
+      "weight": 3
     },
     {
-      "item": "minecraft:iron_sword",
-      "weight": 10
+      "item": "treasures_of_the_dead:iron_captain_cutlass",
+      "weight": 50
     },
     {
-      "item": "minecraft:golden_sword",
-      "weight": 84
+      "item": "treasures_of_the_dead:golden_captain_cutlass",
+      "weight": 50
     },
     {
       "item": "minecraft:crossbow",
-      "weight": 30
+      "weight": 25
     },
     {
       "item": "minecraft:air",
-      "weight": 5
+      "weight": 2
     }
   ]
 }

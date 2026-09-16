@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dagger.fly": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"dagger": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-180, 0, 0]
+						},
+						"0.5": {
+							"vector": [-360, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.dagger.idle": {
+			"loop": true
+		}
+	}
+}

@@ -28,7 +28,7 @@ import software.bernie.geckolib.animation.PlayState;
 public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
     private static final EntityDataAccessor<Boolean> IS_SHADOW = SynchedEntityData.defineId(ShadowSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> SHADOW_TIMER = SynchedEntityData.defineId(ShadowSkeletonEntity.class, EntityDataSerializers.INT);
-    private boolean isShaking = false;
+    private static final EntityDataAccessor<Boolean> IS_SHAKING = SynchedEntityData.defineId(ShadowSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
     private int shakingTimer = 0;
     private final int shadowTimer = 600;
 
@@ -219,7 +219,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
             brightness = Math.max(i, j);
 
 
-            if (this.isShaking) {
+            if (this.getIsShaking()) {
                 setShadow(false);
                 setInvulnerable(false);
                 setNoAi(true);
@@ -228,7 +228,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 
                     setShadowTimer(getShadowTimer() - 1);
 
-                    this.isShaking = false;
+                    setIsShaking(false);
                     setNoAi(false);
                 }
             }
@@ -236,8 +236,8 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
 
             if (brightness >= 7)
             {
-                if (getShadow() && !this.isShaking) {
-                    this.isShaking = true;
+                if (getShadow() && !this.getIsShaking()) {
+                    setIsShaking(true);
                     this.shakingTimer = 60;
                     this.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE, 0.5f, 0.75f);
                     this.playSound(SoundEvents.ALLAY_DEATH, 1.0f, 0.0f);
@@ -247,7 +247,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
             }
             else
             {
-                if (!getShadow() && getShadowTimer() > 0 && !this.isShaking) {
+                if (!getShadow() && getShadowTimer() > 0 && !this.getIsShaking()) {
                     setShadowTimer(getShadowTimer()-1);
                 }
                 if (getShadowTimer() <= 0) {
@@ -273,6 +273,14 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
             return pos.above();
         }
         return pos;
+    }
+
+    public boolean getIsShaking() {
+        return this.getEntityData().get(IS_SHAKING);
+    }
+
+    public void setIsShaking(boolean shaking) {
+        this.getEntityData().set(IS_SHAKING, shaking);
     }
 
     public int getShadowTimer() {
@@ -309,6 +317,8 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.setShadowTimer(tag.getInt("ShadowTimer"));
         this.setShadow(tag.getBoolean("IsShadow"));
+        this.setIsShaking(tag.getBoolean("IsShaking"));
+
     }
 
     @Override
@@ -317,6 +327,7 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
         tag.putInt("Variant", this.getTypeVariant());
         tag.putInt("ShadowTimer", this.getShadowTimer());
         tag.putBoolean("IsShadow", this.getShadow());
+        tag.putBoolean("IsShaking", this.getIsShaking());
     }
 
     @Override
@@ -325,5 +336,6 @@ public class ShadowSkeletonEntity extends TOTDSkeletonEntity{
         builder.define(DATA_ID_TYPE_VARIANT, 0);
         builder.define(SHADOW_TIMER, 0);
         builder.define(IS_SHADOW, true);
+        builder.define(IS_SHAKING, false);
     }
 }

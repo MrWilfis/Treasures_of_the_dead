@@ -134,7 +134,7 @@
 				{
 					"name": "right_hand",
 					"parent": "right_arm_twitch",
-					"pivot": [-5, 12, -1],
+					"pivot": [-5, 11.5, -1],
 					"cubes": [
 						{
 							"origin": [-6, 11, -1],
@@ -186,7 +186,7 @@
 				{
 					"name": "left_hand",
 					"parent": "left_arm_twitch",
-					"pivot": [5, 12, -1],
+					"pivot": [5, 11.5, -1],
 					"cubes": [
 						{
 							"origin": [4, 11, -1],

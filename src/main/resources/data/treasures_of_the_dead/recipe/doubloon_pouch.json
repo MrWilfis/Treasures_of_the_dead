@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "1",
+    "2"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "minecraft:rabbit_hide"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "treasures_of_the_dead:doubloon_pouch"
+  }
+}

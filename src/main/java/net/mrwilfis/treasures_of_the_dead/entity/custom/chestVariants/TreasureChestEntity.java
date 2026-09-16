@@ -108,9 +108,13 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
         double z = this.getZ();
 
         if (!this.level().isClientSide) {
-        //    LootTable loottable = level.getServer().getLootData().getLootTable(ModLootTables.DEFAULT_TREASURE_CHEST_LOOT);
 
             LootTable loottable = level.getServer().reloadableRegistries().getLootTable(ModLootTables.DEFAULT_TREASURE_CHEST_LOOT);
+
+            float randomValue = random.nextFloat();
+            if (randomValue <= 0.25) {
+                loottable = level.getServer().reloadableRegistries().getLootTable(ModLootTables.TREASURE_CHEST_LOOT_SKULLS);
+            }
 
             LootParams lootParams = (new LootParams.Builder(level.getServer().overworld())).withParameter(LootContextParams.ORIGIN, Vec3.ZERO).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.GIFT);
             List<ItemStack> list = loottable.getRandomItems(lootParams);
@@ -133,19 +137,19 @@ public class TreasureChestEntity extends AbstractChestEntity implements GeoAnima
             Vec3 position = this.position();
 
             for (int i = 0; i < 25; i++) {
-                double xOffset = this.random.nextDouble() * 0.5 - 0.25; // Случайный смещение по X
-                double yOffset = this.random.nextDouble() * 0.5 - 0.25; // Случайный смещение по Y
-                double zOffset = this.random.nextDouble() * 0.5 - 0.25; // Случайный смещение по Z
+                double xOffset = this.random.nextDouble() * 0.5 - 0.25;
+                double yOffset = this.random.nextDouble() * 0.5 - 0.25;
+                double zOffset = this.random.nextDouble() * 0.5 - 0.25;
 
-                double xSpeed = (this.random.nextDouble() * 0.5) - 0.25; // Случайная скорость по X от -0.2 до 0.2
-                double ySpeed = (this.random.nextDouble() * 0.5); // Случайная скорость по Y от -0.2 до 0.2
-                double zSpeed = (this.random.nextDouble() * 0.5) - 0.25; // Случайная скорость по Z от -0.2 до 0.2
-                // Добавляем частицы
-                level.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, // Тип частиц
-                        position.x + xOffset, // Позиция X
-                        position.y + yOffset + 0.5, // Позиция Y
-                        position.z + zOffset, // Позиция Z
-                        xSpeed, ySpeed + 0.1, zSpeed); // Скорость (0, 0, 0)
+                double xSpeed = (this.random.nextDouble() * 0.5) - 0.25;
+                double ySpeed = (this.random.nextDouble() * 0.5);
+                double zSpeed = (this.random.nextDouble() * 0.5) - 0.25;
+
+                level.addParticle(ParticleTypes.BUBBLE_COLUMN_UP,
+                        position.x + xOffset,
+                        position.y + yOffset + 0.5,
+                        position.z + zOffset,
+                        xSpeed, ySpeed + 0.1, zSpeed);
             }
         }
     }

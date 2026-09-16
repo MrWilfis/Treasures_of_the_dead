@@ -24,6 +24,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.BodyRotationControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -39,7 +40,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
-import net.mrwilfis.treasures_of_the_dead.entity.ai.goal.GeckoAnimateAttackGoal;
+import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.TOTDSkeletonVariant;
 import net.mrwilfis.treasures_of_the_dead.item.ModItems;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
@@ -51,7 +52,6 @@ import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceC
 import software.bernie.geckolib.animation.*;
 
 import java.io.InputStreamReader;
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 import static net.mrwilfis.treasures_of_the_dead.TOTDUtils.getItemFromString;
@@ -136,6 +136,20 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
                 .add(Attributes.ATTACK_SPEED, 1.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.5f)
                 .add(Attributes.MOVEMENT_SPEED, 0.24f).build();
+    }
+
+    @Override
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean recentlyHit) {
+        if (this.getMainHandItem().getItem() instanceof AbstractPowderKegItem kegItem) {
+            AbstractPowderKegEntity keg = kegItem.getKegEntity(this, level);
+            this.level().addFreshEntity(keg);
+            keg.moveTo(this.position(), this.getYRot(), 0);
+
+            keg.setIsGoingToBlowUp(this.getIsGoingToBlowUp());
+            keg.setPrepareToBlowUp(this.prepareToBlowUp);
+        }
+
+        super.dropCustomDeathLoot(level, damageSource, recentlyHit);
     }
 
     @Override
@@ -353,7 +367,7 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
         ItemStack mainHandItem = this.getItemInHand(InteractionHand.MAIN_HAND);
         if (mainHandItem.getItem() instanceof AbstractPowderKegItem) {
             setLeftHanded(false);
-            setDropChance(EquipmentSlot.MAINHAND, 1.0f);
+            setDropChance(EquipmentSlot.MAINHAND, 0f);
         }
     }
 
@@ -444,17 +458,30 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     }
 
     @Override
+    protected BodyRotationControl createBodyControl() {
+        return super.createBodyControl();
+    }
+
+    @Override
+    public int getMaxHeadYRot() {
+        return 45;
+    }
+
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new RangedCrossbowAttackGoal<>(this, 1.0, 8.0F));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.25D, false));
         //this.goalSelector.addGoal(2, new GeckoAnimateAttackGoal(this, 1.25D, 7, 17, "attack"));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
- //        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, TOTDSkeletonEntity.class, 8.0F));
 
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[]{TOTDSkeletonEntity.class})));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, GhostEntity.class, true));
  //        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
+
     }
 
     @Override
@@ -516,28 +543,14 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
             state.getController().stop();
         }
         if (this.swinging) {
-            //if (this.isPerformingAnimatedAttack) {
-            //System.out.println("идёт анимация");
-            state.getController().stop(); // comment after update
+            //state.getController().stop(); // comment after update
             state.getController().setAnimation(ATTACK1);
             state.getController().setAnimationSpeed(1.0D);
-//            if (state.getController().hasAnimationFinished()) {
-//                this.isPerformingAnimatedAttack = false;
-//                //System.out.println("анимация закончена, флаг убран");
-//                //state.getController().setAnimation(WALK_HANDS1);
-//                state.getController().forceAnimationReset();
-//            }
             return PlayState.CONTINUE;
         } else if (!mainHandItem.isEmpty() && (mainHandItem.getItem() instanceof AbstractPowderKegItem)) {
             state.getController().stop();
             return  PlayState.CONTINUE;
         }
-
-//        else if (!mainHandItem.isEmpty() && isHoldingCrossbow()) {
-//            state.getController().stop();
-//            state.getController().setAnimation(HOLDING_CROSSBOW);
-//            return  PlayState.CONTINUE;
-//        }
         else if (state.isMoving() && this.isAggressive()) {
             state.getController().setAnimation(WALK_HANDS1);
             state.getController().setAnimationSpeed(1.25D);
@@ -702,4 +715,9 @@ public class TOTDSkeletonEntity extends Monster implements GeoAnimatable, GeoEnt
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         this.performCrossbowAttack(this, 1.6F);
     }
+//
+//    @Override
+//    public int getCurrentSwingDuration() {
+//        return 15;
+//    }
 }

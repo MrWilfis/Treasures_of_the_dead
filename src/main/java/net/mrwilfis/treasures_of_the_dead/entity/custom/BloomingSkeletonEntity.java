@@ -77,7 +77,7 @@ public class BloomingSkeletonEntity extends TOTDSkeletonEntity implements Bloomi
 
     @Override
     protected void applyFiltersForSpecialVariants() {
-        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.VAR1)) {
+        if (this.getBloomingVariant().equals(BloomingSkeletonVariant.DEFAULT)) {
             this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.AIR));
         }
 

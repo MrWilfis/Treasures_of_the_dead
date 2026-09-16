@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Knallfrosch",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Eisendolch",
+  "entity.treasures_of_the_dead.golden_dagger": "Golddolch",
+  "entity.treasures_of_the_dead.diamond_dagger": "Diamantdolch",
+  "entity.treasures_of_the_dead.netherite_dagger": "Netheritdolch",
+
+  "item.treasures_of_the_dead.iron_dagger": "Eisendolch",
+  "item.treasures_of_the_dead.golden_dagger": "Golddolch",
+  "item.treasures_of_the_dead.diamond_dagger": "Diamantdolch",
+  "item.treasures_of_the_dead.netherite_dagger": "Netheritdolch",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Eisensäbel",
+  "item.treasures_of_the_dead.golden_cutlass": "Goldensäbel",
+  "item.treasures_of_the_dead.diamond_cutlass": "Diamantsäbel",
+  "item.treasures_of_the_dead.netherite_cutlass": "Netheritsäbel",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Eiserner Kapitänssäbel",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Goldener Kapitänssäbel",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Diamantener Kapitänssäbel",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Netheritener Kapitänssäbel",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Schädelhändler",
 
   "item.treasures_of_the_dead.ruby": "Rubin",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Seefestungsschlüssel",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Dublonenbeutel",
+  "item.treasures_of_the_dead.doubloon": "Dublone",
+  "item.treasures_of_the_dead.doubloon_pile": "Dublonenhaufen",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Schmiedevorlage",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Orden-der-Seelen-Rüstungsverzierung",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Schmiedevorlage",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Säbel",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Diamant",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Kapitänsverbesserung",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Füge Säbel hinzu",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Füge Diamant hinzu",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Schädelhändlertisch",
   "block.treasures_of_the_dead.sea_fortress_core": "Seefestungskern",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Beute-Wert: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Kann jeden Seefestungskern öffnen",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Knallfrosch explodiert",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Enthält: %s Dublonen",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s Haufen und %s Dublonen)",
+
   "gui.treasures_of_the_dead.sell": "Verkaufen",
-  "gui.treasures_of_the_dead.open_shop": "Shop"
+  "gui.treasures_of_the_dead.open_shop": "Shop",
+  "gui.treasures_of_the_dead.back": "Zurück",
+  "gui.treasures_of_the_dead.reputation": "%s: Stufe %s (%s/%s EP)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Lege einen Gegenstand zum Verkauf bereit!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aErhalten §f%s§a Dublonen und §f%s§a EP!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cRufstufe zu niedrig! Benötigt §f%s§c Stufe",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Preis: §f%s§6 Dublonen",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Verfügbar",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Benötigt Stufe %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cUnbekannte Gesellschaft. §fVerfügbar: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aStufe §b%d §afür §6%s §afür Spieler §e%s gesetzt",
+  "commands.treasures_of_the_dead.set.exp.success": "§aEP §b%d §afür §6%s §afür Spieler §e%s gesetzt",
+  "commands.treasures_of_the_dead.add.exp.success": "§a§b%d §aEP für §6%s §azum Spieler §e%s hinzugefügt! §f(Stufe: §b%d§f, EP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§a§b%d §aStufen für §6%s §azum Spieler §e%s hinzugefügt! §f(Stufe: §b%d§f, EP: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§c§b%d §cEP von §6%s §cvom Spieler §e%s entfernt! §f(Stufe: §b%d§f, EP: §a%d§f, War: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§c§b%d §cStufen von §6%s §cvom Spieler §e%s entfernt! §f(Neue Stufe: §b%d§f, EP: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aRuf für §6%s §afür Spieler §e%s zurückgesetzt",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Ruf von Spieler §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Stufe §b%d§f, EP §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Orden der Seelen",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Goldhortner",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Handelsallianz",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Knochen des Schnitters"
 }

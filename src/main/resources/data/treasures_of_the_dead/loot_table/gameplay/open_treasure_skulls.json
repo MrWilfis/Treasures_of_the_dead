@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:foul_skull",
+          "weight": 70
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:disgraced_skull",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:hateful_skull",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:villainous_skull",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Бомбец",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Железный кинжал",
+  "entity.treasures_of_the_dead.golden_dagger": "Золотой кинжал",
+  "entity.treasures_of_the_dead.diamond_dagger": "Алмазный кинжал",
+  "entity.treasures_of_the_dead.netherite_dagger": "Незеритовый кинжал",
+
+  "item.treasures_of_the_dead.iron_dagger": "Железный кинжал",
+  "item.treasures_of_the_dead.golden_dagger": "Золотой кинжал",
+  "item.treasures_of_the_dead.diamond_dagger": "Алмазный кинжал",
+  "item.treasures_of_the_dead.netherite_dagger": "Незеритовый кинжал",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Железная сабля",
+  "item.treasures_of_the_dead.golden_cutlass": "Золотая сабля",
+  "item.treasures_of_the_dead.diamond_cutlass": "Алмазная сабля",
+  "item.treasures_of_the_dead.netherite_cutlass": "Незеритовая сабля",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Железная капитанская сабля",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Золотая капитанская сабля",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Алмазная капитанская сабля",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Незеритовая капитанская сабля",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Торговец черепами",
 
   "item.treasures_of_the_dead.ruby": "Рубин (тестовый предмет)",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Ключ морской крепости",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Мешочек с дублонами",
+  "item.treasures_of_the_dead.doubloon": "Дублон",
+  "item.treasures_of_the_dead.doubloon_pile": "Кучка дублонов",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Кузнечный шаблон",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Отделка \"Орден душ\"",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Кузнечный шаблон",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Саблям",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Алмаз",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Капитанское улучшение",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Добавьте саблю",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Добавьте алмаз",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Стол торговца черепами",
   "block.treasures_of_the_dead.sea_fortress_core": "Ядро морской крепости",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Ценность добычи: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Открывает любую морскую крепость",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Бомбец взрывается",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Содержит: %s дублонов",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s кучек и %s дублонов)",
+
   "gui.treasures_of_the_dead.sell": "Продать",
-  "gui.treasures_of_the_dead.open_shop": "магазин"
+  "gui.treasures_of_the_dead.open_shop": "Магазин",
+  "gui.treasures_of_the_dead.back": "Назад",
+  "gui.treasures_of_the_dead.reputation": "%s: %s ур. (%s/%s оп.)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Положите предмет для продажи!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aПолучено §f%s§a дублонов и §f%s§a опыта!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cНедостаточно уровня репутации! Требуется §f%s§c уровень",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Цена: §f%s§6 дублонов",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Можно купить",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Требуется уровень %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cНеизвестная компания. §fДоступные: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aУстановлен уровень §b%d §aдля §6%s §aигроку §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aУстановлен опыт §b%d §aдля §6%s §aигроку §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aДобавлено §b%d §aопыта для §6%s §aигроку §e%s! §f(Уровень: §b%d§f, Опыт: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aДобавлено §b%d §aуровней для §6%s §aигроку §e%s! §f(Уровень: §b%d§f, Опыт: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cУдалено §b%d §cопыта из §6%s §cигрока §e%s! §f(Уровень: §b%d§f, Опыт: §a%d§f, Было: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cУдалено §b%d §cуровней из §6%s §cигрока §e%s! §f(Новый уровень: §b%d§f, Опыт: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aСброшена репутация для §6%s §aигроку §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Репутация игрока §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Уровень §b%d§f, Опыт §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Орден душ",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Златодержцы",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Торговый союз",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Кости жнеца"
 }

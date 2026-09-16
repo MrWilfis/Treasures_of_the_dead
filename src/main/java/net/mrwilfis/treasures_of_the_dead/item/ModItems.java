@@ -1,12 +1,15 @@
 package net.mrwilfis.treasures_of_the_dead.item;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.item.*;
+import net.mrwilfis.treasures_of_the_dead.item.custom.daggers.DiamondDaggerItem;
+import net.mrwilfis.treasures_of_the_dead.item.custom.daggers.GoldenDaggerItem;
+import net.mrwilfis.treasures_of_the_dead.item.custom.daggers.IronDaggerItem;
+import net.mrwilfis.treasures_of_the_dead.item.custom.daggers.NetheriteDaggerItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
@@ -22,13 +25,27 @@ import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.FoulSkul
 import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.HatefulSkullItem;
 import net.mrwilfis.treasures_of_the_dead.item.custom.skullVariantsItem.VillainousSkullItem;
 
+import java.util.List;
+
 public class ModItems {
+
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(Treasures_of_the_dead.MOD_ID);
+
+    public static final ResourceLocation EMPTY_SLOT_CUTLASS =
+            Treasures_of_the_dead.resource("item/empty_slot_cutlass");
+    public static final ResourceLocation EMPTY_INGREDIENT_SLOT =
+            ResourceLocation.fromNamespaceAndPath("minecraft", "item/empty_slot_diamond");
 
     public static final DeferredItem<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> TREASURE_KEY = ITEMS.register("treasure_key",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<DoubloonPouchItem> DOUBLOON_POUCH = ITEMS.register("doubloon_pouch",
+            () -> new DoubloonPouchItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> DOUBLOON = ITEMS.register("doubloon",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DOUBLOON_PILE = ITEMS.register("doubloon_pile",
             () -> new Item(new Item.Properties()));
 
     //TROPHY SKULLS
@@ -131,6 +148,8 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.GOLDEN_SKELETON, 0x5e4c14, 0xe0b73b,  new Item.Properties()));
     public static final DeferredItem<Item> CAPTAIN_GOLDEN_SKELETON_SPAWN_EGG = ITEMS.register("captain_golden_skeleton_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.CAPTAIN_GOLDEN_SKELETON, 0x5e4c14, 0xe48820,  new Item.Properties()));
+    public static final DeferredItem<Item> GHOST_SPAWN_EGG = ITEMS.register("ghost_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.GHOST, 0x424242, 0xef2f2f2,  new Item.Properties()));
 
 
 
@@ -148,6 +167,33 @@ public class ModItems {
 
     public static final DeferredItem<Item> BLUNDER_BOMB = ITEMS.register("blunder_bomb",
             () -> new BlunderBombItem(new Item.Properties()));
+    public static final DeferredItem<Item> IRON_DAGGER = ITEMS.register("iron_dagger",
+            () -> new IronDaggerItem((new Item.Properties()).attributes(IronDaggerItem.createAttributes(Tiers.IRON, 1.5f, -1.5F))));
+    public static final DeferredItem<Item> GOLDEN_DAGGER = ITEMS.register("golden_dagger",
+            () -> new GoldenDaggerItem((new Item.Properties()).attributes(GoldenDaggerItem.createAttributes(Tiers.GOLD, 1.0f, -1.5F))));
+    public static final DeferredItem<Item> DIAMOND_DAGGER = ITEMS.register("diamond_dagger",
+            () -> new DiamondDaggerItem((new Item.Properties()).attributes(DiamondDaggerItem.createAttributes(Tiers.DIAMOND, 2.5f, -1.5F))));
+    public static final DeferredItem<Item> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
+            () -> new NetheriteDaggerItem((new Item.Properties()).attributes(NetheriteDaggerItem.createAttributes(Tiers.NETHERITE, 3f, -1.5F))));
+
+    public static final DeferredItem<Item> IRON_CUTLASS = ITEMS.register("iron_cutlass",
+            () -> new CutlassItem(Tiers.IRON, (new Item.Properties()).attributes(CutlassItem.createAttributes(Tiers.IRON, 2f, -2.25F))));
+    public static final DeferredItem<Item> GOLDEN_CUTLASS = ITEMS.register("golden_cutlass",
+            () -> new CutlassItem(Tiers.GOLD, (new Item.Properties()).attributes(CutlassItem.createAttributes(Tiers.GOLD, 2f, -2.25F))));
+    public static final DeferredItem<Item> DIAMOND_CUTLASS = ITEMS.register("diamond_cutlass",
+            () -> new CutlassItem(Tiers.DIAMOND, (new Item.Properties()).attributes(CutlassItem.createAttributes(Tiers.DIAMOND, 2f, -2.25F))));
+    public static final DeferredItem<Item> NETHERITE_CUTLASS = ITEMS.register("netherite_cutlass",
+            () -> new CutlassItem(Tiers.NETHERITE, (new Item.Properties()).attributes(CutlassItem.createAttributes(Tiers.NETHERITE, 2f, -2.25F))));
+
+    public static final DeferredItem<Item> IRON_CAPTAIN_CUTLASS = ITEMS.register("iron_captain_cutlass",
+            () -> new CaptainCutlassItem(Tiers.IRON, (new Item.Properties()).attributes(CaptainCutlassItem.createAttributes(Tiers.IRON, 2.5f, -2.25F))));
+    public static final DeferredItem<Item> GOLDEN_CAPTAIN_CUTLASS = ITEMS.register("golden_captain_cutlass",
+            () -> new CaptainCutlassItem(Tiers.GOLD, (new Item.Properties()).attributes(CaptainCutlassItem.createAttributes(Tiers.GOLD, 2.5f, -2.25F))));
+    public static final DeferredItem<Item> DIAMOND_CAPTAIN_CUTLASS = ITEMS.register("diamond_captain_cutlass",
+            () -> new CaptainCutlassItem(Tiers.DIAMOND, (new Item.Properties()).attributes(CaptainCutlassItem.createAttributes(Tiers.DIAMOND, 2.5f, -2.25F))));
+    public static final DeferredItem<Item> NETHERITE_CAPTAIN_CUTLASS = ITEMS.register("netherite_captain_cutlass",
+            () -> new CaptainCutlassItem(Tiers.NETHERITE, (new Item.Properties()).attributes(CaptainCutlassItem.createAttributes(Tiers.NETHERITE, 2.5f, -2.25F))));
+
 
     public static final DeferredItem<Item> SEA_FORTRESS_KEY = ITEMS.register("sea_fortress_key",
             () -> new SeaFortressKeyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
@@ -155,6 +201,20 @@ public class ModItems {
     //Smithing templates
     public static final DeferredItem<Item> ORDER_OF_SOULS_SMITHING_TEMPLATE = ITEMS.register("order_of_souls_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(ResourceLocation.fromNamespaceAndPath(Treasures_of_the_dead.MOD_ID, "order_of_souls")));
+    public static final DeferredHolder<Item, SmithingTemplateItem> CAPTAIN_UPGRADE_SMITHING_TEMPLATE = ITEMS.register(
+            "captain_upgrade_smithing_template",
+            () -> new SmithingTemplateItem(
+                    Component.translatable("item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to"),
+                    Component.translatable("item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients"),
+                    Component.translatable("item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade"),
+                    Component.translatable("item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description"),
+                    Component.translatable("item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description"),
+                    // Иконки для слота BASE - показываем иконку сабли
+                    List.of(EMPTY_SLOT_CUTLASS),
+                    // Иконки для слота ADDITION - показываем иконку слитка
+                    List.of(EMPTY_INGREDIENT_SLOT)
+            )
+    );
 
 
     public static void register(IEventBus eventBus) {

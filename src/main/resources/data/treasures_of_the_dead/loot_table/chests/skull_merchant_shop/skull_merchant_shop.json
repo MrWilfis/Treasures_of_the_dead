@@ -38,6 +38,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:spyglass"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "treasures_of_the_dead:iron_cutlass"
         }
       ]
     },
@@ -96,7 +100,15 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "treasures_of_the_dead:skeleton_crew_assignment"
+          "name": "treasures_of_the_dead:skeleton_crew_assignment",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "treasures_of_the_dead:difficulty": 0
+              }
+            }
+          ]
         }
       ]
     },

@@ -15,6 +15,7 @@ public class ModLootTables {
     private static final Set<ResourceKey<LootTable>> IMMUTABLE_LOCATIONS;
 
     public static final ResourceKey<LootTable> DEFAULT_TREASURE_CHEST_LOOT;
+    public static final ResourceKey<LootTable> TREASURE_CHEST_LOOT_SKULLS;
     public static final ResourceKey<LootTable> SKULL_MERCHANT_SHOP;
     public static final ResourceKey<LootTable> SEA_FORTRESS_OUTSIDE_FOOD_BARREL;
     public static final ResourceKey<LootTable> SEA_FORTRESS_SUPPLIES_STORAGE;
@@ -31,6 +32,7 @@ public class ModLootTables {
     static {
         IMMUTABLE_LOCATIONS = Collections.unmodifiableSet(LOCATIONS);
         DEFAULT_TREASURE_CHEST_LOOT = register("gameplay/open_treasure");//give @p minecraft:barrel{BlockEntityTag:{LootTable:"treasures_of_the_dead:gameplay/open_treasure"}}
+        TREASURE_CHEST_LOOT_SKULLS = register("gameplay/open_treasure_skulls");
         SKULL_MERCHANT_SHOP = register("chests/skull_merchant_shop/skull_merchant_shop");
         SEA_FORTRESS_OUTSIDE_FOOD_BARREL = register("chests/sea_fortress/outside_food_barrel");
         SEA_FORTRESS_SUPPLIES_STORAGE = register("chests/sea_fortress/supplies_storage");

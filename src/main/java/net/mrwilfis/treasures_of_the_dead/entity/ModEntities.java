@@ -61,6 +61,12 @@ public class ModEntities {
                             .sized(0.6F, 1.99F)
                             .build("captain_golden_skeleton"));
 
+    public static final Supplier<EntityType<GhostEntity>> GHOST =
+            ENTITY_TYPES.register("ghost",
+                    () -> EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .build("ghost"));
+
     //TROPHY SKULLS
     public static final Supplier<EntityType<HatefulSkullEntity>> HATEFUL_SKULL =
             ENTITY_TYPES.register("hateful_skull",
@@ -107,6 +113,26 @@ public class ModEntities {
                     () -> EntityType.Builder.<BlunderBombEntity>of(BlunderBombEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .build("blunder_bomb"));
+    public static final Supplier<EntityType<IronDaggerEntity>> IRON_DAGGER =
+            ENTITY_TYPES.register("iron_dagger",
+                    () -> EntityType.Builder.<IronDaggerEntity>of(IronDaggerEntity::new, MobCategory.MISC)
+                            .sized(0.375F, 0.375F)
+                            .build("iron_dagger"));
+    public static final Supplier<EntityType<GoldenDaggerEntity>> GOLDEN_DAGGER =
+            ENTITY_TYPES.register("golden_dagger",
+                    () -> EntityType.Builder.<GoldenDaggerEntity>of(GoldenDaggerEntity::new, MobCategory.MISC)
+                            .sized(0.375F, 0.375F)
+                            .build("golden_dagger"));
+    public static final Supplier<EntityType<DiamondDaggerEntity>> DIAMOND_DAGGER =
+            ENTITY_TYPES.register("diamond_dagger",
+                    () -> EntityType.Builder.<DiamondDaggerEntity>of(DiamondDaggerEntity::new, MobCategory.MISC)
+                            .sized(0.375F, 0.375F)
+                            .build("diamond_dagger"));
+    public static final Supplier<EntityType<NetheriteDaggerEntity>> NETHERITE_DAGGER =
+            ENTITY_TYPES.register("netherite_dagger",
+                    () -> EntityType.Builder.<NetheriteDaggerEntity>of(NetheriteDaggerEntity::new, MobCategory.MISC)
+                            .sized(0.375F, 0.375F)
+                            .build("netherite_dagger"));
 
     public static final Supplier<EntityType<SkeletonCrewCamp>> SKELETON_CREW_CAMP =
             ENTITY_TYPES.register("skeleton_crew_camp",

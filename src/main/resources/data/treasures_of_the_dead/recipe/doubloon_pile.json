@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    },
+    {
+      "item": "treasures_of_the_dead:doubloon"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "treasures_of_the_dead:doubloon_pile"
+  }
+}

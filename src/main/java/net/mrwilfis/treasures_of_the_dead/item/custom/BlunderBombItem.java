@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.mrwilfis.treasures_of_the_dead.Config;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.BlunderBombEntity;
 
@@ -37,19 +38,20 @@ public class BlunderBombItem extends Item implements ProjectileItem {
         if (!level.isClientSide) {
 
             int chargeTime = getUseDuration(stack, livingEntity) - timeCharged;
-            float chargePercent = Math.min(chargeTime, 20) / 20.0f;
+            float chargePercent = Math.min(chargeTime, 20) / 20.0f; //float chargePercent = Math.min(chargeTime, 20) / 20.0f;
 
             if (chargeTime > 0) {
                 BlunderBombEntity blunderBomb = new BlunderBombEntity(ModEntities.BLUNDER_BOMB.get(), livingEntity, level);
 
-                float speed = 0.5F + chargePercent * 0.75F;
+                float speed = 0.5F + chargePercent * 0.75F; //float speed = 0.5F + chargePercent * 0.75F;
 
                 blunderBomb.shootFromRotation(livingEntity, livingEntity.getXRot(), livingEntity.getYRot(), 0.0F, speed, 1.0F);
                 level.addFreshEntity(blunderBomb);
 
-                if (livingEntity instanceof Player) {
+                if (livingEntity instanceof Player player) {
                     ((Player) livingEntity).awardStat(Stats.ITEM_USED.get(this));
                     level.playSound((Player) livingEntity, ((Player) livingEntity).getOnPos(), SoundEvents.SPLASH_POTION_THROW, SoundSource.AMBIENT, 1.0f, 1.0f);
+                    player.getCooldowns().addCooldown(this, Config.blunderBombCooldownTicks);
 
                     if (!((Player) livingEntity).isCreative()) {
                         stack.shrink(1);
@@ -76,7 +78,7 @@ public class BlunderBombItem extends Item implements ProjectileItem {
 
     @Override
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
-        System.out.println("BLUNDER BOMB FROM DISPENSER");
+        //System.out.println("BLUNDER BOMB FROM DISPENSER");
         BlunderBombEntity bomb = new BlunderBombEntity(level, pos.x(), pos.y(), pos.z());
         bomb.shoot(direction.getStepX(), direction.getStepY(), direction.getStepZ(), 1.0f, 1.0f);
         return bomb;

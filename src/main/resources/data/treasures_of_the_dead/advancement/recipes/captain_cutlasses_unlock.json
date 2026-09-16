@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "omg_condition": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["treasures_of_the_dead:captain_upgrade_smithing_template"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "omg_condition"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:iron_captain_cutlass_smithing",
+      "treasures_of_the_dead:golden_captain_cutlass_smithing",
+      "treasures_of_the_dead:diamond_captain_cutlass_smithing",
+      "treasures_of_the_dead:netherite_captain_cutlass_smithing"
+    ]
+  }
+}

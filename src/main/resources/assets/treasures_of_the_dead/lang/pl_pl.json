@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Głupia Bomba",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Żelazny Sztylet",
+  "entity.treasures_of_the_dead.golden_dagger": "Złoty Sztylet",
+  "entity.treasures_of_the_dead.diamond_dagger": "Diamentowy Sztylet",
+  "entity.treasures_of_the_dead.netherite_dagger": "Netherytowy Sztylet",
+
+  "item.treasures_of_the_dead.iron_dagger": "Żelazny Sztylet",
+  "item.treasures_of_the_dead.golden_dagger": "Złoty Sztylet",
+  "item.treasures_of_the_dead.diamond_dagger": "Diamentowy Sztylet",
+  "item.treasures_of_the_dead.netherite_dagger": "Netherytowy Sztylet",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Żelazna Kordelas",
+  "item.treasures_of_the_dead.golden_cutlass": "Złota Kordelas",
+  "item.treasures_of_the_dead.diamond_cutlass": "Diamentowa Kordelas",
+  "item.treasures_of_the_dead.netherite_cutlass": "Netherytowa Kordelas",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Żelazna Kordelas Kapitana",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Złota Kordelas Kapitana",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Diamentowa Kordelas Kapitana",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Netherytowa Kordelas Kapitana",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Handlarz Czaszkami",
 
   "item.treasures_of_the_dead.ruby": "Rubin",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Klucz do Morskiej Twierdzy",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Worek Dublonów",
+  "item.treasures_of_the_dead.doubloon": "Dublon",
+  "item.treasures_of_the_dead.doubloon_pile": "Stos Dublonów",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Szablon Kowalski",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Ozdoba Zakonu Dusz",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Szablon Kowalski",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Kordelasy",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Diament",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Ulepszenie Kapitana",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Dodaj kordelas",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Dodaj diament",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Stół Handlarza Czaszkami",
   "block.treasures_of_the_dead.sea_fortress_core": "Rdzeń Morskiej Twierdzy",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Wartość łupu: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Może otworzyć każdy rdzeń morskiej twierdzy",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Głupia Bomba wybucha",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Zawiera: %s dublonów",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s stosów i %s dublonów)",
+
   "gui.treasures_of_the_dead.sell": "Sprzedaj",
-  "gui.treasures_of_the_dead.open_shop": "Sklep"
+  "gui.treasures_of_the_dead.open_shop": "Sklep",
+  "gui.treasures_of_the_dead.back": "Wróć",
+  "gui.treasures_of_the_dead.reputation": "%s: Poziom %s (%s/%s PD)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Umieść przedmiot do sprzedania!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aOtrzymano §f%s§a dublonów i §f%s§a PD!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cZa niski poziom reputacji! Wymagany poziom §f%s§c",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Cena: §f%s§6 dublonów",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Dostępny",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Wymagany poziom %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cNieznana kompania. §fDostępne: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aUstawiono poziom §b%d §adla §6%s §adla gracza §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aUstawiono PD §b%d §adla §6%s §adla gracza §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aDodano §b%d §aPD dla §6%s §ado gracza §e%s! §f(Poziom: §b%d§f, PD: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aDodano §b%d §apoziomów dla §6%s §ado gracza §e%s! §f(Poziom: §b%d§f, PD: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cUsunięto §b%d §cPD z §6%s §cgracza §e%s! §f(Poziom: §b%d§f, PD: §a%d§f, Było: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cUsunięto §b%d §cpoziomów z §6%s §cgracza §e%s! §f(Nowy poziom: §b%d§f, PD: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aZresetowano reputację dla §6%s §adla gracza §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Reputacja gracza §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Poziom §b%d§f, PD §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Zakon Dusz",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Złotnicy",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Sojusz Kupiecki",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Kości Żniwiarza"
 }

@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.mrwilfis.treasures_of_the_dead.block.ModBlocks;
 import net.mrwilfis.treasures_of_the_dead.block.entity.ModBlockEntities;
+import net.mrwilfis.treasures_of_the_dead.command.ReputationCommands;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
 import net.mrwilfis.treasures_of_the_dead.entity.client.*;
@@ -15,7 +16,8 @@ import net.mrwilfis.treasures_of_the_dead.particle.GhostParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.ModParticles;
 import net.mrwilfis.treasures_of_the_dead.particle.RustedGoldenSkeletonParticles;
 import net.mrwilfis.treasures_of_the_dead.screen.TOTDMenuTypes;
-import net.mrwilfis.treasures_of_the_dead.screen.custom.SkullMerchantScreen;
+import net.mrwilfis.treasures_of_the_dead.screen.custom.OrderOfSoulsBuyScreen;
+import net.mrwilfis.treasures_of_the_dead.screen.custom.OrderOfSoulsSellScreen;
 import net.mrwilfis.treasures_of_the_dead.sound.ModSounds;
 import net.mrwilfis.treasures_of_the_dead.villager.ModVillagers;
 import net.neoforged.fml.loading.FMLPaths;
@@ -47,7 +49,7 @@ public class Treasures_of_the_dead
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "treasures_of_the_dead";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve("treasures_of_the_dead.txt");
 
     public static ResourceLocation resource(String path) {
@@ -117,6 +119,8 @@ public class Treasures_of_the_dead
             EntityRenderers.register(ModEntities.GOLDEN_SKELETON.get(), GoldenSkeletonRenderer::new);
             EntityRenderers.register(ModEntities.CAPTAIN_GOLDEN_SKELETON.get(), CaptainGoldenSkeletonRenderer::new);
 
+            EntityRenderers.register(ModEntities.GHOST.get(), GhostRenderer::new);
+
             EntityRenderers.register(ModEntities.FOUL_SKULL.get(), FoulSkullRenderer::new);
             EntityRenderers.register(ModEntities.DISGRACED_SKULL.get(), DisgracedSkullRenderer::new);
             EntityRenderers.register(ModEntities.HATEFUL_SKULL.get(), HatefulSkullRenderer::new);
@@ -128,6 +132,10 @@ public class Treasures_of_the_dead
 
             EntityRenderers.register(ModEntities.BULLET.get(), BulletRenderer::new);
             EntityRenderers.register(ModEntities.BLUNDER_BOMB.get(), BlunderBombRenderer::new);
+            EntityRenderers.register(ModEntities.IRON_DAGGER.get(), IronDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.GOLDEN_DAGGER.get(), GoldenDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.DIAMOND_DAGGER.get(), DiamondDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.NETHERITE_DAGGER.get(), NetheriteDaggerRenderer::new);
 
             EntityRenderers.register(ModEntities.SKELETON_CREW_CAMP.get(), NoopRenderer::new);
         }
@@ -141,7 +149,8 @@ public class Treasures_of_the_dead
 
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
-            event.register(TOTDMenuTypes.SKULL_MERCHANT_MENU.get(), SkullMerchantScreen::new);
+            event.register(TOTDMenuTypes.ORDER_OF_SOULS_SELL_MENU.get(), OrderOfSoulsSellScreen::new);
+            event.register(TOTDMenuTypes.ORDER_OF_SOULS_BUY_MENU.get(), OrderOfSoulsBuyScreen::new);
         }
     }
 }

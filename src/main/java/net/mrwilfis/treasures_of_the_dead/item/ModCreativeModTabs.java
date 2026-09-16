@@ -66,17 +66,37 @@ public class ModCreativeModTabs {
 
                         output.accept(ModItems.POWDER_KEG_ITEM.get());
 
+                        output.accept(ModItems.CAPTAIN_UPGRADE_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.ORDER_OF_SOULS_SMITHING_TEMPLATE.get());
+
+                        output.accept(ModItems.DOUBLOON_POUCH.get());
+                        output.accept(ModItems.DOUBLOON.get());
+                        output.accept(ModItems.DOUBLOON_PILE.get());
 
                         output.accept(ModBlocks.SKULL_MERCHANT_TABLE.get());
 
                         output.accept(ModItems.BLUNDER_BOMB.get());
 
+                        output.accept(ModItems.IRON_DAGGER.get());
+                        output.accept(ModItems.GOLDEN_DAGGER.get());
+                        output.accept(ModItems.DIAMOND_DAGGER.get());
+                        output.accept(ModItems.NETHERITE_DAGGER.get());
+
+                        output.accept(ModItems.IRON_CUTLASS.get());
+                        output.accept(ModItems.GOLDEN_CUTLASS.get());
+                        output.accept(ModItems.DIAMOND_CUTLASS.get());
+                        output.accept(ModItems.NETHERITE_CUTLASS.get());
+
+                        output.accept(ModItems.IRON_CAPTAIN_CUTLASS.get());
+                        output.accept(ModItems.GOLDEN_CAPTAIN_CUTLASS.get());
+                        output.accept(ModItems.DIAMOND_CAPTAIN_CUTLASS.get());
+                        output.accept(ModItems.NETHERITE_CAPTAIN_CUTLASS.get());
+
                         output.accept(ModBlocks.SEA_FORTRESS_CORE.get());
 
 
                         ItemStack stack = new ItemStack(ModItems.SEA_FORTRESS_KEY.get());
-                        stack.set(ModDataComponents.LOOT_VALUE, (float)100.0f);
+                        stack.set(ModDataComponents.LOOT_VALUE, (float)200.0f);
                         output.accept(stack);
 
 

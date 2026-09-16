@@ -1,31 +1,31 @@
 {
   "treasures_of_the_dead:foul_skull": {
     "min_key_loot_value": 1,
-    "value": 5,
-    "weight": 10,
-    "max_count": 100
-  },
-  "treasures_of_the_dead:disgraced_skull": {
-    "min_key_loot_value": 10,
     "value": 10,
     "weight": 20,
     "max_count": 100
   },
+  "treasures_of_the_dead:disgraced_skull": {
+    "min_key_loot_value": 20,
+    "value": 15,
+    "weight": 20,
+    "max_count": 100
+  },
   "treasures_of_the_dead:hateful_skull": {
-    "min_key_loot_value": 30,
-    "value": 16,
+    "min_key_loot_value": 60,
+    "value": 37,
     "weight": 25,
     "max_count": 100
   },
   "treasures_of_the_dead:villainous_skull": {
-    "min_key_loot_value": 40,
-    "value": 27,
-    "weight": 40,
+    "min_key_loot_value": 80,
+    "value": 60,
+    "weight": 30,
     "max_count": 100
   },
   "treasures_of_the_dead:treasure_chest": {
-    "min_key_loot_value": 20,
-    "value": 12,
+    "min_key_loot_value": 40,
+    "value": 15,
     "weight": 5,
     "max_count": 3
   }

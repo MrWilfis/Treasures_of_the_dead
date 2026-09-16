@@ -143,6 +143,11 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
                 if (activeTicks % 100 == 0) {
                     ((Mob)mob).setTarget(level.getNearestPlayer(mob, 40));
                 }
+                if (activeTicks % 400 == 0) {
+                    if (mob.isInWaterOrBubble()) {
+                        teleportToFortress(level, pos, (LivingEntity) mob);
+                    }
+                }
                 if (mob == null || !mob.isAlive()) {
                     iterator.remove();
                 }
@@ -348,7 +353,7 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
     }
 
     private void spawnSeaFortressKey(ServerLevel level, BlockPos seaFortressPos, BlockPos dropPos) {
-        ItemStack key = SeaFortressKeyItem.createViaSeaFortress(seaFortressPos, totalEnemies * 0.843f);
+        ItemStack key = SeaFortressKeyItem.createViaSeaFortress(seaFortressPos, totalEnemies * 0.843f * 2);
         ItemEntity itemEntity = new ItemEntity(level, dropPos.getX(), dropPos.getY(), dropPos.getZ(), key);
         itemEntity.setDefaultPickUpDelay();
         level.addFreshEntity(itemEntity);
@@ -394,6 +399,27 @@ public class SeaFortressCoreBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    private void teleportToFortress(ServerLevel level, BlockPos pos, LivingEntity entity) {
+        findBlocksForEnemiesSpawning(level, pos);
+        BlockPos respawnPos = blocksForEnemiesSpawning.get(entity.getRandom().nextInt(blocksForEnemiesSpawning.size()));
+
+        spawnTeleportingParticles(level, entity.getOnPos(), 30);
+
+        entity.teleportTo(respawnPos.getX()+0.5, respawnPos.getY()+1, respawnPos.getZ()+0.5);
+
+        spawnTeleportingParticles(level, new BlockPos(respawnPos.getX(), respawnPos.getY()+1, respawnPos.getZ()), 31);
+    }
+
+    private void spawnTeleportingParticles(ServerLevel level, BlockPos pos, int count) {
+        level.sendParticles(ModParticles.GHOST_PARTICLES.get(),
+                pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5,
+                count,
+                0.4,
+                0.5,
+                0.4,
+                1);
     }
 
     private BlockPos findBell(ServerLevel level, BlockPos center) {

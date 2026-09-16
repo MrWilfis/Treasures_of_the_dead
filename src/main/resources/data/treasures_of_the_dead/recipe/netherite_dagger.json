@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    },
+    {
+      "item": "treasures_of_the_dead:diamond_dagger"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "treasures_of_the_dead:netherite_dagger"
+  }
+}

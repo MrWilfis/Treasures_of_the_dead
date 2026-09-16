@@ -8,6 +8,7 @@ import net.minecraft.Util;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,12 +17,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.mrwilfis.treasures_of_the_dead.Treasures_of_the_dead;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.CaptainShadowSkeletonEntity;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.ShadowSkeletonEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.variant.CaptainShadowSkeletonVariant;
+import net.mrwilfis.treasures_of_the_dead.renderType.ModRenderTypes;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.BlockAndItemGeoLayer;
 import software.bernie.geckolib.renderer.layer.ItemArmorGeoLayer;
+import software.bernie.geckolib.util.Color;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -47,9 +51,9 @@ public class CaptainShadowSkeletonRenderer extends GeoEntityRenderer<CaptainShad
     public static final Map<CaptainShadowSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainShadowSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainShadowSkeletonVariant.DEFAULT,
-                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton_retex1.png"));
                 p_114874_.put(CaptainShadowSkeletonVariant.VAR1,
-                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_shadow_skeleton_retex2.png"));
             });
 
 
@@ -149,6 +153,28 @@ public class CaptainShadowSkeletonRenderer extends GeoEntityRenderer<CaptainShad
                 super.renderStackForBone(poseStack, bone, stack, animatable, bufferSource, partialTick, packedLight, packedOverlay);
             }
         });
+    }
+
+    @Override
+    public Color getRenderColor(CaptainShadowSkeletonEntity animatable, float partialTick, int packedLight) {
+        if (animatable.getShadow()) {
+            return Color.ofARGB(0xa9, 0xFF, 0xFF, 0xFF);
+        } else {
+            return super.getRenderColor(animatable, partialTick, packedLight);
+        }
+
+    }
+
+    @Override
+    public @org.jetbrains.annotations.Nullable RenderType getRenderType(CaptainShadowSkeletonEntity animatable, ResourceLocation texture, @org.jetbrains.annotations.Nullable MultiBufferSource bufferSource, float partialTick) {
+        //return RenderType.entityTranslucentEmissive(texture, false);
+        if (animatable.getShadow()) {
+            return ModRenderTypes.ShadowSkeletonShadowRender(texture);
+        } else {
+            return super.getRenderType(animatable, texture, bufferSource, partialTick);
+        }
+
+        //return RenderType.eyes(texture);
     }
 
     @Override

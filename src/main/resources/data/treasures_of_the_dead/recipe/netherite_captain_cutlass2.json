@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "treasures_of_the_dead:diamond_captain_cutlass"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "id": "treasures_of_the_dead:netherite_captain_cutlass",
+    "count": 1
+  },
+  "copy_components": true
+}

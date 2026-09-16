@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Boulet du chaos",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Dague en Fer",
+  "entity.treasures_of_the_dead.golden_dagger": "Dague en Or",
+  "entity.treasures_of_the_dead.diamond_dagger": "Dague en Diamant",
+  "entity.treasures_of_the_dead.netherite_dagger": "Dague en Netherite",
+
+  "item.treasures_of_the_dead.iron_dagger": "Dague en Fer",
+  "item.treasures_of_the_dead.golden_dagger": "Dague en Or",
+  "item.treasures_of_the_dead.diamond_dagger": "Dague en Diamant",
+  "item.treasures_of_the_dead.netherite_dagger": "Dague en Netherite",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Sabre en Fer",
+  "item.treasures_of_the_dead.golden_cutlass": "Sabre en Or",
+  "item.treasures_of_the_dead.diamond_cutlass": "Sabre en Diamant",
+  "item.treasures_of_the_dead.netherite_cutlass": "Sabre en Netherite",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Sabre de Capitaine en Fer",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Sabre de Capitaine en Or",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Sabre de Capitaine en Diamant",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Sabre de Capitaine en Netherite",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Marchand de crânes",
 
   "item.treasures_of_the_dead.ruby": "Ruby",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Clé de la forteresse maritime",
 
-  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Modéle de forge",
-  "trim_pattern.treasures_of_the_dead.order_of_souls": "Ornement de l'Ordre des Âmes",
+  "item.treasures_of_the_dead.doubloon_pouch": "Bourse de Doublons",
+  "item.treasures_of_the_dead.doubloon": "Doublon",
+  "item.treasures_of_the_dead.doubloon_pile": "Tas de Doublons",
+
+  "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Modèle de Forge",
+  "trim_pattern.treasures_of_the_dead.order_of_souls": "Parure de l'Ordre des Âmes",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Modèle de Forge",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Sabres",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Diamant",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Amélioration de Capitaine",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Ajoutez un sabre",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Ajoutez un diamant",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Table du Marchand de Crânes",
   "block.treasures_of_the_dead.sea_fortress_core": "Cœur de Forteresse Marine",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Valeur du butin: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Peut ouvrir n'importe quel noyau de forteresse maritime",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Blunder bomb explose",
-  "gui.treasures_of_the_dead.sell": "Sell",
-  "gui.treasures_of_the_dead.open_shop": "Shop"
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Contient : %s doublons",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s tas et %s doublons)",
+
+  "gui.treasures_of_the_dead.sell": "Vendre",
+  "gui.treasures_of_the_dead.open_shop": "Boutique",
+  "gui.treasures_of_the_dead.back": "Retour",
+  "gui.treasures_of_the_dead.reputation": "%s : Niv.%s (%s/%s EXP)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Placez un objet à vendre !",
+  "gui.treasures_of_the_dead.sell_result_message": "§aReçu §f%s§a doublons et §f%s§a EXP !",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cNiveau de réputation insuffisant ! Niveau requis §f%s§c",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Prix : §f%s§6 doublons",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Disponible",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Niveau %s requis",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cCompagnie inconnue. §fDisponibles : §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aNiveau défini à §b%d §apour §6%s §apour le joueur §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aEXP définie à §b%d §apour §6%s §apour le joueur §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aAjouté §b%d §aEXP pour §6%s §aau joueur §e%s ! §f(Niveau : §b%d§f, EXP : §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aAjouté §b%d §aniveaux pour §6%s §aau joueur §e%s ! §f(Niveau : §b%d§f, EXP : §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cRetiré §b%d §cEXP de §6%s §cau joueur §e%s ! §f(Niveau : §b%d§f, EXP : §a%d§f, Était : §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cRetiré §b%d §cniveaux de §6%s §cau joueur §e%s ! §f(Nouveau niveau : §b%d§f, EXP : §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aRéputation réinitialisée pour §6%s §apour le joueur §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Réputation du joueur §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f : Niveau §b%d§f, EXP §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Ordre des Âmes",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Thésauriseurs d'Or",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Alliance Marchande",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Ossements du Faucheur"
 }

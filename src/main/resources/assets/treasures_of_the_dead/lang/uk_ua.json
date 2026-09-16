@@ -19,6 +19,25 @@
 
   "entity.treasures_of_the_dead.blunder_bomb": "Бомбець",
 
+  "entity.treasures_of_the_dead.iron_dagger": "Залізний кинджал",
+  "entity.treasures_of_the_dead.golden_dagger": "Золотий кинджал",
+  "entity.treasures_of_the_dead.diamond_dagger": "Діамантовий кинджал",
+  "entity.treasures_of_the_dead.netherite_dagger": "Незеритовий кинджал",
+
+  "item.treasures_of_the_dead.iron_dagger": "Залізний кинджал",
+  "item.treasures_of_the_dead.golden_dagger": "Золотий кинджал",
+  "item.treasures_of_the_dead.diamond_dagger": "Діамантовий кинджал",
+  "item.treasures_of_the_dead.netherite_dagger": "Незеритовий кинджал",
+
+  "item.treasures_of_the_dead.iron_cutlass": "Залізна шабля",
+  "item.treasures_of_the_dead.golden_cutlass": "Золота шабля",
+  "item.treasures_of_the_dead.diamond_cutlass": "Діамантова шабля",
+  "item.treasures_of_the_dead.netherite_cutlass": "Незеритова шабля",
+  "item.treasures_of_the_dead.iron_captain_cutlass": "Залізна капітанська шабля",
+  "item.treasures_of_the_dead.golden_captain_cutlass": "Золота капітанська шабля",
+  "item.treasures_of_the_dead.diamond_captain_cutlass": "Діамантова капітанська шабля",
+  "item.treasures_of_the_dead.netherite_captain_cutlass": "Незеритова капітанська шабля",
+
   "entity.minecraft.villager.treasures_of_the_dead.skull_merchant": "Торговець черепами",
 
   "item.treasures_of_the_dead.ruby": "Рубін",
@@ -78,8 +97,19 @@
 
   "item.treasures_of_the_dead.sea_fortress_key": "Ключ морської фортеці",
 
+  "item.treasures_of_the_dead.doubloon_pouch": "Мішечок з дублонами",
+  "item.treasures_of_the_dead.doubloon": "Дублон",
+  "item.treasures_of_the_dead.doubloon_pile": "Купка дублонів",
+
   "item.treasures_of_the_dead.order_of_souls_armor_trim_smithing_template": "Ковальський шаблон",
   "trim_pattern.treasures_of_the_dead.order_of_souls": "Оздоблення \"Орден душ\"",
+
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template": "Ковальський шаблон",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.applies_to": "§9Шаблі",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.ingredients": "§9Діамант",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.upgrade": "§7Капітанське покращення",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.base_slot_description": "Додайте шаблю",
+  "item.treasures_of_the_dead.captain_upgrade_smithing_template.additions_slot_description": "Додайте діамант",
 
   "block.treasures_of_the_dead.skull_merchant_table": "Стіл торговця черепами",
   "block.treasures_of_the_dead.sea_fortress_core": "Ядро морської фортеці",
@@ -130,6 +160,35 @@
   "tooltip.treasures_of_the_dead.sea_fortress_key_loot_value.tooltip": "Цінність здобичі: %s",
   "tooltip.treasures_of_the_dead.sea_fortress_key_fortress_any.tooltip": "Відкриває будь-яку морську фортецю",
   "sounds.treasures_of_the_dead.blunder_bomb_explode": "Бомбець вибухає",
+
+  "tooltip.treasures_of_the_dead.doubloon_pouch.doubloons_in_pouch": "Містить: %s дублонів",
+  "tooltip.treasures_of_the_dead.doubloon_pouch.breakdown": "(%s купок і %s дублонів)",
+
   "gui.treasures_of_the_dead.sell": "Продати",
-  "gui.treasures_of_the_dead.open_shop": "Крамниця"
+  "gui.treasures_of_the_dead.open_shop": "Крамниця",
+  "gui.treasures_of_the_dead.back": "Назад",
+  "gui.treasures_of_the_dead.reputation": "%s: Рів. %s (%s/%s дос.)",
+  "gui.treasures_of_the_dead.no_item_to_sell": "Покладіть предмет для продажу!",
+  "gui.treasures_of_the_dead.sell_result_message": "§aОтримано §f%s§a дублонів і §f%s§a досвіду!",
+  "gui.treasures_of_the_dead.needs_higher_level": "§cНедостатньо рівня репутації! Потрібен §f%s§c рівень",
+
+  "gui.treasures_of_the_dead.shop.price": "§6Ціна: §f%s§6 дублонів",
+  "gui.treasures_of_the_dead.shop.available": "§a✓ Можна купити",
+  "gui.treasures_of_the_dead.shop.requires_level": "§c✗ Потрібен рівень %s",
+
+  "commands.treasures_of_the_dead.unknown_company": "§cНевідома компанія. §fДоступні: §e%s",
+  "commands.treasures_of_the_dead.set.level.success": "§aВстановлено рівень §b%d §aдля §6%s §aгравцю §e%s",
+  "commands.treasures_of_the_dead.set.exp.success": "§aВстановлено досвід §b%d §aдля §6%s §aгравцю §e%s",
+  "commands.treasures_of_the_dead.add.exp.success": "§aДодано §b%d §aдосвіду для §6%s §aгравцю §e%s! §f(Рівень: §b%d§f, Досвід: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.add.level.success": "§aДодано §b%d §aрівнів для §6%s §aгравцю §e%s! §f(Рівень: §b%d§f, Досвід: §a%d§f/§e%d§f, §d%d§f%%)",
+  "commands.treasures_of_the_dead.remove.exp.success": "§cВидалено §b%d §cдосвіду з §6%s §cгравця §e%s! §f(Рівень: §b%d§f, Досвід: §a%d§f, Було: §c%d§f)",
+  "commands.treasures_of_the_dead.remove.level.success": "§cВидалено §b%d §cрівнів з §6%s §cгравця §e%s! §f(Новий рівень: §b%d§f, Досвід: §a%d§f)",
+  "commands.treasures_of_the_dead.reset.success": "§aСкинуто репутацію для §6%s §aгравцю §e%s",
+  "commands.treasures_of_the_dead.get.header": "§6§l=== Репутація гравця §e%s §6§l===",
+  "commands.treasures_of_the_dead.get.entry": "  §6%s§f: Рівень §b%d§f, Досвід §a%d§f/§e%d§f (§d%d§f%%)",
+
+  "trading_company.treasures_of_the_dead.order_of_souls": "Орден душ",
+  "trading_company.treasures_of_the_dead.gold_hoarders": "Золототримачі",
+  "trading_company.treasures_of_the_dead.merchant_alliance": "Торговельний союз",
+  "trading_company.treasures_of_the_dead.reapers_bones": "Кістки женця"
 }

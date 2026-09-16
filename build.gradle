@@ -28,6 +28,15 @@ repositories {
             includeGroup("software.bernie.geckolib")
         }
     }
+
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+    mavenLocal()
 }
 
 base {
@@ -130,6 +139,9 @@ dependencies {
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    //implementation "maven.modrinth:AANobbMI:5EEI3Guz" //sodium
+    //implementation "maven.modrinth:YL57xq9U:KduFYu4t" //iris
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

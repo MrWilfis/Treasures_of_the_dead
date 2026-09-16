@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "omg_condition": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:string"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "omg_condition"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:doubloon_pouch"
+    ]
+  }
+}

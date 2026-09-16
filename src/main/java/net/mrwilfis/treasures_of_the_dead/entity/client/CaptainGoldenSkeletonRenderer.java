@@ -47,11 +47,11 @@ public class CaptainGoldenSkeletonRenderer extends GeoEntityRenderer<CaptainGold
     public static final Map<CaptainGoldenSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(CaptainGoldenSkeletonVariant.class), (p_114874_) -> {
                 p_114874_.put(CaptainGoldenSkeletonVariant.DEFAULT,
-                        Treasures_of_the_dead.resource("textures/entity/captain_golden_skeleton1.png"));
+                        Treasures_of_the_dead.resource("textures/entity/captain_golden_skeleton_retex1.png"));
                 p_114874_.put(CaptainGoldenSkeletonVariant.VAR1,
-                        Treasures_of_the_dead.resource("textures/entity/golden_skeleton2.png"));
+                        Treasures_of_the_dead.resource("textures/entity/golden_skeleton_retex2.png"));
                 p_114874_.put(CaptainGoldenSkeletonVariant.VAR2,
-                        Treasures_of_the_dead.resource("textures/entity/golden_skeleton3.png"));
+                        Treasures_of_the_dead.resource("textures/entity/golden_skeleton_retex3.png"));
             });
 
     public static final Map<CaptainGoldenSkeletonVariant, ResourceLocation> LOCATION_BY_VARIANT_RUSTED =

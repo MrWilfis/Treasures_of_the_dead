@@ -4,10 +4,13 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.mrwilfis.treasures_of_the_dead.common.ModDataComponents;
 import net.mrwilfis.treasures_of_the_dead.entity.ModEntities;
+import net.mrwilfis.treasures_of_the_dead.entity.custom.AbstractPowderKegEntity;
 import net.mrwilfis.treasures_of_the_dead.entity.custom.powderKegsVariants.PowderKegEntity;
 import net.mrwilfis.treasures_of_the_dead.item.client.PowderKegItemRenderer;
 import net.mrwilfis.treasures_of_the_dead.item.custom.AbstractPowderKegItem;
@@ -32,6 +35,11 @@ public class PowderKegItem extends AbstractPowderKegItem implements GeoItem {
         super(pProperties);
 
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
+    }
+
+    @Override
+    public AbstractPowderKegEntity getKegEntity(LivingEntity livingEntity, Level level) {
+        return new PowderKegEntity(ModEntities.POWDER_KEG.get(), level);
     }
 
     @Override

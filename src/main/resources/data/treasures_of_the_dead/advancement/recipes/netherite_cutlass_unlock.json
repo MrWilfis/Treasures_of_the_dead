@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "omg_condition": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:netherite_ingot"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "omg_condition"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "treasures_of_the_dead:netherite_cutlass_smithing",
+      "treasures_of_the_dead:netherite_captain_cutlass_smithing2"
+    ]
+  }
+}

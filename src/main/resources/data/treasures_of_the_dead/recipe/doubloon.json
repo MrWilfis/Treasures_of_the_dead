@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "treasures_of_the_dead:doubloon_pile"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "treasures_of_the_dead:doubloon"
+  }
+}

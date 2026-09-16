@@ -27,15 +27,15 @@ public class BlunderBombModel extends GeoModel<BlunderBombEntity> {
     }
     @Override
     public void setCustomAnimations(BlunderBombEntity animatable, long instanceId, AnimationState<BlunderBombEntity> animationState) {
-        GeoBone head = getAnimationProcessor().getBone("bomb");
-
-        if (head != null) {
-            EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
-
-            head.setRotX(entityModelData.headPitch() * Mth.DEG_TO_RAD); // при нахождении сверху или снизу
-            head.setRotY(entityModelData.netHeadYaw() * Mth.DEG_TO_RAD); // при хождении по горизонтали
-
-          //  head.setRotZ(entityModelData.netHeadYaw() * -0.002f);
-        }
+//        GeoBone head = getAnimationProcessor().getBone("bomb");
+//
+//        if (head != null) {
+//            EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+//
+//            head.setRotX(entityModelData.headPitch() * Mth.DEG_TO_RAD); // при нахождении сверху или снизу
+//            head.setRotY(entityModelData.netHeadYaw() * Mth.DEG_TO_RAD); // при хождении по горизонтали
+//
+//          //  head.setRotZ(entityModelData.netHeadYaw() * -0.002f);
+//        }
     }
 }

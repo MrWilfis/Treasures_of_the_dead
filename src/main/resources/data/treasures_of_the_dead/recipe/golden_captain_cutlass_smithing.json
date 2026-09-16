@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "treasures_of_the_dead:captain_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "treasures_of_the_dead:golden_cutlass"
+  },
+  "addition": {
+    "tag": "treasures_of_the_dead:captain_upgrade_additions"
+  },
+  "result": {
+    "id": "treasures_of_the_dead:golden_captain_cutlass",
+    "count": 1
+  },
+  "copy_components": true
+}

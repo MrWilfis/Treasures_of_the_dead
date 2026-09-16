@@ -77,7 +77,7 @@
 
         {
           "type": "minecraft:item",
-          "weight": 46,
+          "weight": 45,
           "functions": [
             {
               "add": false,
@@ -93,7 +93,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 26,
+          "weight": 35,
           "functions": [
             {
               "add": false,
@@ -109,7 +109,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 18,
+          "weight": 16,
           "functions": [
             {
               "add": false,
@@ -125,7 +125,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 4,
           "functions": [
             {
               "add": false,

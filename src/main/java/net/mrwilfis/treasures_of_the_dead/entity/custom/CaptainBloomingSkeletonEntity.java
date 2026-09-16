@@ -68,20 +68,7 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
 
         if (getCanDropKeysAndOrders()) {
             double randomValue = (double) this.random.nextFloat();
-            if (randomValue < 0.4f) {
-                this.setDeathX((float) this.getX());
-                this.setDeathZ((float) this.getZ());
-                ItemStack stack = new ItemStack(ModItems.SKELETONS_ORDER.get());
-
-                stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_X, this.getDeathX());
-                stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_Z, this.getDeathZ());
-
-//                stack.setTag(new CompoundTag());
-//                stack.getTag().putFloat("DeathX", this.getDeathX());
-//                stack.getTag().putFloat("DeathZ", this.getDeathZ());
-                ItemEntity itemEntity = this.spawnAtLocation(stack);
-            }
-            else if (randomValue < 0.6f)  {
+            if (randomValue < 0.2f) {
                 this.setDeathX((float) this.getX());
                 this.setDeathZ((float) this.getZ());
                 ItemStack stack = new ItemStack(ModItems.SKELETON_CREW_ASSIGNMENT.get());
@@ -89,14 +76,24 @@ public class CaptainBloomingSkeletonEntity extends BloomingSkeletonEntity implem
                 stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_X, this.getDeathX());
                 stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_Z, this.getDeathZ());
                 stack.set(ModDataComponents.DIFFICULTY, random.nextInt(1,2+1));
+                this.spawnAtLocation(stack);
+            }
+            else if (randomValue < 0.575f)  {
+                this.setDeathX((float) this.getX());
+                this.setDeathZ((float) this.getZ());
+                ItemStack stack = new ItemStack(ModItems.SKELETONS_ORDER.get());
 
-//                stack.setTag(new CompoundTag());
-//                stack.getTag().putFloat("DeathX", this.getDeathX());
-//                stack.getTag().putFloat("DeathZ", this.getDeathZ());
-                ItemEntity itemEntity = this.spawnAtLocation(stack);
+                stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_X, this.getDeathX());
+                stack.set(ModDataComponents.CAPTAIN_SKELETON_DEATH_Z, this.getDeathZ());
+                this.spawnAtLocation(stack);
+            }
+            else if (randomValue < 0.95f) {
+                this.spawnAtLocation(ModItems.TREASURE_KEY.get());
             }
             else {
-                ItemEntity itemEntity = this.spawnAtLocation(ModItems.TREASURE_KEY.get());
+                ItemStack stack = new ItemStack(ModItems.DOUBLOON_POUCH.get());
+                stack.set(ModDataComponents.DOUBLOONS_IN_POUCH, random.nextInt(0, 20+1));
+                this.spawnAtLocation(stack);
             }
         }
     }

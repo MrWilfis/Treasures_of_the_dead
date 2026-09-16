@@ -110,12 +110,12 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:iron_sword"
+          "name": "treasures_of_the_dead:iron_cutlass"
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:golden_sword"
+          "name": "treasures_of_the_dead:golden_cutlass"
         },
         {
           "type": "minecraft:item",
@@ -135,7 +135,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:diamond_sword"
+          "name": "treasures_of_the_dead:diamond_cutlass"
         },
         {
           "type": "minecraft:item",
@@ -203,6 +203,34 @@
               "count": {
                 "min": 3,
                 "max": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 9,
+          "name": "treasures_of_the_dead:doubloon",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "treasures_of_the_dead:doubloon_pile",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
